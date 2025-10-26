@@ -28,8 +28,18 @@ const Header: React.FC = () => {
     { href: '#results', label: 'Results' },
   ];
 
-  const handleNavClick = () => {
-    setIsMenuOpen(false);
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const href = e.currentTarget.getAttribute('href');
+    if (href && href.startsWith('#')) {
+      const targetElement = document.querySelector(href);
+      if (targetElement) {
+        targetElement.scrollIntoView({
+          behavior: 'smooth',
+        });
+      }
+    }
+    setIsMenuOpen(false); // Close mobile menu on any link click
   };
 
   return (
@@ -43,7 +53,7 @@ const Header: React.FC = () => {
       >
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
-            <a href="#home" className="flex-shrink-0" onClick={handleNavClick}>
+            <a href="#home" className="flex-shrink-0" onClick={handleLinkClick}>
               <span className="text-2xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 text-transparent bg-clip-text">
                 Gainify.ai
               </span>
@@ -54,6 +64,7 @@ const Header: React.FC = () => {
                   <a
                     key={link.href}
                     href={link.href}
+                    onClick={handleLinkClick}
                     className="text-slate-600 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
                   >
                     {link.label}
@@ -63,6 +74,7 @@ const Header: React.FC = () => {
             </div>
             <a
               href="#contact"
+              onClick={handleLinkClick}
               className="hidden md:inline-block bg-indigo-600 text-white px-5 py-2 rounded-full text-sm font-semibold hover:bg-indigo-700 transition-all duration-300 transform hover:scale-105"
             >
               Get Started
@@ -97,7 +109,7 @@ const Header: React.FC = () => {
               <a
                 key={link.href}
                 href={link.href}
-                onClick={handleNavClick}
+                onClick={handleLinkClick}
                 className="text-slate-700 hover:text-indigo-600 text-2xl font-semibold transition-colors"
               >
                 {link.label}
@@ -106,7 +118,7 @@ const Header: React.FC = () => {
           </nav>
           <a
             href="#contact"
-            onClick={handleNavClick}
+            onClick={handleLinkClick}
             className="w-full text-center bg-indigo-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-indigo-700 transition-all duration-300 transform hover:scale-105"
           >
             Get Started

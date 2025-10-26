@@ -2,6 +2,19 @@ import React from 'react';
 import { RocketIcon, ChartLineIcon } from './icons/Icons';
 
 const Hero: React.FC = () => {
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const href = e.currentTarget.getAttribute('href');
+    if (href && href.startsWith('#')) {
+      const targetElement = document.querySelector(href);
+      if (targetElement) {
+        targetElement.scrollIntoView({
+          behavior: 'smooth',
+        });
+      }
+    }
+  };
+
   return (
     <section id="home" className="relative bg-gradient-to-br from-indigo-600 to-purple-700 text-white pt-32 pb-20 overflow-hidden">
       <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
@@ -39,6 +52,7 @@ const Hero: React.FC = () => {
         <div className="flex justify-center gap-4 flex-wrap mt-12">
           <a
             href="#contact"
+            onClick={handleLinkClick}
             className="inline-flex items-center gap-2 bg-white text-indigo-600 px-8 py-3 rounded-full text-base font-bold shadow-lg transform hover:-translate-y-1 transition-all duration-300 ease-in-out"
           >
             <RocketIcon className="w-5 h-5" />
@@ -46,6 +60,7 @@ const Hero: React.FC = () => {
           </a>
           <a
             href="#pulse"
+            onClick={handleLinkClick}
             className="inline-flex items-center gap-2 bg-transparent border-2 border-white text-white px-8 py-3 rounded-full text-base font-bold hover:bg-white hover:text-indigo-600 transition-all duration-300 ease-in-out"
           >
             <ChartLineIcon className="w-5 h-5" />
