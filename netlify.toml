@@ -1,0 +1,17 @@
+# This tells Netlify how to handle your site.
+[build]
+  # Your project does not have a build step (like `npm run build`),
+  # so we leave the command empty.
+  command = ""
+  
+  # Your website's files (index.html, etc.) are in the main folder.
+  publish = "."
+
+# This rule is essential for your React application.
+[[redirects]]
+  # It tells Netlify to always serve your index.html file for any page request.
+  # This prevents 404 "Page Not Found" errors when you refresh the page
+  # or visit a link like yoursite.com/about directly.
+  from = "/*"
+  to = "/index.html"
+  status = 200
