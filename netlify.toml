@@ -1,0 +1,17 @@
+# This is the standard and correct configuration for a Vite project on Netlify.
+
+[build]
+  # This command tells Netlify to run the "build" script from your package.json file.
+  # This will compile your .tsx files into a production-ready website.
+  command = "npm run build"
+  
+  # After the build is complete, the final website files will be in a folder named "dist".
+  # This tells Netlify to publish the contents of that folder.
+  publish = "dist"
+
+# This rule is essential for single-page applications like yours.
+# It prevents 404 "Page Not Found" errors when a user refreshes the page.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
