@@ -10,7 +10,7 @@ const Hero: React.FC = () => {
       if (targetElement) targetElement.scrollIntoView({ behavior: 'smooth' });
     }
   };
-
+{/* Subtle background — more “moti ”, less “BI  ssdsdsd” */}
   return (
     <section
       id="home"
