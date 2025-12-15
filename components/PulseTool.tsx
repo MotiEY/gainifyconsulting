@@ -1,223 +1,206 @@
 import React, { useState } from 'react';
-import { UsersIcon, ShieldCheckIcon, ClipboardListIcon, ChipIcon, CogsIcon, DatabaseIcon } from './icons/Icons';
+import {
+  UsersIcon,
+  ShieldCheckIcon,
+  ClipboardListIcon,
+  ChipIcon,
+  CogsIcon,
+  DatabaseIcon
+} from './icons/Icons';
 
 const showcaseData = {
   'Culture & People': {
-    icon: <UsersIcon className="w-8 h-8" />,
+    icon: <UsersIcon className="w-6 h-6" />,
     strategicLens: [
-      "Analyzing existing communication channels & feedback loops.",
-      "Identifying key influencers and early adopters.",
-      "Assessing the organization's readiness for change."
+      "Communication loops & leadership alignment",
+      "Influencers, incentives, and adoption friction",
+      "Readiness to change day-to-day work habits"
     ],
     phases: [
-      { phase: 'Quick Wins', timeframe: '0–30 days', actions: ["Identify & engage early adopters through a small, high-visibility pilot.", "Share initial AI success stories internally."] },
-      { phase: 'Build Capability', timeframe: '1–3 months', actions: ["Launch 'AI Office Hours' for Q&A & demos.", "Add AI awareness to onboarding & learning programs."] },
-      { phase: 'Scale & Embed', timeframe: '3–6 months', actions: ["Link AI contributions to recognition & reviews.", "Build AI champions network across teams."] },
+      { phase: 'Quick Wins', timeframe: '0–30 days', actions: ["Identify & engage early adopters.", "Share initial AI wins with clear metrics."] },
+      { phase: 'Build Capability', timeframe: '1–3 months', actions: ["Office hours + short enablement sessions.", "Lightweight playbooks per workflow."] },
+      { phase: 'Scale & Embed', timeframe: '3–6 months', actions: ["Role-based enablement.", "Sustained adoption cadence with ownership."] },
     ],
   },
   'Strategy & Governance': {
-    icon: <ShieldCheckIcon className="w-8 h-8" />,
+    icon: <ShieldCheckIcon className="w-6 h-6" />,
     strategicLens: [
-      "Clarity of AI vision & business alignment",
-      "Decision-making processes & ownership",
-      "Risk, ethics, and compliance guardrails"
+      "Business alignment and ROI definition",
+      "Decision-making & ownership model",
+      "Risk, privacy, and governance guardrails"
     ],
     phases: [
-      { phase: 'Quick Wins', timeframe: '0–30 days', actions: ["Define AI ambition statement linked to business goals.", "Assign an executive AI sponsor."] },
-      { phase: 'Build Capability', timeframe: '1–3 months', actions: ["Establish AI governance committee.", "Draft initial risk & compliance guidelines."] },
-      { phase: 'Scale & Embed', timeframe: '3–6 months', actions: ["Integrate AI metrics into corporate scorecards.", "Conduct quarterly governance reviews."] },
+      { phase: 'Quick Wins', timeframe: '0–30 days', actions: ["Define KPI + success criteria per workflow.", "Assign an executive sponsor + operator owner."] },
+      { phase: 'Build Capability', timeframe: '1–3 months', actions: ["Define approval flow & evaluation rubric.", "Create lightweight governance cadence."] },
+      { phase: 'Scale & Embed', timeframe: '3–6 months', actions: ["Quarterly reviews of ROI, risk, and cost.", "Embed metrics into operating reviews."] },
     ],
   },
   'Usage & Adoption': {
-    icon: <ClipboardListIcon className="w-8 h-8" />,
+    icon: <ClipboardListIcon className="w-6 h-6" />,
     strategicLens: [
-      "Breadth of AI tool use across departments",
-      "Integration into day-to-day work",
-      "User confidence and trust in AI outcomes"
+      "Where AI fits in the flow of work",
+      "Confidence and trust in outputs",
+      "Adoption patterns and resistance points"
     ],
     phases: [
-      { phase: 'Quick Wins', timeframe: '0–30 days', actions: ["Audit existing AI/automation usage.", "Highlight quick efficiency gains."] },
-      { phase: 'Build Capability', timeframe: '1–3 months', actions: ["Provide targeted training for top-use cases.", "Create internal AI playbook with examples."] },
-      { phase: 'Scale & Embed', timeframe: '3–6 months', actions: ["Deploy org-wide AI usage guidelines."] },
+      { phase: 'Quick Wins', timeframe: '0–30 days', actions: ["Baseline current usage + pain points.", "Start with one high-volume workflow."] },
+      { phase: 'Build Capability', timeframe: '1–3 months', actions: ["Role-based training on the chosen workflow.", "Measure adoption + quality weekly."] },
+      { phase: 'Scale & Embed', timeframe: '3–6 months', actions: ["Expand to adjacent workflows with the same pattern."] },
     ],
   },
   'Systems & Technology': {
-    icon: <ChipIcon className="w-8 h-8" />,
+    icon: <ChipIcon className="w-6 h-6" />,
     strategicLens: [
-      "Core infrastructure readiness for AI",
-      "Interoperability between systems",
-      "Security and compliance standards"
+      "Interoperability and integration readiness",
+      "Security posture and access boundaries",
+      "Embedding AI into core platforms"
     ],
     phases: [
-      { phase: 'Quick Wins', timeframe: '0–30 days', actions: ["Map critical systems and data flows.", "Identify immediate integration blockers."] },
-      { phase: 'Build Capability', timeframe: '1–3 months', actions: ["Modernize priority systems for AI readiness.", "Introduce AI-friendly APIs/integrations."] },
-      { phase: 'Scale & Embed', timeframe: '3–6 months', actions: ["Embed AI into core platforms."] },
+      { phase: 'Quick Wins', timeframe: '0–30 days', actions: ["Map systems and access boundaries.", "Identify integration blockers for the first workflow."] },
+      { phase: 'Build Capability', timeframe: '1–3 months', actions: ["Standardize connectors/APIs for target systems.", "Harden identity and permissions."] },
+      { phase: 'Scale & Embed', timeframe: '3–6 months', actions: ["Embed the pattern into core platforms at scale."] },
     ],
   },
   'Processes & Workflows': {
-    icon: <CogsIcon className="w-8 h-8" />,
+    icon: <CogsIcon className="w-6 h-6" />,
     strategicLens: [
-      "Where manual work slows the business",
-      "Opportunities for automation",
-      "AI enablement in high-impact processes"
+      "Where manual work creates bottlenecks",
+      "Automation potential and handoffs",
+      "Which steps need human-in-the-loop"
     ],
     phases: [
-      { phase: 'Quick Wins', timeframe: '0–30 days', actions: ["Identify top 3 processes to automate.", "Run small automation pilots."] },
-      { phase: 'Build Capability', timeframe: '1–3 months', actions: ["Integrate AI into workflows via RPA or native platform features.", "Document best practices."] },
-      { phase: 'Scale & Embed', timeframe: '3–6 months', actions: ["Roll out automation at scale."] },
+      { phase: 'Quick Wins', timeframe: '0–30 days', actions: ["Select one workflow with clear baseline metrics.", "Define “shadow mode” run plan."] },
+      { phase: 'Build Capability', timeframe: '1–3 months', actions: ["Move from shadow → assisted in-flow usage.", "Document the repeatable pattern."] },
+      { phase: 'Scale & Embed', timeframe: '3–6 months', actions: ["Roll out the pattern across similar workflows."] },
     ],
   },
   'Data Readiness': {
-    icon: <DatabaseIcon className="w-8 h-8" />,
+    icon: <DatabaseIcon className="w-6 h-6" />,
     strategicLens: [
-      "Data quality, completeness, and accessibility",
-      "Centralization and governance of data",
-      "Ability to feed AI models effectively"
+      "Trusted sources and data quality",
+      "Access, privacy, and retention boundaries",
+      "Ability to ground AI outputs (citations)"
     ],
     phases: [
-      { phase: 'Quick Wins', timeframe: '0–30 days', actions: ["Audit key datasets for quality issues.", "Address quick data hygiene fixes."] },
-      { phase: 'Build Capability', timeframe: '1–3 months', actions: ["Establish data governance policies.", "Centralize priority datasets in accessible platforms."] },
-      { phase: 'Scale & Embed', timeframe: '3–6 months', actions: ["Create enterprise data catalog."] },
+      { phase: 'Quick Wins', timeframe: '0–30 days', actions: ["Identify trusted sources for the first workflow.", "Fix the top data hygiene gaps."] },
+      { phase: 'Build Capability', timeframe: '1–3 months', actions: ["Define governance rules for data usage.", "Create a minimal knowledge base / source registry."] },
+      { phase: 'Scale & Embed', timeframe: '3–6 months', actions: ["Expand coverage + catalog, improve observability."] },
     ],
   }
 };
 
-const RadarChart = () => (
-    <div className="relative w-full max-w-sm mx-auto aspect-square">
-        <svg viewBox="0 0 100 100" className="w-full h-full">
-            {/* Pentagon Grid */}
-            {[...Array(5)].map((_, i) => (
-                <polygon key={i} points="50,10 95,40 80,90 20,90 5,40" fill="none" stroke="#E5E7EB" strokeWidth="0.5" transform={`scale(${(5 - i) / 5}) translate(${i * 10}, ${i * 6})`} transform-origin="50 50" />
-            ))}
-            {/* Spokes */}
-            <line x1="50" y1="50" x2="50" y2="10" stroke="#E5E7EB" strokeWidth="0.5" />
-            <line x1="50" y1="50" x2="95" y2="40" stroke="#E5E7EB" strokeWidth="0.5" />
-            <line x1="50" y1="50" x2="80" y2="90" stroke="#E5E7EB" strokeWidth="0.5" />
-            <line x1="50" y1="50" x2="20" y2="90" stroke="#E5E7EB" strokeWidth="0.5" />
-            <line x1="50" y1="50" x2="5" y2="40" stroke="#E5E7EB" strokeWidth="0.5" />
+type DimKey = keyof typeof showcaseData;
 
-            {/* Data Polygons */}
-            <polygon points="50,25 80,45 70,70 35,75 20,40" fill="rgba(239, 121, 66, 0.4)" stroke="#EF7942" strokeWidth="1" />
-            <polygon points="50,15 90,40 78,85 25,80 10,45" fill="rgba(99, 102, 241, 0.4)" stroke="#6366F1" strokeWidth="1" />
-            
-            {/* Labels */}
-            <text x="50" y="7" textAnchor="middle" fontSize="5" fill="#6B7280">Strategy</text>
-            <text x="98" y="42" textAnchor="end" fontSize="5" fill="#6B7280">Tools</text>
-            <text x="83" y="98" textAnchor="middle" fontSize="5" fill="#6B7280">Skills</text>
-            <text x="17" y="98" textAnchor="middle" fontSize="5" fill="#6B7280">Impact</text>
-            <text x="2" y="42" textAnchor="start" fontSize="5" fill="#6B7280">Data</text>
-        </svg>
-    </div>
-);
-
-
-const PulseTool: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<string>('Culture & People');
-  const activeContent = showcaseData[activeTab as keyof typeof showcaseData];
-
-  const dimensions = Object.keys(showcaseData);
-
-  const maturityLevels = [
-    { name: 'Scaler', color: 'bg-green-100 text-green-800' },
-    { name: 'Builder', color: 'bg-blue-100 text-blue-800' },
-    { name: 'Explorer', color: 'bg-purple-100 text-purple-800' },
-    { name: 'AI-Curious', color: 'bg-yellow-100 text-yellow-800' },
-    { name: 'AI-Dismissive', color: 'bg-slate-100 text-slate-800' },
+const MiniPulseSnapshot: React.FC = () => {
+  // illustrative sample values – you can later wire this to real survey results
+  const dims = [
+    { label: 'Culture', current: 2, target: 4 },
+    { label: 'Strategy', current: 3, target: 4 },
+    { label: 'Adoption', current: 2, target: 4 },
+    { label: 'Systems', current: 2, target: 4 },
+    { label: 'Process', current: 3, target: 4 },
+    { label: 'Data', current: 2, target: 4 },
   ];
+  const max = 5;
 
   return (
-    <section id="pulse" className="py-20 bg-slate-50 overflow-hidden">
-      <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">Gainify Pulse</h2>
-          <p className="max-w-3xl mx-auto text-lg text-slate-600">
-            Gainify Pulse is our proprietary diagnostic tool. It assesses an organization's AI maturity across six critical dimensions, providing a clear roadmap for targeted, high-impact interventions.
-          </p>
-        </div>
-        
-        <div className="bg-white p-8 rounded-2xl shadow-lg mb-16">
-            <h3 className="text-xl font-bold text-center text-slate-800 mb-6">Maturity Levels</h3>
-            <div className="flex flex-wrap justify-center gap-3">
-                {maturityLevels.map(level => (
-                    <span key={level.name} className={`px-4 py-2 rounded-full font-semibold text-sm ${level.color}`}>
-                        {level.name}
-                    </span>
-                ))}
-            </div>
-        </div>
-
-        <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-lg">
-          <div className="text-center mb-8">
-              <h3 className="text-2xl md:text-3xl font-bold text-slate-800 mb-2">Methodology Showcase</h3>
-              <p className="max-w-2xl mx-auto text-slate-600">See how our strategic methodology shapes AI implementation.</p>
-          </div>
-
-          <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-8">
-            {dimensions.map(dim => (
-              <button
-                key={dim}
-                onClick={() => setActiveTab(dim)}
-                className={`flex-grow sm:flex-grow-0 flex items-center gap-2 px-3 py-2 text-sm sm:text-base sm:px-4 sm:py-2 rounded-full font-semibold transition-all duration-300 ${activeTab === dim ? 'bg-indigo-600 text-white shadow-md' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'}`}
-              >
-                {showcaseData[dim as keyof typeof showcaseData].icon}
-                <span>{dim}</span>
-              </button>
-            ))}
-          </div>
-          
-          <div className="bg-slate-50 p-6 rounded-xl">
-            <div className="grid lg:grid-cols-5 gap-8">
-              <div className="lg:col-span-3">
-                  <div className="bg-white p-6 rounded-lg shadow-sm mb-6">
-                      <h4 className="font-bold text-lg text-indigo-700 mb-4">Gainify's Strategic Lens</h4>
-                      <ul className="space-y-3">
-                          {activeContent.strategicLens.map((item, i) => (
-                              <li key={i} className="flex items-start">
-                                  <span className="text-indigo-500 mr-3 mt-1">◆</span>
-                                  <span className="text-slate-600">{item}</span>
-                              </li>
-                          ))}
-                      </ul>
-                  </div>
-
-                  <div className="bg-white p-6 rounded-lg shadow-sm">
-                    <h4 className="font-bold text-lg text-indigo-700 mb-4">Key Actions</h4>
-                    <div className="space-y-4">
-                      {activeContent.phases.map((phase, i) => (
-                        <div key={i}>
-                          <h5 className="font-semibold text-slate-800">{phase.phase} <span className="text-sm text-slate-500 font-normal ml-2">({phase.timeframe})</span></h5>
-                          <ul className="mt-2 pl-5 space-y-1">
-                            {phase.actions.map((action, j) => (
-                              <li key={j} className="flex items-start text-sm text-slate-600">
-                                <span className="text-indigo-500 mr-2 mt-1">▶</span>
-                                <span>{action}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-              </div>
-              <div className="lg:col-span-2 flex flex-col items-center justify-center">
-                  <RadarChart />
-                  <div className="flex items-center justify-center gap-6 mt-4">
-                    <div className="flex items-center">
-                      <div className="w-4 h-4 rounded-full bg-orange-400 border-2 border-orange-600 mr-2"></div>
-                      <span className="text-sm font-medium text-slate-600">Current</span>
-                    </div>
-                     <div className="flex items-center">
-                      <div className="w-4 h-4 rounded-full bg-indigo-400 border-2 border-indigo-600 mr-2"></div>
-                      <span className="text-sm font-medium text-slate-600">Target</span>
-                    </div>
-                  </div>
+    <div className="w-full">
+      <div className="text-sm font-semibold text-slate-700 mb-3">Example Pulse snapshot</div>
+      <div className="space-y-3">
+        {dims.map((d) => (
+          <div key={d.label} className="flex items-center gap-3">
+            <div className="w-20 text-sm font-semibold text-slate-600">{d.label}</div>
+            <div className="flex-1">
+              <div className="relative h-2 rounded-full bg-slate-100 overflow-hidden">
+                <div
+                  className="absolute left-0 top-0 h-full bg-slate-400"
+                  style={{ width: `${(d.current / max) * 100}%` }}
+                />
+                <div
+                  className="absolute left-0 top-0 h-full bg-indigo-500/30"
+                  style={{ width: `${(d.target / max) * 100}%` }}
+                />
               </div>
             </div>
+            <div className="w-16 text-right text-xs text-slate-500">
+              {d.current}/{max} → {d.target}/{max}
+            </div>
           </div>
+        ))}
+      </div>
+      <div className="mt-4 flex items-center gap-4 text-xs text-slate-500">
+        <div className="flex items-center gap-2">
+          <span className="inline-block w-3 h-3 rounded-full bg-slate-400" />
+          Current
+        </div>
+        <div className="flex items-center gap-2">
+          <span className="inline-block w-3 h-3 rounded-full bg-indigo-500/30 ring-1 ring-indigo-200" />
+          Target
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 
-export default PulseTool;
+const PulseTool: React.FC = () => {
+  const [activeTab, setActiveTab] = useState<DimKey>('Culture & People');
+  const activeContent = showcaseData[activeTab];
+  const dimensions = Object.keys(showcaseData) as DimKey[];
+
+  // renamed to sound professional (no “dismissive”)
+  const maturityLevels = [
+    { name: 'Foundation', color: 'bg-slate-100 text-slate-700' },
+    { name: 'Emerging', color: 'bg-indigo-50 text-indigo-700' },
+    { name: 'Building', color: 'bg-indigo-100 text-indigo-800' },
+    { name: 'Scaling', color: 'bg-slate-900 text-white' },
+  ];
+
+  return (
+    <section className="py-16 sm:py-20 bg-slate-50 overflow-hidden">
+      <div id="pulse" className="scroll-mt-24" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">
+            Gainify Pulse
+          </h2>
+          <p className="max-w-4xl mx-auto text-lg text-slate-600">
+            Pulse is the diagnostic engine behind <span className="font-semibold text-slate-800">Value → Factory → Trust</span>.
+            It assesses AI readiness across six dimensions and turns it into a practical roadmap.
+          </p>
+
+          <div className="mt-6 flex flex-wrap justify-center gap-3">
+            <a
+              href="#reality-demo"
+              className="inline-flex items-center justify-center rounded-full px-7 py-3 font-bold text-white bg-slate-900 hover:bg-slate-800 transition-all duration-300"
+            >
+              Book Reality Demo
+            </a>
+            <a
+              href="#contact"
+              className="inline-flex items-center justify-center rounded-full px-7 py-3 font-bold text-slate-900 bg-white ring-1 ring-slate-200 hover:bg-slate-50 transition-all duration-300"
+            >
+              Ask a question
+            </a>
+          </div>
+        </div>
+
+        <div className="bg-white p-7 sm:p-8 rounded-2xl shadow-sm ring-1 ring-slate-200 mb-10">
+          <h3 className="text-lg sm:text-xl font-bold text-center text-slate-800 mb-5">
+            Maturity levels (how we score)
+          </h3>
+          <div className="flex flex-wrap justify-center gap-3">
+            {maturityLevels.map((level) => (
+              <span
+                key={level.name}
+                className={`px-4 py-2 rounded-full font-semibold text-sm ${level.color}`}
+              >
+                {level.name}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-sm ring-1 ring-slate-200">
+          <div className="text-center mb-8">
+            <h3 className="text-
