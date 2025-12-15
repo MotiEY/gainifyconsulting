@@ -1,14 +1,14 @@
 import React from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
-import Features from './components/Features'; // repurpose to "ThreeLayers"
+import Features from './components/Features'; // we’ll refactor this to “3 Layers”
 import Methodology from './components/Methodology';
 import PulseTool from './components/PulseTool';
 import Results from './components/Results';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
-// NEW
+// New sections (you’ll add these files)
 import RealityDemo from './components/RealityDemo';
 import Tracks from './components/Tracks';
 
@@ -16,29 +16,34 @@ const App: React.FC = () => {
   return (
     <div className="bg-white text-slate-900">
       <Header />
+
       <main>
+        {/* Anchor target for header logo */}
         <section id="top">
           <Hero />
         </section>
 
-        {/* Rename/reshape Features to be the 3 Layers */}
+        {/* 3 Layers section (Value / Factory / Trust) */}
         <section id="layers">
           <Features />
         </section>
 
+        {/* 48–72h Reality Demo conversion section */}
         <section id="reality-demo">
           <RealityDemo />
         </section>
 
+        {/* Two tracks: Customer Service Ops / Delivery Ops */}
         <section id="tracks">
           <Tracks />
         </section>
 
+        {/* 3-station methodology: Demo → Sprint → Factory */}
         <section id="how-we-work">
           <Methodology />
         </section>
 
-        {/* Pulse becomes “Under the hood”, not the main hook */}
+        {/* Pulse is “under the hood” */}
         <section id="pulse">
           <PulseTool />
         </section>
@@ -51,6 +56,7 @@ const App: React.FC = () => {
           <Contact />
         </section>
       </main>
+
       <Footer />
     </div>
   );
