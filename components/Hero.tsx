@@ -37,10 +37,12 @@ const Hero: React.FC = () => {
           AI → measurable value → repeatable capability
         </p>
 
-        <h1 className="mt-6 text-4xl md:text-6xl font-extrabold tracking-tight leading-tight text-slate-900">
-          Make AI a repeatable business capability —
-          <span className="text-indigo-600"> not a collection of pilots</span>.
+       <h1 className="mt-6 text-4xl md:text-6xl font-extrabold tracking-tight leading-tight text-slate-900">
+           Make AI a repeatable business capability —
+            <span className="text-indigo-600"> not a collection of pilots</span>.
+            <span className="ml-3 text-xs font-bold text-red-600">BUILD-TEST-123</span>
         </h1>
+
 
         <p className="max-w-3xl mx-auto mt-6 text-lg md:text-xl text-slate-600">
           Gainify helps leadership teams operationalize AI across workflows:
