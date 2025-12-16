@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { MenuIcon, XIcon } from './icons/Icons';
 
 const Header: React.FC = () => {
@@ -13,14 +13,16 @@ const Header: React.FC = () => {
 
   useEffect(() => {
     document.body.style.overflow = isMenuOpen ? 'hidden' : 'unset';
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
   }, [isMenuOpen]);
 
   const navLinks = [
     { href: '#about', label: 'About' },
-    { href: '#methodology', label: '3 Layers' },
+    { href: '#methodology', label: 'How we deliver' },
     { href: '#pulse', label: 'Gainify Pulse' },
-    { href: '#results', label: 'Results' },
-    { href: '#reality-demo', label: 'Reality Demo' }, // remove if not used
+    { href: '#results', label: 'Outcomes' },
   ];
 
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -28,7 +30,7 @@ const Header: React.FC = () => {
     const href = e.currentTarget.getAttribute('href');
     if (href && href.startsWith('#')) {
       const targetElement = document.querySelector(href);
-      if (targetElement) targetElement.scrollIntoView({ behavior: 'smooth' });
+      targetElement?.scrollIntoView({ behavior: 'smooth' });
     }
     setIsMenuOpen(false);
   };
@@ -36,45 +38,64 @@ const Header: React.FC = () => {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-          isScrolled || isMenuOpen ? 'bg-white/95 backdrop-blur-sm shadow-md' : 'bg-transparent'
-        }`}
+        className={[
+          'fixed top-0 left-0 w-full z-50 transition-all duration-300',
+          isScrolled || isMenuOpen
+            ? 'bg-white/85 backdrop-blur-md shadow-sm ring-1 ring-stone-200'
+            : 'bg-transparent',
+        ].join(' ')}
       >
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
-            <a href="#home" className="flex-shrink-0" onClick={handleLinkClick}>
-              <span className="text-2xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 text-transparent bg-clip-text">
-                Gainify.ai
+            {/* Brand */}
+            <a href="#home" className="flex items-center gap-2" onClick={handleLinkClick}>
+              <span className="text-2xl font-extrabold tracking-tight text-slate-900">
+                Gainify<span className="text-amber-600">.</span>ai
+              </span>
+              <span className="hidden sm:inline text-sm font-semibold text-slate-500">
+                Strategic AI Implementation
               </span>
             </a>
 
-            <div className="hidden md:block">
-              <div className="ml-10 flex items-baseline space-x-4">
+            {/* Desktop nav */}
+            <div className="hidden md:flex items-center gap-2">
+              <div className="flex items-center">
                 {navLinks.map((link) => (
                   <a
                     key={link.href}
                     href={link.href}
                     onClick={handleLinkClick}
-                    className="text-slate-600 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                    className="text-slate-600 hover:text-slate-900 px-3 py-2 rounded-md text-sm font-semibold transition-colors"
                   >
                     {link.label}
                   </a>
                 ))}
               </div>
+
+              {/* Desktop CTAs */}
+              <div className="ml-2 flex items-center gap-2">
+                <a
+                  href="#pulse"
+                  onClick={handleLinkClick}
+                  className="inline-flex items-center justify-center rounded-full px-4 py-2 text-sm font-bold text-slate-900 bg-white ring-1 ring-stone-200 hover:bg-stone-50 transition-all"
+                >
+                  Take Pulse
+                </a>
+                <a
+                  href="#reality-demo"
+                  onClick={handleLinkClick}
+                  className="inline-flex items-center justify-center rounded-full px-5 py-2 text-sm font-bold text-white bg-slate-900 hover:bg-slate-800 transition-all"
+                >
+                  Book Reality Demo
+                </a>
+              </div>
             </div>
 
-            <a
-              href="#contact"
-              onClick={handleLinkClick}
-              className="hidden md:inline-block bg-indigo-600 text-white px-5 py-2 rounded-full text-sm font-semibold hover:bg-indigo-700 transition-all duration-300 transform hover:scale-105"
-            >
-              Get Started
-            </a>
-
+            {/* Mobile menu button */}
             <div className="md:hidden">
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="inline-flex items-center justify-center p-2 rounded-md text-slate-600 hover:text-indigo-600 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+                className="inline-flex items-center justify-center p-2 rounded-md text-slate-700 hover:text-slate-900 hover:bg-white/70 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-amber-300"
                 aria-label="Main menu"
                 aria-expanded={isMenuOpen}
               >
@@ -85,33 +106,65 @@ const Header: React.FC = () => {
         </nav>
       </header>
 
-      {/* Mobile Menu */}
+      {/* Mobile menu overlay */}
       <div
-        className={`fixed inset-0 z-40 bg-white transform transition-transform duration-300 ease-in-out md:hidden ${
-          isMenuOpen ? 'translate-x-0' : 'translate-x-full'
-        }`}
+        className={[
+          'fixed inset-0 z-40 md:hidden transition-transform duration-300 ease-in-out',
+          isMenuOpen ? 'translate-x-0' : 'translate-x-full',
+        ].join(' ')}
       >
-        <div className="pt-24 pb-8 px-6 flex flex-col h-full">
-          <nav className="flex flex-col items-center justify-center flex-grow gap-y-6">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={handleLinkClick}
-                className="text-slate-700 hover:text-indigo-600 text-2xl font-semibold transition-colors"
-              >
-                {link.label}
-              </a>
-            ))}
-          </nav>
+        <div className="h-full bg-stone-50">
+          <div className="pt-24 pb-8 px-6 flex flex-col h-full">
+            <div className="text-center">
+              <div className="text-xl font-extrabold tracking-tight text-slate-900">
+                Gainify<span className="text-amber-600">.</span>ai
+              </div>
+              <div className="mt-1 text-sm font-semibold text-slate-500">
+                Strategic AI Implementation
+              </div>
+            </div>
 
-          <a
-            href="#contact"
-            onClick={handleLinkClick}
-            className="w-full text-center bg-indigo-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-indigo-700 transition-all duration-300 transform hover:scale-105"
-          >
-            Get Started
-          </a>
+            <nav className="mt-10 flex flex-col items-center justify-center flex-grow gap-y-6">
+              {navLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={handleLinkClick}
+                  className="text-slate-800 hover:text-slate-900 text-2xl font-semibold transition-colors"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </nav>
+
+            <div className="mt-6 grid gap-3">
+              <a
+                href="#reality-demo"
+                onClick={handleLinkClick}
+                className="w-full text-center bg-slate-900 text-white px-8 py-4 rounded-full text-lg font-bold hover:bg-slate-800 transition-all"
+              >
+                Book Reality Demo
+              </a>
+              <a
+                href="#pulse"
+                onClick={handleLinkClick}
+                className="w-full text-center bg-white text-slate-900 px-8 py-4 rounded-full text-lg font-bold ring-1 ring-stone-200 hover:bg-stone-50 transition-all"
+              >
+                Take Gainify Pulse
+              </a>
+              <a
+                href="#contact"
+                onClick={handleLinkClick}
+                className="w-full text-center text-slate-600 py-2 text-sm font-semibold hover:text-slate-900 transition-colors"
+              >
+                Contact
+              </a>
+            </div>
+
+            <div className="mt-6 text-center text-xs text-slate-400">
+              Value → Factory → Trust
+            </div>
+          </div>
         </div>
       </div>
     </>
