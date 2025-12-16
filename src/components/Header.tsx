@@ -6,9 +6,9 @@ const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setIsScrolled(window.scrollY > 10);
-    window.addEventListener('scroll', onScroll);
-    return () => window.removeEventListener('scroll', onScroll);
+    const handleScroll = () => setIsScrolled(window.scrollY > 10);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   useEffect(() => {
@@ -19,18 +19,19 @@ const Header: React.FC = () => {
   }, [isMenuOpen]);
 
   const navLinks = [
-    { href: '#model', label: 'Model' },
+    { href: '#model', label: 'Model' }, // Features.tsx has #model (and #about for backward compatibility)
     { href: '#methodology', label: 'How we deliver' },
     { href: '#pulse', label: 'Gainify Pulse' },
     { href: '#results', label: 'Outcomes' },
+    { href: '#contact', label: 'Contact' },
   ];
 
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     const href = e.currentTarget.getAttribute('href');
     if (href && href.startsWith('#')) {
-      const target = document.querySelector(href);
-      target?.scrollIntoView({ behavior: 'smooth' });
+      const targetElement = document.querySelector(href);
+      targetElement?.scrollIntoView({ behavior: 'smooth' });
     }
     setIsMenuOpen(false);
   };
@@ -53,7 +54,7 @@ const Header: React.FC = () => {
                 Gainify<span className="text-amber-600">.</span>ai
               </span>
               <span className="hidden sm:inline text-sm font-semibold text-slate-500">
-                Operational AI Consulting
+                Strategic AI Implementation
               </span>
             </a>
 
@@ -120,7 +121,7 @@ const Header: React.FC = () => {
                 Gainify<span className="text-amber-600">.</span>ai
               </div>
               <div className="mt-1 text-sm font-semibold text-slate-500">
-                Operational AI Consulting
+                Strategic AI Implementation
               </div>
             </div>
 
@@ -162,7 +163,7 @@ const Header: React.FC = () => {
             </div>
 
             <div className="mt-6 text-center text-xs text-slate-400">
-              Quiet. Practical. Measured.
+              Measurable outcomes. Repeatable delivery. Scalable trust.
             </div>
           </div>
         </div>
