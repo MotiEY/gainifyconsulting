@@ -31,7 +31,7 @@ const Hero: React.FC = () => {
           </h1>
 
           <p className="mt-5 max-w-3xl mx-auto text-base md:text-lg text-slate-600">
-            We implement AI inside real workflows, prove ROI with a Value Ledger, then scale what works — safely.
+            We implement AI inside real workflows, prove ROI with a Value Ledger, then scale what works safely.
           </p>
 
           <p className="mt-3 max-w-3xl mx-auto text-sm md:text-base text-slate-500">
