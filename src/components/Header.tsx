@@ -6,9 +6,9 @@ const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 10);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    const onScroll = () => setIsScrolled(window.scrollY > 10);
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   useEffect(() => {
@@ -18,20 +18,27 @@ const Header: React.FC = () => {
     };
   }, [isMenuOpen]);
 
+  // “Model” points to #layers (your Features.tsx already has id="layers")
   const navLinks = [
-    { href: '#about', label: 'About' },
+    { href: '#layers', label: 'Model' },
     { href: '#methodology', label: 'How we deliver' },
     { href: '#pulse', label: 'Gainify Pulse' },
     { href: '#results', label: 'Outcomes' },
   ];
 
+  const scrollToHash = (href: string) => {
+    if (!href.startsWith('#')) return;
+
+    const target = document.querySelector(href);
+    if (!target) return;
+
+    target.scrollIntoView({ behavior: 'smooth' });
+  };
+
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    const href = e.currentTarget.getAttribute('href');
-    if (href && href.startsWith('#')) {
-      const targetElement = document.querySelector(href);
-      targetElement?.scrollIntoView({ behavior: 'smooth' });
-    }
+    const href = e.currentTarget.getAttribute('href') || '#home';
+    scrollToHash(href);
     setIsMenuOpen(false);
   };
 
@@ -53,7 +60,7 @@ const Header: React.FC = () => {
                 Gainify<span className="text-amber-600">.</span>ai
               </span>
               <span className="hidden sm:inline text-sm font-semibold text-slate-500">
-                Strategic AI Implementation
+                Operational AI Consulting
               </span>
             </a>
 
@@ -120,7 +127,7 @@ const Header: React.FC = () => {
                 Gainify<span className="text-amber-600">.</span>ai
               </div>
               <div className="mt-1 text-sm font-semibold text-slate-500">
-                Strategic AI Implementation
+                Operational AI Consulting
               </div>
             </div>
 
@@ -161,9 +168,7 @@ const Header: React.FC = () => {
               </a>
             </div>
 
-            <div className="mt-6 text-center text-xs text-slate-400">
-              Value → Factory → Trust
-            </div>
+            {/* Removed the “Value → Factory → Trust” footer line (less duplication / less noise) */}
           </div>
         </div>
       </div>
