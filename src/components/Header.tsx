@@ -19,7 +19,7 @@ const Header: React.FC = () => {
   }, [isMenuOpen]);
 
   const navLinks = [
-    { href: '#model', label: 'Model' }, // Features.tsx has #model (and #about for backward compatibility)
+    { href: '#model', label: 'Model' },
     { href: '#methodology', label: 'How we deliver' },
     { href: '#pulse', label: 'Gainify Pulse' },
     { href: '#results', label: 'Outcomes' },
@@ -42,24 +42,24 @@ const Header: React.FC = () => {
         className={[
           'fixed top-0 left-0 w-full z-50 transition-all duration-300',
           isScrolled || isMenuOpen
-            ? 'bg-white/85 backdrop-blur-md shadow-sm ring-1 ring-stone-200'
+            ? 'bg-white/80 backdrop-blur-md ring-1 ring-stone-200'
             : 'bg-transparent',
         ].join(' ')}
       >
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
             {/* Brand */}
-            <a href="#home" className="flex items-center gap-2" onClick={handleLinkClick}>
+            <a href="#home" className="flex items-baseline gap-3" onClick={handleLinkClick}>
               <span className="text-2xl font-extrabold tracking-tight text-slate-900">
                 Gainify<span className="text-amber-600">.</span>ai
               </span>
-              <span className="hidden sm:inline text-sm font-semibold text-slate-500">
+              <span className="hidden lg:inline text-sm font-semibold text-slate-500">
                 Strategic AI Implementation
               </span>
             </a>
 
             {/* Desktop nav */}
-            <div className="hidden md:flex items-center gap-2">
+            <div className="hidden md:flex items-center gap-3">
               <div className="flex items-center">
                 {navLinks.map((link) => (
                   <a
@@ -73,15 +73,8 @@ const Header: React.FC = () => {
                 ))}
               </div>
 
-              {/* Desktop CTAs */}
-              <div className="ml-2 flex items-center gap-2">
-                <a
-                  href="#pulse"
-                  onClick={handleLinkClick}
-                  className="inline-flex items-center justify-center rounded-full px-4 py-2 text-sm font-bold text-slate-900 bg-white ring-1 ring-stone-200 hover:bg-stone-50 transition-all"
-                >
-                  Take Pulse
-                </a>
+              {/* Single, quiet CTA */}
+              <div className="ml-2">
                 <a
                   href="#reality-demo"
                   onClick={handleLinkClick}
@@ -100,7 +93,11 @@ const Header: React.FC = () => {
                 aria-label="Main menu"
                 aria-expanded={isMenuOpen}
               >
-                {isMenuOpen ? <XIcon className="block h-6 w-6" /> : <MenuIcon className="block h-6 w-6" />}
+                {isMenuOpen ? (
+                  <XIcon className="block h-6 w-6" />
+                ) : (
+                  <MenuIcon className="block h-6 w-6" />
+                )}
               </button>
             </div>
           </div>
@@ -146,13 +143,7 @@ const Header: React.FC = () => {
               >
                 Book Reality Demo
               </a>
-              <a
-                href="#pulse"
-                onClick={handleLinkClick}
-                className="w-full text-center bg-white text-slate-900 px-8 py-4 rounded-full text-lg font-bold ring-1 ring-stone-200 hover:bg-stone-50 transition-all"
-              >
-                Take Gainify Pulse
-              </a>
+
               <a
                 href="#contact"
                 onClick={handleLinkClick}
@@ -160,10 +151,6 @@ const Header: React.FC = () => {
               >
                 Contact
               </a>
-            </div>
-
-            <div className="mt-6 text-center text-xs text-slate-400">
-              Measurable outcomes. Repeatable delivery. Scalable trust.
             </div>
           </div>
         </div>
