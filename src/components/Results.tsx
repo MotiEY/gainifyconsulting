@@ -52,7 +52,7 @@ const Results: React.FC = () => {
       bullets: [
         'Shadow triage & drafting inside the flow of work (safe parallel run).',
         'Higher quality responses using internal KB citations and checks.',
-        'Fewer reopens and less escalation noise.'
+        'Fewer reopens and less escalation noise.',
       ],
       kpis: ['AHT ↓', 'Deflection ↑', 'Reopen rate ↓', 'Backlog aging ↓'],
     },
@@ -62,7 +62,7 @@ const Results: React.FC = () => {
       bullets: [
         'Status → Truth summaries across tools (less manual reporting).',
         'RAID log extracted from real signals (meetings, tickets, messages).',
-        'Earlier risk detection and fewer surprises.'
+        'Earlier risk detection and fewer surprises.',
       ],
       kpis: ['Status effort ↓', 'Risk discovery ↑', 'Cycle time ↓', 'Escalations ↓'],
     },
@@ -72,7 +72,7 @@ const Results: React.FC = () => {
       bullets: [
         'A monthly shipping cadence for AI improvements.',
         'Backlog + prioritization + measurement loop.',
-        'Templates and patterns that scale across teams.'
+        'Templates and patterns that scale across teams.',
       ],
       kpis: ['Time-to-ship ↓', 'Adoption ↑', 'Cost control ↑', 'Repeatable patterns ↑'],
     },
@@ -82,7 +82,7 @@ const Results: React.FC = () => {
       bullets: [
         'Clear guardrails: data boundaries, evaluation, and governance.',
         'Human-in-the-loop where it matters.',
-        'Auditability and accountability for outputs.'
+        'Auditability and accountability for outputs.',
       ],
       kpis: ['Rollback risk ↓', 'Policy compliance ↑', 'Confidence ↑', 'Waste ↓'],
     },
@@ -96,7 +96,8 @@ const Results: React.FC = () => {
             What you get (measured)
           </h2>
           <p className="max-w-3xl mx-auto text-lg text-slate-600">
-            We don’t sell “AI features”. We sell operational lift — measured with a Value Ledger and scaled through a repeatable factory.
+            We don’t sell “AI features”. We sell operational lift — measured with a Value Ledger and scaled
+            through a repeatable factory.
           </p>
         </div>
 
@@ -113,10 +114,11 @@ const Results: React.FC = () => {
           >
             Book the Reality Demo
           </a>
-          <p className="mt-3 text-sm text-slate-500">
-            Fixed scope, fast signal. Then we scale only what works.
-          </p>
+          <p className="mt-3 text-sm text-slate-500">Fixed scope, fast signal. Then we scale only what works.</p>
         </div>
       </div>
     </section>
-  )
+  );
+};
+
+export default Results;
