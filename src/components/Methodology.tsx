@@ -3,20 +3,27 @@ import { SearchIcon, CogsIcon, ShieldCheckIcon } from './icons/Icons';
 
 type StepCard = {
   icon: React.ReactNode;
+  eyebrow: string;
   title: string;
   subtitle: string;
   bullets: string[];
+  output: string;
 };
 
-const Step: React.FC<StepCard> = ({ icon, title, subtitle, bullets }) => {
+const Step: React.FC<StepCard> = ({ icon, eyebrow, title, subtitle, bullets, output }) => {
   return (
     <div className="bg-white rounded-2xl p-7 ring-1 ring-stone-200 shadow-sm hover:shadow-md transition-all">
-      <div className="w-12 h-12 rounded-xl bg-stone-50 ring-1 ring-stone-200 flex items-center justify-center text-slate-900">
-        {icon}
+      <div className="flex items-center justify-between">
+        <div className="w-12 h-12 rounded-xl bg-stone-50 ring-1 ring-stone-200 flex items-center justify-center text-slate-900">
+          {icon}
+        </div>
+        <div className="text-xs font-bold tracking-wider uppercase text-slate-500">
+          {eyebrow}
+        </div>
       </div>
 
-      <h3 className="mt-5 text-xl font-bold text-slate-900">{title}</h3>
-      <p className="mt-1 text-slate-600">{subtitle}</p>
+      <h3 className="mt-5 text-xl font-extrabold text-slate-900">{title}</h3>
+      <p className="mt-2 text-slate-600">{subtitle}</p>
 
       <ul className="mt-5 space-y-2 text-slate-600">
         {bullets.map((b, i) => (
@@ -26,6 +33,15 @@ const Step: React.FC<StepCard> = ({ icon, title, subtitle, bullets }) => {
           </li>
         ))}
       </ul>
+
+      <div className="mt-6 rounded-xl bg-stone-50 p-4 ring-1 ring-stone-200">
+        <div className="text-xs font-bold uppercase tracking-wider text-slate-500">
+          Output
+        </div>
+        <div className="mt-2 text-sm font-semibold text-slate-800">
+          {output}
+        </div>
+      </div>
     </div>
   );
 };
@@ -34,33 +50,39 @@ const Methodology: React.FC = () => {
   const steps: StepCard[] = [
     {
       icon: <SearchIcon className="w-6 h-6" />,
-      title: '1) Reality Demo (48–72 hours)',
+      eyebrow: '48–72 hours',
+      title: 'Reality Demo',
       subtitle: 'Fast signal on real work — before big commitments.',
       bullets: [
-        'Choose one high-volume, measurable workflow.',
-        'Run a safe “shadow mode” test on real data.',
-        'Deliver a simple Value Ledger: minutes saved → money.',
+        'Select one high-volume, measurable workflow.',
+        'Run a safe shadow test on real data.',
+        'Translate impact into a simple Value Ledger (time → money).',
       ],
+      output: 'Reality Demo pack: workflow map + baseline + Value Ledger',
     },
     {
       icon: <CogsIcon className="w-6 h-6" />,
-      title: '2) Value Sprint (3–4 weeks)',
+      eyebrow: '3–4 weeks',
+      title: 'Implementation Sprint',
       subtitle: 'Turn the signal into production-grade workflow impact.',
       bullets: [
-        'Set baseline + target KPIs and owners.',
-        'Implement in-flow usage (not a separate “AI tool”).',
+        'Define KPI targets and owners.',
+        'Embed AI inside the tools people already use.',
         'Measure weekly: quality, adoption, and outcomes.',
       ],
+      output: 'Working workflow in production + KPI tracking',
     },
     {
       icon: <ShieldCheckIcon className="w-6 h-6" />,
-      title: '3) Scale (Factory + Trust)',
-      subtitle: 'Make it repeatable — with guardrails that allow speed.',
+      eyebrow: 'ongoing',
+      title: 'Scale',
+      subtitle: 'Expand carefully — with guardrails that keep speed safe.',
       bullets: [
-        'Monthly shipping cadence + prioritized backlog.',
-        'Evaluation, audit trail, and data boundaries where needed.',
+        'Establish a monthly shipping cadence and a prioritized backlog.',
+        'Add evaluation, audit trail, and data boundaries where needed.',
         'Expand to adjacent workflows only after results hold.',
       ],
+      output: 'Repeatable rollout plan + governance & controls',
     },
   ];
 
@@ -68,9 +90,11 @@ const Methodology: React.FC = () => {
     <section id="methodology" className="py-16 sm:py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900">How we deliver</h2>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900">
+            How we deliver
+          </h2>
           <p className="mt-3 max-w-3xl mx-auto text-lg text-slate-600">
-            Clean process, tight scope, measured outcomes.
+            Tight scope. Clean execution. Measured outcomes.
           </p>
         </div>
 
@@ -80,11 +104,12 @@ const Methodology: React.FC = () => {
           ))}
         </div>
 
+        {/* quiet, non-pushy connector to Pulse (no button, no noise) */}
         <div className="mt-10 text-center">
           <p className="text-sm text-slate-500">
-            Under the hood, we diagnose readiness across 6 dimensions in{' '}
+            Gainify Pulse is the diagnostic behind the plan —{' '}
             <a href="#pulse" className="font-semibold text-slate-900 hover:underline">
-              Gainify Pulse
+              see the six dimensions
             </a>
             .
           </p>
