@@ -1,76 +1,123 @@
-import React from 'react';
-import { RocketIcon, ChartLineIcon } from './icons/Icons';
+import React, { useState, useEffect } from 'react';
+import { MenuIcon, XIcon } from './icons/Icons';
 
-const Hero: React.FC = () => {
+const Header: React.FC = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > 10);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = isMenuOpen ? 'hidden' : 'unset';
+  }, [isMenuOpen]);
+
+  // Updated to the new homepage anchors we discussed
+  const navLinks = [
+    { href: '#layers', label: '3 Layers' },
+    { href: '#reality-demo', label: 'Reality Demo' },
+    { href: '#tracks', label: 'Tracks' },
+    { href: '#how-we-work', label: 'How we work' },
+    { href: '#pulse', label: 'Gainify Pulse' },
+    { href: '#results', label: 'Results' },
+  ];
+
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     const href = e.currentTarget.getAttribute('href');
     if (href && href.startsWith('#')) {
       const targetElement = document.querySelector(href);
       if (targetElement) {
-        targetElement.scrollIntoView({
-          behavior: 'smooth',
-        });
+        targetElement.scrollIntoView({ behavior: 'smooth' });
       }
     }
+    setIsMenuOpen(false);
   };
 
   return (
-    <section id="home" className="relative bg-gradient-to-br from-indigo-600 to-purple-700 text-white pt-32 pb-20 overflow-hidden">
-      <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
-       <style>{`
-        .bg-grid-pattern {
-          background-image:
-            linear-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255, 255, 255, 0.07) 1px, transparent 1px);
-          background-size: 40px 40px;
-        }
-      `}</style>
-      <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-        <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight mb-6">
-          Transform Your Business with Strategic AI Implementation
-          <span className="ml-3 text-xs font-bold text-red-600">BUILD-OK-777</span>
-        </h1>
-        <p className="max-w-3xl mx-auto text-lg md:text-xl text-indigo-100 mb-10">
-          We guide organizations in implementing AI as a core capability and strategic engine. Our proven methodology delivers bottom-line results through culture, strategy, and technology alignment.
-        </p>
-        <div className="mt-10 flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8 text-indigo-200">
-            <div className="flex items-center gap-2">
-                <span className="font-bold text-white text-lg">Simply</span>
-                <span className="text-lg">Processes</span>
-            </div>
-            <div className="hidden md:block text-indigo-400 text-2xl font-light">&rarr;</div>
-            <div className="flex items-center gap-2">
-                <span className="font-bold text-white text-lg">Amplify</span>
-                <span className="text-lg">with AI</span>
-            </div>
-            <div className="hidden md:block text-indigo-400 text-2xl font-light">&rarr;</div>
-            <div className="flex items-center gap-2">
-                <span className="font-bold text-white text-lg">Gain</span>
-                <span className="text-lg">Results</span>
-            </div>
-        </div>
-        <div className="flex justify-center gap-4 flex-wrap mt-12">
-          <a
-            href="#contact"
-            onClick={handleLinkClick}
-            className="inline-flex items-center gap-2 bg-white text-indigo-600 px-8 py-3 rounded-full text-base font-bold shadow-lg transform hover:-translate-y-1 transition-all duration-300 ease-in-out"
-          >
-            <RocketIcon className="w-5 h-5" />
-            Start Your AI Journey
-          </a>
-          <a
-            href="#pulse"
-            onClick={handleLinkClick}
-            className="inline-flex items-center gap-2 bg-transparent border-2 border-white text-white px-8 py-3 rounded-full text-base font-bold hover:bg-white hover:text-indigo-600 transition-all duration-300 ease-in-out"
-          >
-            <ChartLineIcon className="w-5 h-5" />
-            Assess AI Maturity
-          </a>
-        </div>
-      </div>
-    </section>
-  );
-};
+    <>
+      <header
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+          isScrolled || isMenuOpen
+            ? 'bg-white/90 backdrop-blur-md shadow-sm ring-1 ring-slate-200'
+            : 'bg-transparent'
+        }`}
+      >
+        <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-20">
+            <a href="#top" className="flex-shrink-0" onClick={handleLinkClick}>
+              <span className="text-xl sm:text-2xl font-bold tracking-tight text-slate-900">
+                Gainify
+                <span className="text-indigo-600">Consulting</span>
+              </span>
+            </a>
 
-export default Hero;
+            <div className="hidden md:block">
+              <div className="ml-10 flex items-baseline space-x-1">
+                {navLinks.map((link) => (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    onClick={handleLinkClick}
+                    className="text-slate-600 hover:text-slate-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                  >
+                    {link.label}
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            {/* Primary CTA should be Reality Demo */}
+            <a
+              href="#reality-demo"
+              onClick={handleLinkClick}
+              className="hidden md:inline-flex items-center justify-center bg-slate-900 text-white px-5 py-2 rounded-full text-sm font-semibold hover:bg-slate-800 transition-all duration-300"
+            >
+              Book Reality Demo
+            </a>
+
+            <div className="md:hidden">
+              <button
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="inline-flex items-center justify-center p-2 rounded-md text-slate-600 hover:text-slate-900 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+                aria-label="Main menu"
+                aria-expanded={isMenuOpen}
+              >
+                {isMenuOpen ? (
+                  <XIcon className="block h-6 w-6" />
+                ) : (
+                  <MenuIcon className="block h-6 w-6" />
+                )}
+              </button>
+            </div>
+          </div>
+        </nav>
+      </header>
+
+      {/* Mobile Menu */}
+      <div
+        className={`fixed inset-0 z-40 bg-white transform transition-transform duration-300 ease-in-out md:hidden ${
+          isMenuOpen ? 'translate-x-0' : 'translate-x-full'
+        }`}
+      >
+        <div className="pt-24 pb-8 px-6 flex flex-col h-full">
+          <nav className="flex flex-col items-center justify-center flex-grow gap-y-6">
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={handleLinkClick}
+                className="text-slate-800 hover:text-slate-900 text-2xl font-semibold transition-colors"
+              >
+                {link.label}
+              </a>
+            ))}
+          </nav>
+
+          <a
+            href="#reality-demo"
+            onClick={handleLinkClick}
+            className="w-full text-center bg-slate-
