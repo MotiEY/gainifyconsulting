@@ -18,27 +18,20 @@ const Header: React.FC = () => {
     };
   }, [isMenuOpen]);
 
-  // “Model” points to #layers (your Features.tsx already has id="layers")
   const navLinks = [
-    { href: '#layers', label: 'Model' },
+    { href: '#model', label: 'Model' },
     { href: '#methodology', label: 'How we deliver' },
     { href: '#pulse', label: 'Gainify Pulse' },
     { href: '#results', label: 'Outcomes' },
   ];
 
-  const scrollToHash = (href: string) => {
-    if (!href.startsWith('#')) return;
-
-    const target = document.querySelector(href);
-    if (!target) return;
-
-    target.scrollIntoView({ behavior: 'smooth' });
-  };
-
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    const href = e.currentTarget.getAttribute('href') || '#home';
-    scrollToHash(href);
+    const href = e.currentTarget.getAttribute('href');
+    if (href && href.startsWith('#')) {
+      const target = document.querySelector(href);
+      target?.scrollIntoView({ behavior: 'smooth' });
+    }
     setIsMenuOpen(false);
   };
 
@@ -168,7 +161,9 @@ const Header: React.FC = () => {
               </a>
             </div>
 
-            {/* Removed the “Value → Factory → Trust” footer line (less duplication / less noise) */}
+            <div className="mt-6 text-center text-xs text-slate-400">
+              Quiet. Practical. Measured.
+            </div>
           </div>
         </div>
       </div>
