@@ -5,94 +5,165 @@ import {
   ClipboardListIcon,
   ChipIcon,
   CogsIcon,
-  DatabaseIcon
+  DatabaseIcon,
 } from './icons/Icons';
 
 const showcaseData = {
   'Culture & People': {
     icon: <UsersIcon className="w-6 h-6" />,
     strategicLens: [
-      "Communication loops & leadership alignment",
-      "Influencers, incentives, and adoption friction",
-      "Readiness to change day-to-day work habits"
+      'Communication loops & leadership alignment',
+      'Influencers, incentives, and adoption friction',
+      'Readiness to change day-to-day work habits',
     ],
     phases: [
-      { phase: 'Quick Wins', timeframe: '0–30 days', actions: ["Identify & engage early adopters.", "Share initial AI wins with clear metrics."] },
-      { phase: 'Build Capability', timeframe: '1–3 months', actions: ["Office hours + short enablement sessions.", "Lightweight playbooks per workflow."] },
-      { phase: 'Scale & Embed', timeframe: '3–6 months', actions: ["Role-based enablement.", "Sustained adoption cadence with ownership."] },
+      {
+        phase: 'Quick Wins',
+        timeframe: '0–30 days',
+        actions: ['Identify & engage early adopters.', 'Share initial AI wins with clear metrics.'],
+      },
+      {
+        phase: 'Build Capability',
+        timeframe: '1–3 months',
+        actions: ['Office hours + short enablement sessions.', 'Lightweight playbooks per workflow.'],
+      },
+      {
+        phase: 'Scale & Embed',
+        timeframe: '3–6 months',
+        actions: ['Role-based enablement.', 'Sustained adoption cadence with ownership.'],
+      },
     ],
   },
   'Strategy & Governance': {
     icon: <ShieldCheckIcon className="w-6 h-6" />,
     strategicLens: [
-      "Business alignment and ROI definition",
-      "Decision-making & ownership model",
-      "Risk, privacy, and governance guardrails"
+      'Business alignment and ROI definition',
+      'Decision-making & ownership model',
+      'Risk, privacy, and governance guardrails',
     ],
     phases: [
-      { phase: 'Quick Wins', timeframe: '0–30 days', actions: ["Define KPI + success criteria per workflow.", "Assign an executive sponsor + operator owner."] },
-      { phase: 'Build Capability', timeframe: '1–3 months', actions: ["Define approval flow & evaluation rubric.", "Create lightweight governance cadence."] },
-      { phase: 'Scale & Embed', timeframe: '3–6 months', actions: ["Quarterly reviews of ROI, risk, and cost.", "Embed metrics into operating reviews."] },
+      {
+        phase: 'Quick Wins',
+        timeframe: '0–30 days',
+        actions: ['Define KPI + success criteria per workflow.', 'Assign an executive sponsor + operator owner.'],
+      },
+      {
+        phase: 'Build Capability',
+        timeframe: '1–3 months',
+        actions: ['Define approval flow & evaluation rubric.', 'Create lightweight governance cadence.'],
+      },
+      {
+        phase: 'Scale & Embed',
+        timeframe: '3–6 months',
+        actions: ['Quarterly reviews of ROI, risk, and cost.', 'Embed metrics into operating reviews.'],
+      },
     ],
   },
   'Usage & Adoption': {
     icon: <ClipboardListIcon className="w-6 h-6" />,
     strategicLens: [
-      "Where AI fits in the flow of work",
-      "Confidence and trust in outputs",
-      "Adoption patterns and resistance points"
+      'Where AI fits in the flow of work',
+      'Confidence and trust in outputs',
+      'Adoption patterns and resistance points',
     ],
     phases: [
-      { phase: 'Quick Wins', timeframe: '0–30 days', actions: ["Baseline current usage + pain points.", "Start with one high-volume workflow."] },
-      { phase: 'Build Capability', timeframe: '1–3 months', actions: ["Role-based training on the chosen workflow.", "Measure adoption + quality weekly."] },
-      { phase: 'Scale & Embed', timeframe: '3–6 months', actions: ["Expand to adjacent workflows with the same pattern."] },
+      {
+        phase: 'Quick Wins',
+        timeframe: '0–30 days',
+        actions: ['Baseline current usage + pain points.', 'Start with one high-volume workflow.'],
+      },
+      {
+        phase: 'Build Capability',
+        timeframe: '1–3 months',
+        actions: ['Role-based training on the chosen workflow.', 'Measure adoption + quality weekly.'],
+      },
+      {
+        phase: 'Scale & Embed',
+        timeframe: '3–6 months',
+        actions: ['Expand to adjacent workflows with the same pattern.'],
+      },
     ],
   },
   'Systems & Technology': {
     icon: <ChipIcon className="w-6 h-6" />,
     strategicLens: [
-      "Interoperability and integration readiness",
-      "Security posture and access boundaries",
-      "Embedding AI into core platforms"
+      'Interoperability and integration readiness',
+      'Security posture and access boundaries',
+      'Embedding AI into core platforms',
     ],
     phases: [
-      { phase: 'Quick Wins', timeframe: '0–30 days', actions: ["Map systems and access boundaries.", "Identify integration blockers for the first workflow."] },
-      { phase: 'Build Capability', timeframe: '1–3 months', actions: ["Standardize connectors/APIs for target systems.", "Harden identity and permissions."] },
-      { phase: 'Scale & Embed', timeframe: '3–6 months', actions: ["Embed the pattern into core platforms at scale."] },
+      {
+        phase: 'Quick Wins',
+        timeframe: '0–30 days',
+        actions: ['Map systems and access boundaries.', 'Identify integration blockers for the first workflow.'],
+      },
+      {
+        phase: 'Build Capability',
+        timeframe: '1–3 months',
+        actions: ['Standardize connectors/APIs for target systems.', 'Harden identity and permissions.'],
+      },
+      {
+        phase: 'Scale & Embed',
+        timeframe: '3–6 months',
+        actions: ['Embed the pattern into core platforms at scale.'],
+      },
     ],
   },
   'Processes & Workflows': {
     icon: <CogsIcon className="w-6 h-6" />,
     strategicLens: [
-      "Where manual work creates bottlenecks",
-      "Automation potential and handoffs",
-      "Which steps need human-in-the-loop"
+      'Where manual work creates bottlenecks',
+      'Automation potential and handoffs',
+      'Which steps need human-in-the-loop',
     ],
     phases: [
-      { phase: 'Quick Wins', timeframe: '0–30 days', actions: ["Select one workflow with clear baseline metrics.", "Define “shadow mode” run plan."] },
-      { phase: 'Build Capability', timeframe: '1–3 months', actions: ["Move from shadow → assisted in-flow usage.", "Document the repeatable pattern."] },
-      { phase: 'Scale & Embed', timeframe: '3–6 months', actions: ["Roll out the pattern across similar workflows."] },
+      {
+        phase: 'Quick Wins',
+        timeframe: '0–30 days',
+        actions: ['Select one workflow with clear baseline metrics.', 'Define “shadow mode” run plan.'],
+      },
+      {
+        phase: 'Build Capability',
+        timeframe: '1–3 months',
+        actions: ['Move from shadow → assisted in-flow usage.', 'Document the repeatable pattern.'],
+      },
+      {
+        phase: 'Scale & Embed',
+        timeframe: '3–6 months',
+        actions: ['Roll out the pattern across similar workflows.'],
+      },
     ],
   },
   'Data Readiness': {
     icon: <DatabaseIcon className="w-6 h-6" />,
     strategicLens: [
-      "Trusted sources and data quality",
-      "Access, privacy, and retention boundaries",
-      "Ability to ground AI outputs (citations)"
+      'Trusted sources and data quality',
+      'Access, privacy, and retention boundaries',
+      'Ability to ground AI outputs (citations)',
     ],
     phases: [
-      { phase: 'Quick Wins', timeframe: '0–30 days', actions: ["Identify trusted sources for the first workflow.", "Fix the top data hygiene gaps."] },
-      { phase: 'Build Capability', timeframe: '1–3 months', actions: ["Define governance rules for data usage.", "Create a minimal knowledge base / source registry."] },
-      { phase: 'Scale & Embed', timeframe: '3–6 months', actions: ["Expand coverage + catalog, improve observability."] },
+      {
+        phase: 'Quick Wins',
+        timeframe: '0–30 days',
+        actions: ['Identify trusted sources for the first workflow.', 'Fix the top data hygiene gaps.'],
+      },
+      {
+        phase: 'Build Capability',
+        timeframe: '1–3 months',
+        actions: ['Define governance rules for data usage.', 'Create a minimal knowledge base / source registry.'],
+      },
+      {
+        phase: 'Scale & Embed',
+        timeframe: '3–6 months',
+        actions: ['Expand coverage + catalog, improve observability.'],
+      },
     ],
-  }
-};
+  },
+} as const;
 
 type DimKey = keyof typeof showcaseData;
 
 const MiniPulseSnapshot: React.FC = () => {
-  // illustrative sample values – you can later wire this to real survey results
   const dims = [
     { label: 'Culture', current: 2, target: 4 },
     { label: 'Strategy', current: 3, target: 4 },
@@ -128,6 +199,7 @@ const MiniPulseSnapshot: React.FC = () => {
           </div>
         ))}
       </div>
+
       <div className="mt-4 flex items-center gap-4 text-xs text-slate-500">
         <div className="flex items-center gap-2">
           <span className="inline-block w-3 h-3 rounded-full bg-slate-400" />
@@ -147,7 +219,6 @@ const PulseTool: React.FC = () => {
   const activeContent = showcaseData[activeTab];
   const dimensions = Object.keys(showcaseData) as DimKey[];
 
-  // renamed to sound professional (no “dismissive”)
   const maturityLevels = [
     { name: 'Foundation', color: 'bg-slate-100 text-slate-700' },
     { name: 'Emerging', color: 'bg-indigo-50 text-indigo-700' },
@@ -161,12 +232,11 @@ const PulseTool: React.FC = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">
-            Gainify Pulse
-          </h2>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">Gainify Pulse</h2>
           <p className="max-w-4xl mx-auto text-lg text-slate-600">
-            Pulse is the diagnostic engine behind <span className="font-semibold text-slate-800">Value → Factory → Trust</span>.
-            It assesses AI readiness across six dimensions and turns it into a practical roadmap.
+            Pulse is the diagnostic engine behind{' '}
+            <span className="font-semibold text-slate-800">Value → Factory → Trust</span>. It assesses AI
+            readiness across six dimensions and turns it into a practical roadmap.
           </p>
 
           <div className="mt-6 flex flex-wrap justify-center gap-3">
@@ -191,10 +261,7 @@ const PulseTool: React.FC = () => {
           </h3>
           <div className="flex flex-wrap justify-center gap-3">
             {maturityLevels.map((level) => (
-              <span
-                key={level.name}
-                className={`px-4 py-2 rounded-full font-semibold text-sm ${level.color}`}
-              >
+              <span key={level.name} className={`px-4 py-2 rounded-full font-semibold text-sm ${level.color}`}>
                 {level.name}
               </span>
             ))}
@@ -203,4 +270,91 @@ const PulseTool: React.FC = () => {
 
         <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-sm ring-1 ring-slate-200">
           <div className="text-center mb-8">
-            <h3 className="text-
+            <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-2">Methodology showcase</h3>
+            <p className="max-w-2xl mx-auto text-slate-600">
+              Click a dimension to see the lens and the roadmap phases we apply.
+            </p>
+          </div>
+
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8">
+            {dimensions.map((dim) => (
+              <button
+                key={dim}
+                onClick={() => setActiveTab(dim)}
+                className={`flex-grow sm:flex-grow-0 flex items-center gap-2 px-3 py-2 text-sm sm:text-base sm:px-4 sm:py-2 rounded-full font-semibold transition-all duration-300 ${
+                  activeTab === dim
+                    ? 'bg-indigo-600 text-white shadow-md'
+                    : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+                }`}
+              >
+                {showcaseData[dim].icon}
+                <span>{dim}</span>
+              </button>
+            ))}
+          </div>
+
+          <div className="bg-slate-50 p-6 rounded-xl">
+            <div className="grid lg:grid-cols-5 gap-8">
+              <div className="lg:col-span-3">
+                <div className="bg-white p-6 rounded-lg shadow-sm mb-6 ring-1 ring-slate-200">
+                  <h4 className="font-bold text-lg text-indigo-700 mb-4">Strategic lens</h4>
+                  <ul className="space-y-3">
+                    {activeContent.strategicLens.map((item, i) => (
+                      <li key={i} className="flex items-start">
+                        <span className="text-indigo-500 mr-3 mt-1">◆</span>
+                        <span className="text-slate-600">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="bg-white p-6 rounded-lg shadow-sm ring-1 ring-slate-200">
+                  <h4 className="font-bold text-lg text-indigo-700 mb-4">Roadmap phases</h4>
+                  <div className="space-y-4">
+                    {activeContent.phases.map((phase, i) => (
+                      <div key={i}>
+                        <h5 className="font-semibold text-slate-800">
+                          {phase.phase}{' '}
+                          <span className="text-sm text-slate-500 font-normal ml-2">({phase.timeframe})</span>
+                        </h5>
+                        <ul className="mt-2 pl-5 space-y-1">
+                          {phase.actions.map((action, j) => (
+                            <li key={j} className="flex items-start text-sm text-slate-600">
+                              <span className="text-indigo-500 mr-2 mt-1">▶</span>
+                              <span>{action}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              <div className="lg:col-span-2 flex flex-col items-center justify-center">
+                <div className="w-full bg-white p-6 rounded-lg shadow-sm ring-1 ring-slate-200">
+                  <MiniPulseSnapshot />
+                </div>
+
+                <div className="mt-6 text-center">
+                  <div className="text-sm font-semibold text-slate-800">Output</div>
+                  <p className="mt-2 text-sm text-slate-600">
+                    A prioritized roadmap + Value Ledger, mapped to owners and a monthly shipping cadence.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-10 text-center">
+          <p className="text-sm text-slate-500">
+            Want this tied to your real data? We start with a short Reality Demo and only scale what proves value.
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default PulseTool;
