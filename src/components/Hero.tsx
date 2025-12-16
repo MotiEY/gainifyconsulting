@@ -29,6 +29,7 @@ const Hero: React.FC = () => {
       <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
         <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight mb-6">
           Transform Your Business with Strategic AI Implementation
+          <span className="ml-3 text-xs font-bold text-red-600">BUILD-OK-777</span>
         </h1>
         <p className="max-w-3xl mx-auto text-lg md:text-xl text-indigo-100 mb-10">
           We guide organizations in implementing AI as a core capability and strategic engine. Our proven methodology delivers bottom-line results through culture, strategy, and technology alignment.
