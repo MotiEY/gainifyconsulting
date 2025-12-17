@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useState } from 'react';
 import {
   UsersIcon,
   ShieldCheckIcon,
@@ -8,31 +8,47 @@ import {
   DatabaseIcon,
 } from './icons/Icons';
 
-const showcaseData = {
+type Phase = { phase: string; timeframe: string; actions: string[] };
+
+type ShowcaseItem = {
+  icon: React.ReactNode;
+  strategicLens: string[];
+  phases: Phase[];
+};
+
+const showcaseData: Record<
+  | 'Culture & People'
+  | 'Strategy & Governance'
+  | 'Usage & Adoption'
+  | 'Systems & Technology'
+  | 'Processes & Workflows'
+  | 'Data Readiness',
+  ShowcaseItem
+> = {
   'Culture & People': {
     icon: <UsersIcon className="w-5 h-5" />,
     strategicLens: [
       'Leadership alignment and communication loops',
-      'Incentives, habits, and adoption friction',
-      'Readiness to change day-to-day work',
+      'Incentives, influencers, adoption friction',
+      'Readiness to change day-to-day work habits',
     ],
     phases: [
-      { phase: 'Quick Wins', timeframe: '0–30 days', actions: ['Identify early adopters.', 'Show one win with a metric.'] },
-      { phase: 'Build Capability', timeframe: '1–3 months', actions: ['Short enablement sessions.', 'Light playbooks per workflow.'] },
-      { phase: 'Scale & Embed', timeframe: '3–6 months', actions: ['Role-based enablement.', 'Sustained ownership cadence.'] },
+      { phase: 'Quick wins', timeframe: '0–30 days', actions: ['Identify early adopters.', 'Share initial wins with simple metrics.'] },
+      { phase: 'Build capability', timeframe: '1–3 months', actions: ['Short enablement sessions.', 'Lightweight playbooks per workflow.'] },
+      { phase: 'Scale & embed', timeframe: '3–6 months', actions: ['Role-based enablement.', 'Sustained ownership + adoption cadence.'] },
     ],
   },
   'Strategy & Governance': {
     icon: <ShieldCheckIcon className="w-5 h-5" />,
     strategicLens: [
       'Business alignment and ROI definition',
-      'Ownership and decision flow',
+      'Decision-making and ownership model',
       'Risk, privacy, and governance guardrails',
     ],
     phases: [
-      { phase: 'Quick Wins', timeframe: '0–30 days', actions: ['Define KPIs + success criteria.', 'Assign an exec sponsor + operator owner.'] },
-      { phase: 'Build Capability', timeframe: '1–3 months', actions: ['Define evaluation rubric.', 'Create a lightweight governance cadence.'] },
-      { phase: 'Scale & Embed', timeframe: '3–6 months', actions: ['Quarterly ROI/risk/cost reviews.', 'Embed metrics into operating reviews.'] },
+      { phase: 'Quick wins', timeframe: '0–30 days', actions: ['Define success metrics per workflow.', 'Assign an exec sponsor + operator owner.'] },
+      { phase: 'Build capability', timeframe: '1–3 months', actions: ['Define evaluation approach.', 'Create a lightweight governance cadence.'] },
+      { phase: 'Scale & embed', timeframe: '3–6 months', actions: ['Quarterly ROI/risk/cost review.', 'Embed metrics into operating reviews.'] },
     ],
   },
   'Usage & Adoption': {
@@ -43,22 +59,22 @@ const showcaseData = {
       'Adoption patterns and resistance points',
     ],
     phases: [
-      { phase: 'Quick Wins', timeframe: '0–30 days', actions: ['Baseline current usage + pain points.', 'Start with one high-volume workflow.'] },
-      { phase: 'Build Capability', timeframe: '1–3 months', actions: ['Role-based training on the chosen workflow.', 'Measure adoption + quality weekly.'] },
-      { phase: 'Scale & Embed', timeframe: '3–6 months', actions: ['Expand to adjacent workflows with the same pattern.'] },
+      { phase: 'Quick wins', timeframe: '0–30 days', actions: ['Baseline current usage and pain points.', 'Start with one high-volume workflow.'] },
+      { phase: 'Build capability', timeframe: '1–3 months', actions: ['Role-based training for the chosen workflow.', 'Measure adoption + quality weekly.'] },
+      { phase: 'Scale & embed', timeframe: '3–6 months', actions: ['Expand to adjacent workflows with the same pattern.'] },
     ],
   },
   'Systems & Technology': {
     icon: <ChipIcon className="w-5 h-5" />,
     strategicLens: [
-      'Integration readiness and interoperability',
-      'Security posture and access boundaries',
-      'Embedding AI into core platforms',
+      'Integration readiness (APIs, identity, access)',
+      'Security posture and boundary controls',
+      'Embedding AI into existing platforms',
     ],
     phases: [
-      { phase: 'Quick Wins', timeframe: '0–30 days', actions: ['Map systems and access boundaries.', 'Identify blockers for the first workflow.'] },
-      { phase: 'Build Capability', timeframe: '1–3 months', actions: ['Standardize connectors/APIs.', 'Harden identity and permissions.'] },
-      { phase: 'Scale & Embed', timeframe: '3–6 months', actions: ['Embed the pattern into core platforms at scale.'] },
+      { phase: 'Quick wins', timeframe: '0–30 days', actions: ['Map systems and access boundaries.', 'Identify integration blockers for the first workflow.'] },
+      { phase: 'Build capability', timeframe: '1–3 months', actions: ['Standardize connectors/APIs for target systems.', 'Harden identity and permissions.'] },
+      { phase: 'Scale & embed', timeframe: '3–6 months', actions: ['Operationalize the integration pattern at scale.'] },
     ],
   },
   'Processes & Workflows': {
@@ -66,71 +82,30 @@ const showcaseData = {
     strategicLens: [
       'Where manual work creates bottlenecks',
       'Automation potential and handoffs',
-      'Where human judgement must remain',
+      'Which steps need human-in-the-loop',
     ],
     phases: [
-      { phase: 'Quick Wins', timeframe: '0–30 days', actions: ['Select one workflow with baseline metrics.', 'Define a safe shadow-mode plan.'] },
-      { phase: 'Build Capability', timeframe: '1–3 months', actions: ['Move from shadow → assisted usage.', 'Document the repeatable pattern.'] },
-      { phase: 'Scale & Embed', timeframe: '3–6 months', actions: ['Roll out the pattern across similar workflows.'] },
+      { phase: 'Quick wins', timeframe: '0–30 days', actions: ['Select one workflow with baseline metrics.', 'Define a safe shadow-mode plan.'] },
+      { phase: 'Build capability', timeframe: '1–3 months', actions: ['Move from shadow → assisted usage in-flow.', 'Document the repeatable pattern.'] },
+      { phase: 'Scale & embed', timeframe: '3–6 months', actions: ['Roll out the pattern across similar workflows.'] },
     ],
   },
   'Data Readiness': {
     icon: <DatabaseIcon className="w-5 h-5" />,
     strategicLens: [
       'Trusted sources and data quality',
-      'Privacy, retention, and access boundaries',
-      'Grounding outputs (citations) where needed',
+      'Access, privacy, retention boundaries',
+      'Ability to ground outputs (citations)',
     ],
     phases: [
-      { phase: 'Quick Wins', timeframe: '0–30 days', actions: ['Identify trusted sources for the first workflow.', 'Fix the top hygiene gaps.'] },
-      { phase: 'Build Capability', timeframe: '1–3 months', actions: ['Define governance rules for data usage.', 'Create a minimal source registry.'] },
-      { phase: 'Scale & Embed', timeframe: '3–6 months', actions: ['Expand coverage, improve observability.'] },
+      { phase: 'Quick wins', timeframe: '0–30 days', actions: ['Identify trusted sources for the first workflow.', 'Fix the top data hygiene gaps.'] },
+      { phase: 'Build capability', timeframe: '1–3 months', actions: ['Define data usage rules.', 'Create a minimal source registry / KB.'] },
+      { phase: 'Scale & embed', timeframe: '3–6 months', actions: ['Expand coverage + catalog, improve observability.'] },
     ],
   },
-} as const;
+};
 
 type DimKey = keyof typeof showcaseData;
-
-const MaturityScale: React.FC = () => {
-  const levels = useMemo(
-    () => [
-      { step: '01', name: 'Foundation', desc: 'First workflows, basic guardrails' },
-      { step: '02', name: 'Emerging', desc: 'Some wins, uneven adoption' },
-      { step: '03', name: 'Building', desc: 'Measured cadence, clearer ownership' },
-      { step: '04', name: 'Scaling', desc: 'Repeatable delivery + governance' },
-    ],
-    []
-  );
-
-  return (
-    <div className="rounded-2xl bg-white p-6 sm:p-7 ring-1 ring-stone-200 shadow-sm">
-      <div className="flex items-baseline justify-between gap-6">
-        <div>
-          <div className="text-xs font-bold uppercase tracking-wider text-slate-500">Maturity scale</div>
-          <div className="mt-1 text-lg font-bold text-slate-900">How we score readiness</div>
-        </div>
-        <div className="hidden sm:block text-sm text-slate-500">1 → 4</div>
-      </div>
-
-      <div className="mt-6 grid gap-4 sm:grid-cols-4">
-        {levels.map((l, idx) => (
-          <div key={l.name} className="relative rounded-xl bg-stone-50 ring-1 ring-stone-200 p-4">
-            <div className="flex items-center justify-between">
-              <div className="text-xs font-bold text-slate-500">{l.step}</div>
-              <div className="h-2 w-2 rounded-full bg-amber-600" aria-hidden="true" />
-            </div>
-            <div className="mt-2 font-bold text-slate-900">{l.name}</div>
-            <div className="mt-1 text-sm text-slate-600">{l.desc}</div>
-
-            {idx < levels.length - 1 && (
-              <div className="hidden sm:block absolute -right-2 top-1/2 -translate-y-1/2 w-4 h-px bg-stone-200" aria-hidden="true" />
-            )}
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-};
 
 const MiniPulseSnapshot: React.FC = () => {
   const dims = [
@@ -145,19 +120,19 @@ const MiniPulseSnapshot: React.FC = () => {
 
   return (
     <div className="w-full">
-      <div className="text-xs font-bold uppercase tracking-wider text-slate-500">Example snapshot</div>
-      <div className="mt-4 space-y-3">
+      <div className="text-sm font-semibold text-slate-800 mb-3">Example snapshot</div>
+      <div className="space-y-3">
         {dims.map((d) => (
           <div key={d.label} className="flex items-center gap-3">
             <div className="w-20 text-sm font-semibold text-slate-600">{d.label}</div>
             <div className="flex-1">
-              <div className="relative h-2 rounded-full bg-stone-100 overflow-hidden">
+              <div className="relative h-2 rounded-full bg-stone-100 overflow-hidden ring-1 ring-stone-200">
                 <div
                   className="absolute left-0 top-0 h-full bg-slate-400"
                   style={{ width: `${(d.current / max) * 100}%` }}
                 />
                 <div
-                  className="absolute left-0 top-0 h-full bg-amber-600/25"
+                  className="absolute left-0 top-0 h-full bg-amber-500/25"
                   style={{ width: `${(d.target / max) * 100}%` }}
                 />
               </div>
@@ -175,7 +150,7 @@ const MiniPulseSnapshot: React.FC = () => {
           Current
         </div>
         <div className="flex items-center gap-2">
-          <span className="inline-block w-3 h-3 rounded-full bg-amber-600/25 ring-1 ring-amber-200" />
+          <span className="inline-block w-3 h-3 rounded-full bg-amber-500/25 ring-1 ring-amber-200" />
           Target
         </div>
       </div>
@@ -185,83 +160,116 @@ const MiniPulseSnapshot: React.FC = () => {
 
 const PulseTool: React.FC = () => {
   const [activeTab, setActiveTab] = useState<DimKey>('Culture & People');
-  const dimensions = Object.keys(showcaseData) as DimKey[];
   const activeContent = showcaseData[activeTab];
+  const dimensions = Object.keys(showcaseData) as DimKey[];
+
+  const score = [
+    { n: 1, label: 'Foundation' },
+    { n: 2, label: 'Emerging' },
+    { n: 3, label: 'Building' },
+    { n: 4, label: 'Scaling' },
+  ];
 
   return (
     <section className="py-16 sm:py-20 bg-stone-50 overflow-hidden">
       <div id="pulse" className="scroll-mt-24" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header (quiet) */}
         <div className="text-center mb-10">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">Gainify Pulse</h2>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-3">Gainify Pulse</h2>
           <p className="max-w-3xl mx-auto text-lg text-slate-600">
-            A diagnostic across six dimensions — translated into a practical roadmap and ownership model.
+            A diagnostic across six dimensions — turning readiness into a prioritized roadmap with owners and measurable outcomes.
           </p>
         </div>
 
-        <div className="mb-10">
-          <MaturityScale />
+        {/* Scoring scale */}
+        <div className="bg-white p-7 sm:p-8 rounded-2xl shadow-sm ring-1 ring-stone-200 mb-10">
+          <div className="max-w-3xl mx-auto">
+            <div className="text-sm font-bold uppercase tracking-wider text-slate-500 text-center">
+              Scoring scale (1–4)
+            </div>
+
+            <div className="mt-6">
+              <div className="relative h-1 bg-stone-200 rounded-full" />
+              <div className="mt-4 grid grid-cols-4 gap-3">
+                {score.map((s) => (
+                  <div key={s.n} className="text-center">
+                    <div className="mx-auto w-10 h-10 rounded-full bg-white ring-1 ring-stone-200 flex items-center justify-center font-extrabold text-slate-900">
+                      {s.n}
+                    </div>
+                    <div className="mt-2 text-sm font-semibold text-slate-700">{s.label}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <p className="mt-5 text-center text-sm text-slate-500">
+              We score what matters for execution: ownership, workflow fit, data boundaries, and adoption.
+            </p>
+          </div>
         </div>
 
+        {/* Showcase */}
         <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-sm ring-1 ring-stone-200">
-          <div className="text-center mb-8">
-            <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-2">Inside Pulse</h3>
+          <div className="text-center mb-7">
+            <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-2">Methodology showcase</h3>
             <p className="max-w-2xl mx-auto text-slate-600">
-              Pick a dimension to preview the lens and roadmap phases we apply.
+              Pick a dimension to see the strategic lens and the practical phases we apply.
             </p>
           </div>
 
           <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8">
-            {dimensions.map((dim) => {
-              const isActive = activeTab === dim;
-              return (
-                <button
-                  key={dim}
-                  onClick={() => setActiveTab(dim)}
-                  className={[
-                    'flex-grow sm:flex-grow-0 flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 rounded-full font-semibold transition-all',
-                    'ring-1 ring-stone-200',
-                    isActive
-                      ? 'bg-slate-900 text-white shadow-sm'
-                      : 'bg-stone-50 text-slate-700 hover:bg-stone-100',
-                  ].join(' ')}
-                >
-                  <span className={isActive ? 'text-white' : 'text-slate-900'}>{showcaseData[dim].icon}</span>
-                  <span className="text-sm sm:text-base">{dim}</span>
-                </button>
-              );
-            })}
+            {dimensions.map((dim) => (
+              <button
+                key={dim}
+                onClick={() => setActiveTab(dim)}
+                className={[
+                  'flex-grow sm:flex-grow-0 flex items-center gap-2 px-4 py-2 rounded-full font-semibold transition-all',
+                  activeTab === dim
+                    ? 'bg-slate-900 text-white shadow-sm'
+                    : 'bg-white text-slate-700 ring-1 ring-stone-200 hover:bg-stone-50',
+                ].join(' ')}
+              >
+                {showcaseData[dim].icon}
+                <span className="text-sm sm:text-base">{dim}</span>
+              </button>
+            ))}
           </div>
 
-          <div className="rounded-2xl bg-stone-50 p-6 sm:p-7 ring-1 ring-stone-200">
+          <div className="bg-stone-50 p-6 rounded-2xl ring-1 ring-stone-200">
             <div className="grid lg:grid-cols-5 gap-8">
+              {/* Left */}
               <div className="lg:col-span-3">
-                <div className="bg-white p-6 rounded-2xl shadow-sm ring-1 ring-stone-200">
-                  <div className="text-xs font-bold uppercase tracking-wider text-slate-500">Strategic lens</div>
-                  <ul className="mt-4 space-y-3">
+                <div className="bg-white p-6 rounded-2xl shadow-sm ring-1 ring-stone-200 mb-6">
+                  <div className="text-sm font-bold uppercase tracking-wider text-slate-500 mb-4">
+                    Strategic lens
+                  </div>
+                  <ul className="space-y-3">
                     {activeContent.strategicLens.map((item, i) => (
-                      <li key={i} className="flex items-start gap-3 text-slate-600">
+                      <li key={i} className="flex items-start gap-3">
                         <span className="mt-2 h-1.5 w-1.5 rounded-full bg-amber-600 flex-shrink-0" />
-                        <span>{item}</span>
+                        <span className="text-slate-600">{item}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                <div className="mt-6 bg-white p-6 rounded-2xl shadow-sm ring-1 ring-stone-200">
-                  <div className="text-xs font-bold uppercase tracking-wider text-slate-500">Roadmap phases</div>
-                  <div className="mt-4 space-y-4">
+                <div className="bg-white p-6 rounded-2xl shadow-sm ring-1 ring-stone-200">
+                  <div className="text-sm font-bold uppercase tracking-wider text-slate-500 mb-4">
+                    Roadmap phases
+                  </div>
+                  <div className="space-y-5">
                     {activeContent.phases.map((phase, i) => (
-                      <div key={i} className="rounded-xl bg-stone-50 ring-1 ring-stone-200 p-4">
-                        <div className="flex items-baseline justify-between gap-4">
-                          <div className="font-bold text-slate-900">{phase.phase}</div>
-                          <div className="text-sm text-slate-500">{phase.timeframe}</div>
+                      <div key={i}>
+                        <div className="font-semibold text-slate-900">
+                          {phase.phase}
+                          <span className="ml-2 text-sm font-normal text-slate-500">({phase.timeframe})</span>
                         </div>
-                        <ul className="mt-3 space-y-2">
+                        <ul className="mt-2 space-y-2">
                           {phase.actions.map((action, j) => (
                             <li key={j} className="flex items-start gap-3 text-sm text-slate-600">
-                              <span className="mt-2 h-1.5 w-1.5 rounded-full bg-slate-400 flex-shrink-0" />
+                              <span className="mt-1 text-amber-600">•</span>
                               <span>{action}</span>
                             </li>
                           ))}
@@ -272,27 +280,27 @@ const PulseTool: React.FC = () => {
                 </div>
               </div>
 
+              {/* Right */}
               <div className="lg:col-span-2 flex flex-col gap-6">
-                <div className="bg-white p-6 rounded-2xl shadow-sm ring-1 ring-stone-200">
+                <div className="w-full bg-white p-6 rounded-2xl shadow-sm ring-1 ring-stone-200">
                   <MiniPulseSnapshot />
                 </div>
 
-                <div className="bg-white p-6 rounded-2xl shadow-sm ring-1 ring-stone-200">
-                  <div className="text-xs font-bold uppercase tracking-wider text-slate-500">Output</div>
+                <div className="w-full bg-white p-6 rounded-2xl shadow-sm ring-1 ring-stone-200">
+                  <div className="text-sm font-bold uppercase tracking-wider text-slate-500">Output</div>
                   <p className="mt-3 text-sm text-slate-600">
-                    A prioritized roadmap mapped to owners — plus a simple measurement plan.
+                    A prioritized roadmap mapped to owners — plus a simple measurement plan (Value Ledger) and a monthly shipping cadence.
                   </p>
                 </div>
               </div>
             </div>
           </div>
+        </div>
 
-          {/* keep this quiet; no mid-page CTAs */}
-          <div className="mt-10 text-center">
-            <p className="text-sm text-slate-500">
-              Pulse informs what to do first — execution happens in the Reality Demo and Value Sprint.
-            </p>
-          </div>
+        <div className="mt-10 text-center">
+          <p className="text-sm text-slate-500">
+            Pulse is how we remove ambiguity — then we execute only where value is measurable.
+          </p>
         </div>
       </div>
     </section>
