@@ -33,9 +33,21 @@ const showcaseData: Record<
       'Readiness to change day-to-day work habits',
     ],
     phases: [
-      { phase: 'Quick wins', timeframe: '0–30 days', actions: ['Identify early adopters.', 'Share initial wins with simple metrics.'] },
-      { phase: 'Build capability', timeframe: '1–3 months', actions: ['Short enablement sessions.', 'Lightweight playbooks per workflow.'] },
-      { phase: 'Scale & embed', timeframe: '3–6 months', actions: ['Role-based enablement.', 'Sustained ownership + adoption cadence.'] },
+      {
+        phase: 'Quick wins',
+        timeframe: '0–30 days',
+        actions: ['Identify early adopters.', 'Share initial wins with simple metrics.'],
+      },
+      {
+        phase: 'Build capability',
+        timeframe: '1–3 months',
+        actions: ['Short enablement sessions.', 'Lightweight playbooks per workflow.'],
+      },
+      {
+        phase: 'Scale & embed',
+        timeframe: '3–6 months',
+        actions: ['Role-based enablement.', 'Sustained ownership + adoption cadence.'],
+      },
     ],
   },
   'Strategy & Governance': {
@@ -46,9 +58,21 @@ const showcaseData: Record<
       'Risk, privacy, and governance guardrails',
     ],
     phases: [
-      { phase: 'Quick wins', timeframe: '0–30 days', actions: ['Define success metrics per workflow.', 'Assign an exec sponsor + operator owner.'] },
-      { phase: 'Build capability', timeframe: '1–3 months', actions: ['Define evaluation approach.', 'Create a lightweight governance cadence.'] },
-      { phase: 'Scale & embed', timeframe: '3–6 months', actions: ['Quarterly ROI/risk/cost review.', 'Embed metrics into operating reviews.'] },
+      {
+        phase: 'Quick wins',
+        timeframe: '0–30 days',
+        actions: ['Define success metrics per workflow.', 'Assign an exec sponsor + operator owner.'],
+      },
+      {
+        phase: 'Build capability',
+        timeframe: '1–3 months',
+        actions: ['Define evaluation approach.', 'Create a lightweight governance cadence.'],
+      },
+      {
+        phase: 'Scale & embed',
+        timeframe: '3–6 months',
+        actions: ['Quarterly ROI/risk/cost review.', 'Embed metrics into operating reviews.'],
+      },
     ],
   },
   'Usage & Adoption': {
@@ -59,9 +83,21 @@ const showcaseData: Record<
       'Adoption patterns and resistance points',
     ],
     phases: [
-      { phase: 'Quick wins', timeframe: '0–30 days', actions: ['Baseline current usage and pain points.', 'Start with one high-volume workflow.'] },
-      { phase: 'Build capability', timeframe: '1–3 months', actions: ['Role-based training for the chosen workflow.', 'Measure adoption + quality weekly.'] },
-      { phase: 'Scale & embed', timeframe: '3–6 months', actions: ['Expand to adjacent workflows with the same pattern.'] },
+      {
+        phase: 'Quick wins',
+        timeframe: '0–30 days',
+        actions: ['Baseline current usage and pain points.', 'Start with one high-volume workflow.'],
+      },
+      {
+        phase: 'Build capability',
+        timeframe: '1–3 months',
+        actions: ['Role-based training for the chosen workflow.', 'Measure adoption + quality weekly.'],
+      },
+      {
+        phase: 'Scale & embed',
+        timeframe: '3–6 months',
+        actions: ['Expand to adjacent workflows with the same pattern.'],
+      },
     ],
   },
   'Systems & Technology': {
@@ -72,9 +108,21 @@ const showcaseData: Record<
       'Embedding AI into existing platforms',
     ],
     phases: [
-      { phase: 'Quick wins', timeframe: '0–30 days', actions: ['Map systems and access boundaries.', 'Identify integration blockers for the first workflow.'] },
-      { phase: 'Build capability', timeframe: '1–3 months', actions: ['Standardize connectors/APIs for target systems.', 'Harden identity and permissions.'] },
-      { phase: 'Scale & embed', timeframe: '3–6 months', actions: ['Operationalize the integration pattern at scale.'] },
+      {
+        phase: 'Quick wins',
+        timeframe: '0–30 days',
+        actions: ['Map systems and access boundaries.', 'Identify integration blockers for the first workflow.'],
+      },
+      {
+        phase: 'Build capability',
+        timeframe: '1–3 months',
+        actions: ['Standardize connectors/APIs for target systems.', 'Harden identity and permissions.'],
+      },
+      {
+        phase: 'Scale & embed',
+        timeframe: '3–6 months',
+        actions: ['Operationalize the integration pattern at scale.'],
+      },
     ],
   },
   'Processes & Workflows': {
@@ -85,9 +133,21 @@ const showcaseData: Record<
       'Which steps need human-in-the-loop',
     ],
     phases: [
-      { phase: 'Quick wins', timeframe: '0–30 days', actions: ['Select one workflow with baseline metrics.', 'Define a safe shadow-mode plan.'] },
-      { phase: 'Build capability', timeframe: '1–3 months', actions: ['Move from shadow → assisted usage in-flow.', 'Document the repeatable pattern.'] },
-      { phase: 'Scale & embed', timeframe: '3–6 months', actions: ['Roll out the pattern across similar workflows.'] },
+      {
+        phase: 'Quick wins',
+        timeframe: '0–30 days',
+        actions: ['Select one workflow with baseline metrics.', 'Define a safe shadow-mode plan.'],
+      },
+      {
+        phase: 'Build capability',
+        timeframe: '1–3 months',
+        actions: ['Move from shadow → assisted usage in-flow.', 'Document the repeatable pattern.'],
+      },
+      {
+        phase: 'Scale & embed',
+        timeframe: '3–6 months',
+        actions: ['Roll out the pattern across similar workflows.'],
+      },
     ],
   },
   'Data Readiness': {
@@ -98,9 +158,21 @@ const showcaseData: Record<
       'Ability to ground outputs (citations)',
     ],
     phases: [
-      { phase: 'Quick wins', timeframe: '0–30 days', actions: ['Identify trusted sources for the first workflow.', 'Fix the top data hygiene gaps.'] },
-      { phase: 'Build capability', timeframe: '1–3 months', actions: ['Define data usage rules.', 'Create a minimal source registry / KB.'] },
-      { phase: 'Scale & embed', timeframe: '3–6 months', actions: ['Expand coverage + catalog, improve observability.'] },
+      {
+        phase: 'Quick wins',
+        timeframe: '0–30 days',
+        actions: ['Identify trusted sources for the first workflow.', 'Fix the top data hygiene gaps.'],
+      },
+      {
+        phase: 'Build capability',
+        timeframe: '1–3 months',
+        actions: ['Define data usage rules.', 'Create a minimal source registry / KB.'],
+      },
+      {
+        phase: 'Scale & embed',
+        timeframe: '3–6 months',
+        actions: ['Expand coverage + catalog, improve observability.'],
+      },
     ],
   },
 };
@@ -120,11 +192,16 @@ const MiniPulseSnapshot: React.FC = () => {
 
   return (
     <div className="w-full">
-      <div className="text-sm font-semibold text-slate-800 mb-3">Example snapshot</div>
+      <div className="flex items-center justify-between mb-3">
+        <div className="text-sm font-semibold text-slate-800">Example snapshot</div>
+        <div className="text-xs text-slate-400">illustrative</div>
+      </div>
+
       <div className="space-y-3">
         {dims.map((d) => (
           <div key={d.label} className="flex items-center gap-3">
             <div className="w-20 text-sm font-semibold text-slate-600">{d.label}</div>
+
             <div className="flex-1">
               <div className="relative h-2 rounded-full bg-stone-100 overflow-hidden ring-1 ring-stone-200">
                 <div
@@ -137,6 +214,7 @@ const MiniPulseSnapshot: React.FC = () => {
                 />
               </div>
             </div>
+
             <div className="w-16 text-right text-xs text-slate-500">
               {d.current}/{max} → {d.target}/{max}
             </div>
@@ -191,45 +269,65 @@ const PulseTool: React.FC = () => {
             </div>
 
             <div className="mt-6">
-              <div className="relative h-1 bg-stone-200 rounded-full" />
-              <div className="mt-4 grid grid-cols-4 gap-3">
-                {score.map((s) => (
-                  <div key={s.n} className="text-center">
+              <div className="flex items-center justify-between gap-3">
+                {score.map((s, idx) => (
+                  <div key={s.n} className="flex-1 text-center">
                     <div className="mx-auto w-10 h-10 rounded-full bg-white ring-1 ring-stone-200 flex items-center justify-center font-extrabold text-slate-900">
                       {s.n}
                     </div>
                     <div className="mt-2 text-sm font-semibold text-slate-700">{s.label}</div>
+                    {idx < score.length - 1 && (
+                      <div className="hidden md:block mx-auto mt-3 h-1 w-full bg-stone-200 rounded-full" />
+                    )}
                   </div>
                 ))}
               </div>
             </div>
 
             <p className="mt-5 text-center text-sm text-slate-500">
-              We score what matters for execution: ownership, workflow fit, data boundaries, and adoption.
+              Scored for execution: ownership, workflow fit, data boundaries, and adoption.
             </p>
           </div>
         </div>
 
-        {/* Showcase */}
+        {/* Six dimensions */}
         <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-sm ring-1 ring-stone-200">
           <div className="text-center mb-7">
-            <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-2">Methodology showcase</h3>
+            <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-2">Six dimensions</h3>
             <p className="max-w-2xl mx-auto text-slate-600">
-              Pick a dimension to see the strategic lens and the practical phases we apply.
+              Pick one dimension to see the lens and the practical phases we apply.
             </p>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8">
+          {/* Mobile: dropdown (quieter) */}
+          <div className="sm:hidden mb-7">
+            <label className="block text-sm font-semibold text-slate-700 mb-2">Dimension</label>
+            <select
+              value={activeTab}
+              onChange={(e) => setActiveTab(e.target.value as DimKey)}
+              className="w-full rounded-2xl bg-white px-4 py-3 text-slate-900 ring-1 ring-stone-200 focus:outline-none focus:ring-2 focus:ring-amber-300"
+            >
+              {dimensions.map((dim) => (
+                <option key={dim} value={dim}>
+                  {dim}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          {/* Desktop: pills */}
+          <div className="hidden sm:flex flex-wrap justify-center gap-2 sm:gap-3 mb-8">
             {dimensions.map((dim) => (
               <button
                 key={dim}
                 onClick={() => setActiveTab(dim)}
                 className={[
-                  'flex-grow sm:flex-grow-0 flex items-center gap-2 px-4 py-2 rounded-full font-semibold transition-all',
+                  'flex items-center gap-2 px-4 py-2 rounded-full font-semibold transition-all',
                   activeTab === dim
                     ? 'bg-slate-900 text-white shadow-sm'
                     : 'bg-white text-slate-700 ring-1 ring-stone-200 hover:bg-stone-50',
                 ].join(' ')}
+                aria-pressed={activeTab === dim}
               >
                 {showcaseData[dim].icon}
                 <span className="text-sm sm:text-base">{dim}</span>
@@ -242,7 +340,7 @@ const PulseTool: React.FC = () => {
               {/* Left */}
               <div className="lg:col-span-3">
                 <div className="bg-white p-6 rounded-2xl shadow-sm ring-1 ring-stone-200 mb-6">
-                  <div className="text-sm font-bold uppercase tracking-wider text-slate-500 mb-4">
+                  <div className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-4">
                     Strategic lens
                   </div>
                   <ul className="space-y-3">
@@ -256,7 +354,7 @@ const PulseTool: React.FC = () => {
                 </div>
 
                 <div className="bg-white p-6 rounded-2xl shadow-sm ring-1 ring-stone-200">
-                  <div className="text-sm font-bold uppercase tracking-wider text-slate-500 mb-4">
+                  <div className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-4">
                     Roadmap phases
                   </div>
                   <div className="space-y-5">
@@ -287,7 +385,7 @@ const PulseTool: React.FC = () => {
                 </div>
 
                 <div className="w-full bg-white p-6 rounded-2xl shadow-sm ring-1 ring-stone-200">
-                  <div className="text-sm font-bold uppercase tracking-wider text-slate-500">Output</div>
+                  <div className="text-xs font-bold uppercase tracking-wider text-slate-500">Output</div>
                   <p className="mt-3 text-sm text-slate-600">
                     A prioritized roadmap mapped to owners — plus a simple measurement plan (Value Ledger) and a monthly shipping cadence.
                   </p>
@@ -299,7 +397,7 @@ const PulseTool: React.FC = () => {
 
         <div className="mt-10 text-center">
           <p className="text-sm text-slate-500">
-            Pulse is how we remove ambiguity — then we execute only where value is measurable.
+            Pulse removes ambiguity — then execution focuses only where value is measurable.
           </p>
         </div>
       </div>
