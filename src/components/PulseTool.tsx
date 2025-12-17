@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import {
   UsersIcon,
   ShieldCheckIcon,
@@ -33,21 +33,9 @@ const showcaseData: Record<
       'Readiness to change day-to-day work habits',
     ],
     phases: [
-      {
-        phase: 'Quick wins',
-        timeframe: '0–30 days',
-        actions: ['Identify early adopters.', 'Share initial wins with simple metrics.'],
-      },
-      {
-        phase: 'Build capability',
-        timeframe: '1–3 months',
-        actions: ['Short enablement sessions.', 'Lightweight playbooks per workflow.'],
-      },
-      {
-        phase: 'Scale & embed',
-        timeframe: '3–6 months',
-        actions: ['Role-based enablement.', 'Sustained ownership + adoption cadence.'],
-      },
+      { phase: 'Quick wins', timeframe: '0–30 days', actions: ['Identify early adopters.', 'Share initial wins with simple metrics.'] },
+      { phase: 'Build capability', timeframe: '1–3 months', actions: ['Short enablement sessions.', 'Lightweight playbooks per workflow.'] },
+      { phase: 'Scale & embed', timeframe: '3–6 months', actions: ['Role-based enablement.', 'Sustained ownership + adoption cadence.'] },
     ],
   },
   'Strategy & Governance': {
@@ -58,21 +46,9 @@ const showcaseData: Record<
       'Risk, privacy, and governance guardrails',
     ],
     phases: [
-      {
-        phase: 'Quick wins',
-        timeframe: '0–30 days',
-        actions: ['Define success metrics per workflow.', 'Assign an exec sponsor + operator owner.'],
-      },
-      {
-        phase: 'Build capability',
-        timeframe: '1–3 months',
-        actions: ['Define evaluation approach.', 'Create a lightweight governance cadence.'],
-      },
-      {
-        phase: 'Scale & embed',
-        timeframe: '3–6 months',
-        actions: ['Quarterly ROI/risk/cost review.', 'Embed metrics into operating reviews.'],
-      },
+      { phase: 'Quick wins', timeframe: '0–30 days', actions: ['Define success metrics per workflow.', 'Assign an exec sponsor + operator owner.'] },
+      { phase: 'Build capability', timeframe: '1–3 months', actions: ['Define evaluation approach.', 'Create a lightweight governance cadence.'] },
+      { phase: 'Scale & embed', timeframe: '3–6 months', actions: ['Quarterly ROI/risk/cost review.', 'Embed metrics into operating reviews.'] },
     ],
   },
   'Usage & Adoption': {
@@ -83,21 +59,9 @@ const showcaseData: Record<
       'Adoption patterns and resistance points',
     ],
     phases: [
-      {
-        phase: 'Quick wins',
-        timeframe: '0–30 days',
-        actions: ['Baseline current usage and pain points.', 'Start with one high-volume workflow.'],
-      },
-      {
-        phase: 'Build capability',
-        timeframe: '1–3 months',
-        actions: ['Role-based training for the chosen workflow.', 'Measure adoption + quality weekly.'],
-      },
-      {
-        phase: 'Scale & embed',
-        timeframe: '3–6 months',
-        actions: ['Expand to adjacent workflows with the same pattern.'],
-      },
+      { phase: 'Quick wins', timeframe: '0–30 days', actions: ['Baseline current usage and pain points.', 'Start with one high-volume workflow.'] },
+      { phase: 'Build capability', timeframe: '1–3 months', actions: ['Role-based training for the chosen workflow.', 'Measure adoption + quality weekly.'] },
+      { phase: 'Scale & embed', timeframe: '3–6 months', actions: ['Expand to adjacent workflows with the same pattern.'] },
     ],
   },
   'Systems & Technology': {
@@ -108,21 +72,9 @@ const showcaseData: Record<
       'Embedding AI into existing platforms',
     ],
     phases: [
-      {
-        phase: 'Quick wins',
-        timeframe: '0–30 days',
-        actions: ['Map systems and access boundaries.', 'Identify integration blockers for the first workflow.'],
-      },
-      {
-        phase: 'Build capability',
-        timeframe: '1–3 months',
-        actions: ['Standardize connectors/APIs for target systems.', 'Harden identity and permissions.'],
-      },
-      {
-        phase: 'Scale & embed',
-        timeframe: '3–6 months',
-        actions: ['Operationalize the integration pattern at scale.'],
-      },
+      { phase: 'Quick wins', timeframe: '0–30 days', actions: ['Map systems and access boundaries.', 'Identify integration blockers for the first workflow.'] },
+      { phase: 'Build capability', timeframe: '1–3 months', actions: ['Standardize connectors/APIs for target systems.', 'Harden identity and permissions.'] },
+      { phase: 'Scale & embed', timeframe: '3–6 months', actions: ['Operationalize the integration pattern at scale.'] },
     ],
   },
   'Processes & Workflows': {
@@ -133,21 +85,9 @@ const showcaseData: Record<
       'Which steps need human-in-the-loop',
     ],
     phases: [
-      {
-        phase: 'Quick wins',
-        timeframe: '0–30 days',
-        actions: ['Select one workflow with baseline metrics.', 'Define a safe shadow-mode plan.'],
-      },
-      {
-        phase: 'Build capability',
-        timeframe: '1–3 months',
-        actions: ['Move from shadow → assisted usage in-flow.', 'Document the repeatable pattern.'],
-      },
-      {
-        phase: 'Scale & embed',
-        timeframe: '3–6 months',
-        actions: ['Roll out the pattern across similar workflows.'],
-      },
+      { phase: 'Quick wins', timeframe: '0–30 days', actions: ['Select one workflow with baseline metrics.', 'Define a safe shadow-mode plan.'] },
+      { phase: 'Build capability', timeframe: '1–3 months', actions: ['Move from shadow → assisted usage in-flow.', 'Document the repeatable pattern.'] },
+      { phase: 'Scale & embed', timeframe: '3–6 months', actions: ['Roll out the pattern across similar workflows.'] },
     ],
   },
   'Data Readiness': {
@@ -158,21 +98,9 @@ const showcaseData: Record<
       'Ability to ground outputs (citations)',
     ],
     phases: [
-      {
-        phase: 'Quick wins',
-        timeframe: '0–30 days',
-        actions: ['Identify trusted sources for the first workflow.', 'Fix the top data hygiene gaps.'],
-      },
-      {
-        phase: 'Build capability',
-        timeframe: '1–3 months',
-        actions: ['Define data usage rules.', 'Create a minimal source registry / KB.'],
-      },
-      {
-        phase: 'Scale & embed',
-        timeframe: '3–6 months',
-        actions: ['Expand coverage + catalog, improve observability.'],
-      },
+      { phase: 'Quick wins', timeframe: '0–30 days', actions: ['Identify trusted sources for the first workflow.', 'Fix the top data hygiene gaps.'] },
+      { phase: 'Build capability', timeframe: '1–3 months', actions: ['Define data usage rules.', 'Create a minimal source registry / KB.'] },
+      { phase: 'Scale & embed', timeframe: '3–6 months', actions: ['Expand coverage + catalog, improve observability.'] },
     ],
   },
 };
@@ -180,24 +108,27 @@ const showcaseData: Record<
 type DimKey = keyof typeof showcaseData;
 
 const MiniPulseSnapshot: React.FC = () => {
-  const dims = [
-    { label: 'Culture', current: 2, target: 4 },
-    { label: 'Strategy', current: 3, target: 4 },
-    { label: 'Adoption', current: 2, target: 4 },
-    { label: 'Systems', current: 2, target: 4 },
-    { label: 'Process', current: 3, target: 4 },
-    { label: 'Data', current: 2, target: 4 },
-  ];
+  const dims = useMemo(
+    () => [
+      { label: 'Culture', current: 2, target: 4 },
+      { label: 'Strategy', current: 3, target: 4 },
+      { label: 'Adoption', current: 2, target: 4 },
+      { label: 'Systems', current: 2, target: 4 },
+      { label: 'Process', current: 3, target: 4 },
+      { label: 'Data', current: 2, target: 4 },
+    ],
+    []
+  );
   const max = 5;
 
   return (
     <div className="w-full">
-      <div className="flex items-center justify-between mb-3">
+      <div className="flex items-center justify-between">
         <div className="text-sm font-semibold text-slate-800">Example snapshot</div>
         <div className="text-xs text-slate-400">illustrative</div>
       </div>
 
-      <div className="space-y-3">
+      <div className="mt-4 space-y-3">
         {dims.map((d) => (
           <div key={d.label} className="flex items-center gap-3">
             <div className="w-20 text-sm font-semibold text-slate-600">{d.label}</div>
@@ -242,10 +173,10 @@ const PulseTool: React.FC = () => {
   const dimensions = Object.keys(showcaseData) as DimKey[];
 
   const score = [
-    { n: 1, label: 'Foundation' },
-    { n: 2, label: 'Emerging' },
-    { n: 3, label: 'Building' },
-    { n: 4, label: 'Scaling' },
+    { n: 1, label: 'Foundation', hint: 'ad-hoc' },
+    { n: 2, label: 'Emerging', hint: 'some structure' },
+    { n: 3, label: 'Building', hint: 'repeatable' },
+    { n: 4, label: 'Scaling', hint: 'owned + measured' },
   ];
 
   return (
@@ -253,7 +184,7 @@ const PulseTool: React.FC = () => {
       <div id="pulse" className="scroll-mt-24" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header (quiet) */}
+        {/* Header */}
         <div className="text-center mb-10">
           <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-3">Gainify Pulse</h2>
           <p className="max-w-3xl mx-auto text-lg text-slate-600">
@@ -261,46 +192,45 @@ const PulseTool: React.FC = () => {
           </p>
         </div>
 
-        {/* Scoring scale */}
-        <div className="bg-white p-7 sm:p-8 rounded-2xl shadow-sm ring-1 ring-stone-200 mb-10">
-          <div className="max-w-3xl mx-auto">
-            <div className="text-sm font-bold uppercase tracking-wider text-slate-500 text-center">
-              Scoring scale (1–4)
+        {/* Scoring scale (quiet, premium) */}
+        <div className="bg-white rounded-2xl ring-1 ring-stone-200 shadow-sm p-7 sm:p-8 mb-10">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-xs font-bold uppercase tracking-wider text-slate-500 text-center">
+              Scoring scale
             </div>
 
             <div className="mt-6">
-              <div className="flex items-center justify-between gap-3">
-                {score.map((s, idx) => (
-                  <div key={s.n} className="flex-1 text-center">
-                    <div className="mx-auto w-10 h-10 rounded-full bg-white ring-1 ring-stone-200 flex items-center justify-center font-extrabold text-slate-900">
-                      {s.n}
-                    </div>
-                    <div className="mt-2 text-sm font-semibold text-slate-700">{s.label}</div>
-                    {idx < score.length - 1 && (
-                      <div className="hidden md:block mx-auto mt-3 h-1 w-full bg-stone-200 rounded-full" />
-                    )}
+              <div className="grid grid-cols-1 sm:grid-cols-4 gap-3">
+                {score.map((s) => (
+                  <div
+                    key={s.n}
+                    className="rounded-2xl bg-stone-50 ring-1 ring-stone-200 px-5 py-4 text-center"
+                  >
+                    <div className="text-sm font-extrabold text-slate-900">{s.n}</div>
+                    <div className="mt-1 text-sm font-semibold text-slate-800">{s.label}</div>
+                    <div className="mt-1 text-xs text-slate-500">{s.hint}</div>
                   </div>
                 ))}
               </div>
-            </div>
 
-            <p className="mt-5 text-center text-sm text-slate-500">
-              Scored for execution: ownership, workflow fit, data boundaries, and adoption.
-            </p>
+              <p className="mt-5 text-center text-sm text-slate-500">
+                Scored for execution: ownership, workflow fit, data boundaries, and adoption.
+              </p>
+            </div>
           </div>
         </div>
 
-        {/* Six dimensions */}
-        <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-sm ring-1 ring-stone-200">
+        {/* Dimensions (one calm surface) */}
+        <div className="bg-white rounded-2xl ring-1 ring-stone-200 shadow-sm p-6 sm:p-8">
           <div className="text-center mb-7">
             <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-2">Six dimensions</h3>
             <p className="max-w-2xl mx-auto text-slate-600">
-              Pick one dimension to see the lens and the practical phases we apply.
+              Choose a dimension to see the lens and the phases we apply.
             </p>
           </div>
 
-          {/* Mobile: dropdown (quieter) */}
-          <div className="sm:hidden mb-7">
+          {/* Mobile dropdown */}
+          <div className="sm:hidden mb-6">
             <label className="block text-sm font-semibold text-slate-700 mb-2">Dimension</label>
             <select
               value={activeTab}
@@ -315,19 +245,19 @@ const PulseTool: React.FC = () => {
             </select>
           </div>
 
-          {/* Desktop: pills */}
+          {/* Desktop pills */}
           <div className="hidden sm:flex flex-wrap justify-center gap-2 sm:gap-3 mb-8">
             {dimensions.map((dim) => (
               <button
                 key={dim}
                 onClick={() => setActiveTab(dim)}
+                aria-pressed={activeTab === dim}
                 className={[
-                  'flex items-center gap-2 px-4 py-2 rounded-full font-semibold transition-all',
+                  'flex items-center gap-2 px-4 py-2 rounded-full font-semibold transition-colors',
                   activeTab === dim
-                    ? 'bg-slate-900 text-white shadow-sm'
+                    ? 'bg-slate-900 text-white'
                     : 'bg-white text-slate-700 ring-1 ring-stone-200 hover:bg-stone-50',
                 ].join(' ')}
-                aria-pressed={activeTab === dim}
               >
                 {showcaseData[dim].icon}
                 <span className="text-sm sm:text-base">{dim}</span>
@@ -335,11 +265,12 @@ const PulseTool: React.FC = () => {
             ))}
           </div>
 
-          <div className="bg-stone-50 p-6 rounded-2xl ring-1 ring-stone-200">
+          {/* Content grid */}
+          <div className="rounded-2xl bg-stone-50 ring-1 ring-stone-200 p-6">
             <div className="grid lg:grid-cols-5 gap-8">
-              {/* Left */}
-              <div className="lg:col-span-3">
-                <div className="bg-white p-6 rounded-2xl shadow-sm ring-1 ring-stone-200 mb-6">
+              {/* Left: lens + phases */}
+              <div className="lg:col-span-3 space-y-6">
+                <div className="bg-white rounded-2xl ring-1 ring-stone-200 p-6">
                   <div className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-4">
                     Strategic lens
                   </div>
@@ -353,10 +284,11 @@ const PulseTool: React.FC = () => {
                   </ul>
                 </div>
 
-                <div className="bg-white p-6 rounded-2xl shadow-sm ring-1 ring-stone-200">
+                <div className="bg-white rounded-2xl ring-1 ring-stone-200 p-6">
                   <div className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-4">
                     Roadmap phases
                   </div>
+
                   <div className="space-y-5">
                     {activeContent.phases.map((phase, i) => (
                       <div key={i}>
@@ -378,13 +310,13 @@ const PulseTool: React.FC = () => {
                 </div>
               </div>
 
-              {/* Right */}
+              {/* Right: snapshot + output */}
               <div className="lg:col-span-2 flex flex-col gap-6">
-                <div className="w-full bg-white p-6 rounded-2xl shadow-sm ring-1 ring-stone-200">
+                <div className="bg-white rounded-2xl ring-1 ring-stone-200 p-6">
                   <MiniPulseSnapshot />
                 </div>
 
-                <div className="w-full bg-white p-6 rounded-2xl shadow-sm ring-1 ring-stone-200">
+                <div className="bg-white rounded-2xl ring-1 ring-stone-200 p-6">
                   <div className="text-xs font-bold uppercase tracking-wider text-slate-500">Output</div>
                   <p className="mt-3 text-sm text-slate-600">
                     A prioritized roadmap mapped to owners — plus a simple measurement plan (Value Ledger) and a monthly shipping cadence.
@@ -393,12 +325,12 @@ const PulseTool: React.FC = () => {
               </div>
             </div>
           </div>
-        </div>
 
-        <div className="mt-10 text-center">
-          <p className="text-sm text-slate-500">
-            Pulse removes ambiguity — then execution focuses only where value is measurable.
-          </p>
+          <div className="mt-8 text-center">
+            <p className="text-sm text-slate-500">
+              Pulse removes ambiguity — then execution focuses only where value is measurable.
+            </p>
+          </div>
         </div>
       </div>
     </section>
