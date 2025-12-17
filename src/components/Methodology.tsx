@@ -16,7 +16,9 @@ const Step: React.FC<StepCard> = ({ icon, title, subtitle, bullets, meta }) => {
         <div className="w-12 h-12 rounded-xl bg-stone-50 ring-1 ring-stone-200 flex items-center justify-center text-slate-900">
           {icon}
         </div>
-        <div className="text-xs font-bold tracking-wider uppercase text-slate-500">
+
+        {/* time pill (quieter than uppercase corner text) */}
+        <div className="inline-flex items-center rounded-full bg-stone-50 px-3 py-1 text-xs font-bold text-slate-600 ring-1 ring-stone-200">
           {meta}
         </div>
       </div>
@@ -44,31 +46,31 @@ const Methodology: React.FC = () => {
       title: 'Reality Demo',
       subtitle: 'Fast signal on real work — before big commitments.',
       bullets: [
-        'Select one high-volume, measurable workflow.',
+        'Pick one measurable, high-volume workflow.',
         'Run a safe shadow-mode test on real data.',
-        'Deliver a Value Ledger: minutes saved → money.',
+        'Deliver a Value Ledger: time saved → money.',
       ],
     },
     {
       icon: <CogsIcon className="w-6 h-6" />,
       meta: '3–4 weeks',
       title: 'Value Sprint',
-      subtitle: 'Turn the signal into production-grade workflow impact.',
+      subtitle: 'Turn signal into production workflow impact.',
       bullets: [
         'Define baseline + target KPIs with clear owners.',
-        'Implement in-flow usage (not another “AI tool”).',
-        'Measure weekly: quality, adoption, outcomes.',
+        'Implement in-flow usage inside your existing tools.',
+        'Track weekly: quality, adoption, outcomes.',
       ],
     },
     {
       icon: <ShieldCheckIcon className="w-6 h-6" />,
-      meta: 'ongoing',
+      meta: 'Ongoing',
       title: 'Scale',
-      subtitle: 'Make it repeatable — with trust, control, and governance.',
+      subtitle: 'Repeatable delivery with trust and control.',
       bullets: [
         'Monthly shipping cadence + prioritized backlog.',
         'Evaluation, audit trail, and data boundaries where needed.',
-        'Expand to adjacent workflows only after results hold.',
+        'Expand only after results hold.',
       ],
     },
   ];
@@ -93,7 +95,7 @@ const Methodology: React.FC = () => {
 
         <div className="mt-10 text-center">
           <p className="text-sm text-slate-500">
-            Gainify Pulse supports this with a 6-dimension diagnostic — used to remove ambiguity before we execute.
+            Pulse supports this with a structured diagnostic — used to remove ambiguity before we scale.
           </p>
         </div>
       </div>
