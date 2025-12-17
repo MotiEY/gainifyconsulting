@@ -13,7 +13,7 @@ const Hero: React.FC = () => {
   return (
     <section
       id="home"
-      className="relative pt-28 sm:pt-32 pb-16 sm:pb-20 bg-stone-50 overflow-hidden"
+      className="relative pt-28 sm:pt-32 pb-14 sm:pb-16 bg-stone-50 overflow-hidden"
     >
       {/* warm quiet light */}
       <div aria-hidden="true" className="absolute inset-0">
@@ -23,9 +23,10 @@ const Hero: React.FC = () => {
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
+          {/* quiet badge */}
           <div className="inline-flex items-center gap-2 rounded-full bg-white/70 px-4 py-2 text-sm font-semibold text-slate-700 ring-1 ring-stone-200 backdrop-blur">
             <span className="h-1.5 w-1.5 rounded-full bg-amber-600" />
-            Operational AI, built for execution
+            Strategic AI implementation
           </div>
 
           <h1 className="mt-6 text-3xl md:text-5xl font-extrabold tracking-tight leading-tight text-slate-900">
@@ -34,31 +35,29 @@ const Hero: React.FC = () => {
           </h1>
 
           <p className="mt-5 max-w-3xl mx-auto text-base md:text-lg text-slate-600">
-            We implement AI where the work actually happens, prove impact with simple metrics,
+            We help teams implement AI where the work actually happens, prove impact with simple metrics,
             and scale what works with trust and control.
           </p>
 
-          {/* Single CTA only */}
-          <div className="mt-10 flex justify-center">
-            <a
-              href="#reality-demo"
-              onClick={handleLinkClick}
-              className="inline-flex items-center justify-center rounded-full px-8 py-3 font-bold text-white bg-slate-900 hover:bg-slate-800 transition-all"
-            >
-              Book Reality Demo
-            </a>
+          {/* micro-proof, whisper-level */}
+          <div className="mt-8 text-sm text-slate-500">
+            <span className="font-semibold text-slate-800">Reality Demo</span>
+            <span className="mx-2 text-stone-300">•</span>
+            Shadow mode
+            <span className="mx-2 text-stone-300">•</span>
+            Value ledger
           </div>
 
-          {/* Subtle scroll cue (not a CTA) */}
-          <div className="mt-10">
+          {/* subtle scroll cue (not a CTA) */}
+          <div className="mt-10 flex justify-center">
             <a
               href="#model"
               onClick={handleLinkClick}
-              className="inline-flex items-center gap-2 text-sm font-semibold text-slate-500 hover:text-slate-800 transition-colors"
+              className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/70 ring-1 ring-stone-200 text-slate-600 hover:text-slate-900 hover:bg-white transition-all"
               aria-label="Scroll to next section"
+              title="Scroll"
             >
-              <span className="opacity-70">Scroll</span>
-              <span className="text-base leading-none">↓</span>
+              <span className="text-lg leading-none">↓</span>
             </a>
           </div>
 
