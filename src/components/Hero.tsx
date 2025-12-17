@@ -15,7 +15,7 @@ const Hero: React.FC = () => {
       id="home"
       className="relative pt-28 sm:pt-32 pb-14 sm:pb-16 bg-stone-50 overflow-hidden"
     >
-      {/* warm quiet light */}
+      {/* warm, quiet light */}
       <div aria-hidden="true" className="absolute inset-0">
         <div className="absolute -top-32 left-1/2 -translate-x-1/2 h-72 w-[46rem] rounded-full blur-3xl bg-amber-200/30" />
         <div className="absolute -top-24 left-[10%] h-64 w-64 rounded-full blur-3xl bg-rose-200/20" />
@@ -31,12 +31,12 @@ const Hero: React.FC = () => {
 
           <h1 className="mt-6 text-3xl md:text-5xl font-extrabold tracking-tight leading-tight text-slate-900">
             AI in real workflows.
-            <span className="block mt-2">Measured outcomes.</span>
+            <span className="block mt-2">Measurable lift.</span>
           </h1>
 
           <p className="mt-5 max-w-3xl mx-auto text-base md:text-lg text-slate-600">
-            We help teams implement AI where the work actually happens, prove impact with simple metrics,
-            and scale what works with trust and control.
+            We implement AI inside the work your teams already do, prove impact with simple metrics,
+            and scale safely with clear guardrails.
           </p>
 
           {/* subtle scroll cue (not a CTA) */}
@@ -44,7 +44,7 @@ const Hero: React.FC = () => {
             <a
               href="#model"
               onClick={handleLinkClick}
-              className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/70 ring-1 ring-stone-200 text-slate-600 hover:text-slate-900 hover:bg-white transition-all"
+              className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-white/70 ring-1 ring-stone-200 text-slate-600 hover:text-slate-900 hover:bg-white transition-all"
               aria-label="Scroll to next section"
               title="Scroll"
             >
@@ -53,7 +53,7 @@ const Hero: React.FC = () => {
           </div>
 
           <div className="mt-6 text-xs text-slate-400">
-            No platform lock-in. We work inside your existing stack.
+            Works inside your stack. No platform lock-in.
           </div>
         </div>
       </div>
