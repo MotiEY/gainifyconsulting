@@ -21,59 +21,34 @@ const Footer: React.FC = () => {
   return (
     <footer className="bg-white border-t border-stone-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="flex flex-col md:flex-row items-start justify-between gap-10">
-          {/* Brand */}
-          <div className="max-w-md">
+        <div className="flex flex-col md:flex-row items-center md:items-start justify-between gap-8">
+          <div className="text-center md:text-left">
             <a href="#home" onClick={handleLinkClick} className="inline-flex items-center gap-2">
               <span className="text-xl font-extrabold tracking-tight text-slate-900">
                 Gainify<span className="text-amber-600">.</span>ai
               </span>
-              <span className="hidden sm:inline text-sm font-semibold text-slate-500">
-                Strategic AI Implementation
-              </span>
             </a>
-
-            <p className="mt-3 text-sm text-slate-600">
-              Measurable outcomes. Repeatable delivery. Scalable trust.
+            <p className="mt-3 max-w-md text-sm text-slate-600">
+              Strategic AI implementation for measurable outcomes — built to repeat, built to scale safely.
             </p>
+          </div>
 
-            <p className="mt-4 text-sm text-slate-500">
-              Prefer starting with signal?{' '}
+          <nav aria-label="Footer" className="flex flex-wrap justify-center md:justify-end gap-x-6 gap-y-3">
+            {links.map((l) => (
               <a
-                href="#reality-demo"
+                key={l.href}
+                href={l.href}
                 onClick={handleLinkClick}
-                className="font-semibold text-slate-900 hover:underline"
+                className="text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors"
               >
-                Reality Demo
+                {l.label}
               </a>
-              .
-            </p>
-          </div>
-
-          {/* Links */}
-          <div className="w-full md:w-auto">
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-10 gap-y-3 text-sm">
-              {links.map((l) => (
-                <a
-                  key={l.href}
-                  href={l.href}
-                  onClick={handleLinkClick}
-                  className="text-slate-600 hover:text-slate-900 transition-colors"
-                >
-                  {l.label}
-                </a>
-              ))}
-            </div>
-          </div>
+            ))}
+          </nav>
         </div>
 
-        <div className="mt-10 pt-6 border-t border-stone-200 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <div className="text-xs text-slate-500">
-            © {new Date().getFullYear()} Gainify.ai. All rights reserved.
-          </div>
-          <div className="text-xs text-slate-400">
-            Built for quiet execution.
-          </div>
+        <div className="mt-10 pt-6 border-t border-stone-200 text-center text-xs text-slate-500">
+          © {new Date().getFullYear()} Gainify.ai
         </div>
       </div>
     </footer>
