@@ -6,9 +6,10 @@ const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 10);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    const onScroll = () => setIsScrolled(window.scrollY > 10);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   useEffect(() => {
@@ -29,10 +30,12 @@ const Header: React.FC = () => {
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     const href = e.currentTarget.getAttribute('href');
+
     if (href && href.startsWith('#')) {
-      const targetElement = document.querySelector(href);
-      targetElement?.scrollIntoView({ behavior: 'smooth' });
+      const el = document.querySelector(href);
+      el?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
+
     setIsMenuOpen(false);
   };
 
@@ -42,14 +45,14 @@ const Header: React.FC = () => {
         className={[
           'fixed top-0 left-0 w-full z-50 transition-all duration-300',
           isScrolled || isMenuOpen
-            ? 'bg-white/80 backdrop-blur-md ring-1 ring-stone-200'
+            ? 'bg-white/85 backdrop-blur-md shadow-sm ring-1 ring-stone-200'
             : 'bg-transparent',
         ].join(' ')}
       >
-        <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Primary">
           <div className="flex items-center justify-between h-20">
             {/* Brand */}
-            <a href="#home" className="flex items-baseline gap-3" onClick={handleLinkClick}>
+            <a href="#home" onClick={handleLinkClick} className="flex items-center gap-2">
               <span className="text-2xl font-extrabold tracking-tight text-slate-900">
                 Gainify<span className="text-amber-600">.</span>ai
               </span>
@@ -58,8 +61,8 @@ const Header: React.FC = () => {
               </span>
             </a>
 
-            {/* Desktop nav */}
-            <div className="hidden md:flex items-center gap-3">
+            {/* Desktop */}
+            <div className="hidden md:flex items-center gap-2">
               <div className="flex items-center">
                 {navLinks.map((link) => (
                   <a
@@ -73,53 +76,58 @@ const Header: React.FC = () => {
                 ))}
               </div>
 
-              {/* Single, quiet CTA */}
-              <div className="ml-2">
+              {/* CTAs */}
+              <div className="ml-3 flex items-center gap-2">
+                <a
+                  href="#pulse"
+                  onClick={handleLinkClick}
+                  className="inline-flex items-center justify-center rounded-full px-4 py-2 text-sm font-bold
+                             text-slate-900 bg-white ring-1 ring-stone-200 hover:bg-stone-50 transition-all"
+                >
+                  Take Pulse
+                </a>
                 <a
                   href="#reality-demo"
                   onClick={handleLinkClick}
-                  className="inline-flex items-center justify-center rounded-full px-5 py-2 text-sm font-bold text-white bg-slate-900 hover:bg-slate-800 transition-all"
+                  className="inline-flex items-center justify-center rounded-full px-5 py-2 text-sm font-bold
+                             text-white bg-slate-900 hover:bg-slate-800 transition-all"
                 >
-                  Book Reality Demo
+                  Reality Demo
                 </a>
               </div>
             </div>
 
-            {/* Mobile menu button */}
+            {/* Mobile button */}
             <div className="md:hidden">
               <button
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="inline-flex items-center justify-center p-2 rounded-md text-slate-700 hover:text-slate-900 hover:bg-white/70 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-amber-300"
-                aria-label="Main menu"
+                onClick={() => setIsMenuOpen((v) => !v)}
+                className="inline-flex items-center justify-center p-2 rounded-md text-slate-700 hover:text-slate-900 hover:bg-white/70
+                           focus:outline-none focus:ring-2 focus:ring-inset focus:ring-amber-300"
+                aria-label="Open menu"
                 aria-expanded={isMenuOpen}
               >
-                {isMenuOpen ? (
-                  <XIcon className="block h-6 w-6" />
-                ) : (
-                  <MenuIcon className="block h-6 w-6" />
-                )}
+                {isMenuOpen ? <XIcon className="block h-6 w-6" /> : <MenuIcon className="block h-6 w-6" />}
               </button>
             </div>
           </div>
         </nav>
       </header>
 
-      {/* Mobile menu overlay */}
+      {/* Mobile overlay */}
       <div
         className={[
           'fixed inset-0 z-40 md:hidden transition-transform duration-300 ease-in-out',
           isMenuOpen ? 'translate-x-0' : 'translate-x-full',
         ].join(' ')}
+        aria-hidden={!isMenuOpen}
       >
         <div className="h-full bg-stone-50">
-          <div className="pt-24 pb-8 px-6 flex flex-col h-full">
+          <div className="pt-24 pb-10 px-6 flex flex-col h-full">
             <div className="text-center">
               <div className="text-xl font-extrabold tracking-tight text-slate-900">
                 Gainify<span className="text-amber-600">.</span>ai
               </div>
-              <div className="mt-1 text-sm font-semibold text-slate-500">
-                Strategic AI Implementation
-              </div>
+              <div className="mt-1 text-sm font-semibold text-slate-500">Strategic AI Implementation</div>
             </div>
 
             <nav className="mt-10 flex flex-col items-center justify-center flex-grow gap-y-6">
@@ -135,21 +143,22 @@ const Header: React.FC = () => {
               ))}
             </nav>
 
-            <div className="mt-6 grid gap-3">
+            <div className="mt-8 grid gap-3">
               <a
                 href="#reality-demo"
                 onClick={handleLinkClick}
-                className="w-full text-center bg-slate-900 text-white px-8 py-4 rounded-full text-lg font-bold hover:bg-slate-800 transition-all"
+                className="w-full text-center bg-slate-900 text-white px-8 py-4 rounded-full text-lg font-bold
+                           hover:bg-slate-800 transition-all"
               >
-                Book Reality Demo
+                Reality Demo
               </a>
-
               <a
-                href="#contact"
+                href="#pulse"
                 onClick={handleLinkClick}
-                className="w-full text-center text-slate-600 py-2 text-sm font-semibold hover:text-slate-900 transition-colors"
+                className="w-full text-center bg-white text-slate-900 px-8 py-4 rounded-full text-lg font-bold
+                           ring-1 ring-stone-200 hover:bg-stone-50 transition-all"
               >
-                Contact
+                Take Pulse
               </a>
             </div>
           </div>
