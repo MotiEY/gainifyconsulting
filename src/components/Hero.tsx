@@ -39,15 +39,6 @@ const Hero: React.FC = () => {
             and scale what works with trust and control.
           </p>
 
-          {/* micro-proof, whisper-level */}
-          <div className="mt-8 text-sm text-slate-500">
-            <span className="font-semibold text-slate-800">Reality Demo</span>
-            <span className="mx-2 text-stone-300">•</span>
-            Shadow mode
-            <span className="mx-2 text-stone-300">•</span>
-            Value ledger
-          </div>
-
           {/* subtle scroll cue (not a CTA) */}
           <div className="mt-10 flex justify-center">
             <a
