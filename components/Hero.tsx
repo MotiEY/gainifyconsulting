@@ -18,6 +18,7 @@ const Hero: React.FC = () => {
         <div className="absolute -top-36 left-1/2 -translate-x-1/2 h-80 w-[52rem] rounded-full blur-3xl bg-amber-200/35" />
         <div className="absolute -top-24 left-[8%] h-64 w-64 rounded-full blur-3xl bg-rose-200/20" />
       </div>
+<div className="mt-4 text-[10px] text-slate-400">build: 123</div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
