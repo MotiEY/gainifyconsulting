@@ -1,3 +1,4 @@
+// /components/Contact.tsx
 import React from 'react';
 import { MailIcon, PhoneIcon, PaperAirplaneIcon } from './icons/Icons';
 
@@ -6,87 +7,83 @@ const Contact: React.FC = () => {
   const phoneDisplay = '052-5523021';
   const phoneTel = '+972525523021';
 
-  const subject = encodeURIComponent('Reality Demo (48–72h) — request');
+  const subject = encodeURIComponent('Reality Demo request (48–72h)');
   const body = encodeURIComponent(
     `Hi Moti,
 
-I’d like to discuss the Reality Demo (48–72h).
+I’d like to request the 48–72h Reality Demo.
 
-Company / team:
-Primary workflow (Customer Service / Delivery / Project Ops):
-Current tools (Zendesk / Intercom / Salesforce / Jira / Monday / ADO / etc.):
-Approx. volume (tickets/week or projects):
-Top KPI to improve (AHT / deflection / cycle time / status effort / etc.):
+Context:
+- Company / team:
+- Primary workflow:
+- Current tools (Zendesk/Salesforce/Jira/etc):
+- Volume (tickets/week or projects/month):
+- KPI to improve:
 
-Best time for a short call:
+Data available:
+- Tickets/cases export: yes/no
+- KB/SOPs/macros: yes/no
+
+Preferred time for a 20-min scoping call:
+
+Thanks,
 `
   );
 
   return (
-    <section id="contact" className="py-16 sm:py-20 bg-stone-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl mx-auto bg-white rounded-2xl p-8 sm:p-10 ring-1 ring-stone-200 shadow-sm">
-          <div className="text-center">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900">
-              Let’s talk
-            </h2>
-            <p className="mt-4 text-lg text-slate-600">
-              If you want to see measurable AI impact in a real workflow, reach out.
-              We’ll keep it tight, practical, and grounded in your data.
-            </p>
+    <section id="contact" className="bg-stone-50 text-slate-900 py-16 sm:py-20">
+      {/* anchor for header CTA */}
+      <div id="reality-demo" className="scroll-mt-24" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="max-w-4xl mx-auto bg-white p-8 sm:p-10 rounded-2xl shadow-sm ring-1 ring-stone-200">
+          <div className="inline-flex items-center gap-2 rounded-full bg-stone-50 px-4 py-2 text-sm font-semibold text-slate-700 ring-1 ring-stone-200">
+            <span className="h-1.5 w-1.5 rounded-full bg-amber-600" />
+            48–72h Reality Demo
           </div>
 
-          {/* One clean CTA (final CTA is ok) */}
-          <div className="mt-8 flex justify-center">
+          <h2 className="mt-5 text-3xl md:text-4xl font-extrabold">Fast signal. Real data. Clear ROI.</h2>
+          <p className="mt-4 max-w-3xl mx-auto text-lg text-slate-600">
+            We run a safe shadow workflow on your data and deliver a Value Ledger (minutes → money) plus a practical next-step plan.
+          </p>
+
+          <div className="mt-9 flex flex-col sm:flex-row justify-center gap-3">
             <a
               href={`mailto:${email}?subject=${subject}&body=${body}`}
-              className="inline-flex items-center justify-center gap-3 rounded-full px-8 py-4 text-lg font-bold
-                         bg-slate-900 text-white hover:bg-slate-800 transition-all"
+              className="inline-flex items-center justify-center gap-3 bg-slate-900 text-white px-8 py-4 rounded-full text-lg font-bold hover:bg-slate-800 transition-all"
             >
               <PaperAirplaneIcon className="w-6 h-6" />
-              Email to request the Reality Demo
+              Request Reality Demo
             </a>
-          </div>
 
-          {/* Quiet guidance (no extra buttons) */}
-          <div className="mt-4 text-center text-sm text-slate-500">
-            Prefer to start with a diagnostic?{' '}
-            <a href="#pulse" className="font-semibold text-slate-900 hover:underline">
-              Explore Gainify Pulse
-            </a>
-            .
-          </div>
-
-          {/* Contact methods (clean, quiet) */}
-          <div className="mt-10 grid gap-4 sm:grid-cols-2">
             <a
               href={`mailto:${email}`}
-              className="flex items-center gap-3 rounded-2xl bg-stone-50 p-4 ring-1 ring-stone-200
-                         hover:bg-stone-100 transition-colors"
+              className="inline-flex items-center justify-center gap-3 bg-white text-slate-900 px-8 py-4 rounded-full text-lg font-bold ring-1 ring-stone-200 hover:bg-stone-50 transition-all"
             >
               <MailIcon className="w-6 h-6 text-amber-600" />
-              <div className="min-w-0">
-                <div className="text-sm font-semibold text-slate-900">Email</div>
-                <div className="text-sm text-slate-600 truncate">{email}</div>
-              </div>
+              Email
+            </a>
+          </div>
+
+          <div className="mt-10 flex justify-center gap-6 flex-wrap">
+            <a
+              href={`mailto:${email}`}
+              className="flex items-center gap-3 bg-stone-50 p-4 rounded-xl ring-1 ring-stone-200 hover:bg-stone-100 transition-colors"
+            >
+              <MailIcon className="w-6 h-6 text-amber-600" />
+              <span className="font-semibold">{email}</span>
             </a>
 
             <a
               href={`tel:${phoneTel}`}
-              className="flex items-center gap-3 rounded-2xl bg-stone-50 p-4 ring-1 ring-stone-200
-                         hover:bg-stone-100 transition-colors"
+              className="flex items-center gap-3 bg-stone-50 p-4 rounded-xl ring-1 ring-stone-200 hover:bg-stone-100 transition-colors"
             >
               <PhoneIcon className="w-6 h-6 text-amber-600" />
-              <div className="min-w-0">
-                <div className="text-sm font-semibold text-slate-900">Phone</div>
-                <div className="text-sm text-slate-600">{phoneDisplay}</div>
-              </div>
+              <span className="font-semibold">{phoneDisplay}</span>
             </a>
           </div>
 
-          <div className="mt-8 text-center text-xs text-slate-400">
-            No platform lock-in. We work inside your existing stack.
-          </div>
+          <p className="mt-6 text-sm text-slate-500">Fixed scope, fast signal. Then we scale only what works.</p>
         </div>
       </div>
     </section>
