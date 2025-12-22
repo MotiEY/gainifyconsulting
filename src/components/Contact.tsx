@@ -1,4 +1,4 @@
-// /components/Contact.tsx
+// /src/components/Contact.tsx
 import React from 'react';
 import { MailIcon, PhoneIcon, PaperAirplaneIcon } from './icons/Icons';
 
@@ -9,59 +9,34 @@ const Contact: React.FC = () => {
 
   const subject = encodeURIComponent('Reality Demo request (48–72h)');
   const body = encodeURIComponent(
-    `Hi Moti,
-
-I’d like to request the 48–72h Reality Demo.
-
-Context:
-- Company / team:
-- Primary workflow:
-- Current tools (Zendesk/Salesforce/Jira/etc):
-- Volume (tickets/week or projects/month):
-- KPI to improve:
-
-Data available:
-- Tickets/cases export: yes/no
-- KB/SOPs/macros: yes/no
-
-Preferred time for a 20-min scoping call:
-
-Thanks,
-`
+    `Hi Moti,\n\nI’d like to request the 48–72h Reality Demo.\n\nContext:\n- Company / team:\n- Primary workflow:\n- Tooling:\n- Volume:\n- KPI to improve:\n\nData we can share:\n- Tickets/cases export (yes/no):\n- KB/SOPs/macros (yes/no):\n\nPreferred time for a 20-min scoping call:\n\nThanks,\n`
   );
 
   return (
-    <section id="contact" className="bg-stone-50 text-slate-900 py-16 sm:py-20">
-      {/* anchor for header CTA */}
-      <div id="reality-demo" className="scroll-mt-24" />
-
+    <section className="bg-stone-50 text-slate-900 py-16 sm:py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="max-w-4xl mx-auto bg-white p-8 sm:p-10 rounded-2xl shadow-sm ring-1 ring-stone-200">
-          <div className="inline-flex items-center gap-2 rounded-full bg-stone-50 px-4 py-2 text-sm font-semibold text-slate-700 ring-1 ring-stone-200">
-            <span className="h-1.5 w-1.5 rounded-full bg-amber-600" />
-            48–72h Reality Demo
-          </div>
-
-          <h2 className="mt-5 text-3xl md:text-4xl font-extrabold">Fast signal. Real data. Clear ROI.</h2>
+          <h2 className="text-3xl md:text-4xl font-extrabold">
+            Let’s talk
+          </h2>
           <p className="mt-4 max-w-3xl mx-auto text-lg text-slate-600">
-            We run a safe shadow workflow on your data and deliver a Value Ledger (minutes → money) plus a practical next-step plan.
+            If you want a fast, low-risk signal — request the Reality Demo. If you prefer to start with diagnostics, take the Pulse.
           </p>
 
-          <div className="mt-9 flex flex-col sm:flex-row justify-center gap-3">
+          <div className="mt-10 flex flex-col sm:flex-row justify-center gap-3">
             <a
               href={`mailto:${email}?subject=${subject}&body=${body}`}
-              className="inline-flex items-center justify-center gap-3 bg-slate-900 text-white px-8 py-4 rounded-full text-lg font-bold hover:bg-slate-800 transition-all"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-slate-900 text-white px-8 py-4 rounded-full text-lg font-bold hover:bg-slate-800 transition-all"
             >
               <PaperAirplaneIcon className="w-6 h-6" />
               Request Reality Demo
             </a>
 
             <a
-              href={`mailto:${email}`}
-              className="inline-flex items-center justify-center gap-3 bg-white text-slate-900 px-8 py-4 rounded-full text-lg font-bold ring-1 ring-stone-200 hover:bg-stone-50 transition-all"
+              href="#pulse"
+              className="w-full sm:w-auto inline-flex items-center justify-center bg-white text-slate-900 px-8 py-4 rounded-full text-lg font-bold ring-1 ring-stone-200 hover:bg-stone-50 transition-all"
             >
-              <MailIcon className="w-6 h-6 text-amber-600" />
-              Email
+              Take Gainify Pulse
             </a>
           </div>
 
@@ -83,7 +58,9 @@ Thanks,
             </a>
           </div>
 
-          <p className="mt-6 text-sm text-slate-500">Fixed scope, fast signal. Then we scale only what works.</p>
+          <p className="mt-6 text-sm text-slate-500">
+            One workflow. Clear baseline. Measurable outcomes.
+          </p>
         </div>
       </div>
     </section>
