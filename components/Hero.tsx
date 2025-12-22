@@ -1,92 +1,92 @@
+// /components/Hero.tsx
 import React from 'react';
-import { RocketIcon, ChartLineIcon } from './icons/Icons';
 
 const Hero: React.FC = () => {
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     const href = e.currentTarget.getAttribute('href');
     if (href && href.startsWith('#')) {
-      const targetElement = document.querySelector(href);
-      if (targetElement) targetElement.scrollIntoView({ behavior: 'smooth' });
+      const el = document.querySelector(href);
+      el?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
-{/* Subtle background — more “moti ”, less “BI  ssdsdsd” */}
+
   return (
-    <section
-      id="home"
-      className="relative pt-32 pb-20 overflow-hidden bg-white"
-    >
-      {/* Subtle background — more “enterprise”, less “AI hype gradient” */}
-      <div className="absolute inset-0">
-        <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-indigo-100 blur-3xl opacity-60" />
-        <div className="absolute -bottom-24 -left-24 w-96 h-96 rounded-full bg-slate-100 blur-3xl opacity-70" />
-        <div className="absolute inset-0 bg-grid-pattern opacity-[0.35]" />
+    <section id="home" className="relative pt-28 sm:pt-32 pb-14 sm:pb-16 bg-stone-50 overflow-hidden">
+      {/* warm quiet light */}
+      <div aria-hidden="true" className="absolute inset-0">
+        <div className="absolute -top-36 left-1/2 -translate-x-1/2 h-80 w-[52rem] rounded-full blur-3xl bg-amber-200/35" />
+        <div className="absolute -top-24 left-[8%] h-64 w-64 rounded-full blur-3xl bg-rose-200/20" />
       </div>
 
-      <style>{`
-        .bg-grid-pattern {
-          background-image:
-            linear-gradient(rgba(15, 23, 42, 0.06) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(15, 23, 42, 0.06) 1px, transparent 1px);
-          background-size: 48px 48px;
-        }
-      `}</style>
-
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <p className="inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold bg-white/70 ring-1 ring-slate-200 text-slate-700">
-          AI → measurable value → repeatable capability
-        </p>
-
-
-        <h1 className="mt-6 text-4xl md:text-6xl font-extrabold tracking-tight leading-tight text-slate-900">
-  Make AI a repeatable business capability —
-  <span className="text-indigo-600"> not a collection of pilots</span>.
-  <span className="ml-3 text-xs font-bold text-red-600">BUILD-OK-777</span>
-</h1>
-
-
-        <p className="max-w-3xl mx-auto mt-6 text-lg md:text-xl text-slate-600">
-          Gainify helps leadership teams operationalize AI across workflows:
-          <span className="font-semibold text-slate-800"> measurable value</span>, a delivery factory that keeps shipping,
-          and <span className="font-semibold text-slate-800">trust</span> you can scale.
-        </p>
-
-        {/* 3 proof chips — this is your “bypass hype” move */}
-        <div className="mt-10 flex flex-col sm:flex-row justify-center items-center gap-3">
-          <div className="rounded-full px-5 py-2 bg-white/70 ring-1 ring-slate-200 text-slate-700">
-            <span className="font-semibold text-slate-900">Value Ledger</span>: minutes → money
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="inline-flex items-center gap-2 rounded-full bg-white/75 px-4 py-2 text-sm font-semibold text-slate-700 ring-1 ring-stone-200 backdrop-blur">
+            <span className="h-1.5 w-1.5 rounded-full bg-amber-600" />
+            Strategic AI implementation
           </div>
-          <div className="rounded-full px-5 py-2 bg-white/70 ring-1 ring-slate-200 text-slate-700">
-            <span className="font-semibold text-slate-900">Shadow Mode</span>: safe parallel run
+
+          <h1 className="mt-6 text-3xl md:text-5xl font-extrabold tracking-tight leading-tight text-slate-900">
+            AI in real workflows.
+            <span className="block mt-2">Measured outcomes.</span>
+          </h1>
+
+          <p className="mt-5 max-w-3xl mx-auto text-base md:text-lg text-slate-600">
+            We implement AI where the work actually happens — define success, prove impact, and scale safely with governance and control.
+          </p>
+
+          {/* subtle “it’s alive” proof (not CTA, not noisy) */}
+          <div className="mt-8 max-w-2xl mx-auto">
+            <div className="rounded-2xl bg-white/80 ring-1 ring-stone-200 shadow-sm backdrop-blur p-5 sm:p-6 text-left">
+              <div className="flex items-center justify-between gap-4">
+                <div className="text-sm font-bold text-slate-900">Value Ledger preview</div>
+                <div className="text-xs font-semibold text-slate-500">shadow mode • illustrative</div>
+              </div>
+
+              <div className="mt-4 grid sm:grid-cols-3 gap-3">
+                <div className="rounded-xl bg-stone-50 ring-1 ring-stone-200 p-4">
+                  <div className="text-xs font-bold uppercase tracking-wider text-slate-500">Workflow</div>
+                  <div className="mt-2 text-sm font-semibold text-slate-900">Support triage</div>
+                </div>
+
+                <div className="rounded-xl bg-stone-50 ring-1 ring-stone-200 p-4">
+                  <div className="text-xs font-bold uppercase tracking-wider text-slate-500">Time saved</div>
+                  <div className="mt-2 text-sm font-semibold text-slate-900">~2.1 min / case</div>
+                </div>
+
+                <div className="rounded-xl bg-stone-50 ring-1 ring-stone-200 p-4">
+                  <div className="text-xs font-bold uppercase tracking-wider text-slate-500">Quality</div>
+                  <div className="mt-2 text-sm font-semibold text-slate-900">citations + checks</div>
+                </div>
+              </div>
+
+              <div className="mt-4">
+                <div className="flex items-center justify-between text-xs text-slate-500">
+                  <span>Baseline → Assisted</span>
+                  <span className="font-semibold text-slate-700">minutes → money</span>
+                </div>
+                <div className="mt-2 h-2 rounded-full bg-stone-100 ring-1 ring-stone-200 overflow-hidden">
+                  <div className="h-full w-[62%] bg-amber-500/40" />
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="rounded-full px-5 py-2 bg-white/70 ring-1 ring-slate-200 text-slate-700">
-            <span className="font-semibold text-slate-900">Factory</span>: monthly shipping cadence
+
+          {/* subtle scroll cue */}
+          <div className="mt-10 flex justify-center">
+            <a
+              href="#model"
+              onClick={handleLinkClick}
+              className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/75 ring-1 ring-stone-200 text-slate-600 hover:text-slate-900 hover:bg-white transition-all"
+              aria-label="Scroll to next section"
+              title="Scroll"
+            >
+              <span className="text-lg leading-none">↓</span>
+            </a>
           </div>
+
+          <div className="mt-6 text-xs text-slate-400">No platform lock-in. We work inside your existing stack.</div>
         </div>
-
-        <div className="flex justify-center gap-4 flex-wrap mt-12">
-          <a
-            href="#reality-demo"
-            onClick={handleLinkClick}
-            className="inline-flex items-center gap-2 bg-slate-900 text-white px-8 py-3 rounded-full text-base font-bold shadow-sm hover:bg-slate-800 transition-all duration-300"
-          >
-            <RocketIcon className="w-5 h-5" />
-            Book a Reality Demo
-          </a>
-
-          <a
-            href="#pulse"
-            onClick={handleLinkClick}
-            className="inline-flex items-center gap-2 bg-white text-slate-900 px-8 py-3 rounded-full text-base font-bold ring-1 ring-slate-200 hover:bg-slate-50 transition-all duration-300"
-          >
-            <ChartLineIcon className="w-5 h-5" />
-            Take the Gainify Pulse
-          </a>
-        </div>
-
-        <p className="mt-4 text-sm text-slate-500">
-          Fixed-scope demo. No platform lock-in.
-        </p>
       </div>
     </section>
   );
