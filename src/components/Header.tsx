@@ -1,5 +1,4 @@
-
-// /components/Header.tsx
+// /src/components/Header.tsx
 import React, { useEffect, useState } from 'react';
 import { MenuIcon, XIcon } from './icons/Icons';
 
@@ -21,6 +20,8 @@ const Header: React.FC = () => {
     };
   }, [isMenuOpen]);
 
+  // NOTE: if your App.tsx uses different section ids (layers/how-we-work etc),
+  // change these hrefs accordingly.
   const navLinks = [
     { href: '#model', label: 'Model' },
     { href: '#methodology', label: 'How we deliver' },
@@ -47,29 +48,26 @@ const Header: React.FC = () => {
         className={[
           'fixed top-0 left-0 w-full z-50 transition-all duration-300',
           isScrolled || isMenuOpen
-            ? 'bg-white/90 backdrop-blur-md shadow-sm ring-1 ring-stone-200'
+            ? 'bg-white/85 backdrop-blur-md shadow-sm ring-1 ring-stone-200'
             : 'bg-transparent',
         ].join(' ')}
       >
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Primary">
           <div className="flex items-center justify-between h-20">
             {/* Brand */}
-            <a href="#home" onClick={handleLinkClick} className="flex items-center gap-3">
-              {/* small brand mark (adds “logo color” without noise) */}
-              <span
-                aria-hidden="true"
-                className="w-9 h-9 rounded-xl ring-1 ring-amber-200 bg-gradient-to-br from-amber-500/90 via-amber-300/70 to-stone-100 flex items-center justify-center"
-              >
-                <span className="text-slate-900 font-extrabold text-sm">G</span>
+            <a href="#top" onClick={handleLinkClick} className="flex items-center gap-3">
+              {/* The "G" monogram is back */}
+              <span className="w-10 h-10 rounded-xl bg-white/80 ring-1 ring-stone-200 flex items-center justify-center font-extrabold text-slate-900">
+                G
               </span>
 
-              <div className="leading-tight">
-                <div className="text-xl sm:text-2xl font-extrabold tracking-tight text-slate-900">
+              <div className="flex items-baseline gap-2">
+                <span className="text-2xl font-extrabold tracking-tight text-slate-900">
                   Gainify<span className="text-amber-600">.</span>ai
-                </div>
-                <div className="hidden lg:block text-xs font-semibold text-slate-500">
+                </span>
+                <span className="hidden lg:inline text-sm font-semibold text-slate-500">
                   Strategic AI Implementation
-                </div>
+                </span>
               </div>
             </a>
 
@@ -136,8 +134,8 @@ const Header: React.FC = () => {
         <div className="h-full bg-stone-50">
           <div className="pt-24 pb-10 px-6 flex flex-col h-full">
             <div className="text-center">
-              <div className="inline-flex items-center justify-center w-10 h-10 rounded-2xl ring-1 ring-amber-200 bg-gradient-to-br from-amber-500/90 via-amber-300/70 to-stone-100">
-                <span className="text-slate-900 font-extrabold text-sm">G</span>
+              <div className="mx-auto w-12 h-12 rounded-2xl bg-white ring-1 ring-stone-200 flex items-center justify-center font-extrabold text-slate-900">
+                G
               </div>
               <div className="mt-3 text-xl font-extrabold tracking-tight text-slate-900">
                 Gainify<span className="text-amber-600">.</span>ai
