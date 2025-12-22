@@ -1,4 +1,4 @@
-// /components/Header.tsx
+// /src/components/Header.tsx
 import React, { useEffect, useState } from 'react';
 import { MenuIcon, XIcon } from './icons/Icons';
 
@@ -21,8 +21,10 @@ const Header: React.FC = () => {
   }, [isMenuOpen]);
 
   const navLinks = [
-    { href: '#model', label: 'Model' },
-    { href: '#methodology', label: 'How we deliver' },
+    { href: '#layers', label: 'Model' },
+    { href: '#reality-demo', label: 'Reality Demo' },
+    { href: '#tracks', label: 'Tracks' },
+    { href: '#how-we-work', label: 'How we deliver' },
     { href: '#pulse', label: 'Gainify Pulse' },
     { href: '#results', label: 'Outcomes' },
     { href: '#contact', label: 'Contact' },
@@ -36,43 +38,43 @@ const Header: React.FC = () => {
       const el = document.querySelector(href);
       el?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
-
     setIsMenuOpen(false);
   };
+
+  const showAccent = isScrolled || isMenuOpen;
 
   return (
     <>
       <header
         className={[
           'fixed top-0 left-0 w-full z-50 transition-all duration-300',
-          isScrolled || isMenuOpen
-            ? 'bg-white/90 backdrop-blur-md shadow-sm ring-1 ring-stone-200'
+          showAccent
+            ? 'bg-white/85 backdrop-blur-md shadow-sm ring-1 ring-stone-200'
             : 'bg-transparent',
         ].join(' ')}
       >
+        {/* brand accent line (quiet “alive” signal) */}
+        <div
+          aria-hidden="true"
+          className={[
+            'h-[2px] w-full transition-opacity duration-300',
+            showAccent ? 'opacity-100' : 'opacity-0',
+          ].join(' ')}
+        >
+          <div className="h-full w-full bg-amber-500/80" />
+        </div>
+
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Primary">
           <div className="flex items-center justify-between h-20">
-            {/* Brand */}
-            <a href="#home" onClick={handleLinkClick} className="flex items-center gap-3">
-              {/* small brand mark (adds “logo color” without noise) */}
-              <span
-                aria-hidden="true"
-                className="w-9 h-9 rounded-xl ring-1 ring-amber-200 bg-gradient-to-br from-amber-500/90 via-amber-300/70 to-stone-100 flex items-center justify-center"
-              >
-                <span className="text-slate-900 font-extrabold text-sm">G</span>
+            <a href="#top" onClick={handleLinkClick} className="flex items-center gap-2">
+              <span className="text-2xl font-extrabold tracking-tight text-slate-900">
+                Gainify<span className="text-amber-600">.</span>ai
               </span>
-
-              <div className="leading-tight">
-                <div className="text-xl sm:text-2xl font-extrabold tracking-tight text-slate-900">
-                  Gainify<span className="text-amber-600">.</span>ai
-                </div>
-                <div className="hidden lg:block text-xs font-semibold text-slate-500">
-                  Strategic AI Implementation
-                </div>
-              </div>
+              <span className="hidden lg:inline text-sm font-semibold text-slate-500">
+                Strategic AI Implementation
+              </span>
             </a>
 
-            {/* Desktop */}
             <div className="hidden md:flex items-center gap-2">
               <div className="flex items-center">
                 {navLinks.map((link) => (
@@ -87,7 +89,6 @@ const Header: React.FC = () => {
                 ))}
               </div>
 
-              {/* CTAs */}
               <div className="ml-3 flex items-center gap-2">
                 <a
                   href="#pulse"
@@ -108,7 +109,6 @@ const Header: React.FC = () => {
               </div>
             </div>
 
-            {/* Mobile button */}
             <div className="md:hidden">
               <button
                 onClick={() => setIsMenuOpen((v) => !v)}
@@ -135,10 +135,7 @@ const Header: React.FC = () => {
         <div className="h-full bg-stone-50">
           <div className="pt-24 pb-10 px-6 flex flex-col h-full">
             <div className="text-center">
-              <div className="inline-flex items-center justify-center w-10 h-10 rounded-2xl ring-1 ring-amber-200 bg-gradient-to-br from-amber-500/90 via-amber-300/70 to-stone-100">
-                <span className="text-slate-900 font-extrabold text-sm">G</span>
-              </div>
-              <div className="mt-3 text-xl font-extrabold tracking-tight text-slate-900">
+              <div className="text-xl font-extrabold tracking-tight text-slate-900">
                 Gainify<span className="text-amber-600">.</span>ai
               </div>
               <div className="mt-1 text-sm font-semibold text-slate-500">Strategic AI Implementation</div>
