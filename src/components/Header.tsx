@@ -1,4 +1,3 @@
-
 // /components/Header.tsx
 import React, { useEffect, useState } from 'react';
 import { MenuIcon, XIcon } from './icons/Icons';
