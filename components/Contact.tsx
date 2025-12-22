@@ -1,3 +1,4 @@
+// /components/Contact.tsx
 import React from 'react';
 import { MailIcon, PhoneIcon, PaperAirplaneIcon } from './icons/Icons';
 
@@ -8,87 +9,81 @@ const Contact: React.FC = () => {
 
   const subject = encodeURIComponent('Reality Demo request (48–72h)');
   const body = encodeURIComponent(
-    `Hi Moti,\n\nI’d like to book the 48–72h Reality Demo.\n\nContext:\n- Company / team:\n- Primary workflow (Customer Service or Delivery/PM):\n- Tooling (e.g., Zendesk / Salesforce / Intercom / Jira / ADO / Monday):\n- Volume (tickets/week or project size):\n- Top KPI to improve (AHT / deflection / reopen rate / status effort / cycle time):\n\nData we can share for the demo:\n- Tickets/cases export (yes/no):\n- KB/SOPs/macros (yes/no):\n\nPreferred time for a 20-min scoping call:\n\nThanks,\n`
+    `Hi Moti,
+
+I’d like to request the 48–72h Reality Demo.
+
+Context:
+- Company / team:
+- Primary workflow:
+- Current tools (Zendesk/Salesforce/Jira/etc):
+- Volume (tickets/week or projects/month):
+- KPI to improve:
+
+Data available:
+- Tickets/cases export: yes/no
+- KB/SOPs/macros: yes/no
+
+Preferred time for a 20-min scoping call:
+
+Thanks,
+`
   );
 
   return (
-    <section id="contact" className="bg-slate-50 text-slate-900 py-16 sm:py-20">
+    <section id="contact" className="bg-stone-50 text-slate-900 py-16 sm:py-20">
+      {/* anchor for header CTA */}
+      <div id="reality-demo" className="scroll-mt-24" />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div className="max-w-4xl mx-auto bg-white p-8 sm:p-10 rounded-2xl shadow-sm ring-1 ring-slate-200">
-          <h2 className="text-3xl md:text-4xl font-extrabold">
-            Book the 48–72h Reality Demo
-          </h2>
-          <p className="mt-4 max-w-3xl mx-auto text-lg text-slate-600">
-            No slides. We run a safe shadow workflow on your real data and deliver a Value Ledger (minutes → money) plus a practical scale plan.
-          </p>
-
-          <div className="mt-8 grid gap-4 sm:grid-cols-3 text-left">
-            <div className="rounded-2xl bg-slate-50 p-5 ring-1 ring-slate-200">
-              <div className="text-sm font-bold text-slate-900">What we need</div>
-              <ul className="mt-3 space-y-2 text-sm text-slate-600">
-                <li>• 200–500 recent tickets/cases export</li>
-                <li>• KB / SOPs / macros</li>
-                <li>• 60 min with an ops lead</li>
-              </ul>
-            </div>
-
-            <div className="rounded-2xl bg-slate-50 p-5 ring-1 ring-slate-200">
-              <div className="text-sm font-bold text-slate-900">What you get</div>
-              <ul className="mt-3 space-y-2 text-sm text-slate-600">
-                <li>• Shadow agent: triage/draft/route</li>
-                <li>• Value Ledger: time & quality</li>
-                <li>• Scale plan: assisted → scale</li>
-              </ul>
-            </div>
-
-            <div className="rounded-2xl bg-slate-50 p-5 ring-1 ring-slate-200">
-              <div className="text-sm font-bold text-slate-900">Good fit if</div>
-              <ul className="mt-3 space-y-2 text-sm text-slate-600">
-                <li>• High-volume support or delivery noise</li>
-                <li>• You want measurable ROI, not hype</li>
-                <li>• You prefer your existing stack</li>
-              </ul>
-            </div>
+        <div className="max-w-4xl mx-auto bg-white p-8 sm:p-10 rounded-2xl shadow-sm ring-1 ring-stone-200">
+          <div className="inline-flex items-center gap-2 rounded-full bg-stone-50 px-4 py-2 text-sm font-semibold text-slate-700 ring-1 ring-stone-200">
+            <span className="h-1.5 w-1.5 rounded-full bg-amber-600" />
+            48–72h Reality Demo
           </div>
 
-          <div className="mt-10 flex flex-col sm:flex-row justify-center gap-4">
+          <h2 className="mt-5 text-3xl md:text-4xl font-extrabold">Fast signal. Real data. Clear ROI.</h2>
+          <p className="mt-4 max-w-3xl mx-auto text-lg text-slate-600">
+            We run a safe shadow workflow on your data and deliver a Value Ledger (minutes → money) plus a practical next-step plan.
+          </p>
+
+          <div className="mt-9 flex flex-col sm:flex-row justify-center gap-3">
             <a
               href={`mailto:${email}?subject=${subject}&body=${body}`}
-              className="inline-flex items-center justify-center gap-3 bg-slate-900 text-white px-8 py-4 rounded-full text-lg font-bold hover:bg-slate-800 transition-all duration-300"
+              className="inline-flex items-center justify-center gap-3 bg-slate-900 text-white px-8 py-4 rounded-full text-lg font-bold hover:bg-slate-800 transition-all"
             >
               <PaperAirplaneIcon className="w-6 h-6" />
-              Request the Reality Demo
+              Request Reality Demo
             </a>
 
             <a
-              href="#pulse"
-              className="inline-flex items-center justify-center gap-3 bg-white text-slate-900 px-8 py-4 rounded-full text-lg font-bold ring-1 ring-slate-200 hover:bg-slate-50 transition-all duration-300"
+              href={`mailto:${email}`}
+              className="inline-flex items-center justify-center gap-3 bg-white text-slate-900 px-8 py-4 rounded-full text-lg font-bold ring-1 ring-stone-200 hover:bg-stone-50 transition-all"
             >
-              Prefer diagnostics first? Take Pulse
+              <MailIcon className="w-6 h-6 text-amber-600" />
+              Email
             </a>
           </div>
 
           <div className="mt-10 flex justify-center gap-6 flex-wrap">
             <a
               href={`mailto:${email}`}
-              className="flex items-center gap-3 bg-slate-50 p-4 rounded-xl ring-1 ring-slate-200 hover:bg-slate-100 transition-colors duration-200"
+              className="flex items-center gap-3 bg-stone-50 p-4 rounded-xl ring-1 ring-stone-200 hover:bg-stone-100 transition-colors"
             >
-              <MailIcon className="w-6 h-6 text-indigo-600" />
+              <MailIcon className="w-6 h-6 text-amber-600" />
               <span className="font-semibold">{email}</span>
             </a>
 
             <a
               href={`tel:${phoneTel}`}
-              className="flex items-center gap-3 bg-slate-50 p-4 rounded-xl ring-1 ring-slate-200 hover:bg-slate-100 transition-colors duration-200"
+              className="flex items-center gap-3 bg-stone-50 p-4 rounded-xl ring-1 ring-stone-200 hover:bg-stone-100 transition-colors"
             >
-              <PhoneIcon className="w-6 h-6 text-indigo-600" />
+              <PhoneIcon className="w-6 h-6 text-amber-600" />
               <span className="font-semibold">{phoneDisplay}</span>
             </a>
           </div>
 
-          <p className="mt-6 text-sm text-slate-500">
-            Fixed scope, fast signal. Then we scale only what works.
-          </p>
+          <p className="mt-6 text-sm text-slate-500">Fixed scope, fast signal. Then we scale only what works.</p>
         </div>
       </div>
     </section>
