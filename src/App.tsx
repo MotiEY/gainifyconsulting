@@ -4,6 +4,7 @@ import Hero from './components/Hero';
 import Features from './components/Features';
 import Methodology from './components/Methodology';
 import PulseTool from './components/PulseTool';
+import PulseOutputTeaser from './components/PulseOutputTeaser';
 import Results from './components/Results';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
@@ -17,6 +18,7 @@ const App: React.FC = () => {
         <Features />
         <Methodology />
         <PulseTool />
+        <PulseOutputTeaser />
         <Results />
         <Contact />
       </main>
