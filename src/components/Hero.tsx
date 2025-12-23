@@ -33,7 +33,7 @@ const Hero: React.FC = () => {
           </h1>
 
           <p className="mt-5 max-w-3xl mx-auto text-base md:text-lg text-slate-600">
-            We implement AI where the work actually happens --> define success, prove impact, and scale safely with governance and control.
+            We implement AI where the work actually happens. Define success, prove impact, and scale safely with governance and control.
           </p>
 
           {/* subtle scroll cue */}
