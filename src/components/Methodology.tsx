@@ -44,7 +44,7 @@ const Methodology: React.FC = () => {
       icon: <SearchIcon className="w-6 h-6" />,
       meta: '48–72 hours',
       title: 'Reality Demo',
-      subtitle: 'Fast signal on real work — before big commitments.',
+      subtitle: 'Fast signal on real work before big commitments.',
       bullets: [
         'Pick one measurable, high-volume workflow.',
         'Run a safe shadow-mode test on real data.',
@@ -95,7 +95,7 @@ const Methodology: React.FC = () => {
 
         <div className="mt-10 text-center">
           <p className="text-sm text-slate-500">
-            Pulse supports this with a structured diagnostic — used to remove ambiguity before we scale.
+            Pulse supports this with a structured diagnostic used to remove ambiguity before we scale.
           </p>
         </div>
       </div>
