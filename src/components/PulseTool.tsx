@@ -188,7 +188,7 @@ const PulseTool: React.FC = () => {
         <div className="text-center mb-10">
           <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-3">Gainify Pulse</h2>
           <p className="max-w-3xl mx-auto text-lg text-slate-600">
-            A diagnostic across six dimensions — turning readiness into a prioritized roadmap with owners and measurable outcomes.
+            A diagnostic across six dimensions turning readiness into a prioritized roadmap with owners and measurable outcomes.
           </p>
         </div>
 
@@ -319,7 +319,7 @@ const PulseTool: React.FC = () => {
                 <div className="bg-white rounded-2xl ring-1 ring-stone-200 p-6">
                   <div className="text-xs font-bold uppercase tracking-wider text-slate-500">Output</div>
                   <p className="mt-3 text-sm text-slate-600">
-                    A prioritized roadmap mapped to owners — plus a simple measurement plan (Value Ledger) and a monthly shipping cadence.
+                    A prioritized roadmap mapped to owners plus a simple measurement plan (Value Ledger) and a monthly shipping cadence.
                   </p>
                 </div>
               </div>
@@ -328,7 +328,7 @@ const PulseTool: React.FC = () => {
 
           <div className="mt-8 text-center">
             <p className="text-sm text-slate-500">
-              Pulse removes ambiguity — then execution focuses only where value is measurable.
+              Pulse removes ambiguity then execution focuses only where value is measurable.
             </p>
           </div>
         </div>
