@@ -1,29 +1,71 @@
-// /src/components/Contact.tsx
 import React from 'react';
-import { MailIcon, PhoneIcon, PaperAirplaneIcon } from './icons/Icons';
+import { MailIcon, PaperAirplaneIcon } from './icons/Icons';
 
 const Contact: React.FC = () => {
   const email = 'motisdt@gmail.com';
-  const phoneDisplay = '052-5523021';
-  const phoneTel = '+972525523021';
 
-  const subject = encodeURIComponent('Reality Demo request (48–72h)');
+  const subject = encodeURIComponent('Reality Demo request (48-72h)');
   const body = encodeURIComponent(
-    `Hi Moti,\n\nI’d like to request the 48–72h Reality Demo.\n\nContext:\n- Company / team:\n- Primary workflow:\n- Tooling:\n- Volume:\n- KPI to improve:\n\nData we can share:\n- Tickets/cases export (yes/no):\n- KB/SOPs/macros (yes/no):\n\nPreferred time for a 20-min scoping call:\n\nThanks,\n`
+    `Hi Moti,
+
+I'd like to request the 48-72h Reality Demo.
+
+Context:
+- Company / team:
+- Primary workflow:
+- Tooling:
+- Volume:
+- KPI to improve:
+
+Preferred time for a 20-min scoping call:
+
+Thanks,
+`
   );
 
   return (
-    <section className="bg-stone-50 text-slate-900 py-16 sm:py-20">
+    <section id="contact" className="bg-stone-50 text-slate-900 py-16 sm:py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="max-w-4xl mx-auto bg-white p-8 sm:p-10 rounded-2xl shadow-sm ring-1 ring-stone-200">
           <h2 className="text-3xl md:text-4xl font-extrabold">
-            Let’s talk
+            Book the 48-72h Reality Demo
           </h2>
+
           <p className="mt-4 max-w-3xl mx-auto text-lg text-slate-600">
-            If you want a fast, low-risk signal — request the Reality Demo. If you prefer to start with diagnostics, take the Pulse.
+            A fast, low-risk proof on your real workflow. Shadow mode first. Clear outputs. Weekly measurement plan.
           </p>
 
-          <div className="mt-10 flex flex-col sm:flex-row justify-center gap-3">
+          <div className="mt-8 grid gap-4 sm:grid-cols-3 text-left">
+            <div className="rounded-2xl bg-stone-50 p-5 ring-1 ring-stone-200">
+              <div className="text-sm font-bold text-slate-900">What we need</div>
+              <ul className="mt-3 space-y-2 text-sm text-slate-600">
+                <li>• 200-500 recent items (tickets/cases/tasks)</li>
+                <li>• KB / SOPs / macros</li>
+                <li>• 60 min with an ops owner</li>
+              </ul>
+            </div>
+
+            <div className="rounded-2xl bg-stone-50 p-5 ring-1 ring-stone-200">
+              <div className="text-sm font-bold text-slate-900">What you get</div>
+              <ul className="mt-3 space-y-2 text-sm text-slate-600">
+                <li>• Shadow workflow draft/triage</li>
+                <li>• Value Ledger: baseline to target</li>
+                <li>• Scale plan: assisted, then expand</li>
+              </ul>
+            </div>
+
+            <div className="rounded-2xl bg-stone-50 p-5 ring-1 ring-stone-200">
+              <div className="text-sm font-bold text-slate-900">Good fit if</div>
+              <ul className="mt-3 space-y-2 text-sm text-slate-600">
+                <li>• High-volume operational work</li>
+                <li>• You want measurable ROI</li>
+                <li>• You keep your existing stack</li>
+              </ul>
+            </div>
+          </div>
+
+          {/* CTAs - mobile first: full width */}
+          <div className="mt-10 grid gap-3 sm:flex sm:justify-center sm:gap-4">
             <a
               href={`mailto:${email}?subject=${subject}&body=${body}`}
               className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-slate-900 text-white px-8 py-4 rounded-full text-lg font-bold hover:bg-slate-800 transition-all"
@@ -34,32 +76,26 @@ const Contact: React.FC = () => {
 
             <a
               href="#pulse"
-              className="w-full sm:w-auto inline-flex items-center justify-center bg-white text-slate-900 px-8 py-4 rounded-full text-lg font-bold ring-1 ring-stone-200 hover:bg-stone-50 transition-all"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-white text-slate-900 px-8 py-4 rounded-full text-lg font-bold ring-1 ring-stone-200 hover:bg-stone-50 transition-all"
             >
               Take Gainify Pulse
             </a>
           </div>
 
-          <div className="mt-10 flex justify-center gap-6 flex-wrap">
+          {/* Email button only (no visible address) */}
+          <div className="mt-6 flex justify-center">
             <a
               href={`mailto:${email}`}
-              className="flex items-center gap-3 bg-stone-50 p-4 rounded-xl ring-1 ring-stone-200 hover:bg-stone-100 transition-colors"
+              className="inline-flex items-center gap-3 bg-stone-50 px-5 py-3 rounded-full ring-1 ring-stone-200 hover:bg-stone-100 transition-colors"
+              aria-label="Email"
             >
-              <MailIcon className="w-6 h-6 text-amber-600" />
-              <span className="font-semibold">{email}</span>
-            </a>
-
-            <a
-              href={`tel:${phoneTel}`}
-              className="flex items-center gap-3 bg-stone-50 p-4 rounded-xl ring-1 ring-stone-200 hover:bg-stone-100 transition-colors"
-            >
-              <PhoneIcon className="w-6 h-6 text-amber-600" />
-              <span className="font-semibold">{phoneDisplay}</span>
+              <MailIcon className="w-5 h-5 text-slate-700" />
+              <span className="font-semibold text-slate-800">Email</span>
             </a>
           </div>
 
           <p className="mt-6 text-sm text-slate-500">
-            One workflow. Clear baseline. Measurable outcomes.
+            Fixed scope. Fast signal. Scale only what works.
           </p>
         </div>
       </div>
