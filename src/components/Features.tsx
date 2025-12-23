@@ -61,7 +61,7 @@ const Features: React.FC = () => {
           <Card
             icon={<CogsIcon className="w-6 h-6" />}
             title="Factory"
-            desc="A delivery system that keeps improving — not a one-off win."
+            desc="A delivery system that keeps improving, not a one-off win."
             bullets={[
               'Backlog + prioritization',
               'Monthly shipping cadence',
