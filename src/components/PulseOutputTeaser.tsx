@@ -4,15 +4,15 @@ const PulseOutputTeaser: React.FC = () => {
   const deliverables = [
     {
       title: '1-page Decision Brief',
-      desc: 'Top 3 bets, what to stop, owners, and KPI targets.',
+      desc: 'Top bets, what to pause, owners, and KPI targets.',
     },
     {
       title: 'Value Ledger',
-      desc: 'Baseline → target, measurement cadence, minutes → money.',
+      desc: 'Baseline to target, measurement cadence, time to money.',
     },
     {
       title: '30-day Execution Plan',
-      desc: 'Milestones, risks, dependencies, and shipping cadence.',
+      desc: 'Milestones, risks, dependencies, and a shipping cadence.',
     },
   ];
 
@@ -25,7 +25,7 @@ const PulseOutputTeaser: React.FC = () => {
             What you get after Pulse
           </h2>
           <p className="max-w-3xl mx-auto mt-4 text-lg text-slate-600">
-            Not a survey. A decision engine that produces artifacts you can run with.
+            Pulse produces a decision brief and an execution plan. It is not a survey.
           </p>
         </div>
 
@@ -33,7 +33,7 @@ const PulseOutputTeaser: React.FC = () => {
           {/* Left: deliverables */}
           <div className="rounded-2xl bg-stone-50 ring-1 ring-stone-200 p-7">
             <div className="text-xs font-bold uppercase tracking-wider text-slate-500">
-              Deliverables (sample)
+              Deliverables (illustrative)
             </div>
 
             <div className="mt-5 space-y-4">
@@ -53,11 +53,8 @@ const PulseOutputTeaser: React.FC = () => {
               ))}
             </div>
 
-            {/* Quiet link (optional) */}
             <div className="mt-6 text-sm text-slate-500">
-              <a href="#contact" className="font-semibold text-slate-900 hover:underline">
-                Want a sample output tailored to your domain?
-              </a>
+              The output is short and practical. It is built on your workflow and your data.
             </div>
           </div>
 
@@ -73,11 +70,11 @@ const PulseOutputTeaser: React.FC = () => {
                 </div>
               </div>
 
-              {/* subtle brand stripe */}
               <div className="h-2 w-20 rounded-full bg-amber-500/30 ring-1 ring-amber-200" />
             </div>
 
-            <div className="mt-6 grid gap-3 sm:grid-cols-3">
+            {/* Mobile friendly: stack, then 3 cols on md+ */}
+            <div className="mt-6 grid gap-3 md:grid-cols-3">
               <div className="rounded-xl bg-stone-50 ring-1 ring-stone-200 p-4">
                 <div className="text-xs font-bold uppercase tracking-wider text-slate-500">
                   Top bet
@@ -85,7 +82,7 @@ const PulseOutputTeaser: React.FC = () => {
                 <div className="mt-2 text-sm font-semibold text-slate-900">
                   Support triage
                 </div>
-                <div className="mt-1 text-xs text-slate-600">Owner: CS Ops</div>
+                <div className="mt-1 text-xs text-slate-600">Owner: ops</div>
               </div>
 
               <div className="rounded-xl bg-stone-50 ring-1 ring-stone-200 p-4">
@@ -93,7 +90,7 @@ const PulseOutputTeaser: React.FC = () => {
                   KPI target
                 </div>
                 <div className="mt-2 text-sm font-semibold text-slate-900">
-                  AHT ↓, Reopen ↓
+                  AHT down, reopen down
                 </div>
                 <div className="mt-1 text-xs text-slate-600">Measured weekly</div>
               </div>
@@ -103,17 +100,17 @@ const PulseOutputTeaser: React.FC = () => {
                   First 30 days
                 </div>
                 <div className="mt-2 text-sm font-semibold text-slate-900">
-                  Shadow → Assisted
+                  Shadow to assisted
                 </div>
                 <div className="mt-1 text-xs text-slate-600">Guardrails on</div>
               </div>
             </div>
 
-            {/* tiny “value ledger” row */}
+            {/* Value Ledger excerpt (no fake numbers) */}
             <div className="mt-6 rounded-2xl bg-stone-50 ring-1 ring-stone-200 p-5">
               <div className="flex items-center justify-between text-sm">
-                <div className="font-bold text-slate-900">Value Ledger</div>
-                <div className="text-xs font-semibold text-slate-500">minutes → money</div>
+                <div className="font-bold text-slate-900">Value Ledger excerpt</div>
+                <div className="text-xs font-semibold text-slate-500">time to money</div>
               </div>
 
               <div className="mt-4">
@@ -122,16 +119,16 @@ const PulseOutputTeaser: React.FC = () => {
                   <span className="font-semibold text-slate-700">Target</span>
                 </div>
                 <div className="mt-2 h-2 rounded-full bg-white ring-1 ring-stone-200 overflow-hidden">
-                  <div className="h-full w-[62%] bg-amber-500/35" />
+                  <div className="h-full w-[55%] bg-amber-500/30" />
                 </div>
                 <div className="mt-3 text-xs text-slate-600">
-                  Example: ~2.1 min saved per case (shadow-mode estimate)
+                  Example only. Your ledger is based on your real volumes and your team cost.
                 </div>
               </div>
             </div>
 
             <div className="mt-5 text-xs text-slate-400">
-              Note: This is a visual sample to show the artifact style — your version is built on your workflow and data.
+              Note: This is a visual sample to show the artifact style.
             </div>
           </div>
         </div>
