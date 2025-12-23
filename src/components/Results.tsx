@@ -95,7 +95,7 @@ const Results: React.FC = () => {
             Outcomes you can measure
           </h2>
           <p className="max-w-3xl mx-auto text-lg text-slate-600">
-            We focus on operational lift — proven in one workflow, then scaled with repeatability and trust.
+            We focus on operational lift- proven in one workflow, then scaled with repeatability and trust.
           </p>
         </div>
 
