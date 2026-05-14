@@ -1,0 +1,85 @@
+---
+---
+<section class="proof-strip">
+  <div class="inner">
+    <div class="proof-item">
+      <span class="proof-num">26</span>
+      <span class="proof-label">שנות ניהול בסביבות מורכבות</span>
+    </div>
+    <div class="proof-item">
+      <span class="proof-num">7</span>
+      <span class="proof-label">תחומים בעסק, מבט אחד שלם</span>
+    </div>
+    <div class="proof-item">
+      <span class="proof-num">1</span>
+      <span class="proof-label">פגישת מיפוי שמתחילה את הדרך</span>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* mobile-first base */
+  .proof-strip {
+    border-top: 1px solid var(--line);
+    padding: 40px 24px;
+  }
+
+  .inner {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .proof-item {
+    padding: 20px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .proof-item:last-child {
+    border-bottom: none;
+  }
+
+  .proof-num {
+    font-family: 'Frank Ruhl Libre', serif;
+    font-weight: 300;
+    font-size: 48px;
+    color: var(--dark);
+    letter-spacing: -0.03em;
+    line-height: 1;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .proof-label {
+    font-family: 'Assistant', sans-serif;
+    font-size: 13px;
+    color: var(--faint);
+  }
+
+  /* tablet+ */
+  @media (min-width: 768px) {
+    .proof-strip { padding: 52px 40px; }
+
+    .inner {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .proof-item {
+      padding: 0;
+      padding-inline-end: 48px;
+      border-bottom: none;
+      border-inline-end: 1px solid var(--line);
+    }
+    .proof-item:nth-child(2) {
+      padding-inline: 48px;
+    }
+    .proof-item:last-child {
+      padding-inline-start: 48px;
+      padding-inline-end: 0;
+      border: none;
+    }
+  }
+
+  /* desktop */
+  @media (min-width: 1280px) {
+    .proof-strip { padding: 52px 52px; }
+  }
+</style>

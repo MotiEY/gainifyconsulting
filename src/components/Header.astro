@@ -1,0 +1,237 @@
+---
+import { SITE } from '../config';
+---
+
+<header class="site-header" id="site-header">
+  <a href="/" class="nav-logo">{SITE.name}</a>
+
+  <nav class="nav-desktop" aria-label="ניווט ראשי">
+    <ul class="nav-links">
+      <li><a href="/#outcomes">מה מקבלים</a></li>
+      <li><a href="/#how">איך אני עובד</a></li>
+      <li><a href="/#method">7 הלבנים</a></li>
+      <li><a href="/#about">על מוטי</a></li>
+      <li><a href="/#contact" class="nav-cta">נדבר</a></li>
+    </ul>
+  </nav>
+
+  <button
+    class="hamburger"
+    id="hamburger"
+    aria-label="פתח תפריט"
+    aria-expanded="false"
+    aria-controls="mobile-menu"
+  >
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</header>
+
+<!-- Mobile slide-in menu (rendered outside <header> to avoid stacking context issues) -->
+<nav
+  class="mobile-menu"
+  id="mobile-menu"
+  aria-label="תפריט ניידים"
+  aria-hidden="true"
+>
+  <ul>
+    <li><a href="/#outcomes">מה מקבלים</a></li>
+    <li><a href="/#how">איך אני עובד</a></li>
+    <li><a href="/#method">7 הלבנים</a></li>
+    <li><a href="/#about">על מוטי</a></li>
+    <li><a href="/blog">בלוג</a></li>
+    <li><a href="/#contact" class="menu-cta">נדבר</a></li>
+  </ul>
+</nav>
+
+<style>
+  /* ── HEADER ───────────────────────────────── */
+  .site-header {
+    position: fixed;
+    inset-block-start: 0;
+    inset-inline: 0;
+    z-index: 100;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    transition: background 0.4s, box-shadow 0.4s, backdrop-filter 0.4s;
+  }
+
+  .site-header.scrolled {
+    background: rgba(240, 234, 224, 0.92);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 1px 0 var(--line);
+  }
+
+  .nav-logo {
+    font-family: 'Frank Ruhl Libre', serif;
+    font-weight: 700;
+    font-size: 19px;
+    color: var(--dark);
+    letter-spacing: 0.01em;
+  }
+
+  /* ── DESKTOP NAV (hidden on mobile) ──────── */
+  .nav-desktop { display: none; }
+
+  .nav-links {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+    align-items: center;
+  }
+
+  .nav-links a {
+    font-family: 'Assistant', sans-serif;
+    font-size: 13px;
+    color: var(--mid);
+    letter-spacing: 0.02em;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--dark); }
+  .nav-cta { color: var(--bronze) !important; }
+
+  /* ── HAMBURGER ────────────────────────────── */
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5.5px;
+    width: 44px;
+    height: 44px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    flex-shrink: 0;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 22px;
+    height: 1.5px;
+    background: var(--dark);
+    transform-origin: center;
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+                opacity 0.2s ease;
+  }
+
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* ── MOBILE MENU ──────────────────────────── */
+  .mobile-menu {
+    position: fixed;
+    inset-block-start: 60px;
+    inset-inline: 0;
+    z-index: 99;
+    background: rgba(240, 234, 224, 0.97);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--line);
+    padding: 8px 24px 32px;
+    transform: translateY(-110%);
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    /* Hidden by default for screen readers too */
+    visibility: hidden;
+  }
+
+  .mobile-menu.open {
+    transform: translateY(0);
+    visibility: visible;
+  }
+
+  .mobile-menu ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mobile-menu li {
+    border-bottom: 1px solid var(--line);
+  }
+  .mobile-menu li:last-child { border-bottom: none; }
+
+  .mobile-menu a {
+    font-family: 'Assistant', sans-serif;
+    font-size: 17px;
+    color: var(--mid);
+    display: flex;
+    align-items: center;
+    padding: 0 4px;
+    min-height: 56px;
+    transition: color 0.2s;
+  }
+  .mobile-menu a:active { color: var(--dark); }
+  @media (hover: hover) {
+    .mobile-menu a:hover { color: var(--dark); }
+  }
+
+  .menu-cta {
+    color: var(--bronze) !important;
+    font-weight: 500;
+  }
+
+  /* ── DESKTOP BREAKPOINT ───────────────────── */
+  @media (min-width: 768px) {
+    .site-header { padding: 0 52px; }
+    .nav-desktop  { display: block; }
+    .hamburger    { display: none; }
+    .mobile-menu  { display: none; }
+  }
+</style>
+
+<script>
+  const hamburger = document.getElementById('hamburger') as HTMLButtonElement | null;
+  const mobileMenu = document.getElementById('mobile-menu') as HTMLElement | null;
+
+  function openMenu() {
+    hamburger?.classList.add('open');
+    mobileMenu?.classList.add('open');
+    hamburger?.setAttribute('aria-expanded', 'true');
+    mobileMenu?.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMenu() {
+    hamburger?.classList.remove('open');
+    mobileMenu?.classList.remove('open');
+    hamburger?.setAttribute('aria-expanded', 'false');
+    mobileMenu?.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  hamburger?.addEventListener('click', () => {
+    hamburger.classList.contains('open') ? closeMenu() : openMenu();
+  });
+
+  // Close when a menu link is clicked
+  mobileMenu?.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  // Close on Escape key
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeMenu();
+  });
+
+  // Close when clicking outside
+  document.addEventListener('click', e => {
+    if (
+      mobileMenu?.classList.contains('open') &&
+      !mobileMenu.contains(e.target as Node) &&
+      !hamburger?.contains(e.target as Node)
+    ) {
+      closeMenu();
+    }
+  });
+</script>

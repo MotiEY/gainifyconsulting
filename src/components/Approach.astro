@@ -1,0 +1,72 @@
+---
+---
+<section class="approach" id="how">
+  <div class="inner">
+    <div class="approach-left">
+      <span class="tag reveal">איך אני עובד</span>
+      <h2 class="approach-heading reveal">מתחילים בלראות את העסק כפי שהוא, לא כפי שמדמיינים אותו.</h2>
+    </div>
+    <div class="approach-right">
+      <p class="approach-body reveal">אני עובד בגישת 7BRICKS, שמסתכלת על העסק כמערכת שלמה: שיווק, מכירות, תפעול, אנשים, פיננסים, ניהול ומנהיגות, וצמיחה. העבודה נעשית יחד, על הנתונים, המספרים, התהליכים והאנשים. לא משלוח עצות מהצד, אלא חשיבה משותפת על מה באמת קורה ולאן נכון לכוון.</p>
+      <p class="approach-body reveal">כשהתמונה ברורה, נבנית דרך עבודה מעשית. לפעמים זו החלטה אחת גדולה. לפעמים עשרה צעדים קטנים. תמיד עם הסדר הנכון, ובלי לעמוס על העסק יותר ממה שהוא יכול לשאת.</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* mobile-first base */
+  .approach {
+    border-top: 1px solid var(--line);
+    padding: 72px 24px;
+  }
+
+  .inner {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 28px;
+    align-items: start;
+  }
+
+  .approach-heading {
+    font-family: 'Frank Ruhl Libre', serif;
+    font-weight: 400;
+    font-size: clamp(22px, 5vw, 32px);
+    line-height: 1.35;
+    color: var(--dark);
+    letter-spacing: -0.01em;
+  }
+
+  .approach-right {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+
+  .approach-body {
+    font-family: 'Assistant', sans-serif;
+    font-size: 17px;
+    line-height: 1.88;
+    color: var(--mid);
+  }
+
+  /* tablet */
+  @media (min-width: 768px) {
+    .approach { padding: 90px 40px; }
+  }
+
+  /* desktop */
+  @media (min-width: 1280px) {
+    .approach { padding: 110px 52px; }
+
+    .inner {
+      grid-template-columns: 340px 1fr;
+      gap: 100px;
+    }
+
+    .approach-heading {
+      font-size: clamp(22px, 2.4vw, 32px);
+      position: sticky;
+      top: 80px;
+    }
+  }
+</style>

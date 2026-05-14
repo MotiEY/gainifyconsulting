@@ -1,0 +1,142 @@
+---
+---
+<section class="outcomes-section" id="outcomes">
+  <div class="inner">
+    <div class="outcomes-left">
+      <span class="tag reveal">מה מקבלים בתהליך</span>
+      <h2 class="outcomes-heading reveal">תוצרים מוחשיים, לא רק שיחה.</h2>
+    </div>
+    <div class="outcomes-right">
+      <div class="outcomes-list">
+        <div class="outcome-item reveal">
+          <span class="outcome-num">01</span>
+          <div>
+            <h3 class="outcome-title">מיפוי חד של המצב הקיים</h3>
+            <p class="outcome-body">איפה העסק באמת תקוע, מה רק נראה כמו הבעיה, ומה החסם האמיתי שמחזיק אותו במקום. תמונה ברורה של מה שקורה היום, על פני שבעת תחומי העסק.</p>
+          </div>
+        </div>
+        <div class="outcome-item reveal">
+          <span class="outcome-num">02</span>
+          <div>
+            <h3 class="outcome-title">פיצוח אסטרטגי ותיעדוף</h3>
+            <p class="outcome-body">בחירה ב-1 עד 3 מהלכים מהותיים שיכולים להזיז את המחט, במקום לפזר אנרגיה על עשרות משימות שלא משנות את התמונה.</p>
+          </div>
+        </div>
+        <div class="outcome-item reveal">
+          <span class="outcome-num">03</span>
+          <div>
+            <h3 class="outcome-title">תכנית עבודה מעשית</h3>
+            <p class="outcome-body">דרך ברורה ליישום, מדורגת, ניתנת לביצוע, עם סדר ותעדוף. תכנית שאפשר להתחיל לפעול לפיה מחר, לא רק להניח על המדף.</p>
+          </div>
+        </div>
+      </div>
+      <p class="outcomes-anchor reveal">היציאה מהתהליך: בהירות, דרך ברורה, וחזרה לשליטה על העסק.</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* mobile-first base */
+  .outcomes-section {
+    border-top: 1px solid var(--line);
+    padding: 72px 24px;
+  }
+
+  .inner {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 28px;
+    align-items: start;
+  }
+
+  .outcomes-heading {
+    font-family: 'Frank Ruhl Libre', serif;
+    font-weight: 400;
+    font-size: clamp(22px, 5vw, 32px);
+    line-height: 1.35;
+    color: var(--dark);
+    letter-spacing: -0.01em;
+  }
+
+  .outcomes-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .outcome-item {
+    display: grid;
+    grid-template-columns: 50px 1fr;
+    gap: 18px;
+    padding: 28px 0;
+    border-bottom: 1px solid var(--line);
+    align-items: start;
+  }
+  .outcome-item:first-child { padding-top: 0; }
+  .outcome-item:last-child  { border-bottom: none; }
+
+  .outcome-num {
+    font-family: 'Frank Ruhl Libre', serif;
+    font-weight: 300;
+    font-size: 28px;
+    color: var(--bronze);
+    letter-spacing: -0.02em;
+    line-height: 1;
+    padding-top: 4px;
+  }
+
+  .outcome-title {
+    font-family: 'Frank Ruhl Libre', serif;
+    font-weight: 400;
+    font-size: 19px;
+    color: var(--dark);
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+  }
+
+  .outcome-body {
+    font-family: 'Assistant', sans-serif;
+    font-size: 15.5px;
+    line-height: 1.85;
+    color: var(--mid);
+  }
+
+  .outcomes-anchor {
+    margin-top: 48px;
+    padding-top: 28px;
+    border-top: 1px solid var(--line-mid);
+    font-family: 'Frank Ruhl Libre', serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: var(--dark);
+    line-height: 1.6;
+    letter-spacing: -0.01em;
+  }
+
+  /* tablet */
+  @media (min-width: 768px) {
+    .outcomes-section { padding: 90px 40px; }
+  }
+
+  /* desktop */
+  @media (min-width: 1280px) {
+    .outcomes-section { padding: 110px 52px; }
+
+    .inner {
+      grid-template-columns: 340px 1fr;
+      gap: 100px;
+    }
+
+    .outcomes-heading {
+      font-size: clamp(22px, 2.4vw, 32px);
+      position: sticky;
+      top: 80px;
+    }
+
+    .outcome-item {
+      grid-template-columns: 70px 1fr;
+      gap: 32px;
+      padding: 36px 0;
+    }
+    .outcome-num { font-size: 36px; }
+  }
+</style>

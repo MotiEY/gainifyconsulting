@@ -1,0 +1,128 @@
+---
+---
+<section class="fit-section" id="fit">
+  <div class="inner">
+    <div class="fit-top">
+      <div>
+        <span class="tag reveal">למי זה מתאים</span>
+        <h2 class="fit-heading reveal">לעסקים בצומת, שמחפשים בהירות, סדר ודרך לצמיחה.</h2>
+      </div>
+      <p class="fit-intro reveal">לא כל עסק ולא כל רגע מתאימים לעבודה הזאת. שלוש התמונות הבאות יעזרו לך להבין אם זה מדבר אליך עכשיו.</p>
+    </div>
+
+    <div class="fit-blocks">
+      <div class="fit-block reveal">
+        <p>לעסקים יציבים שצמחו עד כאן, ומרגישים שמשהו האט. שיש שליטה, אבל לא תמיד מלאה, ושנכון לעשות סדר לפני שממשיכים לגדול.</p>
+      </div>
+      <div class="fit-block reveal">
+        <p>לבעלי עסקים שמחזיקים יותר מדי לבד. שהיום-יום בולע את המבט מלמעלה, ושהעסק מרגיש תלוי בהם יותר ממה שהיו רוצים.</p>
+      </div>
+      <div class="fit-block reveal">
+        <p>להנהלות שעומדות בפני החלטה מהותית, שינוי בפעילות, בצוות, או בכיוון, וצריכות מבט חיצוני כדי להחליט נכון.</p>
+      </div>
+    </div>
+
+    <p class="fit-filter reveal">אם אחד מאלה מתאר אותך, כדאי שנדבר. אם לא, סביר שזו לא העבודה הנכונה כרגע.</p>
+  </div>
+</section>
+
+<style>
+  /* mobile-first base */
+  .fit-section {
+    border-top: 1px solid var(--line);
+    padding: 72px 24px;
+  }
+
+  .fit-top {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-bottom: 48px;
+  }
+
+  .fit-heading {
+    font-family: 'Frank Ruhl Libre', serif;
+    font-weight: 400;
+    font-size: clamp(22px, 5vw, 32px);
+    line-height: 1.35;
+    color: var(--dark);
+    letter-spacing: -0.01em;
+  }
+
+  .fit-intro {
+    font-family: 'Assistant', sans-serif;
+    font-size: 17px;
+    line-height: 1.88;
+    color: var(--mid);
+  }
+
+  .fit-blocks {
+    display: grid;
+    grid-template-columns: 1fr;
+    border-top: 1px solid var(--line);
+  }
+
+  .fit-block {
+    padding: 32px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .fit-block:last-child { border-bottom: none; }
+
+  .fit-block p {
+    font-family: 'Assistant', sans-serif;
+    font-size: 16px;
+    line-height: 1.88;
+    color: var(--mid);
+  }
+
+  .fit-filter {
+    margin-top: 52px;
+    padding-top: 32px;
+    border-top: 1px solid var(--line);
+    text-align: center;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-weight: 400;
+    font-size: clamp(17px, 3vw, 22px);
+    color: var(--dark);
+    line-height: 1.55;
+    letter-spacing: -0.01em;
+    max-width: 720px;
+    margin-inline: auto;
+  }
+
+  /* tablet */
+  @media (min-width: 768px) {
+    .fit-section { padding: 90px 40px; }
+
+    .fit-blocks {
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid var(--line);
+    }
+    .fit-block {
+      padding: 48px 44px 48px 0;
+      border-bottom: none;
+      border-inline-end: 1px solid var(--line);
+    }
+    .fit-block:nth-child(2) { padding-inline: 44px; }
+    .fit-block:last-child {
+      border-inline-end: none;
+      padding-inline-start: 44px;
+      padding-inline-end: 0;
+    }
+  }
+
+  /* desktop */
+  @media (min-width: 1280px) {
+    .fit-section { padding: 110px 52px; }
+
+    .fit-top {
+      grid-template-columns: 340px 1fr;
+      gap: 100px;
+      margin-bottom: 64px;
+      align-items: end;
+    }
+
+    .fit-heading { font-size: clamp(22px, 2.4vw, 32px); }
+    .fit-filter { font-size: clamp(18px, 1.9vw, 22px); }
+  }
+</style>
