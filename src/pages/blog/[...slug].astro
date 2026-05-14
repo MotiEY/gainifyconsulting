@@ -1,0 +1,172 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => !data.draft);
+  return posts.map(post => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const dateStr = post.data.date.toLocaleDateString('he-IL', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<BaseLayout
+  title={`${post.data.title} | מוטי שדות`}
+  description={post.data.description}
+>
+  <Fragment slot="head">
+    <meta property="og:title" content={post.data.title} />
+    <meta property="og:description" content={post.data.description} />
+    <meta property="og:type" content="article" />
+  </Fragment>
+
+  <article class="post-page">
+    <div class="post-inner">
+      <a href="/blog" class="back-link">→ חזרה לבלוג</a>
+
+      <header class="post-header">
+        <time class="post-date" datetime={post.data.date.toISOString()}>
+          {dateStr}
+        </time>
+        <h1 class="post-title">{post.data.title}</h1>
+        {post.data.author && (
+          <p class="post-author">{post.data.author}</p>
+        )}
+      </header>
+
+      <div class="post-body">
+        <Content />
+      </div>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .post-page {
+    padding: 100px 24px 80px;
+  }
+
+  .post-inner {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .back-link {
+    font-family: 'Assistant', sans-serif;
+    font-size: 13px;
+    color: var(--bronze);
+    letter-spacing: 0.02em;
+    display: inline-block;
+    margin-bottom: 40px;
+    border-bottom: 1px solid var(--line-mid);
+    padding-bottom: 2px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .back-link:hover {
+    color: var(--dark);
+    border-color: var(--dark);
+  }
+
+  .post-header {
+    margin-bottom: 40px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .post-date {
+    display: block;
+    font-family: 'Assistant', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.07em;
+    color: var(--faint);
+    margin-bottom: 16px;
+  }
+
+  .post-title {
+    font-family: 'Frank Ruhl Libre', serif;
+    font-weight: 300;
+    font-size: clamp(28px, 5vw, 48px);
+    line-height: 1.2;
+    color: var(--dark);
+    letter-spacing: -0.02em;
+  }
+
+  .post-author {
+    margin-top: 16px;
+    font-family: 'Assistant', sans-serif;
+    font-size: 13px;
+    color: var(--faint);
+    letter-spacing: 0.02em;
+  }
+
+  .post-body {
+    font-family: 'Assistant', sans-serif;
+    font-size: 18px;
+    line-height: 1.7;
+    color: var(--dark);
+  }
+
+  .post-body :global(p) {
+    margin-bottom: 1.5em;
+  }
+
+  .post-body :global(h2) {
+    font-family: 'Frank Ruhl Libre', serif;
+    font-weight: 400;
+    font-size: 1.35em;
+    margin-top: 2em;
+    margin-bottom: 0.75em;
+  }
+
+  .post-body :global(h3) {
+    font-family: 'Frank Ruhl Libre', serif;
+    font-weight: 400;
+    font-size: 1.15em;
+    margin-top: 1.75em;
+    margin-bottom: 0.6em;
+  }
+
+  .post-body :global(ul),
+  .post-body :global(ol) {
+    padding-right: 1.5em;
+    margin-bottom: 1.4em;
+  }
+
+  .post-body :global(li) {
+    margin-bottom: 0.4em;
+  }
+
+  .post-body :global(blockquote) {
+    border-right: 3px solid var(--bronze);
+    padding-right: 20px;
+    margin: 1.6em 0;
+    color: var(--mid);
+  }
+
+  .post-body :global(a) {
+    color: var(--bronze);
+    border-bottom: 1px solid var(--line-mid);
+  }
+
+  @media (min-width: 768px) {
+    .post-page { padding: 120px 40px 100px; }
+
+    .post-inner {
+      max-width: 700px;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .post-page { padding: 140px 52px 100px; }
+  }
+</style>

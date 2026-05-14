@@ -1,0 +1,83 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  date: Date;
+  slug: string;
+}
+
+const { title, description, date, slug } = Astro.props;
+
+const dateStr = date.toLocaleDateString('he-IL', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<article class="blog-card">
+  <a href={`/blog/${slug}`} class="card-link">
+    <time class="card-date" datetime={date.toISOString()}>{dateStr}</time>
+    <h2 class="card-title">{title}</h2>
+    <p class="card-desc">{description}</p>
+    <span class="card-more">קרא עוד</span>
+  </a>
+</article>
+
+<style>
+  .blog-card {
+    border-top: 1px solid var(--line);
+    padding: 28px 0;
+  }
+
+  .card-link {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: inherit;
+  }
+
+  .card-date {
+    font-family: 'Assistant', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.07em;
+    color: var(--faint);
+    display: block;
+  }
+
+  .card-title {
+    font-family: 'Frank Ruhl Libre', serif;
+    font-weight: 400;
+    font-size: clamp(20px, 3vw, 26px);
+    line-height: 1.3;
+    color: var(--dark);
+    transition: color 0.2s;
+  }
+
+  .blog-card:hover .card-title {
+    color: var(--bronze);
+  }
+
+  .card-desc {
+    font-family: 'Assistant', sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--mid);
+  }
+
+  .card-more {
+    font-family: 'Assistant', sans-serif;
+    font-size: 13px;
+    color: var(--bronze);
+    letter-spacing: 0.02em;
+    margin-top: 6px;
+    display: inline-block;
+    border-bottom: 1px solid var(--line-mid);
+    padding-bottom: 1px;
+    transition: border-color 0.2s;
+  }
+
+  .blog-card:hover .card-more {
+    border-color: var(--bronze);
+  }
+</style>
