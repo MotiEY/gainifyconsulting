@@ -2,6 +2,21 @@
 
 This file is read automatically by AI assistants (Claude Code, Cowork) at the start of every session in this repo. It is the single source of truth for project context, decisions, and conventions.
 
+## CRITICAL: Keep this file current
+
+**Whenever you complete a task, make a significant change, or learn something about the project, you MUST update this file in the same commit that introduces the change.**
+
+Specifically:
+- Finished a pending item from "What's pending"? Move it to "What's been done" with a date.
+- Discovered a new issue or constraint? Add it to "Known issues".
+- Made a design decision Moti approved? Document it in the relevant section.
+- Replaced a placeholder with real content (photo, Calendly URL, testimonial)? Update the placeholder note.
+- Changed conventions, palette, fonts, or stack? Update those sections.
+
+When in doubt: assume the next AI session has zero memory of this conversation. What would it need to know? Write that down here.
+
+A `feat:` or `fix:` commit that touches code but does NOT update this file when relevant is incomplete. Treat the update as part of the work, not as overhead.
+
 ## What this is
 
 A personal-brand consulting website for **מוטי שדות / Moti Sadot** (motisdt@gmail.com, 052-552-3021). Solo strategic business consultant for SMBs and management teams, working in a methodology called **7BRICKS** (שיווק, מכירות, תפעול, אנשים, פיננסים, ניהול ומנהיגות, צמיחה).
