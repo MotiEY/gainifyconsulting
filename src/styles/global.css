@@ -198,6 +198,90 @@ img {
   }
 }
 
+/* ─── A11Y MODIFIER CLASSES ─────────────────────────────────── */
+
+/* Text size */
+html.a11y-text-lg body { font-size: 18px; }
+html.a11y-text-xl body { font-size: 20px; }
+
+html.a11y-text-lg .about-body p,
+html.a11y-text-lg .diagnostic-body p,
+html.a11y-text-lg .cta-body,
+html.a11y-text-lg .hero-promise { font-size: 20px; }
+
+html.a11y-text-xl .about-body p,
+html.a11y-text-xl .diagnostic-body p,
+html.a11y-text-xl .cta-body,
+html.a11y-text-xl .hero-promise { font-size: 22px; }
+
+/* High contrast — dark mode */
+html.a11y-high-contrast {
+  --cream:    #0a0a0a;
+  --cream-2:  #161616;
+  --dark:     #f5f5e8;
+  --bronze:   #f0c040;
+  --bronze-l: rgba(240, 192, 64, 0.12);
+  --mid:      #ccc4b0;
+  --faint:    #a09880;
+  --line:     rgba(245, 245, 232, 0.18);
+  --line-mid: rgba(245, 245, 232, 0.28);
+}
+html.a11y-high-contrast .site-footer {
+  background: #000;
+  border-top-color: rgba(245,245,232,0.12);
+}
+html.a11y-high-contrast .site-header.scrolled {
+  background: rgba(10,10,10,0.96);
+}
+html.a11y-high-contrast .mobile-menu {
+  background: rgba(10,10,10,0.98);
+}
+
+/* Readable font */
+html.a11y-readable-font,
+html.a11y-readable-font * {
+  font-family: Arial, 'Segoe UI', Tahoma, sans-serif !important;
+}
+
+/* Highlight links */
+html.a11y-highlight-links a {
+  text-decoration: underline !important;
+  text-decoration-thickness: 2px !important;
+  text-underline-offset: 3px !important;
+}
+
+/* No animations */
+html.a11y-no-anim *,
+html.a11y-no-anim *::before,
+html.a11y-no-anim *::after {
+  animation-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.001ms !important;
+}
+html.a11y-no-anim .reveal {
+  opacity: 1 !important;
+  transform: none !important;
+}
+html.a11y-no-anim .anim-line {
+  stroke-dashoffset: 0 !important;
+  opacity: 1 !important;
+}
+html.a11y-no-anim .anim-dot {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* Screen-reader only utility */
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
 /* ─── SVG DRAW ANIMATIONS ────────────────────────────────────── */
 .anim-line {
   fill: none;

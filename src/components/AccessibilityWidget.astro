@@ -1,0 +1,519 @@
+---
+---
+
+<!-- ♿ Accessibility Widget -->
+<div class="a11y-widget" id="a11y-widget">
+
+  <!-- Floating trigger button -->
+  <button
+    class="a11y-trigger"
+    id="a11y-trigger"
+    aria-label="פתח תפריט נגישות"
+    aria-expanded="false"
+    aria-controls="a11y-panel"
+    aria-haspopup="dialog"
+  >
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+         stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <!-- head -->
+      <circle cx="12" cy="4" r="2.2" fill="currentColor" stroke="none"/>
+      <!-- arms wide -->
+      <path d="M5.5 10.5L12 8.5l6.5 2"/>
+      <!-- body -->
+      <line x1="12" y1="8.5" x2="12" y2="15"/>
+      <!-- legs -->
+      <path d="M12 15 L9 21M12 15 L15 21"/>
+    </svg>
+    <span class="a11y-trigger-label">נגישות</span>
+  </button>
+
+  <!-- Panel (dialog) -->
+  <div
+    class="a11y-panel"
+    id="a11y-panel"
+    role="dialog"
+    aria-label="אפשרויות נגישות"
+    aria-modal="false"
+    hidden
+  >
+    <!-- Header -->
+    <div class="a11y-panel-header">
+      <span class="a11y-panel-title">הגדרות נגישות</span>
+      <button class="a11y-panel-close" id="a11y-close" aria-label="סגור תפריט נגישות">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <line x1="2" y1="2" x2="14" y2="14"/>
+          <line x1="14" y1="2" x2="2" y2="14"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Options list -->
+    <ul class="a11y-options" role="list">
+
+      <!-- 1. Text size -->
+      <li class="a11y-option a11y-option--group">
+        <span class="a11y-option-label" id="text-size-lbl">גודל טקסט</span>
+        <div class="a11y-text-controls" role="group" aria-labelledby="text-size-lbl">
+          <button id="a11y-text-dec" aria-label="הקטן טקסט" class="a11y-size-btn">
+            <span aria-hidden="true" style="font-size:13px; font-weight:700">A</span>
+          </button>
+          <button id="a11y-text-reset" aria-label="אפס גודל טקסט לברירת מחדל" class="a11y-size-btn a11y-size-btn--mid">
+            <span aria-hidden="true" style="font-size:16px; font-weight:700">A</span>
+          </button>
+          <button id="a11y-text-inc" aria-label="הגדל טקסט" class="a11y-size-btn">
+            <span aria-hidden="true" style="font-size:20px; font-weight:700">A</span>
+          </button>
+        </div>
+      </li>
+
+      <!-- 2. High contrast -->
+      <li class="a11y-option">
+        <button class="a11y-toggle-btn" id="a11y-contrast" aria-pressed="false">
+          <span class="a11y-btn-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M10 2 A8 8 0 0 1 10 18 Z" fill="currentColor"/>
+            </svg>
+          </span>
+          ניגודיות גבוהה
+        </button>
+      </li>
+
+      <!-- 3. Readable font -->
+      <li class="a11y-option">
+        <button class="a11y-toggle-btn" id="a11y-font" aria-pressed="false">
+          <span class="a11y-btn-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+              <text x="3" y="15" font-family="Arial, sans-serif" font-size="14" font-weight="700">Ag</text>
+            </svg>
+          </span>
+          גופן קריא
+        </button>
+      </li>
+
+      <!-- 4. Highlight links -->
+      <li class="a11y-option">
+        <button class="a11y-toggle-btn" id="a11y-links" aria-pressed="false">
+          <span class="a11y-btn-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor"
+                 stroke-width="1.5" aria-hidden="true">
+              <path d="M4 10h12M4 10 L8 6M4 10 L8 14" stroke-linecap="round" stroke-linejoin="round"/>
+              <line x1="4" y1="16" x2="16" y2="16" stroke-width="2.5"/>
+            </svg>
+          </span>
+          הדגשת קישורים
+        </button>
+      </li>
+
+      <!-- 5. Stop animations -->
+      <li class="a11y-option">
+        <button class="a11y-toggle-btn" id="a11y-anim" aria-pressed="false">
+          <span class="a11y-btn-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+              <rect x="4" y="4" width="5" height="12" rx="1"/>
+              <rect x="11" y="4" width="5" height="12" rx="1"/>
+            </svg>
+          </span>
+          עצירת אנימציות
+        </button>
+      </li>
+
+    </ul>
+
+    <!-- Reset all -->
+    <button class="a11y-reset-all" id="a11y-reset">
+      איפוס הגדרות
+    </button>
+  </div>
+</div>
+
+<style>
+  /* ── Trigger button ──────────────────────────────────────────── */
+  .a11y-trigger {
+    position: fixed;
+    bottom: 28px;
+    left: 28px;
+    z-index: 998;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    background: var(--dark);
+    color: var(--cream);
+    border: none;
+    border-radius: 12px;
+    padding: 10px 10px 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(24,20,16,0.22);
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    min-width: 52px;
+    min-height: 52px;
+    justify-content: center;
+  }
+  .a11y-trigger:hover {
+    background: #2a2218;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(24,20,16,0.3);
+  }
+  .a11y-trigger:focus-visible {
+    outline: 2px solid var(--bronze);
+    outline-offset: 3px;
+  }
+  .a11y-trigger[aria-expanded="true"] {
+    background: var(--bronze);
+  }
+  .a11y-trigger-label {
+    font-family: 'Assistant', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.5px;
+    line-height: 1;
+    color: inherit;
+    opacity: 0.85;
+  }
+
+  /* ── Panel ───────────────────────────────────────────────────── */
+  .a11y-panel {
+    position: fixed;
+    bottom: 92px;
+    left: 28px;
+    z-index: 997;
+    width: 260px;
+    background: var(--cream);
+    border: 1px solid var(--line-mid);
+    border-radius: 14px;
+    box-shadow: 0 8px 40px rgba(24,20,16,0.18);
+    padding: 0;
+    overflow: hidden;
+    /* animate in */
+    transform-origin: bottom left;
+    animation: panelIn 0.22s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  .a11y-panel[hidden] {
+    display: none;
+  }
+
+  @keyframes panelIn {
+    from { opacity: 0; transform: scale(0.92) translateY(8px); }
+    to   { opacity: 1; transform: scale(1) translateY(0); }
+  }
+
+  /* ── Panel header ────────────────────────────────────────────── */
+  .a11y-panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 16px 12px;
+    border-bottom: 1px solid var(--line);
+  }
+  .a11y-panel-title {
+    font-family: 'Assistant', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: var(--dark);
+  }
+  .a11y-panel-close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background: none;
+    border: none;
+    border-radius: 6px;
+    color: var(--mid);
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+    padding: 0;
+  }
+  .a11y-panel-close:hover { background: var(--cream-2); color: var(--dark); }
+  .a11y-panel-close:focus-visible {
+    outline: 2px solid var(--bronze);
+    outline-offset: 2px;
+  }
+
+  /* ── Options list ────────────────────────────────────────────── */
+  .a11y-options {
+    list-style: none;
+    padding: 8px 0;
+  }
+
+  .a11y-option {
+    border-bottom: 1px solid var(--line);
+  }
+  .a11y-option:last-child { border-bottom: none; }
+
+  /* Text size group */
+  .a11y-option--group {
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .a11y-option-label {
+    font-family: 'Assistant', sans-serif;
+    font-size: 14px;
+    color: var(--dark);
+    flex-shrink: 0;
+  }
+  .a11y-text-controls {
+    display: flex;
+    gap: 4px;
+  }
+  .a11y-size-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: var(--cream-2);
+    border: 1px solid var(--line-mid);
+    border-radius: 8px;
+    color: var(--dark);
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s;
+    padding: 0;
+    line-height: 1;
+  }
+  .a11y-size-btn--mid {
+    background: var(--cream);
+    border-color: var(--bronze);
+  }
+  .a11y-size-btn:hover { background: var(--bronze-l); border-color: var(--bronze); }
+  .a11y-size-btn:disabled { opacity: 0.35; cursor: default; }
+  .a11y-size-btn:focus-visible {
+    outline: 2px solid var(--bronze);
+    outline-offset: 2px;
+  }
+
+  /* Toggle buttons (contrast / font / links / anim) */
+  .a11y-toggle-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    background: none;
+    border: none;
+    color: var(--dark);
+    font-family: 'Assistant', sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: right;
+    transition: background 0.15s;
+  }
+  .a11y-toggle-btn:hover { background: var(--cream-2); }
+  .a11y-toggle-btn:focus-visible {
+    outline: 2px solid var(--bronze);
+    outline-offset: -2px;
+  }
+  .a11y-toggle-btn[aria-pressed="true"] {
+    background: var(--dark);
+    color: var(--cream);
+  }
+  .a11y-toggle-btn[aria-pressed="true"]:hover {
+    background: #2a2218;
+  }
+  .a11y-btn-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    background: var(--cream-2);
+    flex-shrink: 0;
+    transition: background 0.15s;
+  }
+  .a11y-toggle-btn[aria-pressed="true"] .a11y-btn-icon {
+    background: rgba(240,234,224,0.15);
+  }
+
+  /* ── Reset all ───────────────────────────────────────────────── */
+  .a11y-reset-all {
+    width: 100%;
+    padding: 12px 16px;
+    background: none;
+    border: none;
+    border-top: 1px solid var(--line);
+    font-family: 'Assistant', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    color: var(--faint);
+    cursor: pointer;
+    text-align: center;
+    transition: color 0.15s, background 0.15s;
+  }
+  .a11y-reset-all:hover { color: var(--mid); background: var(--cream-2); }
+  .a11y-reset-all:focus-visible {
+    outline: 2px solid var(--bronze);
+    outline-offset: -2px;
+  }
+
+  /* ── High contrast overrides for the widget itself ───────────── */
+  html.a11y-high-contrast .a11y-trigger {
+    background: #f5f5e8;
+    color: #0a0a0a;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+  }
+  html.a11y-high-contrast .a11y-trigger[aria-expanded="true"] {
+    background: #f0c040;
+    color: #0a0a0a;
+  }
+  html.a11y-high-contrast .a11y-panel {
+    background: #0a0a0a;
+    border-color: rgba(245,245,232,0.25);
+  }
+  html.a11y-high-contrast .a11y-toggle-btn[aria-pressed="true"] {
+    background: #f5f5e8;
+    color: #0a0a0a;
+  }
+  html.a11y-high-contrast .a11y-size-btn {
+    background: #161616;
+    border-color: rgba(245,245,232,0.3);
+    color: #f5f5e8;
+  }
+
+  /* ── Reduced motion: skip panel animation ────────────────────── */
+  @media (prefers-reduced-motion: reduce) {
+    .a11y-panel { animation: none; }
+  }
+</style>
+
+<script>
+  // ── State ──────────────────────────────────────────────────────
+  const state = {
+    textSize: parseInt(localStorage.getItem('a11y_textSize') ?? '0'),
+    contrast: localStorage.getItem('a11y_contrast') === '1',
+    font:     localStorage.getItem('a11y_font')     === '1',
+    links:    localStorage.getItem('a11y_links')    === '1',
+    anim:     localStorage.getItem('a11y_anim')     === '1',
+  };
+
+  const html    = document.documentElement;
+  const trigger = document.getElementById('a11y-trigger')  as HTMLButtonElement;
+  const panel   = document.getElementById('a11y-panel')    as HTMLElement;
+  const closeBtn= document.getElementById('a11y-close')    as HTMLButtonElement;
+  const textDec = document.getElementById('a11y-text-dec') as HTMLButtonElement;
+  const textRst = document.getElementById('a11y-text-reset')as HTMLButtonElement;
+  const textInc = document.getElementById('a11y-text-inc') as HTMLButtonElement;
+
+  // ── Apply all state to DOM ─────────────────────────────────────
+  function applyAll() {
+    // Text size
+    html.classList.remove('a11y-text-lg', 'a11y-text-xl');
+    if (state.textSize === 1) html.classList.add('a11y-text-lg');
+    if (state.textSize === 2) html.classList.add('a11y-text-xl');
+    textDec.disabled  = state.textSize === 0;
+    textInc.disabled  = state.textSize === 2;
+
+    // Toggles
+    const toggles = [
+      { key: 'contrast' as const, cls: 'a11y-high-contrast' },
+      { key: 'font'     as const, cls: 'a11y-readable-font'  },
+      { key: 'links'    as const, cls: 'a11y-highlight-links' },
+      { key: 'anim'     as const, cls: 'a11y-no-anim'         },
+    ];
+    toggles.forEach(({ key, cls }) => {
+      const active = state[key];
+      html.classList.toggle(cls, active);
+      document.getElementById(`a11y-${key}`)
+        ?.setAttribute('aria-pressed', String(active));
+    });
+  }
+
+  // ── Save to localStorage ───────────────────────────────────────
+  function save() {
+    localStorage.setItem('a11y_textSize', String(state.textSize));
+    localStorage.setItem('a11y_contrast', state.contrast ? '1' : '0');
+    localStorage.setItem('a11y_font',     state.font     ? '1' : '0');
+    localStorage.setItem('a11y_links',    state.links    ? '1' : '0');
+    localStorage.setItem('a11y_anim',     state.anim     ? '1' : '0');
+  }
+
+  // ── Panel open / close ─────────────────────────────────────────
+  function openPanel() {
+    panel.removeAttribute('hidden');
+    trigger.setAttribute('aria-expanded', 'true');
+    trigger.setAttribute('aria-label', 'סגור תפריט נגישות');
+    closeBtn.focus();
+  }
+
+  function closePanel() {
+    panel.setAttribute('hidden', '');
+    trigger.setAttribute('aria-expanded', 'false');
+    trigger.setAttribute('aria-label', 'פתח תפריט נגישות');
+    trigger.focus();
+  }
+
+  trigger.addEventListener('click', () => {
+    panel.hasAttribute('hidden') ? openPanel() : closePanel();
+  });
+  closeBtn.addEventListener('click', closePanel);
+
+  // Close on Escape
+  panel.addEventListener('keydown', (e: KeyboardEvent) => {
+    if (e.key === 'Escape') { e.stopPropagation(); closePanel(); }
+  });
+
+  // Close on outside click
+  document.addEventListener('click', (e: MouseEvent) => {
+    if (
+      !panel.hasAttribute('hidden') &&
+      !panel.contains(e.target as Node) &&
+      !trigger.contains(e.target as Node)
+    ) closePanel();
+  });
+
+  // Focus trap inside panel
+  panel.addEventListener('keydown', (e: KeyboardEvent) => {
+    if (e.key !== 'Tab') return;
+    const focusable = Array.from(
+      panel.querySelectorAll<HTMLElement>(
+        'button:not([disabled]), [href], input, [tabindex]:not([tabindex="-1"])'
+      )
+    );
+    if (!focusable.length) return;
+    const first = focusable[0];
+    const last  = focusable[focusable.length - 1];
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault(); last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault(); first.focus();
+    }
+  });
+
+  // ── Button handlers ────────────────────────────────────────────
+  textDec.addEventListener('click', () => {
+    if (state.textSize > 0) { state.textSize--; save(); applyAll(); }
+  });
+  textRst.addEventListener('click', () => {
+    state.textSize = 0; save(); applyAll();
+  });
+  textInc.addEventListener('click', () => {
+    if (state.textSize < 2) { state.textSize++; save(); applyAll(); }
+  });
+
+  (['contrast', 'font', 'links', 'anim'] as const).forEach(key => {
+    document.getElementById(`a11y-${key}`)?.addEventListener('click', () => {
+      state[key] = !state[key];
+      save();
+      applyAll();
+    });
+  });
+
+  document.getElementById('a11y-reset')?.addEventListener('click', () => {
+    state.textSize = 0;
+    state.contrast = false;
+    state.font     = false;
+    state.links    = false;
+    state.anim     = false;
+    save();
+    applyAll();
+  });
+
+  // ── Init: sync button states (classes already applied by inline head script) ──
+  applyAll();
+</script>
