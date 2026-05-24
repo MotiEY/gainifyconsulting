@@ -4,13 +4,16 @@ import { SITE } from '../config';
 const year = new Date().getFullYear();
 ---
 
-<footer class="site-footer">
+<footer class="site-footer" role="contentinfo">
   <div class="inner">
     <span class="footer-brand">{SITE.name} · {SITE.tagline}</span>
-    <ul class="footer-links">
-      <li><a href={`mailto:${SITE.email}`}>{SITE.email}</a></li>
-      <li><a href={`tel:${SITE.phone}`}>{SITE.phoneDisplay}</a></li>
-    </ul>
+    <nav class="footer-links" aria-label="קישורי פוטר">
+      <ul>
+        <li><a href={`mailto:${SITE.email}`}>{SITE.email}</a></li>
+        <li><a href={`tel:${SITE.phone}`}>{SITE.phoneDisplay}</a></li>
+        <li><a href="/nigshu">הצהרת נגישות</a></li>
+      </ul>
+    </nav>
     <span class="footer-copy">© {year} Moti Sadot · מוטי שדות</span>
   </div>
 </footer>
@@ -35,7 +38,7 @@ const year = new Date().getFullYear();
     color: rgba(240, 234, 224, 0.6);
   }
 
-  .footer-links {
+  .footer-links ul {
     list-style: none;
     display: flex;
     gap: 32px;

@@ -1,0 +1,175 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE } from '../config';
+---
+
+<BaseLayout
+  title="הצהרת נגישות | מוטי שדות"
+  description="הצהרת נגישות לאתר מוטי שדות ייעוץ עסקי אסטרטגי"
+>
+  <div class="nigshu-page">
+    <div class="inner">
+
+      <h1>הצהרת נגישות</h1>
+
+      <p class="intro">
+        אתר זה — <strong>gainifyconsulting.com</strong> — הוא אתר ייעוץ עסקי של מוטי שדות.
+        אנו מחויבים להנגשת האתר לאנשים עם מוגבלות, בהתאם לחוק שוויון זכויות לאנשים עם מוגבלות, התשנ"ח–1998,
+        ותקנות שוויון זכויות לאנשים עם מוגבלות (התאמות נגישות לשירות), התשע"ג–2013.
+      </p>
+
+      <section aria-labelledby="level-heading">
+        <h2 id="level-heading">רמת הנגישות</h2>
+        <p>
+          האתר שואף לעמוד ברמת נגישות <strong>AA</strong> של תקן <abbr title="Web Content Accessibility Guidelines">WCAG</abbr> 2.0
+          (תקן ישראלי 5568).
+        </p>
+        <ul>
+          <li>ניתן לנווט באתר באמצעות מקלדת בלבד.</li>
+          <li>האתר כולל תגית שפה <code>lang="he"</code> והגדרת כיווניות RTL.</li>
+          <li>לכל תמונה משמעותית יש טקסט חלופי (<code>alt</code>).</li>
+          <li>ניגודיות הצבעים בין הטקסט לרקע עומדת בדרישות התקן.</li>
+          <li>מבנה הכותרות באתר הוא היררכי ועקבי.</li>
+          <li>קישורי ניווט מוגדרים עם תוויות נגישות (<code>aria-label</code>).</li>
+          <li>האתר כולל קישור "דלג לתוכן הראשי" לטובת משתמשי מקלדת וקורא מסך.</li>
+          <li>האנימציות מכובות אוטומטית למשתמשים שהגדירו <em>Reduce Motion</em> במערכת ההפעלה שלהם.</li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="gaps-heading">
+        <h2 id="gaps-heading">מה עדיין לא מונגש במלואו</h2>
+        <ul>
+          <li>תמונת הפרופיל של מוטי שדות עדיין בהכנה — לאחר הוספתה תצורף תיאור טקסטואלי (<code>alt</code>) מלא.</li>
+          <li>תוכן עתידי (בלוג, המלצות) יונגש בעת הוספתו.</li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="contact-heading">
+        <h2 id="contact-heading">יצירת קשר בנושא נגישות</h2>
+        <p>
+          נתקלתם בבעיית נגישות באתר? אנחנו נשמח לשמוע ולתקן.
+        </p>
+        <ul>
+          <li>
+            מייל:&nbsp;
+            <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
+          </li>
+          <li>
+            טלפון:&nbsp;
+            <a href={`tel:${SITE.phone}`}>{SITE.phoneDisplay}</a>
+          </li>
+        </ul>
+        <p>נשתדל להגיב תוך 5 ימי עסקים.</p>
+      </section>
+
+      <section aria-labelledby="date-heading">
+        <h2 id="date-heading">תאריך עדכון אחרון</h2>
+        <p>הצהרה זו עודכנה לאחרונה ב: <time datetime="2026-05-24">מאי 2026</time>.</p>
+      </section>
+
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .nigshu-page {
+    padding: 120px 24px 100px;
+    min-height: 70vh;
+  }
+
+  .inner {
+    max-width: var(--read-w);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+  }
+
+  h1 {
+    font-family: 'Frank Ruhl Libre', serif;
+    font-weight: 700;
+    font-size: clamp(32px, 7vw, 52px);
+    color: var(--dark);
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+  }
+
+  .intro {
+    font-family: 'Assistant', sans-serif;
+    font-size: 17px;
+    line-height: 1.88;
+    color: var(--mid);
+  }
+
+  section {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  h2 {
+    font-family: 'Frank Ruhl Libre', serif;
+    font-weight: 400;
+    font-size: clamp(20px, 4vw, 26px);
+    color: var(--dark);
+    letter-spacing: -0.02em;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  p {
+    font-family: 'Assistant', sans-serif;
+    font-size: 16px;
+    line-height: 1.88;
+    color: var(--mid);
+  }
+
+  ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0;
+  }
+
+  li {
+    font-family: 'Assistant', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--mid);
+    padding-inline-start: 22px;
+    position: relative;
+  }
+
+  li::before {
+    content: '';
+    position: absolute;
+    inset-inline-start: 0;
+    top: 10px;
+    width: 6px;
+    height: 6px;
+    background: var(--bronze);
+    border-radius: 50%;
+  }
+
+  a {
+    color: var(--bronze);
+    border-bottom: 1px solid rgba(122, 100, 69, 0.3);
+    transition: border-color 0.2s;
+  }
+  a:hover { border-color: var(--bronze); }
+
+  code {
+    font-family: monospace;
+    font-size: 13px;
+    background: var(--cream-2);
+    padding: 1px 5px;
+    border-radius: 3px;
+    direction: ltr;
+    unicode-bidi: embed;
+  }
+
+  @media (min-width: 768px) {
+    .nigshu-page { padding: 130px 52px 120px; }
+  }
+</style>

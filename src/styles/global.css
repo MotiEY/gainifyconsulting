@@ -142,6 +142,32 @@ img {
 /* ─── UTILITY ────────────────────────────────────────────────── */
 .hidden-section { display: none; }
 
+/* ─── FOCUS ──────────────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--bronze);
+  outline-offset: 3px;
+}
+
+/* ─── SKIP TO CONTENT ────────────────────────────────────────── */
+.skip-link {
+  position: absolute;
+  inset-block-start: -100%;
+  inset-inline-start: 24px;
+  background: var(--dark);
+  color: var(--cream);
+  font-family: 'Assistant', sans-serif;
+  font-size: 14px;
+  padding: 10px 20px;
+  z-index: 9999;
+  border-radius: 0 0 4px 4px;
+  transition: inset-block-start 0.2s;
+}
+.skip-link:focus {
+  inset-block-start: 0;
+  outline: 2px solid var(--bronze);
+  outline-offset: 3px;
+}
+
 /* ─── REVEAL ANIMATION ───────────────────────────────────────── */
 .reveal {
   opacity: 0;
@@ -152,6 +178,24 @@ img {
 .reveal.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* ─── REDUCED MOTION ─────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .anim-line,
+  .anim-dot {
+    animation: none;
+    opacity: 1;
+    stroke-dashoffset: 0;
+  }
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 /* ─── SVG DRAW ANIMATIONS ────────────────────────────────────── */
