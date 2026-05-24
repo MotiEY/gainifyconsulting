@@ -174,7 +174,24 @@
     }
 
     .bricks-heading { font-size: clamp(22px, 2.4vw, 32px); }
-    .bricks-grid { grid-template-columns: repeat(4, 1fr); }
-    .brick { padding: 40px 30px; }
+
+    /* ── 7 columns = 7 bricks ─── */
+    .bricks-grid { grid-template-columns: repeat(7, 1fr); }
+    .brick { padding: 28px 18px; }
+
+    /* summary spans the full 7-column width */
+    .brick-summary {
+      grid-column: 1 / -1;
+      padding: 20px 28px;
+      display: flex;
+      align-items: center;
+    }
+    .brick-summary .brick-name {
+      font-size: 13px;
+    }
+
+    /* tighter type in narrow 7-col bricks */
+    .brick-name  { font-size: 15px; }
+    .brick-desc  { font-size: 12px; line-height: 1.65; }
   }
 </style>
