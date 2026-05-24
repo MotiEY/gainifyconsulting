@@ -13,18 +13,13 @@
     aria-controls="a11y-panel"
     aria-haspopup="dialog"
   >
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-         stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <!-- head -->
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+         stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <circle cx="12" cy="4" r="2.2" fill="currentColor" stroke="none"/>
-      <!-- arms wide -->
       <path d="M5.5 10.5L12 8.5l6.5 2"/>
-      <!-- body -->
       <line x1="12" y1="8.5" x2="12" y2="15"/>
-      <!-- legs -->
       <path d="M12 15 L9 21M12 15 L15 21"/>
     </svg>
-    <span class="a11y-trigger-label">נגישות</span>
   </button>
 
   <!-- Panel (dialog) -->
@@ -132,40 +127,40 @@
   /* ── Trigger button ──────────────────────────────────────────── */
   .a11y-trigger {
     position: fixed;
-    bottom: 28px;
-    left: 28px;
+    bottom: 24px;
+    left: 24px;
     z-index: 998;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 4px;
-    background: var(--dark);
-    color: var(--cream);
+    gap: 3px;
+    background: #2563eb;
+    color: #fff;
     border: none;
-    border-radius: 12px;
-    padding: 10px 10px 8px;
+    border-radius: 50%;
+    padding: 0;
     cursor: pointer;
-    box-shadow: 0 4px 20px rgba(24,20,16,0.22);
+    box-shadow: 0 3px 14px rgba(37,99,235,0.38);
     transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
-    min-width: 52px;
-    min-height: 52px;
+    width: 44px;
+    height: 44px;
     justify-content: center;
   }
   .a11y-trigger:hover {
-    background: #2a2218;
+    background: #1d4ed8;
     transform: translateY(-2px);
-    box-shadow: 0 6px 24px rgba(24,20,16,0.3);
+    box-shadow: 0 5px 18px rgba(37,99,235,0.45);
   }
   .a11y-trigger:focus-visible {
-    outline: 2px solid var(--bronze);
+    outline: 2px solid #2563eb;
     outline-offset: 3px;
   }
   .a11y-trigger[aria-expanded="true"] {
-    background: var(--bronze);
+    background: #1d4ed8;
   }
   .a11y-trigger-label {
     font-family: 'Assistant', sans-serif;
-    font-size: 10px;
+    font-size: 9px;
     letter-spacing: 0.5px;
     line-height: 1;
     color: inherit;
@@ -354,13 +349,12 @@
 
   /* ── High contrast overrides for the widget itself ───────────── */
   html.a11y-high-contrast .a11y-trigger {
-    background: #f5f5e8;
-    color: #0a0a0a;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    background: #3b82f6;
+    color: #fff;
+    box-shadow: 0 3px 14px rgba(59,130,246,0.5);
   }
   html.a11y-high-contrast .a11y-trigger[aria-expanded="true"] {
-    background: #f0c040;
-    color: #0a0a0a;
+    background: #1d4ed8;
   }
   html.a11y-high-contrast .a11y-panel {
     background: #0a0a0a;
