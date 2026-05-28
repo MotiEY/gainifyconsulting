@@ -12,8 +12,15 @@
         <p class="reveal">היום אני מביא את הניסיון הזה לבעלי עסקים ולהנהלות, כדי לייצר בהירות, סדר ניהולי, החלטות טובות יותר ודרך מעשית לצמיחה. אני לא מחפש לייפות את המציאות. אני מחפש להבין אותה לעומק, ולעזור לעסק לבנות מערכת שעובדת.</p>
       </div>
     </div>
-    <div class="about-photo reveal" aria-hidden="true">
-      <div class="about-photo-label"><span>תמונה</span></div>
+    <div class="about-photo reveal">
+      <img
+        src="/moti-sadot.png"
+        alt="מוטי שדות, יועץ עסקי אסטרטגי — בסביבת עבודתו"
+        width="600"
+        height="800"
+        loading="lazy"
+        decoding="async"
+      />
     </div>
   </div>
 </section>
@@ -81,31 +88,16 @@
     overflow: hidden;
     max-width: 240px;
   }
-  .about-photo::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image: repeating-linear-gradient(
-      45deg,
-      transparent,
-      transparent 14px,
-      rgba(24,20,16,0.035) 14px,
-      rgba(24,20,16,0.035) 15px
-    );
+  .about-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
   }
-  .about-photo-label {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: flex-end;
-    padding: 18px;
-  }
-  .about-photo-label span {
-    font-family: 'Assistant', sans-serif;
-    font-size: 9px;
-    letter-spacing: 2px;
-    color: var(--faint);
-    text-transform: uppercase;
+  @media (hover: hover) {
+    .about-photo:hover img { transform: scale(1.03); }
   }
 
   /* tablet */
