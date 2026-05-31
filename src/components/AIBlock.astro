@@ -1,0 +1,93 @@
+<aside class="ai-note" id="ai-approach" aria-label="הערה על AI">
+  <div class="ai-note-inner">
+    <span class="ai-note-icon reveal" aria-hidden="true">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M9 18h6" />
+        <path d="M10 22h4" />
+        <path d="M12 2a7 7 0 0 0-7 7c0 2.6 1.45 4.86 3.5 6.05V17.5a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 .5-.5v-2.45C17.55 13.86 19 11.6 19 9a7 7 0 0 0-7-7Z" />
+      </svg>
+    </span>
+
+    <p class="ai-note-body reveal">
+      <strong>AI אינו לבנה שמינית.</strong>
+      הוא השכבה שיכולה להפוך את שבע הלבנים ליעילות יותר. בכל אחת מהלבנים (שיווק, מכירות, תפעול, אנשים, פיננסים, ניהול, צמיחה) יש מקומות שבהם כלים חכמים ו-AI יכולים לחסוך זמן, לשפר שליטה, ולתמוך בהחלטות. במסגרת הליווי אני בוחן את זה לעומק, בלי להתחיל מטכנולוגיה לפני שמבינים את הבעיה העסקית.
+    </p>
+
+    <p class="ai-note-quote reveal">AI לא פותר עסק מבולגן. הוא יכול להאיץ עסק שמבין מה הוא רוצה לשפר.</p>
+  </div>
+</aside>
+
+<style>
+  /* Editorial Note treatment, NOT a full section. */
+  /* Intentionally compact and sidebar-feel, to position AI as part of the toolkit rather than a primary service. */
+
+  .ai-note {
+    padding: 48px 24px;
+    background: var(--cream);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .ai-note-inner {
+    max-width: 640px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    text-align: center;
+  }
+
+  .ai-note-icon {
+    color: var(--bronze);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid rgba(122,100,69,0.35);
+  }
+
+  .ai-note-body {
+    font-family: 'Frank Ruhl Libre', serif;
+    font-weight: 300;
+    font-size: clamp(16px, 4vw, 19px);
+    line-height: 1.75;
+    color: var(--mid);
+    letter-spacing: -0.005em;
+    margin: 0;
+  }
+
+  .ai-note-body strong {
+    font-weight: 700;
+    color: var(--dark);
+    display: inline;
+  }
+
+  .ai-note-quote {
+    font-family: 'Frank Ruhl Libre', serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: clamp(15px, 3.6vw, 17px);
+    line-height: 1.6;
+    color: var(--bronze);
+    letter-spacing: -0.005em;
+    margin: 0;
+    padding-block-start: 8px;
+    max-width: 540px;
+  }
+
+  /* tablet */
+  @media (min-width: 768px) {
+    .ai-note { padding: 64px 40px; }
+    .ai-note-inner { gap: 20px; }
+  }
+
+  /* desktop */
+  @media (min-width: 1280px) {
+    .ai-note { padding: 80px 52px; }
+    .ai-note-body { font-size: clamp(17px, 1.4vw, 19px); }
+    .ai-note-quote { font-size: clamp(16px, 1.3vw, 17px); }
+  }
+</style>

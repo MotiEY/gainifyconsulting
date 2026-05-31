@@ -66,29 +66,48 @@ Note: do NOT use bronze for body text on dark backgrounds. Contrast is too low. 
 
 ## Page structure (homepage, top to bottom)
 
-1. **Hero** — editorial 2-column with animated SVG network diagram (7 nodes through bronze pulsing pivot)
-2. **Proof Strip** — three credibility numbers (1 / 7 / 26)
+1. **Hero** — editorial 2-column with photo on left, copy on right. Primary CTA: "לתיאום שיחת התאמה" (15-min compatibility call). Secondary: "איך אני עובד" → Approach. No explanatory subline (intentionally removed — keep it confident, not process-heavy).
+2. **Proof Strip** — three credibility moments, each with NUMBER + headline + detail (3-line treatment, not single label). Content: 26 שנות ניהול בכיר / לקוחות · תקציבים · אנשים. 8 שנים בארה"ב / עסקים גלובליים בליגה העולמית. 7 הלבנים של כל עסק / שיטת 7BRICKS. Each row tells a unique story; do not flatten to single-line labels or generic phrases (Moti specifically rejected the previous bland version on 2026-05-14).
 3. **Outcomes** ("מה מקבלים בתהליך") — 3 outcome blocks (01–03)
 4. **Approach** ("איך אני עובד") — 2-paragraph methodology
-5. **About** ("על מוטי") — bio + sculptural "26" numeral background + photo placeholder
+5. **About** ("על מוטי") — bio + sculptural "26" numeral background + real photo. Opens with "26 שנות ניהול בסביבות מורכבות, מהן 8 שנים בארה"ב" (US experience integrated, not as a separate factoid).
 6. **7 Bricks grid** — 8-cell grid (7 named bricks + summary), watermark numbers always visible
-7. **Pull Quote** — single sentence on cream-2: *"להפסיק להיות הכבאי של העסק. להתחיל לנווט אותו."*
-8. **Testimonials** — HIDDEN via `.hidden-section { display: none }` until 2+ real testimonials are added
-9. **Fit** ("למי זה מתאים") — 3 fit blocks + filter line
-10. **Diagnostic CTA** — dark section (`#181410`) for paid mapping session
-11. **Final CTA** — on cream-2, softer closer with tel/mailto buttons
+7. **AIBlock — Editorial Note** ("AI אינו לבנה שמינית. הוא השכבה שיכולה להפוך את שבע הלבנים ליעילות יותר.") — INTENTIONALLY NOT a full section. Compact "editorial note" treatment with a small bronze lightbulb SVG icon, centered, narrow max-width, thin rules top/bottom. **Placement: AFTER 7 Bricks**, so AI is framed as a meta-layer enhancing the methodology, not as a separate brick. Do NOT convert back to a full-section design and do NOT move before SevenBricks; that would over-emphasize AI and conflict with the brand positioning.
+8. **Pull Quote** — single sentence on cream-2: *"להפסיק להיות הכבאי של העסק. להתחיל לנווט אותו."*
+9. **Testimonials** — HIDDEN via `.hidden-section { display: none }` until 2+ real testimonials are added
+10. **Fit** ("למי זה מתאים") — 3 fit blocks + filter line
+11. **Diagnostic CTA** — dark section (`#181410`) for paid mapping session. Tagged "אחרי שיחת ההתאמה" (was: "צעד ראשון"). Primary button routes to 15-min call first.
+12. **FAQ** — 4-question accordion (`<details>`): free vs paid, AI agents question, who it's not for, what happens after diagnostic
+13. **Final CTA** — on cream-2, soft closer. Primary button to 15-min Calendly URL.
+
+**NOT in the homepage (intentionally removed/never added):**
+- HowToStart "4-step process" section — proposed by GPT, briefly added, then removed by Moti's decision. **Reason: exposing a 4-step process makes the personal consulting feel like a productized service. Moti is a senior personal consultant; the process is explained in the compatibility call, not on the homepage. Do NOT re-add unless Moti explicitly asks for it.**
+- The HowToStart.astro component file may still exist in src/components/ as dead code (not imported by index.astro). Can be safely deleted.
 
 Plus: Header (transparent, blur on scroll), Footer (dark warm bg).
 
-## Diagnostic offer mechanic (CRITICAL — sales logic)
+## Sales funnel (CRITICAL — strategic decision May 2026)
 
-The first mapping session is **paid (₪500 internally), but the price is NOT shown on the site**.
+**New 4-step funnel** (replaces the original "diagnostic-first" funnel):
 
-Copy in DiagnosticCTA section says: *"ההשקעה בפגישה סמלית. אם נחליט להמשיך לעבודה משותפת, היא תזוכה במלואה כחלק מהליווי."*
+1. **15-min compatibility call** (free) — entry point for all CTAs across the site. Calendly URL: `SITE.calendlyUrl15min` (currently placeholder).
+2. **Diagnostic mapping** (paid, ₪500, 2 hours) — second step, after the compatibility call confirmed there's a basis to continue. Calendly URL: `SITE.calendlyUrlDiagnostic` (currently placeholder, not actually linked yet).
+3. **Engagement proposal with alternatives** — presented after diagnostic, usually two engagement options (focused short or monthly ongoing).
+4. **Monthly engagement** — ongoing structured work on management, processes, numbers, people, growth, and AI tools where relevant.
 
-The credit-back mechanic is the trust signal. Do NOT add the line "הסיכון על הצד שלי, לא על שלך" (rejected as too salesy).
+**Why this funnel:** lowers friction at the top, qualifies prospects in a short call, then sells diagnostic. Earlier version had diagnostic as the entry CTA, but for May 2026 Moti chose the lower-friction model for broader reach.
 
-Session duration: **שעתיים** (two hours), not one. Was originally "שעה" in the design but corrected to "שעתיים" per Moti.
+**Diagnostic offer mechanic (unchanged):**
+- The diagnostic session is **paid (₪500 internally), but the price is NOT shown on the site**.
+- Copy in DiagnosticCTA section says: *"ההשקעה בפגישה סמלית. אם נחליט להמשיך לעבודה משותפת, היא תזוכה במלואה כחלק מהליווי."*
+- The credit-back mechanic is the trust signal. Do NOT add the line "הסיכון על הצד שלי, לא על שלך" (rejected as too salesy).
+- Session duration: **שעתיים** (two hours), not one.
+
+**AI positioning (added May 2026):**
+- AI is part of the consulting offering, **not the main service**.
+- Moti is positioned as a senior business consultant who knows where AI can help, NOT as an "AI consultant".
+- Key phrase: *"AI לא פותר עסק מבולגן. הוא יכול להאיץ עסק שמבין מה הוא רוצה לשפר."* (used as closing italic line in AIBlock section)
+- Avoid: positioning Moti as "AI builder", "agent developer", or implying AI is a core service.
 
 ## Content management
 
@@ -115,22 +134,36 @@ Session duration: **שעתיים** (two hours), not one. Was originally "שעה"
 
 **Preserve the canonical design.** The reference is in `_design-reference/moti-sadot.html` (read-only, do not modify). The Astro components should match it 1:1 unless explicitly approved otherwise by Moti.
 
+**Heading size hierarchy (consistent across sections):**
+- Standard content sections (Outcomes, Approach, Fit, About, HowToStart, FAQ): `clamp(22px, 5vw, 32px)` on mobile, `clamp(22px, 2.4vw, 32px)` on desktop, Frank Ruhl Libre 400, line-height 1.35, letter-spacing -0.01em.
+- Visual-moment sections (Diagnostic CTA, Hero): larger sizes intentionally, to feel like "the moment."
+- Editorial Note (AIBlock): compact treatment, smaller body text, no big heading at all.
+- Do not invent new sizes per section. Reuse the standard scale.
+
 ## What's been done (May 2026)
 
 - ✅ Migrated old React/Vite Gainify AI Studio project to Astro
-- ✅ Built all 10 homepage sections matching the canonical design
+- ✅ Built all homepage sections matching the canonical design
 - ✅ Mobile-first responsive, Hebrew RTL
 - ✅ Content Collections (blog + testimonials) with Astro 6 Content Layer API
 - ✅ Welcome blog post in Moti's authentic voice
 - ✅ SVG favicon "7" (echoing 7BRICKS methodology, on dark warm bg)
 - ✅ Old "Gainify Consulting AI Transformation" code archived to `archive-gainify-ai` branch
 - ✅ Auto-deploy via Netlify from `main` branch
+- ✅ Sales funnel restructured (May 2026): Hero CTA leads to 15-min compatibility call ("לתיאום שיחת התאמה"), not directly to paid diagnostic
+- ✅ Added AIBlock as compact Editorial Note (not full section) **after SevenBricks** — frames AI as meta-layer over the 7 bricks methodology ("AI אינו לבנה שמינית. הוא השכבה שיכולה להפוך את שבע הלבנים ליעילות יותר.")
+- ✅ Added FAQ section (4 questions, accordion-style) between Diagnostic and Final CTA
+- ✅ DiagnosticCTA reframed as "אחרי שיחת ההתאמה" (was "צעד ראשון")
+- ✅ ProofStrip updated: "1 פגישת מיפוי" replaced with "8 מתוכן בארה"ב" (US experience)
+- ✅ About paragraph 1 now opens with "26 שנות ניהול בסביבות מורכבות, מהן 8 שנים בארה"ב" (US credential integrated)
+- ✅ Hero subline about diagnostic process removed (intentionally; keeps CTA confident, lets the call explain the process)
+- ❌ HowToStart "4-step process" section was added briefly then REMOVED per Moti's decision. See "NOT in the homepage" above.
 
 ## What's pending (not yet done)
 
 **Content placeholders to replace:**
-- About section: photo placeholder (circle with bronze background). Needs real photo.
-- DiagnosticCTA + FinalCTA: Calendly button uses `href={SITE.calendlyUrl}` which is `#calendly-placeholder`. Replace `SITE.calendlyUrl` in `src/config.ts` once Calendly account exists.
+- About section: photo placeholder (circle with bronze background). Needs real photo. Hero section now uses `/moti-hero.jpg` (also placeholder if missing).
+- All CTAs route to `SITE.calendlyUrl15min` which is `#calendly-placeholder-15min`. Once Moti creates a Calendly account, update `src/config.ts` with the real 15-min compatibility call URL. Optionally also set `SITE.calendlyUrlDiagnostic` if/when there's a separate booking page for the paid diagnostic.
 - Testimonials section: still wrapped in `.hidden-section`. Needs 2+ real testimonials before unhiding. When ready: also wire Testimonials.astro to read from the testimonials content collection (currently it does not).
 
 **Technical polish to add:**

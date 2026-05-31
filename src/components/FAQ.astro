@@ -1,0 +1,131 @@
+<section class="faq-section" id="faq">
+  <div class="inner">
+    <span class="tag reveal">שאלות שעולות</span>
+    <h2 class="faq-heading reveal">שאלות נפוצות.</h2>
+
+    <div class="faq-list">
+      <details class="faq-item reveal">
+        <summary class="faq-q">האם השיחה הראשונה היא ייעוץ חינמי?</summary>
+        <div class="faq-a">
+          <p>לא. השיחה הראשונה היא שיחת התאמה של 15 דקות. מטרה: לבדוק אם יש בסיס נכון להמשך. אם כן, נתקדם לדיאגנוסטיקה מסודרת של כשעתיים. השיחה הקצרה לא מחליפה ייעוץ.</p>
+        </div>
+      </details>
+
+      <details class="faq-item reveal">
+        <summary class="faq-q">אתה בונה סוכני AI?</summary>
+        <div class="faq-a">
+          <p>אני לא מתחיל מבניית סוכן. אני מתחיל מהעסק. במסגרת הליווי אני עוזר לזהות איפה AI או כלים חכמים יכולים באמת לעזור. אם נדרש מימוש טכנולוגי, אפשר לאפיין אותו נכון ולשלב אנשי מקצוע מתאימים.</p>
+        </div>
+      </details>
+
+      <details class="faq-item reveal">
+        <summary class="faq-q">למי זה לא מתאים?</summary>
+        <div class="faq-a">
+          <p>לעסק שמחפש פתרון קסם, טיפ חד פעמי, או כלי טכנולוגי שיפתור בעיה ניהולית לא פתורה. הליווי דורש מחויבות לעבודה לעומק, לא לקיצורי דרך.</p>
+        </div>
+      </details>
+
+      <details class="faq-item reveal">
+        <summary class="faq-q">מה קורה אחרי הדיאגנוסטיקה?</summary>
+        <div class="faq-a">
+          <p>נבנית הצעת ליווי עם הנושאים המרכזיים שעליהם נכון לעבוד, לרוב עם שתי חלופות עבודה: ליווי ממוקד קצר או ליווי חודשי מתמשך. אתה מחליט אם ואיך להמשיך.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* mobile-first base */
+  .faq-section {
+    padding: 80px 24px;
+    background: var(--cream);
+    border-top: 1px solid var(--line);
+  }
+
+  .inner {
+    max-width: 820px;
+    margin: 0 auto;
+  }
+
+  .faq-heading {
+    font-family: 'Frank Ruhl Libre', serif;
+    font-weight: 400;
+    font-size: clamp(22px, 5vw, 32px);
+    line-height: 1.35;
+    color: var(--dark);
+    margin-bottom: 40px;
+    letter-spacing: -0.01em;
+  }
+
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid var(--line);
+    padding: 24px 0;
+  }
+  .faq-item:first-child {
+    border-top: 1px solid var(--line);
+  }
+
+  .faq-q {
+    font-family: 'Frank Ruhl Libre', serif;
+    font-weight: 700;
+    font-size: clamp(17px, 3.5vw, 20px);
+    line-height: 1.4;
+    color: var(--dark);
+    cursor: pointer;
+    list-style: none;
+    position: relative;
+    padding-inline-end: 40px;
+    letter-spacing: -0.01em;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+  .faq-q::-webkit-details-marker { display: none; }
+  .faq-q::after {
+    content: '+';
+    position: absolute;
+    inset-inline-end: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: 'Assistant', sans-serif;
+    font-weight: 300;
+    font-size: 26px;
+    color: var(--bronze);
+    transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+    line-height: 1;
+  }
+  .faq-item[open] .faq-q::after {
+    transform: translateY(-50%) rotate(45deg);
+  }
+
+  .faq-a {
+    padding-block-start: 16px;
+    max-width: 720px;
+  }
+  .faq-a p {
+    font-family: 'Assistant', sans-serif;
+    font-size: 16px;
+    line-height: 1.75;
+    color: var(--mid);
+    margin: 0;
+  }
+
+  /* tablet */
+  @media (min-width: 768px) {
+    .faq-section { padding: 110px 40px; }
+    .faq-item { padding: 28px 0; }
+    .faq-a p { font-size: 17px; }
+  }
+
+  /* desktop */
+  @media (min-width: 1280px) {
+    .faq-section { padding: 130px 52px; }
+    .faq-heading { font-size: clamp(22px, 2.4vw, 32px); }
+  }
+</style>
