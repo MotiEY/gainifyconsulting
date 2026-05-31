@@ -25,7 +25,12 @@ import { SITE } from '../config';
 
     <div class="diagnostic-actions reveal">
       {/* TODO: replace SITE.calendlyUrlDiagnostic with actual Calendly link for paid 2-hour mapping */}
-      <a href={SITE.calendlyUrl15min} class="btn-primary-light">לתיאום שיחת התאמה</a>
+      <a
+        href={SITE.calendlyUrl15min}
+        class="btn-primary-light"
+        target="_blank"
+        rel="noopener noreferrer"
+      >לתיאום שיחת התאמה</a>
       <a href={`mailto:${SITE.email}`} class="btn-ghost-light">או במייל</a>
     </div>
   </div>
