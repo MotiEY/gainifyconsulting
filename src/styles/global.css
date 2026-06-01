@@ -220,14 +220,17 @@ img {
     top: calc(env(safe-area-inset-top, 0px) + 12px) !important;
     width: 44px !important;
     height: 44px !important;
-    /* Make it easier to see and tap */
-    background: rgba(255, 255, 255, 0.92) !important;
+    /* Dark circle so Calendly's white X is clearly visible */
+    background: rgba(24, 20, 16, 0.82) !important;
     border-radius: 50% !important;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18) !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
     z-index: 10000 !important;
+    /* Force X icon to white in case it inherits a dark color */
+    color: #fff !important;
+    fill: #fff !important;
   }
 }
 
