@@ -164,6 +164,7 @@ Plus: Header (transparent, blur on scroll), Footer (dark warm bg).
 **Content placeholders to replace:**
 - About section: photo placeholder (circle with bronze background). Needs real photo. Hero section now uses `/moti-hero.jpg` (also placeholder if missing).
 - All CTAs route to `SITE.calendlyUrl15min` which is **LIVE** at `https://calendly.com/motisdt/meet-with-me` (15-min compatibility call). `SITE.calendlyUrlDiagnostic` points to the same URL for now; if Moti later creates a separate event type for the paid 2-hour diagnostic, update that field.
+- **Calendly UX:** CTAs use the Calendly popup widget (loaded via `assets.calendly.com/assets/external/widget.js` in BaseLayout) and the `data-calendly-popup` attribute. Clicking opens a scheduling overlay on the same page instead of a new tab. If the JS fails to load, the link falls back to opening Calendly in a new tab (`target="_blank"`).
 - Testimonials section: still wrapped in `.hidden-section`. Needs 2+ real testimonials before unhiding. When ready: also wire Testimonials.astro to read from the testimonials content collection (currently it does not).
 
 **Technical polish to add:**
