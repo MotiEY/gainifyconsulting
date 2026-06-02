@@ -8,11 +8,11 @@ import { SITE } from '../config';
     <p class="cta-body reveal">שיחה ראשונית של 15 דקות תעזור לראות אם יש כאן התאמה. אם כן, נמשיך לפגישת המיפוי. אם לא, קיבלת שיחה קצרה אבל ישרה על העסק שלך.</p>
     <div class="cta-actions reveal">
       <a
-        href={SITE.calendlyUrl15min}
+        href={SITE.calUrl}
         class="btn-primary"
         target="_blank"
         rel="noopener noreferrer"
-        data-calendly-popup
+        data-cal-link={SITE.calLink}
       >לקביעת שיחת התאמה</a>
       <a href={`mailto:${SITE.email}`} class="btn-ghost">{SITE.email}</a>
     </div>

@@ -198,42 +198,6 @@ img {
   }
 }
 
-/* ─── CALENDLY POPUP — MOBILE FIX ───────────────────────────── */
-/*
- * On mobile (<975px) Calendly switches the popup to position:fixed 0/0/0/0
- * (true full-screen). The close button ends up under the browser chrome /
- * safe-area, especially on notch phones. The fixes below:
- *  1. Respect env(safe-area-inset-top) so the close button clears the notch.
- *  2. Bump close button to a 44px touch target.
- *  3. Force right-to-left positioning to match our RTL site.
- */
-@media (max-width: 975px) {
-  .calendly-overlay .calendly-popup {
-    top: 0 !important;
-    padding-top: env(safe-area-inset-top, 16px) !important;
-  }
-
-  .calendly-overlay .calendly-popup-close {
-    /* Override any LTR positioning Calendly sets */
-    right: auto !important;
-    left: 12px !important;
-    top: calc(env(safe-area-inset-top, 0px) + 12px) !important;
-    width: 44px !important;
-    height: 44px !important;
-    /* Dark circle so Calendly's white X is clearly visible */
-    background: rgba(24, 20, 16, 0.82) !important;
-    border-radius: 50% !important;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    z-index: 10000 !important;
-    /* Force X icon to white in case it inherits a dark color */
-    color: #fff !important;
-    fill: #fff !important;
-  }
-}
-
 /* ─── A11Y MODIFIER CLASSES ─────────────────────────────────── */
 
 /* Text size */

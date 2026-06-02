@@ -24,13 +24,12 @@ import { SITE } from '../config';
     <p class="diagnostic-cost-note reveal">ההשקעה בפגישה סמלית. אם נחליט להמשיך לעבודה משותפת, היא תזוכה במלואה כחלק מהליווי.</p>
 
     <div class="diagnostic-actions reveal">
-      {/* TODO: replace SITE.calendlyUrlDiagnostic with actual Calendly link for paid 2-hour mapping */}
       <a
-        href={SITE.calendlyUrl15min}
+        href={SITE.calUrl}
         class="btn-primary-light"
         target="_blank"
         rel="noopener noreferrer"
-        data-calendly-popup
+        data-cal-link={SITE.calLink}
       >לקביעת שיחת התאמה</a>
       <a href={`mailto:${SITE.email}`} class="btn-ghost-light">או במייל</a>
     </div>

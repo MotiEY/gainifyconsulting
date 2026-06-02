@@ -30,9 +30,10 @@ const {
     rel="stylesheet"
   />
 
-  <!-- Calendly widget CSS + JS for in-page scheduling popup -->
-  <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css" />
-  <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+  <!-- Cal.com embed — auto-wires data-cal-link elements to popup -->
+  <script is:inline>(function(C,A,L){let p=function(a,ar){a.q.push(ar)};let d=C.document;C.Cal=C.Cal||function(){let cal=C.Cal;let ar=arguments;if(!cal.loaded){cal.ns={};cal.q=cal.q||[];d.head.appendChild(d.createElement("script")).src=A;cal.loaded=true}if(ar[0]===L){const api=function(){p(api,arguments)};const namespace=ar[1];api.q=api.q||[];typeof namespace==="string"?(cal.ns[namespace]=api)&&p(api,ar):p(cal,ar);return}p(cal,ar)}})(window,"https://app.cal.com/embed/embed.js","init");
+  Cal("init",{origin:"https://app.cal.com"});
+  Cal("ui",{"styles":{"branding":{"brandColor":"#7A6445"}},"hideEventTypeDetails":false,"layout":"month_view"});</script>
 
   <slot name="head" />
   <!-- Apply saved a11y preferences immediately to prevent flash -->
@@ -81,18 +82,8 @@ const {
 
     document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-    // Calendly popup: wire up any link with data-calendly-popup to open the
-    // scheduling page as an overlay on this site instead of opening a new tab.
-    // If the Calendly script fails to load, the link still works as a normal
-    // href in a new tab (fallback).
-    document.querySelectorAll('a[data-calendly-popup]').forEach((link) => {
-      link.addEventListener('click', (e) => {
-        const calendly = (window as any).Calendly;
-        if (!calendly) return; // fall back to normal link behavior
-        e.preventDefault();
-        calendly.initPopupWidget({ url: (link as HTMLAnchorElement).href });
-      });
-    });
+    // Cal.com popup is handled automatically via data-cal-link attributes.
+    // No manual wiring needed.
   </script>
 </body>
 </html>
