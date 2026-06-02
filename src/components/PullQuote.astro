@@ -1,9 +1,19 @@
 ---
+import { SITE } from '../config';
 ---
 <section class="pullquote-section" aria-label="quote">
   <div class="inner">
     <div class="pullquote-mark reveal" aria-hidden="true"></div>
     <p class="pullquote reveal">להפסיק להיות הכבאי של העסק.<br /><em>להתחיל לנווט אותו.</em></p>
+    <div class="pullquote-cta reveal">
+      <a
+        href={SITE.calendlyUrl15min}
+        class="pullquote-btn"
+        target="_blank"
+        rel="noopener noreferrer"
+        data-calendly-popup
+      >לקביעת שיחת התאמה</a>
+    </div>
   </div>
 </section>
 
@@ -44,6 +54,28 @@
     font-style: italic;
     font-weight: 300;
     color: var(--mid);
+  }
+
+  .pullquote-cta {
+    margin-top: 40px;
+  }
+
+  .pullquote-btn {
+    display: inline-flex;
+    align-items: center;
+    font-family: 'Assistant', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    color: var(--cream);
+    background: var(--dark);
+    padding: 15px 36px;
+    min-height: 44px;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .pullquote-btn:hover {
+    background: var(--bronze);
+    transform: translateY(-1px);
   }
 
   /* tablet */
