@@ -14,9 +14,10 @@ import { SITE } from '../config';
           target="_blank"
           rel="noopener noreferrer"
           data-cal-link={SITE.calLink}
-        >לקביעת שיחת התאמה</a>
+        >לתיאום שיחת התאמה של 15 דקות</a>
         <a href="#how" class="btn-ghost">איך אני עובד</a>
       </div>
+      <p class="hero-cta-note reveal">אם נראה שיש בסיס נכון להמשך, נתקדם לדיאגנוסטיקה עסקית מסודרת.</p>
     </div>
 
     <div class="hero-visual reveal">
@@ -93,6 +94,15 @@ import { SITE } from '../config';
     gap: 24px;
     align-items: center;
     flex-wrap: wrap;
+  }
+
+  .hero-cta-note {
+    font-family: 'Assistant', sans-serif;
+    font-size: 13px;
+    line-height: 1.65;
+    color: var(--faint);
+    margin-top: 16px;
+    letter-spacing: 0.01em;
   }
 
   .hero-visual {
