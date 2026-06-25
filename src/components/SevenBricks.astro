@@ -47,10 +47,9 @@ import { SITE } from '../config';
         <span class="brick-name">צמיחה</span>
         <p class="brick-desc">יש לך מנוע צמיחה שעובד, או שאתה מסתמך על מה שהיה עד עכשיו?</p>
       </div>
-      <div class="brick brick-summary reveal">
-        <span class="brick-name">התמונה המלאה מתבהרת בחיבור בין הלבנים</span>
-      </div>
     </div>
+
+    <p class="bricks-summary-line reveal">התמונה המלאה מתבהרת בחיבור בין הלבנים</p>
 
     <!-- Mid-page CTA strip -->
     <div class="bricks-cta reveal">
@@ -164,17 +163,18 @@ import { SITE } from '../config';
     color: var(--mid);
   }
 
-  .brick-summary {
-    background: rgba(122,100,69,0.07);
-    border-top: 1px solid rgba(122,100,69,0.18);
-  }
-  .brick-summary .brick-name {
+  .bricks-summary-line {
+    text-align: center;
     font-family: 'Frank Ruhl Libre', serif;
-    font-size: 16px;
-    line-height: 1.55;
+    font-weight: 300;
+    font-style: italic;
+    font-size: clamp(20px, 4.5vw, 30px);
     color: var(--bronze);
-    font-weight: 400;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.02em;
+    line-height: 1.4;
+    padding: 40px 24px;
+    border-top: 1px solid rgba(122,100,69,0.2);
+    border-bottom: 1px solid rgba(122,100,69,0.2);
   }
 
   /* tablet */
@@ -200,15 +200,9 @@ import { SITE } from '../config';
     .bricks-grid { grid-template-columns: repeat(7, 1fr); }
     .brick { padding: 28px 18px; }
 
-    /* summary spans the full 7-column width */
-    .brick-summary {
-      grid-column: 1 / -1;
-      padding: 20px 28px;
-      display: flex;
-      align-items: center;
-    }
-    .brick-summary .brick-name {
-      font-size: 15px;
+    .bricks-summary-line {
+      font-size: clamp(22px, 2.2vw, 30px);
+      padding: 48px 0;
     }
 
     /* tighter type in narrow 7-col bricks */
