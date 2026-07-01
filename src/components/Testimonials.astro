@@ -1,73 +1,122 @@
 ---
 ---
-<section class="testimonial-section hidden-section">
+<section class="testimonial-section" id="results">
   <div class="inner">
-    <div class="testimonial-label reveal">מה אומרים לקוחות</div>
-    <div>
-      <blockquote class="reveal">
-        "מוטי עזר לנו לראות שהבעיה לא הייתה איפה שחשבנו. תוך שלושה חודשים הפסקנו לדבר על הסימפטומים והתחלנו לטפל בשורש."
+    <span class="tag reveal">מה אומרים לקוחות</span>
+
+    <!-- Barak — full testimonial -->
+    <div class="testi-main reveal">
+      <blockquote class="testi-quote">
+        בתהליך עם מוטי עשינו סדר במספרים של העסק — הוצאות, הכנסות, תמחור שעת עבודה ותמחור נכון של קורסים, סדנאות ומוצרים.
+        <br /><br />
+        מה שעזר לי במיוחד היה שמוטי ידע לקחת עסק יצירתי, עם הרבה סוגי פעילות, ולהפוך את התמונה העסקית לברורה: מה באמת עולה לי כסף, איפה נשרף זמן, ומה צריך להיכנס לתמחור כדי שהעסק יהיה רווחי ולא רק פעיל.
+        <br /><br />
+        מעבר לכלים ולמספרים, היה לי פשוט טוב לעבוד עם מוטי. השיחות היו בגובה העיניים, עם הרבה הקשבה, שאלות מדויקות וסדר במקומות שהיו מבולבלים. אני ממליץ בחום על התהליך למי שרוצה להבין טוב יותר את העסק שלו ולקבל החלטות בצורה ברורה יותר.
       </blockquote>
-      <p class="testimonial-attr reveal">בעל עסק, ענף הנדסה</p>
+      <div class="testi-attr">
+        <span class="testi-name">ברק</span>
+        <span class="testi-role">בעל עסק יצירתי</span>
+      </div>
+    </div>
+
+    <!-- 3 anchor quotes -->
+    <div class="testi-anchors">
+      <div class="testi-anchor reveal">
+        <p>"מוטי ידע לקחת עסק יצירתי ולהפוך את התמונה העסקית לברורה."</p>
+      </div>
+      <div class="testi-anchor reveal">
+        <p>"השיחות היו בגובה העיניים, עם הרבה הקשבה ושאלות מדויקות."</p>
+      </div>
+      <div class="testi-anchor reveal">
+        <p>"עסק שיהיה רווחי ולא רק פעיל."</p>
+      </div>
     </div>
   </div>
 </section>
 
 <style>
-  /* mobile-first base (hidden via global .hidden-section) */
   .testimonial-section {
-    border-top: 1px solid var(--line);
-    padding: 64px 24px;
     background: var(--cream-2);
+    padding: 72px 24px;
+    border-top: 1px solid var(--line);
   }
 
   .inner {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 24px;
-    align-items: start;
+    max-width: var(--max-w);
+    margin: 0 auto;
   }
 
-  .testimonial-label {
+  .testi-main {
+    margin-top: 40px;
+    background: var(--cream);
+    border: 1px solid var(--line);
+    border-radius: var(--r-card);
+    padding: 36px 28px;
+  }
+
+  .testi-quote {
     font-family: 'Assistant', sans-serif;
-    font-size: 10px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--bronze);
-    opacity: 0.7;
-    padding-top: 6px;
+    font-size: clamp(16px, 2.5vw, 18px);
+    line-height: 1.85;
+    color: var(--mid);
+    font-style: normal;
+    border-inline-start: 3px solid var(--bronze);
+    padding-inline-start: 22px;
   }
 
-  blockquote {
+  .testi-attr {
+    margin-top: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    padding-inline-start: 25px;
+  }
+
+  .testi-name {
     font-family: 'Frank Ruhl Libre', serif;
-    font-weight: 300;
-    font-size: clamp(20px, 4.5vw, 36px);
-    line-height: 1.45;
-    color: var(--dark);
-    letter-spacing: -0.01em;
+    font-weight: 700;
+    font-size: 17px;
+    color: var(--text-h);
   }
 
-  .testimonial-attr {
-    margin-top: 32px;
+  .testi-role {
     font-family: 'Assistant', sans-serif;
     font-size: 13px;
     color: var(--faint);
     letter-spacing: 0.02em;
   }
 
-  /* tablet */
-  @media (min-width: 768px) {
-    .testimonial-section { padding: 80px 40px; }
+  .testi-anchors {
+    margin-top: 32px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
   }
 
-  /* desktop */
+  .testi-anchor {
+    background: var(--cream);
+    border: 1px solid var(--line);
+    border-radius: var(--r-card);
+    padding: 22px 24px;
+  }
+
+  .testi-anchor p {
+    font-family: 'Frank Ruhl Libre', serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: clamp(15px, 2.5vw, 17px);
+    line-height: 1.6;
+    color: var(--bronze);
+    letter-spacing: -0.005em;
+  }
+
+  @media (min-width: 768px) {
+    .testimonial-section { padding: 96px 40px; }
+    .testi-main { padding: 44px 40px; }
+    .testi-anchors { grid-template-columns: repeat(3, 1fr); }
+  }
+
   @media (min-width: 1280px) {
-    .testimonial-section { padding: 100px 52px; }
-
-    .inner {
-      grid-template-columns: 160px 1fr;
-      gap: 80px;
-    }
-
-    blockquote { font-size: clamp(22px, 2.8vw, 36px); }
+    .testimonial-section { padding: 120px 52px; }
   }
 </style>
