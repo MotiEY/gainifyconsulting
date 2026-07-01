@@ -46,6 +46,12 @@ const waUrl = `https://wa.me/${SITE.phone.replace('+', '')}`;
       padding: 10px 16px;
       padding-bottom: calc(10px + env(safe-area-inset-bottom));
       gap: 10px;
+      transition: opacity 0.25s, transform 0.25s;
+    }
+    .mobile-bar.bar-hidden {
+      opacity: 0;
+      transform: translateY(100%);
+      pointer-events: none;
     }
 
     .bar-btn {
@@ -75,3 +81,14 @@ const waUrl = `https://wa.me/${SITE.phone.replace('+', '')}`;
     }
   }
 </style>
+
+<script>
+  const bar = document.querySelector('.mobile-bar');
+  const heroActions = document.querySelector('.hero-actions');
+  if (bar && heroActions) {
+    const io = new IntersectionObserver(([entry]) => {
+      bar.classList.toggle('bar-hidden', entry.isIntersecting);
+    }, { threshold: 0.1 });
+    io.observe(heroActions);
+  }
+</script>
