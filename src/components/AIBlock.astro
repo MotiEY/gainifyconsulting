@@ -1,93 +1,115 @@
-<aside class="ai-note" id="ai-approach" aria-label="הערה על AI">
-  <div class="ai-note-inner">
-    <span class="ai-note-icon reveal" aria-hidden="true">
-      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M9 18h6" />
-        <path d="M10 22h4" />
-        <path d="M12 2a7 7 0 0 0-7 7c0 2.6 1.45 4.86 3.5 6.05V17.5a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 .5-.5v-2.45C17.55 13.86 19 11.6 19 9a7 7 0 0 0-7-7Z" />
-      </svg>
-    </span>
+<section class="ai-section" id="ai-approach" aria-label="AI בעסק שלך">
+  <div class="ai-inner">
+    <span class="tag reveal">AI בעסק שלך</span>
 
-    <p class="ai-note-body reveal">
-      <strong>AI אינו לבנה שמינית.</strong>
-      הוא השכבה שיכולה להפוך את שבע הלבנים ליעילות יותר. בכל אחת מהלבנים (שיווק, מכירות, תפעול, אנשים, פיננסים, ניהול, צמיחה) יש מקומות שבהם כלים חכמים ו-AI יכולים לחסוך זמן, לשפר שליטה, ולתמוך בהחלטות. במסגרת הליווי אני בוחן את זה לעומק, בלי להתחיל מטכנולוגיה לפני שמבינים את הבעיה העסקית.
+    <p class="ai-lead reveal">
+      AI לא מתחיל בסוכן או בכלי.<br />
+      הוא מתחיל בשאלה עסקית.
     </p>
 
-    <p class="ai-note-quote reveal">AI לא עושה סדר במקום העסק. הוא יכול לעזור מאוד כשברור מה רוצים לשפר.</p>
+    <ul class="ai-list reveal" role="list">
+      <li>איזה תהליך צריך להשתפר</li>
+      <li>איפה חסר מידע לקבלת החלטה</li>
+      <li>מי אמור לעבוד או להחליט אחרת</li>
+      <li>איך נדע שזה באמת שיפר את העסק</li>
+    </ul>
+
+    <p class="ai-body reveal">בגלל הרקע הטכנולוגי והניהולי שלי, אני עוזר לבעלי עסקים להבין איפה AI באמת יכול להוריד עומס, לשפר תמונת מצב או לפתוח יכולת חדשה בעסק, ואיפה קודם צריך לסדר את התהליך, האחריות והנתונים.</p>
+
+    <div class="ai-quote reveal">
+      <p>לפעמים AI הוא מנוע עסקי.<br />לפעמים הוא רק פלסטר על תהליך לא ברור.</p>
+    </div>
   </div>
-</aside>
+</section>
 
 <style>
-  /* Editorial Note treatment, NOT a full section. */
-  /* Intentionally compact and sidebar-feel, to position AI as part of the toolkit rather than a primary service. */
-
-  .ai-note {
-    padding: 48px 24px;
+  .ai-section {
+    padding: 72px 24px;
+    border-top: 1px solid var(--line);
     background: var(--cream);
+  }
+
+  .ai-inner {
+    max-width: var(--read-w);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .ai-lead {
+    font-family: 'Frank Ruhl Libre', serif;
+    font-weight: 700;
+    font-size: clamp(20px, 4.5vw, 28px);
+    line-height: 1.4;
+    color: var(--dark);
+    letter-spacing: -0.02em;
+  }
+
+  .ai-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
     border-top: 1px solid var(--line);
     border-bottom: 1px solid var(--line);
   }
 
-  .ai-note-inner {
-    max-width: 640px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
-    text-align: center;
-  }
-
-  .ai-note-icon {
-    color: var(--bronze);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    border: 1px solid rgba(122,100,69,0.35);
-  }
-
-  .ai-note-body {
-    font-family: 'Frank Ruhl Libre', serif;
-    font-weight: 300;
-    font-size: clamp(16px, 4vw, 19px);
-    line-height: 1.75;
+  .ai-list li {
+    font-family: 'Assistant', sans-serif;
+    font-size: clamp(15px, 3vw, 17px);
+    line-height: 1.7;
     color: var(--mid);
-    letter-spacing: -0.005em;
-    margin: 0;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .ai-list li:last-child { border-bottom: none; }
+
+  .ai-list li::before {
+    content: '';
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--bronze);
+    flex-shrink: 0;
   }
 
-  .ai-note-body strong {
-    font-weight: 700;
-    color: var(--dark);
-    display: inline;
+  .ai-body {
+    font-family: 'Assistant', sans-serif;
+    font-size: clamp(16px, 3vw, 17px);
+    line-height: 1.88;
+    color: var(--mid);
   }
 
-  .ai-note-quote {
+  .ai-quote {
+    background: var(--cream-3);
+    border-inline-end: 3px solid var(--bronze);
+    padding: 20px 24px;
+    border-radius: 4px;
+  }
+
+  .ai-quote p {
     font-family: 'Frank Ruhl Libre', serif;
     font-weight: 400;
     font-style: italic;
-    font-size: clamp(15px, 3.6vw, 17px);
-    line-height: 1.6;
+    font-size: clamp(16px, 3.5vw, 18px);
+    line-height: 1.65;
     color: var(--bronze);
-    letter-spacing: -0.005em;
     margin: 0;
-    padding-block-start: 8px;
-    max-width: 540px;
   }
 
-  /* tablet */
   @media (min-width: 768px) {
-    .ai-note { padding: 64px 40px; }
-    .ai-note-inner { gap: 20px; }
+    .ai-section { padding: 90px 40px; }
+    .ai-list li { padding: 14px 0; }
   }
 
-  /* desktop */
   @media (min-width: 1280px) {
-    .ai-note { padding: 80px 52px; }
-    .ai-note-body { font-size: clamp(17px, 1.4vw, 19px); }
-    .ai-note-quote { font-size: clamp(16px, 1.3vw, 17px); }
+    .ai-section { padding: 110px 52px; }
+    .ai-lead { font-size: clamp(22px, 2vw, 28px); }
   }
 </style>
