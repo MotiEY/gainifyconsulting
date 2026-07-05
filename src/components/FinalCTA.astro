@@ -1,30 +1,40 @@
 ---
 import { SITE } from '../config';
+
+const waUrl = `https://wa.me/${SITE.phone.replace('+', '')}`;
 ---
 <section class="cta-section" id="contact">
   <div class="inner">
-    <span class="tag reveal">נדבר</span>
-    <h2 class="cta-heading reveal">הצעד הראשון לא חייב להיות גדול. הוא רק צריך להיות אמיתי.</h2>
-    <p class="cta-body reveal">שיחה ראשונית של 15 דקות תעזור לראות אם יש כאן התאמה. אם כן, נתקדם לדיאגנוסטיקה עסקית מסודרת. אם לא, קיבלת שיחה קצרה ועניינית.</p>
+    <span class="cta-eyebrow reveal">נדבר</span>
+    <h2 class="cta-heading reveal">הצעד הראשון לא חייב להיות גדול.<br />הוא רק צריך להיות אמיתי.</h2>
+    <p class="cta-body reveal">15 דקות שיחה, בלי עלות ובלי מחויבות. רק כדי לבדוק אם יש כאן התאמה.</p>
     <div class="cta-actions reveal">
       <a
         href={SITE.calUrl}
-        class="btn-primary"
+        class="cta-btn-cal"
         target="_blank"
         rel="noopener noreferrer"
         data-cal-link={SITE.calLink}
       >לקביעת שיחת התאמה קצרה</a>
-      <a href={`mailto:${SITE.email}`} class="btn-ghost">{SITE.email}</a>
+      <a
+        href={waUrl}
+        class="cta-btn-wa"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="שלח הודעת וואטסאפ"
+      >
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.533 5.857L.054 23.454a.75.75 0 0 0 .918.918l5.633-1.476A11.942 11.942 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.708 9.708 0 0 1-4.953-1.355l-.355-.211-3.683.965.981-3.595-.232-.371A9.718 9.718 0 0 1 2.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
+        וואטסאפ
+      </a>
     </div>
   </div>
 </section>
 
 <style>
-  /* mobile-first base */
   .cta-section {
-    border-top: 1px solid var(--line);
-    padding: 80px 24px;
-    background: var(--cream-2);
+    background: var(--dark);
+    padding: 88px 24px;
+    text-align: center;
     position: relative;
     overflow: hidden;
   }
@@ -32,53 +42,93 @@ import { SITE } from '../config';
     content: '';
     position: absolute;
     inset: -40%;
-    background: radial-gradient(
-      ellipse 50% 60% at 80% 50%,
-      rgba(122,100,69,0.07) 0%,
-      transparent 70%
-    );
+    background: radial-gradient(ellipse 55% 55% at 50% 50%, rgba(122,100,69,0.12) 0%, transparent 70%);
     pointer-events: none;
   }
 
   .inner {
-    max-width: 620px;
+    max-width: 640px;
+    margin: 0 auto;
     position: relative;
+  }
+
+  .cta-eyebrow {
+    font-family: 'Assistant', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 24px;
   }
 
   .cta-heading {
     font-family: 'Frank Ruhl Libre', serif;
     font-weight: 400;
-    font-size: clamp(26px, 6vw, 44px);
-    color: var(--dark);
-    margin-bottom: 22px;
-    letter-spacing: -0.02em;
-    line-height: 1.22;
+    font-size: clamp(26px, 5.5vw, 42px);
+    color: var(--cream-dk);
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    margin-bottom: 20px;
   }
 
   .cta-body {
     font-family: 'Assistant', sans-serif;
-    font-size: 17px;
-    line-height: 1.88;
-    color: var(--mid);
-    margin-bottom: 48px;
+    font-size: 16px;
+    line-height: 1.75;
+    color: var(--mid-dk);
+    margin-bottom: 44px;
   }
 
   .cta-actions {
     display: flex;
-    gap: 24px;
+    gap: 12px;
     align-items: center;
+    justify-content: center;
     flex-wrap: wrap;
   }
 
-  /* tablet */
+  .cta-btn-cal {
+    display: inline-flex;
+    align-items: center;
+    font-family: 'Assistant', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    color: var(--dark);
+    background: var(--cream-dk);
+    padding: 14px 30px;
+    min-height: 44px;
+    border-radius: var(--r-btn);
+    text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .cta-btn-cal:hover { background: #fff; transform: translateY(-1px); }
+
+  .cta-btn-wa {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-family: 'Assistant', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #fff;
+    background: #25D366;
+    padding: 14px 24px;
+    min-height: 44px;
+    border-radius: var(--r-btn);
+    text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .cta-btn-wa:hover { background: #1ebe5d; transform: translateY(-1px); }
+
   @media (min-width: 768px) {
-    .cta-section { padding: 100px 40px; }
-    .cta-heading { font-size: clamp(28px, 4.5vw, 44px); }
+    .cta-section { padding: 112px 40px; }
   }
 
-  /* desktop */
   @media (min-width: 1280px) {
-    .cta-section { padding: 120px 52px; }
-    .cta-heading { font-size: clamp(28px, 3.4vw, 44px); }
+    .cta-section { padding: 140px 52px; }
+    .cta-heading { font-size: clamp(28px, 3vw, 42px); }
   }
 </style>

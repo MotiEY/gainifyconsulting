@@ -7,17 +7,41 @@
 
 /* ─── DESIGN TOKENS ──────────────────────────────────────────── */
 :root {
-  --cream:    #F0EAE0;
-  --cream-2:  #E8E1D5;
-  --dark:     #181410;
-  --bronze:   #7A6445;
-  --bronze-l: rgba(122, 100, 69, 0.08);
-  --mid:      #6A5E50;
-  --faint:    #9A8E7E;
-  --line:     rgba(24, 20, 16, 0.08);
-  --line-mid: rgba(24, 20, 16, 0.13);
-  --max-w:    1120px;
-  --read-w:   600px;
+  /* Backgrounds */
+  --cream:      #F5F1E8;
+  --cream-2:    #FBF9F3;
+  --cream-3:    #ECE4D4;
+  --cream-4:    #EFE7D7;
+  --dark:       #1F1A13;
+  --darkest:    #17130D;
+
+  /* Brand */
+  --bronze:     #7A6445;
+  --bronze-d:   #5B4A33;
+  --bronze-l:   rgba(122, 100, 69, 0.09);
+  --gold:       #C2A878;
+
+  /* Text */
+  --text-h:     #1C1813;
+  --mid:        #5A5249;
+  --faint:      #8A8175;
+
+  /* On dark */
+  --cream-dk:   #F6EFE1;
+  --mid-dk:     #BCB0A0;
+
+  /* Lines */
+  --line:       rgba(28, 24, 19, 0.09);
+  --line-mid:   rgba(28, 24, 19, 0.15);
+
+  /* Layout */
+  --max-w:      1180px;
+  --read-w:     820px;
+
+  /* Radii */
+  --r-card:     18px;
+  --r-btn:      999px;
+  --r-tag:      10px;
 }
 
 /* ─── BASE ───────────────────────────────────────────────────── */
