@@ -54,8 +54,8 @@ import { SITE } from '../config';
     <!-- Mid-page CTA strip -->
     <div class="bricks-cta reveal">
       <div class="bricks-cta-text">
-        <p class="bricks-cta-q">כמה מהשאלות האלה מוכרות לך?</p>
-        <p class="bricks-cta-sub">15 דקות שיחה. בלי עלות, בלי מחויבות. רק כדי לבדוק אם יש כאן משהו.</p>
+        <p class="bricks-cta-q">אם חלק מזה מוכר לך,<br />שווה לבדוק מאיפה נכון להתחיל.</p>
+        <p class="bricks-cta-sub">15 דקות שיחה. בלי עלות ובלי מחויבות. רק כדי להבין אם יש בסיס נכון להמשך.</p>
       </div>
       <a
         href={SITE.calUrl}
@@ -213,7 +213,7 @@ import { SITE } from '../config';
   /* ── Mid-page CTA strip ───────────────────────────────────── */
   .bricks-cta {
     margin-top: 0;
-    background: var(--dark);
+    background: rgba(122, 100, 69, 0.06);
     padding: 40px 24px;
     display: flex;
     flex-direction: column;
@@ -225,7 +225,7 @@ import { SITE } from '../config';
     font-family: 'Frank Ruhl Libre', serif;
     font-weight: 400;
     font-size: clamp(22px, 5.5vw, 36px);
-    color: var(--cream);
+    color: var(--dark);
     line-height: 1.25;
     letter-spacing: -0.02em;
   }
@@ -233,7 +233,7 @@ import { SITE } from '../config';
   .bricks-cta-sub {
     font-family: 'Assistant', sans-serif;
     font-size: 15px;
-    color: rgba(240, 234, 224, 0.55);
+    color: var(--mid);
     line-height: 1.7;
     margin-top: -12px;
   }
@@ -245,8 +245,8 @@ import { SITE } from '../config';
     font-size: 14px;
     font-weight: 500;
     letter-spacing: 0.06em;
-    color: var(--dark);
-    background: var(--cream);
+    color: var(--cream-dk);
+    background: var(--dark);
     padding: 14px 32px;
     min-height: 44px;
     transition: background 0.2s, transform 0.2s;
