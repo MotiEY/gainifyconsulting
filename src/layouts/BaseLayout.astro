@@ -26,7 +26,7 @@ const {
   <title>{title}</title>
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PBRKS79GP2"></script>
-  <script>
+  <script is:inline>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
@@ -103,15 +103,15 @@ const {
     // Cal.com popup is handled automatically via data-cal-link attributes.
     // No manual wiring needed.
 
-    // GA4 conversion tracking — define local gtag to avoid ES module scope issue
-    window.dataLayer = window.dataLayer || [];
-    function gtag(...args: unknown[]){ (window.dataLayer as unknown[]).push(args); }
+    // GA4 conversion tracking — gtag is global via is:inline in <head>
     document.addEventListener('click', (e) => {
       const el = (e.target as Element).closest('a');
       if (!el || !el.href) return;
+      const gtag = (window as unknown as { gtag?: (...a: unknown[]) => void }).gtag;
+      if (!gtag) return;
       if (el.href.includes('wa.me') || el.href.includes('whatsapp')) {
         gtag('event', 'whatsapp_click');
-      } else if (el.dataset.calLink || el.href.includes('cal.com')) {
+      } else if ((el as HTMLAnchorElement).dataset.calLink || el.href.includes('cal.com')) {
         gtag('event', 'schedule_click');
       }
     });
