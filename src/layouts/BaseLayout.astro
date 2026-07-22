@@ -103,13 +103,15 @@ const {
     // Cal.com popup is handled automatically via data-cal-link attributes.
     // No manual wiring needed.
 
-    // GA4 conversion tracking
+    // GA4 conversion tracking — define local gtag to avoid ES module scope issue
+    window.dataLayer = window.dataLayer || [];
+    function gtag(...args: unknown[]){ (window.dataLayer as unknown[]).push(args); }
     document.addEventListener('click', (e) => {
       const el = (e.target as Element).closest('a');
-      if (!el) return;
-      if (el.href && el.href.includes('wa.me')) {
+      if (!el || !el.href) return;
+      if (el.href.includes('wa.me') || el.href.includes('whatsapp')) {
         gtag('event', 'whatsapp_click');
-      } else if (el.dataset.calLink || (el.href && el.href.includes('cal.com'))) {
+      } else if (el.dataset.calLink || el.href.includes('cal.com')) {
         gtag('event', 'schedule_click');
       }
     });
