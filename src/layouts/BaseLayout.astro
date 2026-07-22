@@ -102,6 +102,17 @@ const {
 
     // Cal.com popup is handled automatically via data-cal-link attributes.
     // No manual wiring needed.
+
+    // GA4 conversion tracking
+    document.addEventListener('click', (e) => {
+      const el = (e.target as Element).closest('a');
+      if (!el) return;
+      if (el.href && el.href.includes('wa.me')) {
+        gtag('event', 'whatsapp_click');
+      } else if (el.dataset.calLink || (el.href && el.href.includes('cal.com'))) {
+        gtag('event', 'schedule_click');
+      }
+    });
   </script>
 </body>
 </html>
