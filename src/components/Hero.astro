@@ -5,8 +5,8 @@ import { SITE } from '../config';
   <div class="inner">
     <div class="hero-content">
       <span class="tag">ייעוץ עסקי אסטרטגי · גישת 7BRICKS</span>
-      <h1 class="hero-title reveal">מה שמרגיש הכי דחוף בעסק,<br class="hero-br" /> לא תמיד הדבר שהכי נכון לטפל בו.</h1>
-      <div class="hero-mirror reveal">
+      <h1 class="hero-title">מה שמרגיש הכי דחוף בעסק,<br class="hero-br" /> לא תמיד הדבר שהכי נכון לטפל בו.</h1>
+      <div class="hero-mirror">
         <span class="hero-mirror-label">מוכר לך?</span>
         <div class="hero-mirror-items">
           <p>"העסק גדל, אבל יותר מדי החלטות עדיין עוברות דרכי."</p>
@@ -14,8 +14,8 @@ import { SITE } from '../config';
           <p>"יש פוטנציאל לצמיחה או כיוון חדש, אבל לא ברור מה נכון לעשות קודם."</p>
         </div>
       </div>
-      <p class="hero-promise reveal">אני עוזר לבעלי עסקים ומייסדים להבין מאיפה נכון להתחיל, ולבנות סדר שמחזיק גם כשהעסק גדל.<br />הניסיון שלי בניהול מערכות מורכבות לימד אותי לחפש את הסיבה, לא את התסמין.</p>
-      <div class="hero-actions reveal">
+      <p class="hero-promise">אני עוזר לבעלי עסקים ומייסדים להבין מאיפה נכון להתחיל, ולבנות סדר שמחזיק גם כשהעסק גדל.<br />הניסיון שלי בניהול מערכות מורכבות לימד אותי לחפש את הסיבה, לא את התסמין.</p>
+      <div class="hero-actions">
         <a
           href={SITE.calUrl}
           class="hero-btn-primary"
@@ -34,10 +34,10 @@ import { SITE } from '../config';
           וואטסאפ
         </a>
       </div>
-      <p class="hero-cta-note reveal">אם נראה שיש בסיס נכון להמשך, נתקדם לדיאגנוסטיקה עסקית מסודרת.</p>
+      <p class="hero-cta-note">אם נראה שיש בסיס נכון להמשך, נתקדם לדיאגנוסטיקה עסקית מסודרת.</p>
     </div>
 
-    <div class="hero-visual reveal">
+    <div class="hero-visual">
       <div class="hero-photo-wrap">
         <img
           src="/moti-sadot.png"
@@ -54,6 +54,26 @@ import { SITE } from '../config';
 </section>
 
 <style>
+  @keyframes heroFade {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+
+  .tag              { animation: heroFade 0.4s ease-out both; animation-delay: 0.00s; }
+  .hero-title       { animation: heroFade 0.4s ease-out both; animation-delay: 0.08s; }
+  .hero-mirror      { animation: heroFade 0.4s ease-out both; animation-delay: 0.18s; }
+  .hero-promise     { animation: heroFade 0.4s ease-out both; animation-delay: 0.26s; }
+  .hero-actions     { animation: heroFade 0.4s ease-out both; animation-delay: 0.32s; }
+  .hero-cta-note    { animation: heroFade 0.4s ease-out both; animation-delay: 0.36s; }
+  .hero-visual      { animation: heroFade 0.4s ease-out both; animation-delay: 0.12s; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .tag, .hero-title, .hero-mirror, .hero-promise,
+    .hero-actions, .hero-cta-note, .hero-visual {
+      animation: none;
+    }
+  }
+
   /* mobile-first base */
   .hero {
     min-height: 100svh;
