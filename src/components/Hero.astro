@@ -6,7 +6,15 @@ import { SITE } from '../config';
     <div class="hero-content">
       <span class="tag">ייעוץ עסקי אסטרטגי · גישת 7BRICKS</span>
       <h1 class="hero-title reveal">מה שמרגיש הכי דחוף בעסק,<br class="hero-br" /> לא תמיד הדבר שהכי נכון לטפל בו.</h1>
-      <p class="hero-promise reveal">אחרי 26 שנה בניהול מערכות מורכבות, למדתי שהתקדמות אמיתית מתחילה כשמבינים איפה נכון להשקיע זמן, כסף ואנרגיה. אני עוזר לבעלי עסקים בצמיחה ולהנהלות בכירות לזהות את נקודת המנוף, ולבנות דרך עבודה שאפשר לבצע.</p>
+      <div class="hero-mirror reveal">
+        <span class="hero-mirror-label">מוכר לך?</span>
+        <div class="hero-mirror-items">
+          <p>"העסק גדל, אבל הכל עדיין עובר דרכי."</p>
+          <p>"יש הזמנות, ואנחנו רוצים לספק יותר."</p>
+          <p>"אני מרגיש שיש כאן פוטנציאל גדול יותר. לא בטוח מאיפה מתחילים."</p>
+        </div>
+      </div>
+      <p class="hero-promise reveal">אני עוזר לבעלי עסקים שכבר בנו עסק שעובד לזהות מאיפה נכון להתחיל, ולבנות סדר שמחזיק גם כשהעסק גדל. 26 שנה בניהול מערכות מורכבות לימדו אותי לחפש את הסיבה, לא את התסמין.</p>
       <div class="hero-actions reveal">
         <a
           href={SITE.calUrl}
@@ -86,6 +94,35 @@ import { SITE } from '../config';
     color: var(--text-h);
     margin-bottom: 24px;
     letter-spacing: -0.035em;
+  }
+
+  .hero-mirror {
+    margin-bottom: 28px;
+  }
+
+  .hero-mirror-label {
+    display: block;
+    font-family: 'Assistant', sans-serif;
+    font-weight: 500;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    color: var(--bronze);
+    opacity: 0.75;
+    margin-bottom: 10px;
+  }
+
+  .hero-mirror-items p {
+    font-family: 'Frank Ruhl Libre', serif;
+    font-weight: 300;
+    font-size: clamp(15px, 2.6vw, 18px);
+    line-height: 1.45;
+    color: var(--dark);
+    margin: 0;
+    padding: 0;
+  }
+
+  .hero-mirror-items p + p {
+    margin-top: 10px;
   }
 
   .hero-promise {
