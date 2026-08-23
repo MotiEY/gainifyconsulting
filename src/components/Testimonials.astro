@@ -4,8 +4,38 @@
   <div class="inner">
     <span class="tag reveal">מה אומרים לקוחות</span>
 
-    <!-- Barak — full testimonial -->
+    <!-- Dor — full testimonial -->
     <div class="testi-main reveal">
+      <blockquote class="testi-quote">
+        הגעתי למוטי כשהייתי עמוק בתוך הייצור רוב שעות היום. ידעתי שזה לא אמור להיות ככה, ובעל עסק צריך לנהל את העסק ולא להיות שאוב בתוך העבודה השוטפת. אבל לא הצלחתי לצאת מזה לבד, בעיקר כי לא ראיתי איך מישהו יכול להחליף אותי במשבצת הכי מקצועית של הייצור.
+        <br /><br />
+        הדבר הראשון שעשינו היה לבנות תפקיד מוגדר למשבצת הזאת, לחפש ולגייס עובד מקצועי, וככה הצלחתי להתחיל להיות פנוי לנהל את העסק באמת.
+        <br /><br />
+        מאז אני שולט הרבה יותר טוב בכל מחלקה בעסק. הראש שלי פנוי להסתכל ולהבין איפה צוואר הבקבוק הבא, למדוד את הייצור ואת התפוקה של העובדים. והגדלנו משמעותית את היכולת שלנו לקבל הזמנות ולהגדיל את ההכנסות.
+        <br /><br />
+        מה שהכי עוזר לי בפגישות עם מוטי זה שהן גורמות לי לחשוב ממבט על, ולא מראייה של השוטף של היום יום. יש דברים שכמו כל בעל עסק אני יודע שצריך לעשות, אבל לפעמים צריך דחיפה מבחוץ כדי שיקרו. וייעוץ טוב מבעל מקצוע שאתה סומך עליו עוזר מאוד לקדם אותם ולהגיע ליעדים מהר יותר.
+      </blockquote>
+      <div class="testi-attr">
+        <span class="testi-name">דור</span>
+        <span class="testi-role">אן די גארדן קאבר-אפ</span>
+      </div>
+    </div>
+
+    <!-- 3 anchor quotes from Dor -->
+    <div class="testi-anchors">
+      <div class="testi-anchor reveal">
+        <p>"לא ראיתי איך מישהו יכול להחליף אותי במשבצת הכי מקצועית של הייצור."</p>
+      </div>
+      <div class="testi-anchor reveal">
+        <p>"הראש שלי פנוי להסתכל ולהבין איפה צוואר הבקבוק הבא."</p>
+      </div>
+      <div class="testi-anchor reveal">
+        <p>"ייעוץ טוב מבעל מקצוע שאתה סומך עליו עוזר מאוד לקדם אותם ולהגיע ליעדים מהר יותר."</p>
+      </div>
+    </div>
+
+    <!-- Barak — secondary testimonial -->
+    <div class="testi-secondary reveal">
       <blockquote class="testi-quote">
         בתהליך עם מוטי עשינו סדר במספרים של העסק: הוצאות, הכנסות, תמחור שעת עבודה ותמחור נכון של קורסים, סדנאות ומוצרים.
         <br /><br />
@@ -16,19 +46,6 @@
       <div class="testi-attr">
         <span class="testi-name">ברק</span>
         <span class="testi-role">בעל עסק יצירתי</span>
-      </div>
-    </div>
-
-    <!-- 3 anchor quotes -->
-    <div class="testi-anchors">
-      <div class="testi-anchor reveal">
-        <p>"מוטי ידע לקחת עסק יצירתי ולהפוך את התמונה העסקית לברורה."</p>
-      </div>
-      <div class="testi-anchor reveal">
-        <p>"השיחות היו בגובה העיניים, עם הרבה הקשבה ושאלות מדויקות."</p>
-      </div>
-      <div class="testi-anchor reveal">
-        <p>"עסק שיהיה רווחי ולא רק פעיל."</p>
       </div>
     </div>
   </div>
@@ -54,6 +71,12 @@
     padding: 36px 28px;
   }
 
+  .testi-secondary {
+    margin-top: 48px;
+    padding-top: 48px;
+    border-top: 1px solid var(--line);
+  }
+
   .testi-quote {
     font-family: 'Assistant', sans-serif;
     font-size: clamp(16px, 2.5vw, 18px);
@@ -62,6 +85,11 @@
     font-style: normal;
     border-inline-start: 3px solid var(--bronze);
     padding-inline-start: 22px;
+  }
+
+  .testi-secondary .testi-quote {
+    font-size: clamp(15px, 2.2vw, 16px);
+    opacity: 0.85;
   }
 
   .testi-attr {
