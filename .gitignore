@@ -28,3 +28,4 @@ dist-ssr
 
 # Claude Code local session state
 .claude/settings.local.json
+.claude/launch.json
