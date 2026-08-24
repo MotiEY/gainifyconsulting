@@ -146,6 +146,13 @@
     height: 34px;
     justify-content: center;
   }
+
+  /* mobile: clear the fixed sticky WA/Cal bar at the bottom */
+  @media (max-width: 767px) {
+    .a11y-trigger { bottom: 96px; }
+    .a11y-panel { bottom: 164px; }
+  }
+
   .a11y-trigger:hover {
     background: #1d4ed8;
     transform: translateY(-2px);
