@@ -1,14 +1,25 @@
 ---
 import { SITE } from '../config';
 ---
-<section class="bricks-section" id="method">
+<section class="method-section" id="how">
+  <span id="method" aria-hidden="true"></span>
   <div class="inner">
-    <div class="bricks-top">
-      <div>
-        <span class="tag reveal">גישת 7BRICKS</span>
-        <h2 class="bricks-heading reveal">עסק עובד טוב כשהחלקים שלו עובדים יחד.</h2>
+
+    <!-- Approach intro (merged from Approach.astro) -->
+    <div class="method-top">
+      <div class="method-left">
+        <span class="tag reveal">איך אני עובד</span>
+        <h2 class="method-heading reveal">מתחילים בלראות את העסק כמערכת אחת, לא כאוסף של בעיות נפרדות.</h2>
       </div>
-      <p class="bricks-intro reveal">שיווק, מכירות, תפעול, אנשים, פיננסים, ניהול ומנהיגות, וצמיחה. בגישת 7BRICKS מסתכלים על כל אלה יחד, כי מה שנראה כמו בעיה בתחום אחד, מתחיל לא פעם במקום אחר. המבט הרחב עוזר לראות את התמונה המלאה, לזהות את נקודת המנוף, ולבנות דרך מדויקת לצמיחה.</p>
+      <div class="method-right">
+        <p class="method-body reveal">אני עובד בגישת 7BRICKS, שמסתכלת על העסק כמערכת שלמה: שיווק, מכירות, תפעול, אנשים, פיננסים, ניהול ומנהיגות, וצמיחה. עבודה משותפת על המספרים, התהליכים והאנשים. לא עצות מהצד. חשיבה משותפת.</p>
+        <p class="method-anchor reveal">כשהתמונה ברורה, נבנית דרך עבודה מעשית.</p>
+      </div>
+    </div>
+
+    <!-- 7BRICKS grid -->
+    <div class="bricks-label reveal">
+      <span class="tag" style="margin-bottom:0">גישת 7BRICKS</span>
     </div>
 
     <div class="bricks-grid">
@@ -51,7 +62,6 @@ import { SITE } from '../config';
 
     <p class="bricks-summary-line reveal">התמונה המלאה מתבהרת כשמבינים איך חלקי העסק משפיעים אחד על השני.</p>
 
-    <!-- Mid-page CTA strip -->
     <div class="bricks-cta reveal">
       <div class="bricks-cta-text">
         <p class="bricks-cta-q">אם חלק מזה מוכר לך,<br />שווה לבדוק מאיפה נכון להתחיל.</p>
@@ -73,34 +83,57 @@ import { SITE } from '../config';
 
 <style>
   /* mobile-first base */
-  .bricks-section {
+  .method-section {
     border-top: 1px solid var(--line);
     padding: 72px 24px;
   }
 
-  .bricks-top {
+  /* Approach top section */
+  .method-top {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 20px;
-    margin-bottom: 48px;
+    gap: 28px;
+    align-items: start;
+    margin-bottom: 64px;
   }
 
-  .bricks-heading {
+  .method-heading {
     font-family: 'Frank Ruhl Libre', serif;
     font-weight: 400;
-    font-size: clamp(22px, 5vw, 32px);
-    color: var(--dark);
-    line-height: 1.35;
-    letter-spacing: -0.01em;
+    font-size: clamp(26px, 5vw, 38px);
+    line-height: 1.15;
+    color: var(--text-h);
+    letter-spacing: -0.02em;
   }
 
-  .bricks-intro {
+  .method-right {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .method-body {
     font-family: 'Assistant', sans-serif;
     font-size: 17px;
-    line-height: 1.88;
+    line-height: 1.7;
     color: var(--mid);
   }
 
+  .method-anchor {
+    font-family: 'Frank Ruhl Libre', serif;
+    font-weight: 500;
+    font-size: 21px;
+    line-height: 1.45;
+    color: var(--text-h);
+    letter-spacing: -0.015em;
+  }
+
+  /* 7BRICKS label */
+  .bricks-label {
+    margin-bottom: 28px;
+  }
+
+  /* Grid */
   .bricks-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -150,16 +183,16 @@ import { SITE } from '../config';
     font-family: 'Frank Ruhl Libre', serif;
     font-weight: 400;
     font-size: 17px;
-    color: var(--dark);
+    color: var(--text-h);
     display: block;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
     letter-spacing: -0.01em;
   }
 
   .brick-desc {
     font-family: 'Assistant', sans-serif;
     font-size: 13px;
-    line-height: 1.75;
+    line-height: 1.65;
     color: var(--mid);
   }
 
@@ -168,7 +201,7 @@ import { SITE } from '../config';
     font-family: 'Frank Ruhl Libre', serif;
     font-weight: 300;
     font-style: italic;
-    font-size: clamp(20px, 4.5vw, 30px);
+    font-size: clamp(19px, 4vw, 28px);
     color: var(--bronze);
     letter-spacing: -0.02em;
     line-height: 1.4;
@@ -177,40 +210,7 @@ import { SITE } from '../config';
     border-bottom: 1px solid rgba(122,100,69,0.2);
   }
 
-  /* tablet */
-  @media (min-width: 768px) {
-    .bricks-section { padding: 90px 40px; }
-    .brick { padding: 36px 26px; }
-  }
-
-  /* desktop */
-  @media (min-width: 1280px) {
-    .bricks-section { padding: 110px 52px 100px; }
-
-    .bricks-top {
-      grid-template-columns: 340px 1fr;
-      gap: 100px;
-      margin-bottom: 64px;
-      align-items: start;
-    }
-
-    .bricks-heading { font-size: clamp(22px, 2.4vw, 32px); }
-
-    /* ── 7 columns = 7 bricks ─── */
-    .bricks-grid { grid-template-columns: repeat(7, 1fr); }
-    .brick { padding: 28px 18px; }
-
-    .bricks-summary-line {
-      font-size: clamp(22px, 2.2vw, 30px);
-      padding: 48px 0;
-    }
-
-    /* tighter type in narrow 7-col bricks */
-    .brick-name  { font-size: 15px; }
-    .brick-desc  { font-size: 12px; line-height: 1.65; }
-  }
-
-  /* ── Mid-page CTA strip ───────────────────────────────────── */
+  /* CTA strip */
   .bricks-cta {
     margin-top: 0;
     background: rgba(122, 100, 69, 0.06);
@@ -224,8 +224,8 @@ import { SITE } from '../config';
   .bricks-cta-q {
     font-family: 'Frank Ruhl Libre', serif;
     font-weight: 400;
-    font-size: clamp(22px, 5.5vw, 36px);
-    color: var(--dark);
+    font-size: clamp(22px, 5vw, 34px);
+    color: var(--text-h);
     line-height: 1.25;
     letter-spacing: -0.02em;
   }
@@ -249,6 +249,7 @@ import { SITE } from '../config';
     background: var(--dark);
     padding: 14px 32px;
     min-height: 44px;
+    border-radius: var(--r-btn);
     transition: background 0.2s, transform 0.2s;
     white-space: nowrap;
   }
@@ -258,7 +259,10 @@ import { SITE } from '../config';
     transform: translateY(-1px);
   }
 
+  /* tablet */
   @media (min-width: 768px) {
+    .method-section { padding: 90px 40px; }
+    .brick { padding: 36px 26px; }
     .bricks-cta {
       flex-direction: row;
       align-items: center;
@@ -269,8 +273,34 @@ import { SITE } from '../config';
     .bricks-cta-text { flex: 1; }
   }
 
+  /* desktop */
   @media (min-width: 1280px) {
+    .method-section { padding: 110px 52px 100px; }
+
+    .method-top {
+      grid-template-columns: 340px 1fr;
+      gap: 100px;
+      margin-bottom: 80px;
+      align-items: start;
+    }
+
+    .method-heading {
+      font-size: clamp(26px, 2.8vw, 38px);
+      position: sticky;
+      top: 80px;
+    }
+
+    .bricks-grid { grid-template-columns: repeat(7, 1fr); }
+    .brick { padding: 28px 18px; }
+    .brick-name  { font-size: 15px; }
+    .brick-desc  { font-size: 12px; line-height: 1.65; }
+
+    .bricks-summary-line {
+      font-size: clamp(20px, 2vw, 28px);
+      padding: 48px 0;
+    }
+
     .bricks-cta { padding: 52px; }
-    .bricks-cta-q { font-size: clamp(24px, 2.4vw, 36px); }
+    .bricks-cta-q { font-size: clamp(22px, 2.2vw, 34px); }
   }
 </style>

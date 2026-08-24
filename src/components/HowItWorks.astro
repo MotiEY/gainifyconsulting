@@ -2,6 +2,7 @@
 import { SITE } from '../config';
 ---
 <section class="how-section" id="process">
+  <span id="outcomes" aria-hidden="true"></span>
   <div class="inner">
     <div class="how-top">
       <span class="tag reveal">כך מתחילים</span>
@@ -15,6 +16,10 @@ import { SITE } from '../config';
           <h3 class="step-title">שיחת התאמה קצרה</h3>
           <p class="step-time">15 דקות · ללא עלות</p>
           <p class="step-desc">בודקים יחד אם יש כאן התאמה. מה העסק עושה, איפה הוא עומד, ומה הדחיפות. אם יש בסיס נכון, ממשיכים.</p>
+          <div class="step-outcome">
+            <span class="step-outcome-label">תוצר</span>
+            <span class="step-outcome-text">תמונה ראשונית ושקיפות הדדית. אם יש בסיס, ממשיכים.</span>
+          </div>
         </div>
       </div>
 
@@ -26,6 +31,10 @@ import { SITE } from '../config';
           <h3 class="step-title">דיאגנוסטיקה ומיפוי</h3>
           <p class="step-time">כשעתיים · אחד על אחד</p>
           <p class="step-desc">תמונה מלאה של העסק על פני שבעת התחומים. מה קורה היום, מה באמת יכול להזיז את העסק קדימה, ואיפה נקודת המנוף האמיתית.</p>
+          <div class="step-outcome">
+            <span class="step-outcome-label">תוצר</span>
+            <span class="step-outcome-text">מיפוי חד של המצב הקיים ופיצוח של 1–3 מהלכים שיכולים לעשות שינוי.</span>
+          </div>
         </div>
       </div>
 
@@ -37,11 +46,19 @@ import { SITE } from '../config';
           <h3 class="step-title">תכנית עבודה מעשית</h3>
           <p class="step-time">תוצר בכתב · ניתן לביצוע</p>
           <p class="step-desc">כיוון ברור, סדר עדיפויות, ודרך עבודה שאפשר להתחיל לפעול לפיה. לא אסטרטגיה על הנייר. תוכנית שעובדת.</p>
+          <div class="step-outcome">
+            <span class="step-outcome-label">תוצר</span>
+            <span class="step-outcome-text">תכנית מדורגת וניתנת לביצוע, עם סדר ותעדוף שאפשר להתחיל מחר.</span>
+          </div>
         </div>
       </div>
     </div>
 
     <p class="how-note reveal">בהתאם למה שעולה בדיאגנוסטיקה, אפשר להמשיך לליווי ביישום המהלכים. ההיקף והקצב מותאמים לצרכים של העסק.</p>
+
+    <p class="how-purpose reveal">המטרה אינה רק להבין מה צריך להשתנות, אלא להוציא יותר מהפעילות הקיימת: ברווחיות, בניצול הזדמנויות וביכולת לצמוח.</p>
+
+    <p class="how-anchor reveal">היציאה מהתהליך: בהירות, דרך ברורה, וחזרה לשליטה על העסק.</p>
 
     <div class="how-cta reveal">
       <p class="how-cta-text">מוכנים לבדוק אם יש כאן התאמה?</p>
@@ -75,9 +92,9 @@ import { SITE } from '../config';
   .how-heading {
     font-family: 'Frank Ruhl Libre', serif;
     font-weight: 400;
-    font-size: clamp(24px, 5vw, 38px);
+    font-size: clamp(26px, 5vw, 38px);
     color: var(--text-h);
-    line-height: 1.25;
+    line-height: 1.15;
     letter-spacing: -0.02em;
     max-width: 560px;
   }
@@ -103,9 +120,9 @@ import { SITE } from '../config';
   }
 
   .step-num {
-    font-family: 'Frank Ruhl Libre', serif;
-    font-weight: 700;
-    font-size: 13px;
+    font-family: 'Assistant', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
     color: var(--bronze);
     letter-spacing: 0.1em;
     min-width: 24px;
@@ -139,8 +156,37 @@ import { SITE } from '../config';
 
   .step-desc {
     font-family: 'Assistant', sans-serif;
-    font-size: 16px;
-    line-height: 1.8;
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--mid);
+  }
+
+  .step-outcome {
+    margin-top: 14px;
+    padding: 12px 16px;
+    background: rgba(122, 100, 69, 0.05);
+    border-inline-start: 2px solid rgba(122, 100, 69, 0.25);
+    display: flex;
+    gap: 10px;
+    align-items: baseline;
+    flex-wrap: wrap;
+  }
+
+  .step-outcome-label {
+    font-family: 'Assistant', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--bronze);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .step-outcome-text {
+    font-family: 'Assistant', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
     color: var(--mid);
   }
 
@@ -153,6 +199,28 @@ import { SITE } from '../config';
     color: var(--faint);
     padding-inline-start: 16px;
     border-inline-start: 2px solid var(--line);
+  }
+
+  .how-purpose {
+    margin-top: 40px;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--text-h);
+    letter-spacing: -0.01em;
+  }
+
+  .how-anchor {
+    margin-top: 12px;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: var(--text-h);
+    line-height: 1.6;
+    letter-spacing: -0.01em;
+    padding-top: 20px;
+    border-top: 1px solid var(--line-mid);
   }
 
   .how-cta {
@@ -168,7 +236,7 @@ import { SITE } from '../config';
   .how-cta-text {
     font-family: 'Frank Ruhl Libre', serif;
     font-weight: 400;
-    font-size: clamp(18px, 3vw, 24px);
+    font-size: clamp(19px, 3vw, 24px);
     color: var(--text-h);
     letter-spacing: -0.01em;
   }

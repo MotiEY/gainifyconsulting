@@ -23,16 +23,6 @@ import { SITE } from '../config';
           rel="noopener noreferrer"
           data-cal-link={SITE.calLink}
         >לקביעת שיחת התאמה קצרה</a>
-        <a
-          href={`https://wa.me/${SITE.phone.replace('+','')}`}
-          class="hero-btn-wa"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="וואטסאפ"
-        >
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.533 5.857L.054 23.454a.75.75 0 0 0 .918.918l5.633-1.476A11.942 11.942 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.708 9.708 0 0 1-4.953-1.355l-.355-.211-3.683.965.981-3.595-.232-.371A9.718 9.718 0 0 1 2.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
-          וואטסאפ
-        </a>
       </div>
       <p class="hero-cta-note">אם נראה שיש בסיס נכון להמשך, נתקדם לדיאגנוסטיקה עסקית מסודרת.</p>
     </div>
@@ -86,6 +76,7 @@ import { SITE } from '../config';
     content: '';
     position: absolute;
     inset: 0;
+    /* diagonal texture — hero only, fades out at the bottom */
     background-image: repeating-linear-gradient(
       135deg,
       transparent,
@@ -93,6 +84,8 @@ import { SITE } from '../config';
       rgba(24,20,16,0.018) 28px,
       rgba(24,20,16,0.018) 29px
     );
+    -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
     pointer-events: none;
   }
 
@@ -104,18 +97,26 @@ import { SITE } from '../config';
     padding: 100px 0 72px;
     width: 100%;
     position: relative;
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+
+  .hero-content {
+    text-align: right;
+    max-width: 640px;
   }
 
   .hero-title {
     font-family: 'Frank Ruhl Libre', serif;
     font-weight: 900;
-    font-size: clamp(33px, 7.5vw, 60px);
+    font-size: clamp(30px, 7.5vw, 60px);
     line-height: 1.1;
     color: var(--text-h);
-    margin-bottom: 24px;
+    margin-bottom: 28px;
     letter-spacing: -0.035em;
   }
 
+  /* Mirror block */
   .hero-mirror {
     margin-bottom: 28px;
   }
@@ -123,33 +124,40 @@ import { SITE } from '../config';
   .hero-mirror-label {
     display: block;
     font-family: 'Assistant', sans-serif;
-    font-weight: 500;
-    font-size: 11px;
-    letter-spacing: 0.14em;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
     color: var(--bronze);
-    opacity: 0.75;
-    margin-bottom: 10px;
+    margin-bottom: 14px;
+  }
+
+  .hero-mirror-items {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
   }
 
   .hero-mirror-items p {
     font-family: 'Frank Ruhl Libre', serif;
     font-weight: 300;
-    font-size: clamp(15px, 2.6vw, 18px);
-    line-height: 1.45;
+    font-size: clamp(15px, 2.4vw, 17px);
+    line-height: 1.5;
     color: var(--dark);
     margin: 0;
-    padding: 0;
+    padding: 12px 16px;
+    border-inline-start: 2px solid rgba(122, 100, 69, 0.3);
   }
 
   .hero-mirror-items p + p {
-    margin-top: 10px;
+    margin-top: 8px;
   }
 
   .hero-promise {
     font-family: 'Assistant', sans-serif;
     font-weight: 400;
-    font-size: clamp(16px, 3vw, 19px);
-    line-height: 1.75;
+    font-size: 17px;
+    line-height: 1.7;
     color: var(--mid);
     margin-bottom: 36px;
   }
@@ -178,51 +186,12 @@ import { SITE } from '../config';
   }
   .hero-btn-primary:hover { background: var(--bronze); transform: translateY(-1px); }
 
-  .hero-btn-wa {
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
-    font-family: 'Assistant', sans-serif;
-    font-size: 14px;
-    font-weight: 500;
-    color: #fff;
-    background: #25D366;
-    padding: 13px 22px;
-    min-height: 44px;
-    border-radius: var(--r-btn);
-    text-decoration: none;
-    transition: background 0.2s, transform 0.2s;
-  }
-  .hero-btn-wa:hover { background: #1ebe5d; transform: translateY(-1px); }
-
   .hero-cta-note {
     font-family: 'Assistant', sans-serif;
-    font-size: 13px;
+    font-size: 12px;
     line-height: 1.65;
     color: var(--faint);
     margin-top: 14px;
-  }
-
-  .hero-stats {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-top: 36px;
-    padding-top: 28px;
-    border-top: 1px solid var(--line);
-    flex-wrap: wrap;
-  }
-
-  .hero-stats span {
-    font-family: 'Assistant', sans-serif;
-    font-size: 13px;
-    color: var(--mid);
-    letter-spacing: 0.01em;
-  }
-
-  .stat-dot {
-    color: var(--bronze) !important;
-    opacity: 0.5;
   }
 
   .hero-visual {
@@ -258,12 +227,21 @@ import { SITE } from '../config';
   @media (min-width: 1280px) {
     .hero { padding: 0 52px; }
     .inner {
-      grid-template-columns: 1fr 340px;
+      grid-template-columns: 1fr 360px;
       gap: 80px;
       padding: 120px 0 100px;
+      max-width: var(--max-w);
     }
-    .hero-title { font-size: clamp(44px, 4.8vw, 60px); }
-    .hero-promise { font-size: clamp(17px, 1.4vw, 19px); }
-    .hero-photo-wrap { max-width: 340px; }
+    .hero-content { max-width: none; }
+    .hero-title { font-size: clamp(40px, 4.4vw, 60px); }
+    .hero-promise { font-size: 17px; }
+    .hero-visual { align-self: stretch; }
+    .hero-photo-wrap {
+      max-width: none;
+      width: 100%;
+      height: 100%;
+      aspect-ratio: unset;
+      min-height: 440px;
+    }
   }
 </style>
