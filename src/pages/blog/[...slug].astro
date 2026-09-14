@@ -2,10 +2,12 @@
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
+const SITE_URL = 'https://motisadot.com';
+
 export async function getStaticPaths() {
   const posts = await getCollection('blog', ({ data }) => !data.draft);
   return posts.map(post => ({
-    params: { slug: post.id },
+    params: { slug: post.data.slug ?? post.id },
     props: { post },
   }));
 }
@@ -13,21 +15,53 @@ export async function getStaticPaths() {
 const { post } = Astro.props;
 const { Content } = await render(post);
 
+const slug = post.data.slug ?? post.id;
+const canonicalUrl = `${SITE_URL}/blog/${slug}/`;
+const pageTitle = post.data.seoTitle ?? post.data.title;
+const ogImage = post.data.image ? `${SITE_URL}${post.data.image}` : undefined;
+
 const dateStr = post.data.date.toLocaleDateString('he-IL', {
   year: 'numeric',
   month: 'long',
   day: 'numeric',
 });
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: post.data.title,
+  description: post.data.description,
+  url: canonicalUrl,
+  datePublished: post.data.date.toISOString(),
+  dateModified: (post.data.dateModified ?? post.data.date).toISOString(),
+  ...(ogImage ? { image: ogImage } : {}),
+  author: {
+    '@type': 'Person',
+    name: post.data.author ?? 'מוטי שדות',
+    url: `${SITE_URL}/#about`,
+  },
+  publisher: {
+    '@type': 'Person',
+    name: 'מוטי שדות',
+    url: SITE_URL,
+  },
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': canonicalUrl,
+  },
+};
 ---
 
 <BaseLayout
-  title={`${post.data.title} | מוטי שדות`}
+  title={`${pageTitle} | מוטי שדות`}
   description={post.data.description}
+  canonicalUrl={canonicalUrl}
+  ogType="article"
+  ogImage={ogImage}
+  ogImageAlt={post.data.imageAlt}
 >
   <Fragment slot="head">
-    <meta property="og:title" content={post.data.title} />
-    <meta property="og:description" content={post.data.description} />
-    <meta property="og:type" content="article" />
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </Fragment>
 
   <article class="post-page">
@@ -40,7 +74,7 @@ const dateStr = post.data.date.toLocaleDateString('he-IL', {
         </time>
         <h1 class="post-title">{post.data.title}</h1>
         {post.data.author && (
-          <p class="post-author">{post.data.author}</p>
+          <a href="/#about" class="post-author">{post.data.author}</a>
         )}
       </header>
 
@@ -103,10 +137,17 @@ const dateStr = post.data.date.toLocaleDateString('he-IL', {
 
   .post-author {
     margin-top: 16px;
+    display: inline-block;
     font-family: 'Assistant', sans-serif;
     font-size: 13px;
     color: var(--faint);
     letter-spacing: 0.02em;
+    border-bottom: 1px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .post-author:hover {
+    color: var(--bronze);
+    border-color: var(--line-mid);
   }
 
   .post-body {
