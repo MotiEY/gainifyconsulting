@@ -47,8 +47,24 @@ const jsonLd = {
   dateModified: (post.data.dateModified ?? post.data.date).toISOString(),
   ...(ogImage ? { image: ogImage } : {}),
   inLanguage: 'he-IL',
-  author: { '@id': `${SITE_URL}/#person` },
-  publisher: { '@id': `${SITE_URL}/#business` },
+  author: {
+    '@type': 'Person',
+    '@id': `${SITE_URL}/#person`,
+    name: 'מוטי שדות',
+    url: `${SITE_URL}/#about`,
+  },
+  publisher: {
+    '@type': 'Organization',
+    '@id': `${SITE_URL}/#business`,
+    name: 'מוטי שדות – ייעוץ עסקי',
+    url: `${SITE_URL}/`,
+    logo: {
+      '@type': 'ImageObject',
+      url: `${SITE_URL}/brand/logo-mark.png`,
+      width: 1165,
+      height: 284,
+    },
+  },
   mainEntityOfPage: {
     '@type': 'WebPage',
     '@id': canonicalUrl,
