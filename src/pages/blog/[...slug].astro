@@ -1,8 +1,11 @@
 ---
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { SITE } from '../../config';
+import { TOPIC_LABELS } from '../../data/blogTopics';
 
 const SITE_URL = 'https://motisadot.com';
+const waUrl = `https://wa.me/${SITE.phone.replace('+', '')}`;
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog', ({ data }) => !data.draft);
@@ -25,6 +28,15 @@ const dateStr = post.data.date.toLocaleDateString('he-IL', {
   month: 'long',
   day: 'numeric',
 });
+
+const wordCount = post.body
+  ? post.body.replace(/[#>*_`\-\[\]()]/g, ' ').split(/\s+/).filter(Boolean).length
+  : 0;
+const readingMinutes = Math.max(1, Math.round(wordCount / 180));
+
+const topicLabels = (post.data.topics ?? [])
+  .map(t => TOPIC_LABELS[t])
+  .filter(Boolean);
 
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -69,10 +81,17 @@ const jsonLd = {
       <a href="/blog" class="back-link">→ חזרה לבלוג</a>
 
       <header class="post-header">
-        <time class="post-date" datetime={post.data.date.toISOString()}>
-          {dateStr}
-        </time>
+        <div class="post-meta">
+          {topicLabels.length > 0 && (
+            <span class="post-topic">{topicLabels.join(' · ')}</span>
+          )}
+          <time class="post-date" datetime={post.data.date.toISOString()}>
+            {dateStr}
+          </time>
+          <span class="post-reading-time">כ-{readingMinutes} דקות קריאה</span>
+        </div>
         <h1 class="post-title">{post.data.title}</h1>
+        <p class="post-excerpt">{post.data.description}</p>
         {post.data.author && (
           <a href="/#about" class="post-author">{post.data.author}</a>
         )}
@@ -81,6 +100,30 @@ const jsonLd = {
       <div class="post-body">
         <Content />
       </div>
+
+      {post.data.cta && (
+        <div class="post-cta">
+          <p class="post-cta-text">{post.data.cta}</p>
+          <div class="post-cta-actions">
+            <a
+              href={SITE.calUrl}
+              class="post-cta-btn-primary"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-cal-link={SITE.calLink}
+            >לקביעת שיחת התאמה קצרה</a>
+            <a
+              href={waUrl}
+              class="post-cta-btn-wa"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.533 5.857L.054 23.454a.75.75 0 0 0 .918.918l5.633-1.476A11.942 11.942 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.708 9.708 0 0 1-4.953-1.355l-.355-.211-3.683.965.981-3.595-.232-.371A9.718 9.718 0 0 1 2.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
+              וואטסאפ
+            </a>
+          </div>
+        </div>
+      )}
     </div>
   </article>
 </BaseLayout>
@@ -117,13 +160,28 @@ const jsonLd = {
     border-bottom: 1px solid var(--line);
   }
 
-  .post-date {
-    display: block;
+  .post-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 12px;
+    margin-bottom: 16px;
+  }
+
+  .post-topic {
+    font-family: 'Assistant', sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    color: var(--bronze);
+  }
+
+  .post-date,
+  .post-reading-time {
     font-family: 'Assistant', sans-serif;
     font-size: 12px;
     letter-spacing: 0.07em;
     color: var(--faint);
-    margin-bottom: 16px;
   }
 
   .post-title {
@@ -133,6 +191,14 @@ const jsonLd = {
     line-height: 1.2;
     color: var(--dark);
     letter-spacing: -0.02em;
+    margin-bottom: 20px;
+  }
+
+  .post-excerpt {
+    font-family: 'Assistant', sans-serif;
+    font-size: 17px;
+    line-height: 1.65;
+    color: var(--mid);
   }
 
   .post-author {
@@ -198,6 +264,115 @@ const jsonLd = {
     color: var(--bronze);
     border-bottom: 1px solid var(--line-mid);
   }
+
+  .post-body :global(table) {
+    display: block;
+    overflow-x: auto;
+    max-width: 100%;
+    -webkit-overflow-scrolling: touch;
+    border-collapse: collapse;
+    margin: 1.8em 0;
+    font-size: 0.85em;
+  }
+
+  .post-body :global(th),
+  .post-body :global(td) {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--line);
+    white-space: nowrap;
+    text-align: right;
+  }
+
+  .post-body :global(th) {
+    font-family: 'Assistant', sans-serif;
+    font-weight: 600;
+    color: var(--dark);
+    border-bottom: 1px solid var(--line-mid);
+  }
+
+  .post-body :global(td) {
+    color: var(--mid);
+  }
+
+  /* "מה כדאי לקרוא עכשיו?" is the last H2 + list in every article */
+  .post-body :global(h2:last-of-type) {
+    margin-top: 2.4em;
+  }
+
+  .post-body :global(h2:last-of-type ~ ul) {
+    padding-right: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .post-body :global(h2:last-of-type ~ ul li) {
+    background: var(--cream-2);
+    border: 1px solid var(--line);
+    border-radius: var(--r-card);
+    padding: 16px 20px;
+    margin: 0;
+  }
+
+  .post-cta {
+    margin-top: 56px;
+    padding: 32px 24px;
+    background: var(--cream-2);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .post-cta-text {
+    font-family: 'Frank Ruhl Libre', serif;
+    font-weight: 400;
+    font-size: clamp(18px, 3vw, 22px);
+    color: var(--dark);
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+    margin-bottom: 24px;
+  }
+
+  .post-cta-actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .post-cta-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    font-family: 'Assistant', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    color: var(--cream-dk);
+    background: var(--dark);
+    padding: 13px 28px;
+    min-height: 44px;
+    border-radius: var(--r-btn);
+    text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .post-cta-btn-primary:hover { background: var(--bronze); transform: translateY(-1px); }
+
+  .post-cta-btn-wa {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-family: 'Assistant', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #fff;
+    background: #25D366;
+    padding: 13px 22px;
+    min-height: 44px;
+    border-radius: var(--r-btn);
+    text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .post-cta-btn-wa:hover { background: #1ebe5d; transform: translateY(-1px); }
 
   @media (min-width: 768px) {
     .post-page { padding: 120px 40px 100px; }
