@@ -6,6 +6,8 @@ date: 2026-09-14
 author: "מוטי שדות"
 slug: "management-for-business-growth"
 topics: ["business-growth", "technology-companies"]
+image: "/og/management-for-business-growth.jpg"
+imageAlt: "מוטי שדות, ייעוץ עסקי אסטרטגי — העסק גדל. עכשיו גם הניהול צריך לגדול איתו"
 sources: []
 cta: "אפשר להתחיל ממקרה שחוזר אצלכם. באבחון נבדוק מה גורם לו לחזור ומה נכון לבנות קודם."
 draft: false
