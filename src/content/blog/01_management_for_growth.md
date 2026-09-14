@@ -2,7 +2,7 @@
 title: "העסק גדל. עכשיו גם הניהול צריך לגדול איתו"
 seoTitle: "העסק גדל: איך בונים ניהול שמתאים לצמיחה"
 description: "העבודה גדלה וכל החלטה עדיין עוברת דרך ההנהלה? כך מזהים יכולת ניהול חסרה ובונים תהליך שאפשר להפעיל ולבדוק בעבודה אמיתית."
-date: 2026-09-14
+date: 2026-09-09
 author: "מוטי שדות"
 slug: "management-for-business-growth"
 topics: ["business-growth", "technology-companies"]
