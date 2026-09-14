@@ -6,6 +6,8 @@ date: 2026-09-01
 author: "מוטי שדות"
 slug: "ai-before-hiring-or-process"
 topics: ["business-growth", "technology-companies", "ai-management"]
+image: "/og/ai-before-hiring-or-process.jpg"
+imageAlt: "מוטי שדות, ייעוץ עסקי אסטרטגי — הכנסתם AI לעבודה. מה השתנה בעסק?"
 sources:
   - "https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai"
   - "https://www.nber.org/papers/w33795"

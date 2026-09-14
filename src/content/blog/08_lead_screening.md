@@ -6,6 +6,8 @@ date: 2026-09-02
 author: "מוטי שדות"
 slug: "whatsapp-bot-qualified-leads"
 topics: ["business-growth", "ai-management"]
+image: "/og/whatsapp-bot-qualified-leads.jpg"
+imageAlt: "מוטי שדות, ייעוץ עסקי אסטרטגי — הבוט עונה מהר. האם הפניות הנכונות מגיעות לאדם הנכון?"
 sources: []
 cta: "לפני בחירת בוט, אפשר למפות את הפניות ואת ההעברה לאדם כדי להגדיר מה הכלי צריך לעשות."
 draft: false

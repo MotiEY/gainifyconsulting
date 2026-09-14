@@ -6,6 +6,8 @@ date: 2026-09-06
 author: "מוטי שדות"
 slug: "delegation-information-authority"
 topics: ["business-growth", "technology-companies"]
+image: "/og/delegation-information-authority.jpg"
+imageAlt: "מוטי שדות, ייעוץ עסקי אסטרטגי — נתתם לעובד אחריות. האם נתתם לו מספיק כדי להחליט?"
 sources: []
 cta: "אפשר לבדוק החלטה אחת שחוזרת אליכם ולבנות עם העובד את התנאים לקבל אותה בעצמו."
 draft: false

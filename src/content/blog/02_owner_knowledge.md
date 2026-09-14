@@ -6,6 +6,8 @@ date: 2026-09-08
 author: "מוטי שדות"
 slug: "knowledge-in-business-owner-head"
 topics: ["business-growth"]
+image: "/og/knowledge-in-business-owner-head.jpg"
+imageAlt: "מוטי שדות, ייעוץ עסקי אסטרטגי — רק אני יודע לתת את הצעת המחיר הזאת"
 sources: []
 cta: "אם רוב ההצעות עדיין חוזרות אליכם, אפשר לבדוק יחד מה צריך להישאר אצלכם ומה אפשר לבנות בצוות."
 draft: false

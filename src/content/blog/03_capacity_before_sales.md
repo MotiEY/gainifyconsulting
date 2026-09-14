@@ -6,6 +6,8 @@ date: 2026-09-07
 author: "מוטי שדות"
 slug: "stop-sales-to-grow"
 topics: ["business-growth"]
+image: "/og/stop-sales-to-grow.jpg"
+imageAlt: "מוטי שדות, ייעוץ עסקי אסטרטגי — היומן מלא. האם העסק באמת יכול לקבל עוד עבודה?"
 sources: []
 cta: "כשמכירות ואספקה מושכות לכיוונים שונים, אבחון משותף יכול להראות איזו יכולת נכון לבנות קודם."
 draft: false

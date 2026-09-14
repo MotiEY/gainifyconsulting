@@ -6,6 +6,8 @@ date: 2026-09-04
 author: "מוטי שדות"
 slug: "project-status-management-decisions"
 topics: ["technology-companies"]
+image: "/og/project-status-management-decisions.jpg"
+imageAlt: "מוטי שדות, ייעוץ עסקי אסטרטגי — הלקוח שואל מה קורה בפרויקט. למה רק עכשיו מתחיל הבירור?"
 sources: []
 cta: "אפשר לבחון פרויקט פעיל אחד ולראות אם המידע שמגיע להנהלה מאפשר לה להחליט בזמן."
 draft: false

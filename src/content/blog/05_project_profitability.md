@@ -6,6 +6,8 @@ date: 2026-09-05
 author: "מוטי שדות"
 slug: "software-project-profitability"
 topics: ["technology-companies"]
+image: "/og/software-project-profitability.jpg"
+imageAlt: "מוטי שדות, ייעוץ עסקי אסטרטגי — יש פרויקטים. יש עבודה. כמה כסף נשאר מכל אחד?"
 sources: []
 cta: "אם יש עבודה אבל קשה להסביר מה נשאר ממנה, אפשר להתחיל בבדיקת הדרך שבה אתם מתכננים ומעדכנים רווחיות."
 draft: false

@@ -6,6 +6,8 @@ date: 2026-09-03
 author: "מוטי שדות"
 slug: "customer-project-scope-reset"
 topics: ["technology-companies"]
+image: "/og/customer-project-scope-reset.jpg"
+imageAlt: "מוטי שדות, ייעוץ עסקי אסטרטגי — הלקוח מבקש עוד שינוי. מתי צריך לעצור וליישר קו?"
 sources:
   - "https://www.pmi.org/learning/library/2019/04/07/15/30/scope-control-projects-you-6972"
 cta: "אם אותו פער חוזר מול לקוחות, כדאי לבדוק גם את דרך ההצעה, אישור השינוי והעברת ההחלטה לביצוע."
