@@ -1,4 +1,5 @@
 ---
+import { SITE } from '../config';
 ---
 <section class="about-section" id="about">
   <div class="about-numeral" aria-hidden="true">26</div>
@@ -12,6 +13,7 @@
         <p class="reveal">ניהלתי מערכים גלובליים, עבדתי מול לקוחות תקשורת מהגדולים בעולם, ביניהם AT&T, והובלתי פעילות עם אנשים, תקציבים, תהליכים ולוחות זמנים. אבל מה שרלוונטי לבעל עסק קטן הוא לא הגודל. זו היכולת לראות את המערכת: איפה האחריות לא ברורה, איפה תהליך לא מחזיק, ואיפה החלטה אחת נכונה יכולה להזיז הרבה.</p>
         <p class="reveal">היום אני מביא את הניסיון הזה לבעלי עסקים קטנים ובינוניים. לא כדי להפוך עסק קטן לארגון גדול, אלא כדי לבנות בו מבנה, סדר, אחריות ודרך עבודה שמחזיקה גם כשהכול זז מהר.</p>
       </div>
+      <a href={SITE.linkedin} class="about-linkedin reveal" target="_blank" rel="noopener noreferrer">מוטי שדות ב-LinkedIn ←</a>
     </div>
     <div class="about-photo reveal">
       <img
@@ -80,6 +82,23 @@
     font-size: 17px;
     line-height: 1.88;
     color: var(--mid);
+  }
+
+  .about-linkedin {
+    display: inline-block;
+    margin-top: 24px;
+    font-family: 'Assistant', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--bronze);
+    letter-spacing: 0.02em;
+    border-bottom: 1px solid var(--line-mid);
+    padding-bottom: 2px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .about-linkedin:hover {
+    color: var(--dark);
+    border-color: var(--dark);
   }
 
   .about-photo {

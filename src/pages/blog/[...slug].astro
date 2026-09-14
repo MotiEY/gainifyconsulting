@@ -46,16 +46,9 @@ const jsonLd = {
   datePublished: post.data.date.toISOString(),
   dateModified: (post.data.dateModified ?? post.data.date).toISOString(),
   ...(ogImage ? { image: ogImage } : {}),
-  author: {
-    '@type': 'Person',
-    name: post.data.author ?? 'מוטי שדות',
-    url: `${SITE_URL}/#about`,
-  },
-  publisher: {
-    '@type': 'Person',
-    name: 'מוטי שדות',
-    url: SITE_URL,
-  },
+  inLanguage: 'he-IL',
+  author: { '@id': `${SITE_URL}/#person` },
+  publisher: { '@id': `${SITE_URL}/#business` },
   mainEntityOfPage: {
     '@type': 'WebPage',
     '@id': canonicalUrl,

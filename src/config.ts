@@ -8,4 +8,5 @@ export const SITE = {
   calLink: 'moti-qkwojg/15min',
   /** Full Cal.com URL — used as href fallback when JS is unavailable */
   calUrl: 'https://cal.com/moti-qkwojg/15min',
+  linkedin: 'https://www.linkedin.com/in/moti-sadot/',
 } as const;
