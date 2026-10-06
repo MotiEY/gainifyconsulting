@@ -5,8 +5,8 @@ export default defineConfig({
   site: 'https://motisadot.com',
   integrations: [
     sitemap({
-      // campaign landing page: shared by link only, expires 29.10.2026
-      filter: (page) => !page.endsWith('/90/'),
+      // link-only pages: /90 (campaign, expires 29.10.2026) and /ai
+      filter: (page) => !page.endsWith('/90/') && !page.endsWith('/ai/'),
     }),
   ],
 });

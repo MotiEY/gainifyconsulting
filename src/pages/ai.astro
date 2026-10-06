@@ -1,0 +1,478 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE } from '../config';
+
+const SITE_URL = 'https://motisadot.com';
+const phoneDigits = SITE.phone.replace('+', '');
+const waMessage = 'היי מוטי, ראיתי את הדף על AI with Intent ואשמח לתאם שיחה קצרה';
+const waUrl = `https://wa.me/${phoneDigits}?text=${encodeURIComponent(waMessage)}`;
+const description = 'יש בארגון הרבה AI. השאלה אם הוא מקדם את העסק. ליווי הנהלות בהטמעת AI: בדיקת מוכנות ארגונית, תעדוף ומדידה.';
+---
+
+<BaseLayout
+  title="AI with Intent | מוטי שדות"
+  description={description}
+  canonicalUrl={`${SITE_URL}/ai/`}
+  noindex
+>
+<div class="ai">
+<div class="wrap">
+  <div class="top"><a class="ai-tag en" href="#intent">AI with Intent™</a></div>
+
+  <div class="hero">
+    <div>
+      <p class="kicker">ליווי הנהלות בהטמעת AI</p>
+      <h1>יש בארגון הרבה AI.<br><span>השאלה אם הוא מקדם את העסק.</span></h1>
+      <p class="lead">AI הוא קודם כל מהלך עסקי, ורק אחר כך פרויקט IT. אני עובד עם האנשים הנכונים בארגון: ההנהלה, מנהלי התחומים, מומחי התוכן והצ'מפיונים שיובילו את השינוי מבפנים. יחד הופכים ניסויים מפוזרים ליכולת ארגונית, עם אחריות ברורה, מדדים ותוצאה שרואים בשורה התחתונה.</p>
+      <div class="actions">
+        <a class="btn" href="https://cal.com/moti-qkwojg/15min">לשיחה של רבע שעה</a>
+        <a class="btn ghost" href="#pulse">איך זה עובד</a>
+      </div>
+    </div>
+    <aside class="reality" aria-label="המציאות בארגונים">
+      <p class="label">מה שאני שומע ברוב הארגונים</p>
+      <blockquote>"הרבה פיילוטים. אין בהירות. אין מי שאחראי. כל אחד מנסה משהו."</blockquote>
+      <ul>
+        <li>הפיילוט הצליח טכנית, ונשאר על המדף</li>
+        <li>כל צוות עובד עם כלי אחר, בלי תיאום</li>
+        <li>ההנהלה שואלת מה יצא מזה, ואין תשובה מדודה</li>
+      </ul>
+    </aside>
+  </div>
+</div>
+
+<section class="band">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker">המחיר של יוזמות מפוזרות</p>
+      <h2>איים של חדשנות, בלי גשר ביניהם</h2>
+      <p>כשכל יחידה מתקדמת לבד, AI מוסיף עומס במקום להוריד אותו. ארבעה סימנים שחוזרים כמעט בכל ארגון:</p>
+    </div>
+    <div class="costs">
+      <div class="cost"><h3>ספקים לא מתואמים</h3><p>כמה פתרונות שעושים דברים דומים, ולא מדברים אחד עם השני.</p></div>
+      <div class="cost"><h3>אין מדד הצלחה משותף</h3><p>אי אפשר להשוות בין יוזמות או להראות ערך עסקי להנהלה ולדירקטוריון.</p></div>
+      <div class="cost"><h3>עומס על IT ואבטחה</h3><p>כל ניסוי מוסיף חוב טכני, סיכון מידע ועוד מערכת לתחזק.</p></div>
+      <div class="cost"><h3>חוסר סנכרון בביצוע</h3><p>צוותים מושכים לכיוונים שונים, ואף אחד לא יודע מה הצעד הבא.</p></div>
+    </div>
+
+    <div class="formula" id="intent">
+      <p class="kicker en" style="font-size:15px;letter-spacing:.06em">AI with Intent™</p>
+      <div class="eq" aria-label="Intent שווה יישור קו כפול אחריות כפול מדידה">
+        <span class="lhs en">Intent</span><span class="x">=</span><span>יישור קו</span><span class="x">×</span><span>אחריות</span><span class="x">×</span><span>מדידה</span>
+      </div>
+      <div class="terms">
+        <div><b>יישור קו</b><span>ההנהלה מסכימה למה AI כאן, ואיזו תוצאה עסקית הוא צריך להביא.</span></div>
+        <div><b>אחריות</b><span>ליד כל מהלך יש שם, זמן וסמכות. לא "כולם מקדמים קצת".</span></div>
+        <div><b>מדידה</b><span>קו בסיס ומדד הצלחה נקבעים לפני שמתחילים, לא אחרי.</span></div>
+      </div>
+      <p class="punch">זה כפל. <em>אם אחד מהם אפס, הכול אפס.</em></p>
+    </div>
+  </div>
+</section>
+
+<section id="pulse">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker en">READINESS PULSE</p>
+      <h2>מתחילים בבדיקת מוכנות ארגונית, בשישה ממדים</h2>
+      <p>שאלון של כרבע שעה לצוות ההנהלה ולמנהלי התחומים, ושיחות המשך. הוא לא בוחן ידע אישי, אלא את הארגון: איפה הוא עומד, מה עוצר אותו, ואיפה אפשר ליצור ערך מהר ובצורה מדידה.</p>
+    </div>
+
+    <div class="pulse">
+      <div class="domains">
+        <div class="dom"><div class="num">1</div><h3>אסטרטגיה ותכלית עסקית</h3><span class="en">Strategy &amp; Business Intent</span><p>יש הסכמה למה AI כאן? הוגדרו תוצאות עסקיות? יש דרך לבחור בין יוזמות?</p></div>
+        <div class="dom"><div class="num">2</div><h3>אנשים ואוריינות AI</h3><span class="en">People &amp; AI Fluency</span><p>יכולת מעשית בכל תחום, ידע שמשותף ולא נשאר אצל אדם אחד, והדרכה שמלווה את השינוי.</p></div>
+        <div class="dom"><div class="num">3</div><h3>תהליכים ודרכי עבודה</h3><span class="en">Processes &amp; Workflows</span><p>AI הוא שלב מוגדר בתהליך, או כלי אישי? שימוש מוצלח של אחד הופך לדרך עבודה של כולם?</p></div>
+        <div class="dom"><div class="num">4</div><h3>מערכות, דאטה ואינטגרציה</h3><span class="en">Systems, Data &amp; Integration</span><p>המידע נגיש ואמין? המערכות מחוברות? יש סביבה שבה אפשר לבנות ולבדוק מהר?</p></div>
+        <div class="dom"><div class="num">5</div><h3>אחריות וניהול שינוי</h3><span class="en">Ownership &amp; Change</span><p>מי אחראי, יש דרך מסודרת מרעיון להטמעה, והאם שינוי חדש הופך להרגל או נעלם.</p></div>
+        <div class="dom"><div class="num">6</div><h3>מדידה, בקרה וסיכונים</h3><span class="en">Measurement, Governance &amp; Risk</span><p>מדד הצלחה מוגדר מראש, החלטות על בסיס תוצאות, וכללים ברורים לשימוש בטוח במידע של לקוחות.</p></div>
+      </div>
+
+      <aside class="map" aria-label="דוגמה למפת מוכנות">
+        <h3>כך נראית מפת המוכנות</h3>
+        <p class="note">דוגמה להמחשה בלבד, לא נתונים של לקוח</p>
+        <div class="rows">
+          <div class="row"><span class="lbl">אסטרטגיה</span><div class="track"><span class="range" style="right:25%;left:25%"></span><span class="dot" style="right:50%"></span></div><span class="val">3.0</span></div>
+          <div class="row"><span class="lbl">אנשים</span><div class="track"><span class="range" style="right:37.5%;left:12.5%"></span><span class="dot" style="right:62.5%"></span></div><span class="val">3.5</span></div>
+          <div class="row"><span class="lbl">תהליכים</span><div class="track"><span class="range" style="right:0%;left:62.5%"></span><span class="dot" style="right:18.75%"></span></div><span class="val">1.8</span></div>
+          <div class="row"><span class="lbl">מערכות ודאטה</span><div class="track"><span class="range" style="right:12.5%;left:50%"></span><span class="dot" style="right:31.25%"></span></div><span class="val">2.3</span></div>
+          <div class="row"><span class="lbl">ניהול שינוי</span><div class="track"><span class="range" style="right:0%;left:75%"></span><span class="dot" style="right:12.5%"></span></div><span class="val">1.5</span></div>
+          <div class="row"><span class="lbl">מדידה ובקרה</span><div class="track"><span class="range" style="right:12.5%;left:37.5%"></span><span class="dot" style="right:37.5%"></span></div><span class="val">2.5</span></div>
+        </div>
+        <div class="scale"><span></span><div class="ticks en"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div><span></span></div>
+        <div class="legend"><span><i class="d"></i>ממוצע</span><span><i class="r"></i>פיזור התשובות בהנהלה</span></div>
+        <p class="insight">כאן האנשים כבר משתמשים ב־AI, אבל אין תהליך ואין מי שאחראי. <b>הפער בין שימוש אישי ליכולת ארגונית הוא הממצא.</b> ופיזור רחב בין חברי ההנהלה הוא ממצא בפני עצמו.</p>
+      </aside>
+    </div>
+
+    <div class="outputs" aria-label="מה מקבלים מבדיקת המוכנות">
+      <div class="out"><b>מפת מוכנות</b><span>ציון לכל אחד משישת הממדים, לא ציון כולל אחד שמסתיר הכול</span></div>
+      <div class="out"><b>שלושת החסמים</b><span>מה באמת עוצר, בהשוואה למה שההנהלה חושבת שעוצר</span></div>
+      <div class="out"><b>מאישי לארגוני</b><span>איפה AI נשאר אצל אנשים בודדים ולא הופך ליכולת</span></div>
+      <div class="out"><b>2-3 מקומות להתחיל</b><span>מועמדים ל־Quick Win, מדורגים לפי ערך ומוכנות</span></div>
+      <div class="out"><b>אחראי ומדד לכל ניסוי</b><span>מי מוביל, ומה ייחשב הצלחה</span></div>
+      <div class="out"><b>ניסוי של 30 יום</b><span>הצעה קונקרטית לצעד הראשון, ואיך מודדים את התוצאות אחריו</span></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker">איפה אתם עומדים</p>
+      <h2>חמישה סוגי ארגונים, וצעד הבא שונה לכל אחד</h2>
+      <p>אין מסלול אחד שמתאים לכולם. ארגון שעוד לא בטוח שזה יותר מהייפ צריך משהו אחר מארגון שכבר בונה יכולות ונתקע במעבר מפיילוט לארגון כולו.</p>
+    </div>
+    <div class="spectrum">
+      <div class="lvl"><div class="bar"><i style="width:10%"></i></div><h3>מחכים לראות</h3><span class="en">AI-Dismissive</span><p>חששות, עמימות או רגולציה. AI עוד לא על השולחן.</p><p class="next"><b>הצעד הבא</b><br>מפגש הנהלה לפתיחת השיחה</p></div>
+      <div class="lvl"><div class="bar"><i style="width:30%"></i></div><h3>סקרנים</h3><span class="en">AI-Curious</span><p>יש עניין, אבל הארגון עוד צופה מהצד.</p><p class="next"><b>הצעד הבא</b><br>מפגש אסטרטגי עם ההנהלה</p></div>
+      <div class="lvl"><div class="bar"><i style="width:50%"></i></div><h3>מתנסים</h3><span class="en">AI-Explorer</span><p>פיילוטים וכלים בצוותים בודדים, בלי תוכנית ארגונית.</p><p class="next"><b>הצעד הבא</b><br>בדיקת מוכנות מלאה ומפת עדיפויות</p></div>
+      <div class="lvl"><div class="bar"><i style="width:72%"></i></div><h3>בונים</h3><span class="en">AI-Builder</span><p>יש תנופה. נתקעים בשאלה מי אחראי, בחיכוך ארגוני ובמעבר מפיילוט לארגון כולו.</p><p class="next"><b>הצעד הבא</b><br>מסלולי עבודה ומפת דרכים</p></div>
+      <div class="lvl"><div class="bar"><i style="width:95%"></i></div><h3>מובילים</h3><span class="en">AI-Scaler</span><p>AI כבר בליבת העסק. הזמן להאיץ ולשמור על סדר.</p><p class="next"><b>הצעד הבא</b><br>ספרינטים, כללים ובקרה</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap qw">
+    <div>
+      <p class="kicker">איפה מתחילים</p>
+      <p class="pull" style="margin-top:12px">Quick Win אמיתי מקבל ציון גבוה בכל ארבעת הפרמטרים. לא רק כי הוא קל טכנולוגית.</p>
+      <p>כל רעיון שעולה בבדיקה מדורג 1 עד 5 בארבעה פרמטרים. ככה בוחרים את הגבעה הראשונה שכדאי לכבוש, ולא את זו שהכי מעניינת את מי שהציע אותה.</p>
+    </div>
+    <div class="qw-grid">
+      <div class="qw-card"><b>ערך עסקי</b><span>זמן, כסף, איכות או מכירות</span><div class="pips" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div></div>
+      <div class="qw-card"><b>מהירות יישום</b><span>אפשר להראות תוצאה בתוך 30 יום?</span><div class="pips" aria-hidden="true"><i></i><i></i><i></i><i></i><i class="o"></i></div></div>
+      <div class="qw-card"><b>מוכנות</b><span>מידע, מערכות, משתמשים ואחראי זמין</span><div class="pips" aria-hidden="true"><i></i><i></i><i></i><i></i><i class="o"></i></div></div>
+      <div class="qw-card"><b>אפשר למדוד</b><span>יש קו בסיס, ואפשר לראות שינוי</span><div class="pips" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker">השיטה בפועל</p>
+      <h2>מתמונת מצב לתוצאה, בשלושה שלבים</h2>
+      <p>מובנה מספיק כדי לעבוד בכל הארגון, וגמיש מספיק כדי להתאים לארגון שלכם. כל שלב משלב את הצד הארגוני ואת הצד הטכנולוגי, ולא אחד על חשבון השני.</p>
+    </div>
+    <div class="phases">
+      <div class="phase">
+        <span class="when">שבועות ראשונים</span>
+        <h3>אבחון<span class="en">DISCOVER</span></h3>
+        <ul>
+          <li><b>בדיקת המוכנות</b> בשישה ממדים, מבט של 360 מעלות</li>
+          <li><b>מיפוי בעלי עניין:</b> מי מחליט, מי מושפע, מי יחזיק את זה אחר כך</li>
+          <li><b>תעדוף כאבים:</b> איפה הארגון מאבד הכי הרבה זמן, כסף או איכות</li>
+        </ul>
+      </div>
+      <div class="phase">
+        <span class="when">חודש עד שלושה</span>
+        <h3>תכנון<span class="en">DESIGN</span></h3>
+        <ul>
+          <li><b>סדנאות Intent-to-Impact</b> עם ההנהלה: מגדירים יעד מוביל אחד ל־AI, שמחובר ליעדי העסק</li>
+          <li><b>מפת יכולות:</b> אנשים × מערכות × דאטה</li>
+          <li><b>יישור יעדים ומדדים</b> כך שכל יוזמה ממופה ליעד עסקי</li>
+        </ul>
+      </div>
+      <div class="phase">
+        <span class="when">שלושה עד שישה חודשים</span>
+        <h3>יישום<span class="en">DEPLOY</span></h3>
+        <ul>
+          <li><b>ספרינט פיילוט</b> של 4-6 שבועות, עם בעיה מוגדרת ומדד הצלחה שנקבע מראש</li>
+          <li><b>מדידת תוצאות שוטפת</b> שמחברת את המספרים להחלטה: להרחיב, לשנות או לעצור</li>
+          <li><b>צ'מפיונים, הדרכה ושגרת עבודה</b> כדי שמה שעובד יעבור לשאר הארגון</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tracks-wrap" role="region" aria-label="ארבעה מסלולי עבודה" tabindex="0">
+      <table>
+        <thead><tr><th>מסלול</th><th>מה עושים</th><th>מי בחדר</th><th>משך</th><th>מה יוצא</th></tr></thead>
+        <tbody>
+          <tr><td>אסטרטגיה ומדיניות<span class="en">Strategy &amp; Governance</span></td><td>3-4 סדנאות של 2-3 שעות. ממפים יעדים עסקיים לשימושים אפשריים ב־AI.</td><td>מנכ"ל, COO, CIO ומנהלי היחידות</td><td class="dur">1-2 שבועות</td><td>יעד מוביל ומפת יעדים, שהופכים למסננת לכל החלטה בהמשך</td></tr>
+          <tr><td>תרבות ואנשים<span class="en">Culture &amp; People</span></td><td>ניתוח משימות: מה עושה AI ומה דורש שיקול דעת אנושי. סדנאות אוריינות AI בקבוצות קטנות.</td><td>מנהלי צוותים, מומחי תוכן, הצ'מפיונים העתידיים</td><td class="dur">1-3 שבועות</td><td>דרכי עבודה מחודשות שבהן AI עוזר לעובד ולא מאיים עליו</td></tr>
+          <tr><td>מערכות וטכנולוגיה<span class="en">Systems &amp; Technology</span></td><td>בודקים את הדאטה והמערכות מול היעדים: האם המידע נקי, נגיש ומחובר.</td><td>CIO, מובילי IT, אנשי דאטה ובעלי המידע</td><td class="dur">2-4 שבועות</td><td>תמונת מוכנות של הדאטה והמערכות, ומפת הפערים</td></tr>
+          <tr><td>תהליכים ודרכי עבודה<span class="en">Processes &amp; Workflows</span></td><td>ספרינט ממוקד על בעיה אחת, עם מדד הצלחה. אחריו מדידת תוצאות שוטפת.</td><td>צוות קטן: מנהל מוצר, מפתח ומומחה תוכן</td><td class="dur">4-6 שבועות</td><td>תוצאה מדודה שאפשר להציג לארגון ולהרחיב</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="measures">
+      <div class="measure"><h3>מה מודדים ברמת ההנהלה</h3><ul><li>כמה מיוזמות ה־AI ממופות ליעדים העסקיים</li><li>קצב האימוץ בכל יחידה</li><li>עד כמה ההנהלה מיושרת סביב הכיוון</li></ul></div>
+      <div class="measure"><h3>מה מודדים בשטח</h3><ul><li>הזמן מפיילוט לתוצאה</li><li>מעורבות העובדים בהטמעה</li><li>יעילות הביצוע לעומת קו הבסיס</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker">מה אני מאמין בו</p>
+      <h2>חמישה עקרונות שמלווים כל עבודה</h2>
+    </div>
+    <div class="beliefs">
+      <div class="belief"><h3>הטמעת AI היא שינוי ארגוני, לא פרויקט טכנולוגי.</h3><p>התרבות, האימוץ וההדרכה הם חלק מהעבודה מהיום הראשון, ולא תוספת בסוף.</p></div>
+      <div class="belief"><h3>המבנה הארגוני חשוב כמו הארכיטקטורה של המודל.</h3><p>AI מתקדם בארגון רק בקצב של האנשים שלו.</p></div>
+      <div class="belief"><h3>אסטרטגיה היא יישור קו, לא מצגת.</h3><p>הצלחה נמדדת בכך שההנהלה מקבלת החלטות לפי אותו מסנן.</p></div>
+      <div class="belief"><h3>להראות ערך מהר, ולבנות אמון מהר יותר.</h3><p>הצלחה ראשונה, קטנה ומדודה, שווה יותר מתוכנית אב גדולה.</p></div>
+      <div class="belief"><h3>מה שלא נמדד, לא יוצא מהפיילוט.</h3><p>מגדירים מה זו הצלחה לפני שמתחילים, ועוקבים אחרי זה לאורך הדרך.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap me">
+    <div>
+      <p class="kicker">למה אני</p>
+      <h2 style="font-size:clamp(28px,3.6vw,40px);margin-block:12px 20px">הטכנולוגיה היא החלק הקל.</h2>
+      <p>26 שנה באמדוקס, בהטמעות מורכבות אצל AT&amp;T, Verizon ו־Vodafone. ניהלתי מנהלים, בניתי יחידות delivery, והקמתי מאפס מרכז פיתוח בווייטנאם. שם ראיתי שוב ושוב שמה שקובע אם משהו נשאר זה אנשים, תהליכים ואחריות.</p>
+      <p>בשנה האחרונה עבדתי עם חברות בתיק של משקיע פרטי על פיתוח מוצרים חדשים מתוך הדאטה הייחודי שכבר היה להן.</p>
+      <p>אני לא מוכר שעות פיתוח ולא רישיונות. האינטרס שלי הוא שההשקעה שלכם ב־AI תייצר תוצאה עסקית, ואתם עובדים ישירות איתי.</p>
+    </div>
+    <div class="facts" aria-label="ניסיון">
+      <div class="fact"><b>26</b><span>שנים באמדוקס, בהובלת Delivery, Customer Success וניהול תוכניות</span></div>
+      <div class="fact"><b>~200</b><span>אנשים בניהולי, בפעילות בהיקף של למעלה מ־10 מיליון דולר</span></div>
+      <div class="fact"><b>3</b><span>יכולות שבניתי מאפס: שירותי DWH, צוות PSO ומרכז פיתוח בווייטנאם</span></div>    </div>
+  </div>
+</section>
+
+<div class="wrap" style="padding-block:8px 0">
+  <div class="cta">
+    <div>
+      <h2>הצעד הראשון הוא שיחה של רבע שעה</h2>
+      <p>עם המנכ"ל או מנהל התחום. נבין יחד איפה הארגון עומד, מה כבר נוסה, ואם יש כאן עבודה שכדאי לעשות.</p>
+    </div>
+    <div>
+      <div class="cta-btns">
+        <a class="btn" href="https://cal.com/moti-qkwojg/15min">לקביעת שיחה</a>
+        <a class="btn wa" href={waUrl} target="_blank" rel="noopener noreferrer" data-ga-page="ai">שלח לי הודעה בוואטסאפ</a>
+      </div>
+      <small>או דרך <a href="https://motisadot.com" style="color:inherit">motisadot.com</a></small>
+    </div>
+  </div>
+</div>
+</div>
+</BaseLayout>
+
+<style>
+.ai{
+  --bg:var(--cream); --surface:var(--cream-2); --surface-2:var(--cream-4); --ink:var(--dark); --body:var(--dark);
+  --tint:var(--bronze-l);
+  --band:var(--darkest); --band-ink:var(--cream-dk); --band-mid:var(--mid-dk); --band-line:rgba(246,239,225,.14);
+  --btn-bg:var(--dark); --btn-ink:var(--cream);
+  --f-display:"Frank Ruhl Libre","David Libre",Georgia,serif; --f-body:"Assistant","Segoe UI",Arial,sans-serif;
+  --max:1080px; --read:720px;
+  font-size:17px;line-height:1.65;text-align:right
+}
+html.a11y-high-contrast .ai{--surface-2:#242424}
+/* Layout: motisadot.com editorial system. Cream ground, serif display, bronze accents, one dark band for the "cost" and the formula. RTL, single reading column with wider grids for the method. */
+.wrap{max-width:var(--max);margin-inline:auto;padding-inline:20px}
+h1,h2,h3{font-family:var(--f-display);color:var(--ink);text-wrap:balance;margin:0;font-weight:900;line-height:1.15}
+p{margin:0}
+.kicker{font-size:12.5px;letter-spacing:.14em;color:var(--bronze);font-weight:600}
+.en{direction:ltr;unicode-bidi:isolate}
+a{color:inherit}
+a:focus-visible{outline:2px solid var(--bronze);outline-offset:3px;border-radius:6px}
+
+/* top bar */
+.top{display:flex;justify-content:flex-start;align-items:center;padding-block:84px 18px;border-bottom:1px solid var(--line)}
+.top .ai-tag{font-size:13px;color:var(--mid);border:1px solid var(--line-mid);border-radius:var(--r-btn);padding:4px 12px;text-decoration:none;transition:color .15s,border-color .15s}
+.top .ai-tag:hover{color:var(--bronze);border-color:var(--bronze)}
+#intent,#pulse{scroll-margin-top:84px}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.35fr 1fr;gap:48px;align-items:end;padding-block:64px 56px}
+.hero > *{min-width:0}
+.hero h1{font-size:clamp(36px,5.6vw,60px);margin-top:14px}
+.hero h1 span{color:var(--bronze)}
+.lead{font-size:19px;color:var(--mid);max-width:34em;margin-top:22px}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.btn{display:inline-block;background:var(--btn-bg);color:var(--btn-ink);text-decoration:none;font-weight:700;padding:13px 24px;border-radius:var(--r-btn)}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line-mid)}
+.reality{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-card);padding:26px}
+.reality .label{font-size:13px;color:var(--faint);margin-bottom:12px}
+.reality blockquote{margin:0;font-family:var(--f-display);font-size:24px;line-height:1.35;color:var(--ink);font-weight:700}
+.reality ul{list-style:none;margin:20px 0 0;padding:0;display:grid;gap:10px}
+.reality li{display:flex;gap:10px;font-size:15px;color:var(--mid)}
+.reality li::before{content:"";flex:0 0 6px;height:6px;margin-top:10px;border-radius:50%;background:var(--gold)}
+
+section{padding-block:64px;border-top:1px solid var(--line)}
+.sec-head{max-width:var(--read);display:grid;gap:12px;margin-bottom:34px}
+.sec-head h2{font-size:clamp(28px,3.6vw,40px)}
+.sec-head p{color:var(--mid);font-size:17.5px}
+
+/* dark band */
+.band{background:var(--band);color:var(--band-ink);border-top:0}
+.band h2,.band h3{color:var(--band-ink)}
+.band .kicker{color:var(--gold)}
+.band .sec-head p{color:var(--band-mid)}
+.costs{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--band-line)}
+.cost{padding:22px 0 0 22px;border-left:1px solid var(--band-line)}
+.cost:last-child{border-left:0}
+.cost h3{font-size:20px;margin-bottom:8px}
+.cost p{color:var(--band-mid);font-size:15px}
+
+.formula{margin-top:56px;padding-top:48px;border-top:1px solid var(--band-line);display:grid;gap:22px}
+.eq{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px 18px;font-family:var(--f-display);font-weight:900;font-size:clamp(28px,4.2vw,46px);color:var(--band-ink);line-height:1.2}
+.eq .x{color:var(--gold);font-weight:500}
+.eq .lhs{color:var(--gold)}
+.terms{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.terms div{border-top:2px solid var(--gold);padding-top:12px}
+.terms b{display:block;font-size:17px}
+.terms span{color:var(--band-mid);font-size:15px}
+.punch{font-family:var(--f-display);font-size:22px;color:var(--band-ink)}
+.punch em{font-style:normal;color:var(--gold)}
+
+/* pulse */
+.pulse{display:grid;grid-template-columns:1.25fr 1fr;gap:36px;align-items:start}
+.pulse > *{min-width:0}
+.domains{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.dom{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-card);padding:20px}
+.dom .num{font-family:var(--f-display);font-size:28px;color:var(--gold);font-weight:900;line-height:1}
+.dom h3{font-size:19px;margin-top:10px}
+.dom .en{display:block;font-size:12px;color:var(--faint);letter-spacing:.04em;margin-top:2px}
+.dom p{font-size:14.5px;color:var(--mid);margin-top:8px}
+
+.map{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-card);padding:22px;position:sticky;top:calc(env(safe-area-inset-top,0px) + 16px)}
+.map h3{font-size:20px}
+.map .note{font-size:13px;color:var(--faint);margin-top:4px}
+.rows{display:grid;gap:14px;margin-top:20px}
+.row{display:grid;grid-template-columns:118px 1fr 30px;align-items:center;gap:10px;font-size:14px}
+.row .lbl{color:var(--ink);font-weight:600}
+.track{position:relative;height:10px;background:var(--surface-2);border-radius:99px}
+.track .range{position:absolute;top:0;bottom:0;background:var(--tint);border:1px solid var(--line-mid);border-radius:99px}
+.track .dot{position:absolute;top:50%;width:14px;height:14px;margin-top:-7px;margin-right:-7px;border-radius:50%;background:var(--bronze);border:2px solid var(--surface)}
+.row .val{font-variant-numeric:tabular-nums;color:var(--mid);text-align:left}
+.scale{display:grid;grid-template-columns:118px 1fr 30px;gap:10px;margin-top:6px;font-size:11.5px;color:var(--faint)}
+.scale .ticks{display:flex;justify-content:space-between;font-variant-numeric:tabular-nums}
+.legend{display:flex;flex-wrap:wrap;gap:16px;margin-top:16px;font-size:12.5px;color:var(--mid)}
+.legend i{display:inline-block;vertical-align:middle;margin-left:6px}
+.legend .d{width:11px;height:11px;border-radius:50%;background:var(--bronze)}
+.legend .r{width:22px;height:9px;border-radius:99px;background:var(--tint);border:1px solid var(--line-mid)}
+.insight{margin-top:18px;padding-top:16px;border-top:1px solid var(--line);font-size:14.5px;color:var(--body)}
+.insight b{color:var(--ink)}
+
+.outputs{margin-top:34px;display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--line);border-radius:var(--r-card);overflow:hidden;background:var(--surface)}
+.out{padding:18px 20px;border-left:1px solid var(--line);border-bottom:1px solid var(--line)}
+.out:nth-child(3n){border-left:0}
+.out:nth-last-child(-n+3){border-bottom:0}
+.out b{display:block;color:var(--ink);font-size:16px}
+.out span{font-size:14px;color:var(--mid)}
+
+/* spectrum */
+.spectrum{display:grid;grid-template-columns:repeat(5,1fr);gap:0;border-radius:var(--r-card);overflow:hidden;border:1px solid var(--line)}
+.lvl{padding:20px 16px;background:var(--surface);border-left:1px solid var(--line);display:grid;gap:8px;align-content:start}
+.lvl:last-child{border-left:0}
+.lvl .bar{height:5px;border-radius:99px;background:var(--surface-2);overflow:hidden}
+.lvl .bar i{display:block;height:100%;background:var(--bronze)}
+.lvl h3{font-size:19px}
+.lvl .en{font-size:12px;color:var(--faint)}
+.lvl p{font-size:14px;color:var(--mid)}
+.lvl .next{font-size:13.5px;color:var(--ink);border-top:1px solid var(--line);padding-top:8px;margin-top:4px}
+.lvl .next b{color:var(--bronze);font-weight:700}
+
+/* quick win */
+.qw{display:grid;grid-template-columns:1fr 1.3fr;gap:40px;align-items:center}
+.qw > *{min-width:0}
+.qw-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.qw-card{border:1px solid var(--line);border-radius:var(--r-card);padding:18px;background:var(--surface)}
+.qw-card b{display:block;color:var(--ink);font-size:17px}
+.qw-card span{font-size:14px;color:var(--mid)}
+.qw-card .pips{display:flex;gap:4px;margin-top:10px}
+.qw-card .pips i{width:18px;height:6px;border-radius:99px;background:var(--bronze)}
+.qw-card .pips i.o{background:var(--surface-2)}
+.pull{font-family:var(--f-display);font-size:clamp(24px,2.8vw,30px);line-height:1.35;color:var(--ink);font-weight:700}
+.pull + p{color:var(--mid);margin-top:14px}
+
+/* phases */
+.phases{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;counter-reset:ph}
+.phase{border-top:3px solid var(--ink);padding-top:18px;display:grid;gap:10px;align-content:start}
+.phase .when{font-size:13px;color:var(--bronze);font-weight:700;letter-spacing:.06em}
+.phase h3{font-size:26px}
+.phase h3 .en{font-family:var(--f-body);font-size:13px;color:var(--faint);font-weight:600;letter-spacing:.1em;display:block;margin-top:4px}
+.phase ul{margin:0;padding:0;list-style:none;display:grid;gap:10px}
+.phase li{font-size:15px;color:var(--body);padding-right:16px;position:relative}
+.phase li::before{content:"";position:absolute;right:0;top:11px;width:7px;height:1px;background:var(--bronze)}
+.phase li b{color:var(--ink)}
+
+/* tracks table */
+.tracks-wrap{overflow-x:auto;margin-top:44px;border:1px solid var(--line);border-radius:var(--r-card);background:var(--surface)}
+table{width:100%;border-collapse:collapse;min-width:720px;font-size:14.5px}
+th,td{text-align:right;padding:16px 18px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12.5px;letter-spacing:.08em;color:var(--faint);font-weight:600;background:var(--surface-2)}
+tr:last-child td{border-bottom:0}
+td:first-child{font-family:var(--f-display);font-weight:700;font-size:17px;color:var(--ink);white-space:nowrap}
+td .en{display:block;font-family:var(--f-body);font-size:11.5px;color:var(--faint);font-weight:500}
+td.dur{white-space:nowrap;color:var(--bronze);font-weight:600;font-variant-numeric:tabular-nums}
+
+/* measures */
+.measures{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:22px}
+.measure{background:var(--tint);border-radius:var(--r-card);padding:20px}
+.measure h3{font-size:18px;margin-bottom:10px}
+.measure ul{margin:0;padding:0 18px 0 0;font-size:15px;color:var(--body);display:grid;gap:6px}
+
+/* beliefs */
+.beliefs{display:grid;gap:0}
+.belief{display:grid;grid-template-columns:1fr 1fr;gap:28px;padding-block:20px;border-bottom:1px solid var(--line);align-items:baseline}
+.belief:first-child{border-top:1px solid var(--line)}
+.belief > *{min-width:0}
+.belief h3{font-size:clamp(21px,2.4vw,26px);font-weight:700}
+.belief p{color:var(--mid);font-size:15.5px}
+
+/* me */
+.me{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.me > *{min-width:0}
+.me p{color:var(--body);margin-bottom:14px}
+.facts{display:grid;gap:0;border-top:1px solid var(--line)}
+.fact{display:grid;grid-template-columns:110px 1fr;gap:16px;padding-block:14px;border-bottom:1px solid var(--line);align-items:baseline}
+.fact b{font-family:var(--f-display);font-size:26px;color:var(--bronze);font-weight:900;font-variant-numeric:tabular-nums}
+.fact span{font-size:15px;color:var(--mid)}
+
+/* cta */
+.cta{background:var(--band);color:var(--band-ink);border-radius:var(--r-card);padding:40px;display:grid;grid-template-columns:1.4fr 1fr;gap:28px;align-items:center}
+.cta > *{min-width:0}
+.cta h2{color:var(--band-ink);font-size:clamp(26px,3.2vw,36px)}
+.cta p{color:var(--band-mid);margin-top:12px}
+.cta .btn{background:var(--gold);color:#17130D}
+.cta-btns{display:flex;flex-wrap:wrap;gap:12px}
+.cta .btn.wa{background:transparent;color:var(--band-ink);border:1px solid rgba(246,239,225,.4)}
+.cta .btn.wa:hover{border-color:var(--gold);color:var(--gold)}
+.cta small{display:block;color:var(--band-mid);font-size:13.5px;margin-top:12px}
+
+@media (max-width:900px){
+  .hero,.pulse,.qw,.me,.cta{grid-template-columns:1fr}
+  .map{position:static}
+  .costs{grid-template-columns:1fr 1fr}
+  .cost:nth-child(2){border-left:0}
+  .cost{padding-bottom:22px}
+  .spectrum{grid-template-columns:1fr}
+  .lvl{border-left:0;border-bottom:1px solid var(--line)}
+  .lvl:last-child{border-bottom:0}
+  .phases{grid-template-columns:1fr}
+  .outputs{grid-template-columns:1fr 1fr}
+  .out{border-left:1px solid var(--line)!important;border-bottom:1px solid var(--line)!important}
+  .out:nth-child(2n){border-left:0!important}
+  .out:nth-last-child(-n+2){border-bottom:0!important}
+}
+@media (max-width:560px){
+  .ai{font-size:16px}
+  .hero{padding-block:40px}
+  section{padding-block:48px}
+  .domains,.qw-grid,.measures,.terms{grid-template-columns:1fr}
+  .costs{grid-template-columns:1fr}
+  .cost{border-left:0;padding-left:0;border-bottom:1px solid var(--band-line)}
+  .cost:last-child{border-bottom:0}
+  .outputs{grid-template-columns:1fr}
+  .out{border-left:0!important;border-bottom:1px solid var(--line)!important}
+  .out:last-child{border-bottom:0!important}
+  .belief{grid-template-columns:1fr;gap:6px}
+  .row,.scale{grid-template-columns:96px 1fr 26px}
+  .cta{padding:28px 22px}
+  .fact{grid-template-columns:84px 1fr}
+}
+@media (prefers-reduced-motion:no-preference){
+  .btn{transition:transform .15s ease}
+  .btn:hover{transform:translateY(-1px)}
+}
+</style>
