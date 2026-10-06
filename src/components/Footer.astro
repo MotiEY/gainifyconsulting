@@ -1,6 +1,8 @@
 ---
 import { SITE } from '../config';
 
+interface Props { phoneDisplay?: string }
+const { phoneDisplay = SITE.phoneDisplay } = Astro.props;
 const year = new Date().getFullYear();
 ---
 
@@ -10,7 +12,7 @@ const year = new Date().getFullYear();
     <nav class="footer-links" aria-label="קישורי פוטר">
       <ul>
         <li><a href={`mailto:${SITE.email}`}>{SITE.email}</a></li>
-        <li><a href={`tel:${SITE.phone}`}>{SITE.phoneDisplay}</a></li>
+        <li><a href={`tel:${SITE.phone}`}>{phoneDisplay}</a></li>
         <li><a href="/nigshu">הצהרת נגישות</a></li>
         <li>
           <a
