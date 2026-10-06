@@ -8,11 +8,14 @@ import MobileStickyBar from '../components/MobileStickyBar.astro';
 
 interface Props {
   title?: string;
+  ogTitle?: string;
   description?: string;
   canonicalUrl?: string;
   ogType?: 'website' | 'article';
   ogImage?: string;
   ogImageAlt?: string;
+  noindex?: boolean;
+  minimal?: boolean;
 }
 
 const SITE_URL = 'https://motisadot.com';
@@ -25,6 +28,9 @@ const {
   ogType = 'website',
   ogImage = DEFAULT_OG_IMAGE,
   ogImageAlt = 'מוטי שדות, ייעוץ עסקי אסטרטגי',
+  ogTitle = title,
+  noindex = false,
+  minimal = false,
 } = Astro.props;
 ---
 
@@ -34,6 +40,7 @@ const {
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content={description} />
+  {noindex && <meta name="robots" content="noindex" />}
   <title>{title}</title>
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PBRKS79GP2"></script>
@@ -47,7 +54,7 @@ const {
   <meta property="og:type" content={ogType} />
   <meta property="og:url" content={canonicalUrl} />
   <meta property="og:site_name" content="מוטי שדות" />
-  <meta property="og:title" content={title} />
+  <meta property="og:title" content={ogTitle} />
   <meta property="og:description" content={description} />
   <meta property="og:locale" content="he_IL" />
   <meta property="og:image" content={ogImage} />
@@ -55,7 +62,7 @@ const {
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content={ogImageAlt} />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content={title} />
+  <meta name="twitter:title" content={ogTitle} />
   <meta name="twitter:description" content={description} />
   <meta name="twitter:image" content={ogImage} />
   <meta name="twitter:image:alt" content={ogImageAlt} />
@@ -91,14 +98,14 @@ const {
 </head>
 <body>
   <a href="#main-content" class="skip-link">דלג לתוכן הראשי</a>
-  <Header />
+  <Header minimal={minimal} />
   <main id="main-content">
     <slot />
   </main>
   <Footer />
   <AccessibilityWidget />
-  <WhatsAppButton />
-  <MobileStickyBar />
+  {!minimal && <WhatsAppButton />}
+  {!minimal && <MobileStickyBar />}
 
   <script>
     // Scroll-triggered header blur/shadow
@@ -131,7 +138,9 @@ const {
       const gtag = (window as unknown as { gtag?: (...a: unknown[]) => void }).gtag;
       if (!gtag) return;
       if (el.href.includes('wa.me') || el.href.includes('whatsapp')) {
-        gtag('event', 'whatsapp_click');
+        const source = (el as HTMLAnchorElement).dataset.gaPage;
+        if (source) gtag('event', 'whatsapp_click', { page: source });
+        else gtag('event', 'whatsapp_click');
       } else if ((el as HTMLAnchorElement).dataset.calLink || el.href.includes('cal.com')) {
         gtag('event', 'schedule_click');
       }

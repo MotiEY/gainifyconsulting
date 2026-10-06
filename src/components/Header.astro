@@ -1,10 +1,16 @@
 ---
 import { SITE } from '../config';
+
+interface Props {
+  minimal?: boolean;
+}
+const { minimal = false } = Astro.props;
 ---
 
 <header class="site-header" id="site-header">
   <a href="/" class="nav-logo">{SITE.name}</a>
 
+  {!minimal && (<>
   <nav class="nav-desktop" aria-label="ניווט ראשי">
     <ul class="nav-links">
       <li><a href="/#process">כך מתחילים</a></li>
@@ -27,9 +33,11 @@ import { SITE } from '../config';
     <span></span>
     <span></span>
   </button>
+  </>)}
 </header>
 
 <!-- Mobile slide-in menu (rendered outside <header> to avoid stacking context issues) -->
+{!minimal && (
 <nav
   class="mobile-menu"
   id="mobile-menu"
@@ -45,6 +53,7 @@ import { SITE } from '../config';
     <li><a href="/#contact" class="menu-cta">נדבר</a></li>
   </ul>
 </nav>
+)}
 
 <style>
   /* ── HEADER ───────────────────────────────── */
