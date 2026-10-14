@@ -175,7 +175,7 @@ const jsonLd = {
   }
 
   .post-figure {
-    margin: 0 0 44px;
+    margin: -8px 0 32px;
     display: flex;
     justify-content: center;
   }
@@ -183,7 +183,7 @@ const jsonLd = {
     display: block;
     width: 100%;
     height: auto;
-    max-height: 440px;
+    max-height: 220px;
   }
 
   .post-meta {
@@ -402,6 +402,9 @@ const jsonLd = {
 
   @media (min-width: 768px) {
     .post-page { padding: 120px 40px 100px; }
+
+    .post-figure { margin: 0 0 40px; }
+    .post-figure :global(svg) { max-height: 300px; }
 
     .post-inner {
       max-width: 700px;
