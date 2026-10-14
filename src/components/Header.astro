@@ -3,12 +3,13 @@ import { SITE } from '../config';
 
 interface Props {
   minimal?: boolean;
+  tagline?: string;
 }
-const { minimal = false } = Astro.props;
+const { minimal = false, tagline } = Astro.props;
 ---
 
 <header class="site-header" id="site-header">
-  <a href="/" class="nav-logo">{SITE.name}</a>
+  <a href="/" class="nav-logo">{SITE.name}{tagline && <span class="nav-tagline"> | {tagline}</span>}</a>
 
   {!minimal && (<>
   <nav class="nav-desktop" aria-label="ניווט ראשי">
@@ -83,6 +84,13 @@ const { minimal = false } = Astro.props;
     font-size: 19px;
     color: var(--dark);
     letter-spacing: 0.01em;
+  }
+
+  .nav-tagline {
+    font-family: 'Assistant', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: var(--mid);
   }
 
   /* ── DESKTOP NAV (hidden on mobile) ──────── */

@@ -17,6 +17,7 @@ interface Props {
   noindex?: boolean;
   minimal?: boolean;
   phoneDisplay?: string;
+  headerTagline?: string;
 }
 
 const SITE_URL = 'https://motisadot.com';
@@ -33,6 +34,7 @@ const {
   noindex = false,
   minimal = false,
   phoneDisplay,
+  headerTagline,
 } = Astro.props;
 ---
 
@@ -100,7 +102,7 @@ const {
 </head>
 <body>
   <a href="#main-content" class="skip-link">דלג לתוכן הראשי</a>
-  <Header minimal={minimal} />
+  <Header minimal={minimal} tagline={headerTagline} />
   <main id="main-content">
     <slot />
   </main>
