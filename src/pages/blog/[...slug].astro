@@ -4,6 +4,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { SITE } from '../../config';
 import { TOPIC_LABELS } from '../../data/blogTopics';
 
+// one hand-drawn SVG per article (src/assets/illustrations/<slug>.svg), inlined so it follows the site colours and high-contrast mode
+const illustrations = import.meta.glob('../../assets/illustrations/*.svg', { query: '?raw', import: 'default', eager: true }) as Record<string, string>;
+
 const SITE_URL = 'https://motisadot.com';
 const waUrl = `https://wa.me/${SITE.phone.replace('+', '')}`;
 
@@ -19,6 +22,7 @@ const { post } = Astro.props;
 const { Content } = await render(post);
 
 const slug = post.data.slug ?? post.id;
+const illustration = Object.entries(illustrations).find(([p]) => p.endsWith(`/${slug}.svg`))?.[1];
 const canonicalUrl = `${SITE_URL}/blog/${slug}/`;
 const pageTitle = post.data.seoTitle ?? post.data.title;
 const ogImage = post.data.image ? `${SITE_URL}${post.data.image}` : undefined;
@@ -105,6 +109,8 @@ const jsonLd = {
         )}
       </header>
 
+      {illustration && <figure class="post-figure" set:html={illustration} />}
+
       <div class="post-body">
         <Content />
       </div>
@@ -166,6 +172,18 @@ const jsonLd = {
     margin-bottom: 40px;
     padding-bottom: 32px;
     border-bottom: 1px solid var(--line);
+  }
+
+  .post-figure {
+    margin: 0 0 44px;
+    display: flex;
+    justify-content: center;
+  }
+  .post-figure :global(svg) {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 440px;
   }
 
   .post-meta {
