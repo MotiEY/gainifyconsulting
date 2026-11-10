@@ -18,6 +18,8 @@ interface Props {
   minimal?: boolean;
   phoneDisplay?: string;
   headerTagline?: string;
+  headerCta?: { href: string; label: string; gaPage?: string };
+  asyncFonts?: boolean;
 }
 
 const SITE_URL = 'https://motisadot.com';
@@ -35,7 +37,12 @@ const {
   minimal = false,
   phoneDisplay,
   headerTagline,
+  headerCta,
+  asyncFonts = false,
 } = Astro.props;
+
+const FONTS_URL =
+  'https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300;400;700;900&family=Assistant:wght@300;400;500;600&display=swap';
 ---
 
 <!DOCTYPE html>
@@ -73,10 +80,15 @@ const {
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300;400;700;900&family=Assistant:wght@300;400;500;600&display=swap"
-    rel="stylesheet"
-  />
+  {asyncFonts ? (
+    <>
+      <!-- link-only landing pages: load the fonts without blocking the first paint (display=swap shows text at once) -->
+      <link rel="preload" as="style" href={FONTS_URL} onload="this.onload=null;this.rel='stylesheet'" />
+      <noscript><link rel="stylesheet" href={FONTS_URL} /></noscript>
+    </>
+  ) : (
+    <link href={FONTS_URL} rel="stylesheet" />
+  )}
 
   <!-- Cal.com embed — auto-wires data-cal-link elements to popup -->
   <script is:inline>(function(C,A,L){let p=function(a,ar){a.q.push(ar)};let d=C.document;C.Cal=C.Cal||function(){let cal=C.Cal;let ar=arguments;if(!cal.loaded){cal.ns={};cal.q=cal.q||[];d.head.appendChild(d.createElement("script")).src=A;cal.loaded=true}if(ar[0]===L){const api=function(){p(api,arguments)};const namespace=ar[1];api.q=api.q||[];typeof namespace==="string"?(cal.ns[namespace]=api)&&p(api,ar):p(cal,ar);return}p(cal,ar)}})(window,"https://app.cal.com/embed/embed.js","init");
@@ -102,7 +114,7 @@ const {
 </head>
 <body>
   <a href="#main-content" class="skip-link">דלג לתוכן הראשי</a>
-  <Header minimal={minimal} tagline={headerTagline} />
+  <Header minimal={minimal} tagline={headerTagline} cta={headerCta} />
   <main id="main-content">
     <slot />
   </main>
@@ -146,7 +158,13 @@ const {
         if (source) gtag('event', 'whatsapp_click', { page: source });
         else gtag('event', 'whatsapp_click');
       } else if ((el as HTMLAnchorElement).dataset.calLink || el.href.includes('cal.com')) {
-        gtag('event', 'schedule_click');
+        const source = (el as HTMLAnchorElement).dataset.gaPage;
+        if (source) gtag('event', 'schedule_click', { page: source });
+        else gtag('event', 'schedule_click');
+      } else if (el.href.startsWith('tel:')) {
+        const source = (el as HTMLAnchorElement).dataset.gaPage;
+        if (source) gtag('event', 'phone_click', { page: source });
+        else gtag('event', 'phone_click');
       }
     });
   </script>

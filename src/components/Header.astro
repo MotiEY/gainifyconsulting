@@ -4,12 +4,17 @@ import { SITE } from '../config';
 interface Props {
   minimal?: boolean;
   tagline?: string;
+  cta?: { href: string; label: string; gaPage?: string };
 }
-const { minimal = false, tagline } = Astro.props;
+const { minimal = false, tagline, cta } = Astro.props;
 ---
 
 <header class="site-header" id="site-header">
   <a href="/" class="nav-logo">{SITE.name}{tagline && <span class="nav-tagline"> | {tagline}</span>}</a>
+
+  {minimal && cta && (
+    <a href={cta.href} class="header-solo-cta" target="_blank" rel="noopener noreferrer" data-ga-page={cta.gaPage}>{cta.label}</a>
+  )}
 
   {!minimal && (<>
   <nav class="nav-desktop" aria-label="ניווט ראשי">
@@ -92,6 +97,23 @@ const { minimal = false, tagline } = Astro.props;
     font-size: 14px;
     color: var(--mid);
   }
+
+  /* single link-only CTA for minimal pages: desktop only, phones use the page's own fixed bar */
+  .header-solo-cta {
+    display: none;
+    align-items: center;
+    min-height: 44px;
+    padding: 0 20px;
+    border: 1px solid var(--line-mid);
+    border-radius: var(--r-btn);
+    font-family: 'Assistant', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--text-h);
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .header-solo-cta:hover { border-color: var(--bronze); color: var(--bronze); }
+  @media (min-width: 821px) { .header-solo-cta { display: inline-flex; } }
 
   /* ── DESKTOP NAV (hidden on mobile) ──────── */
   .nav-desktop { display: none; }
