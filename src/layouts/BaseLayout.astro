@@ -18,7 +18,7 @@ interface Props {
   minimal?: boolean;
   phoneDisplay?: string;
   headerTagline?: string;
-  headerCta?: { href: string; label: string; gaPage?: string };
+  noHeader?: boolean;
   asyncFonts?: boolean;
 }
 
@@ -37,7 +37,7 @@ const {
   minimal = false,
   phoneDisplay,
   headerTagline,
-  headerCta,
+  noHeader = false,
   asyncFonts = false,
 } = Astro.props;
 
@@ -114,7 +114,7 @@ const FONTS_URL =
 </head>
 <body>
   <a href="#main-content" class="skip-link">דלג לתוכן הראשי</a>
-  <Header minimal={minimal} tagline={headerTagline} cta={headerCta} />
+  {!noHeader && <Header minimal={minimal} tagline={headerTagline} />}
   <main id="main-content">
     <slot />
   </main>
