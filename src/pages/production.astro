@@ -119,11 +119,28 @@ const description = 'ליווי עסקי לבעלי עסקים יצרניים ש
 </div>
 </section>
 
-<div class="wa-bar" style="position: fixed; left: 0; right: 0; bottom: 0; padding: 8px 12px; background: var(--pr-bar); border-top: 1px solid var(--pr-line); justify-content: center; z-index: 10">
+<div class="wa-bar" style="position: fixed; left: 0; right: 0; bottom: 0; padding: 8px 12px 8px 66px; background: var(--pr-bar); border-top: 1px solid var(--pr-line); justify-content: center; z-index: 10">
 <a class="pr-btn" href={waUrl} target="_blank" rel="noopener noreferrer" data-ga-page="production" style="display: flex; align-items: center; justify-content: center; width: 100%; max-width: 420px; min-height: 46px; border-radius: 999px; background: var(--pr-blue); color: var(--pr-on-blue); font-size: 16px; font-weight: 600; text-decoration: none">בואו נכיר בוואטסאפ</a>
 </div>
 </div>
 </BaseLayout>
+
+<script>
+  // the fixed bar is only shown when none of the page's whatsapp buttons is on screen
+  const bar = document.querySelector('.wa-bar');
+  const buttons = document.querySelectorAll('.pr-btn');
+  if (bar && buttons.length && 'IntersectionObserver' in window) {
+    const visible = new Set();
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) e.isIntersecting ? visible.add(e.target) : visible.delete(e.target);
+        bar.classList.toggle('is-hidden', visible.size > 0);
+      },
+      { threshold: 0.6, rootMargin: '0px 0px -70px 0px' }
+    );
+    buttons.forEach((b) => io.observe(b));
+  }
+</script>
 
 <style>
 .pr{
@@ -144,10 +161,14 @@ html.a11y-high-contrast .pr{
 .pr-tel{white-space:nowrap;display:inline-block;padding:10px 4px;margin:-10px -4px}
 .wa-bar{display:none}
 @media (max-width:720px){
-  .wa-bar{display:flex}
-  /* the fixed bar must not hide the end of the page, and the accessibility button sits above it */
+  .wa-bar{display:flex;transition:transform .25s ease,opacity .25s ease,visibility 0s linear 0s}
+  /* while a whatsapp button of the page is on screen the bar steps aside (no double button); without JS it stays */
+  .wa-bar.is-hidden{transform:translateY(100%);opacity:0;visibility:hidden;transition:transform .25s ease,opacity .25s ease,visibility 0s linear .25s}
+  /* the fixed bar must not hide the end of the page */
   :global(footer.site-footer.site-footer){padding-bottom:84px}
-  :global(body #a11y-trigger){width:44px;height:44px;left:12px;bottom:76px}
-  :global(body #a11y-panel){bottom:128px}
+  /* accessibility button: always in the bottom-left corner, in the same row as the bar */
+  :global(body #a11y-trigger){width:44px;height:44px;left:10px;bottom:9px}
+  :global(body #a11y-panel){bottom:70px}
 }
+@media (prefers-reduced-motion:reduce){.wa-bar,.wa-bar.is-hidden{transition:none}}
 </style>
