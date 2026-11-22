@@ -23,6 +23,7 @@ import { SITE } from '../config';
           rel="noopener noreferrer"
           data-cal-link={SITE.calLink}
         >לקביעת שיחת התאמה קצרה</a>
+        <a href="/production" class="hero-btn-secondary">לבעלי עסקים יצרניים</a>
       </div>
       <p class="hero-cta-note">אם נראה שיש בסיס נכון להמשך, נתקדם לדיאגנוסטיקה עסקית מסודרת.</p>
     </div>
@@ -185,6 +186,24 @@ import { SITE } from '../config';
     transition: background 0.2s, transform 0.2s;
   }
   .hero-btn-primary:hover { background: var(--bronze); transform: translateY(-1px); }
+
+  .hero-btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    font-family: 'Assistant', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    color: var(--dark);
+    background: transparent;
+    border: 1px solid var(--line-mid);
+    padding: 13px 28px;
+    min-height: 44px;
+    border-radius: var(--r-btn);
+    text-decoration: none;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .hero-btn-secondary:hover { border-color: var(--bronze); color: var(--bronze); }
 
   .hero-cta-note {
     font-family: 'Assistant', sans-serif;

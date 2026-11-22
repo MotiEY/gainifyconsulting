@@ -120,7 +120,7 @@ const FONTS_URL =
   <main id="main-content">
     <slot />
   </main>
-  <Footer phoneDisplay={phoneDisplay} hidePhone={hidePhone} />
+  <Footer phoneDisplay={phoneDisplay} hidePhone={hidePhone} showAudienceLinks={!minimal && !noindex} />
   <AccessibilityWidget />
   {!minimal && <WhatsAppButton />}
   {!minimal && <MobileStickyBar />}
