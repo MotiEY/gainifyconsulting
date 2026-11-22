@@ -20,6 +20,7 @@ interface Props {
   headerTagline?: string;
   noHeader?: boolean;
   hidePhone?: boolean;
+  homeLink?: boolean;
   asyncFonts?: boolean;
 }
 
@@ -40,6 +41,7 @@ const {
   headerTagline,
   noHeader = false,
   hidePhone = false,
+  homeLink = false,
   asyncFonts = false,
 } = Astro.props;
 
@@ -120,7 +122,7 @@ const FONTS_URL =
   <main id="main-content">
     <slot />
   </main>
-  <Footer phoneDisplay={phoneDisplay} hidePhone={hidePhone} showAudienceLinks={!minimal && !noindex} />
+  <Footer phoneDisplay={phoneDisplay} hidePhone={hidePhone} showAudienceLinks={!minimal && !noindex} homeLink={homeLink} />
   <AccessibilityWidget />
   {!minimal && <WhatsAppButton />}
   {!minimal && <MobileStickyBar />}

@@ -6,6 +6,8 @@ interface Props {
   tagline?: string;
 }
 const { minimal = false, tagline } = Astro.props;
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+const current = (p: string) => (path === p ? 'page' : undefined);
 ---
 
 <header class="site-header" id="site-header">
@@ -14,11 +16,22 @@ const { minimal = false, tagline } = Astro.props;
   {!minimal && (<>
   <nav class="nav-desktop" aria-label="ניווט ראשי">
     <ul class="nav-links">
-      <li><a href="/#process">כך מתחילים</a></li>
-      <li><a href="/#how">איך אני עובד</a></li>
-      <li><a href="/#method">7BRICKS</a></li>
-      <li><a href="/#about">על מוטי</a></li>
-      <li><a href="/blog">בלוג</a></li>
+      <li><a href="/production" aria-current={current('/production')}>ליווי עסקי ליצרנים</a></li>
+      <li><a href="/ai" aria-current={current('/ai')}>ליווי הנהלות בהטמעת AI</a></li>
+      <li class="nav-more">
+        <button type="button" class="nav-more-btn" id="nav-more-btn" aria-expanded="false" aria-controls="nav-more-list">
+          תפריט
+          <svg class="nav-more-chev" width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg>
+        </button>
+        <ul class="nav-more-list" id="nav-more-list" hidden>
+          <li><a href="/#method">7BRICKS</a></li>
+          <li><a href="/#process">כך מתחילים</a></li>
+          <li><a href="/#how">איך אני עובד</a></li>
+          <li><a href="/#about">מי אני</a></li>
+          <li><a href="/blog" aria-current={current('/blog')}>בלוג</a></li>
+          <li><a href="/#contact">צור קשר</a></li>
+        </ul>
+      </li>
       <li><a href="/#contact" class="nav-cta">נדבר</a></li>
     </ul>
   </nav>
@@ -46,10 +59,12 @@ const { minimal = false, tagline } = Astro.props;
   aria-hidden="true"
 >
   <ul>
+    <li><a href="/production" aria-current={current('/production')}>ליווי עסקי ליצרנים</a></li>
+    <li><a href="/ai" aria-current={current('/ai')}>ליווי הנהלות בהטמעת AI</a></li>
     <li><a href="/#process">כך מתחילים</a></li>
     <li><a href="/#how">איך אני עובד</a></li>
     <li><a href="/#method">7BRICKS</a></li>
-    <li><a href="/#about">על מוטי</a></li>
+    <li><a href="/#about">מי אני</a></li>
     <li><a href="/blog">בלוג</a></li>
     <li><a href="/#contact" class="menu-cta">נדבר</a></li>
   </ul>
@@ -114,6 +129,49 @@ const { minimal = false, tagline } = Astro.props;
     transition: color 0.2s;
   }
   .nav-links a:hover { color: var(--dark); }
+
+  /* "תפריט" dropdown: opens on hover (mouse), click/Enter, closes on Esc / outside click / focus leaving */
+  .nav-more { position: relative; }
+  .nav-more-btn {
+    font-family: 'Assistant', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.02em;
+    color: var(--mid);
+    background: none;
+    border: 0;
+    padding: 0;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    transition: color 0.2s;
+  }
+  .nav-more-btn:hover,
+  .nav-more-btn[aria-expanded="true"] { color: var(--dark); }
+  .nav-more-chev { transition: transform 0.2s; }
+  .nav-more-btn[aria-expanded="true"] .nav-more-chev { transform: rotate(180deg); }
+  .nav-more-list {
+    position: absolute;
+    inset-block-start: calc(100% + 4px);
+    inset-inline-start: -18px;
+    min-width: 200px;
+    list-style: none;
+    margin: 0;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    background: var(--cream);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    box-shadow: 0 14px 34px rgba(31, 26, 19, 0.12);
+    z-index: 101;
+  }
+  .nav-more-list[hidden] { display: none; }
+  .nav-more-list a { font-size: 14px; padding: 0 14px; border-radius: 8px; }
+  .nav-more-list a:hover { background: var(--bronze-l); }
+  .nav-more-list a[aria-current="page"] { color: var(--dark); font-weight: 600; }
+  .nav-links a[aria-current="page"] { color: var(--dark); font-weight: 600; }
   .nav-cta {
     color: var(--cream-dk) !important;
     background: var(--dark) !important;
@@ -200,6 +258,7 @@ const { minimal = false, tagline } = Astro.props;
     transition: color 0.2s;
   }
   .mobile-menu a:active { color: var(--dark); }
+  .mobile-menu a[aria-current="page"] { color: var(--dark); font-weight: 600; }
   @media (hover: hover) {
     .mobile-menu a:hover { color: var(--dark); }
   }
@@ -236,6 +295,35 @@ const { minimal = false, tagline } = Astro.props;
     hamburger?.setAttribute('aria-expanded', 'false');
     mobileMenu?.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
+  }
+
+  // "תפריט" dropdown (desktop)
+  const more = document.querySelector('.nav-more') as HTMLElement | null;
+  const moreBtn = document.getElementById('nav-more-btn') as HTMLButtonElement | null;
+  const moreList = document.getElementById('nav-more-list') as HTMLElement | null;
+  if (more && moreBtn && moreList) {
+    let pinned = false;
+    let timer: number | undefined;
+    const openMore = () => { moreList.hidden = false; moreBtn.setAttribute('aria-expanded', 'true'); };
+    const closeMore = (refocus = false) => {
+      pinned = false;
+      moreList.hidden = true;
+      moreBtn.setAttribute('aria-expanded', 'false');
+      if (refocus) moreBtn.focus();
+    };
+    moreBtn.addEventListener('click', () => {
+      if (moreList.hidden) { openMore(); pinned = true; }
+      else if (!pinned) { pinned = true; }          // opened by hover: a click keeps it open
+      else { closeMore(); }
+    });
+    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+      more.addEventListener('mouseenter', () => { window.clearTimeout(timer); openMore(); });
+      more.addEventListener('mouseleave', () => { timer = window.setTimeout(() => { if (!pinned) closeMore(); }, 180); });
+    }
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !moreList.hidden) closeMore(true); });
+    document.addEventListener('click', (e) => { if (!more.contains(e.target as Node)) closeMore(); });
+    more.addEventListener('focusout', (e) => { if (!more.contains((e as FocusEvent).relatedTarget as Node | null)) closeMore(); });
+    moreList.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => closeMore()));
   }
 
   hamburger?.addEventListener('click', () => {

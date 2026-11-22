@@ -21,9 +21,10 @@ const description = 'ליווי עסקי לבעלי עסקים יצרניים ש
   noHeader
   asyncFonts
   hidePhone
+  homeLink
 >
 <div class="pr">
-<div class="pr-banner" style="background: var(--pr-banner); padding: 14px 24px"><p style="max-width: 1180px; margin: 0 auto; font-size: 18px; font-weight: 600; color: var(--pr-banner-ink)">מוטי שדות · לבעלי עסקים יצרניים שרוצים לצמוח</p></div>
+<div class="pr-banner" style="background: var(--pr-banner); padding: 14px 24px"><p style="max-width: 1180px; margin: 0 auto; font-size: 18px; font-weight: 600; color: var(--pr-banner-ink)"><a class="pr-home" href="/">מוטי שדות</a> · לבעלי עסקים יצרניים שרוצים לצמוח</p></div>
 
 <section style="max-width: 1180px; margin: 0 auto; padding: 56px 24px 72px; display: flex; flex-wrap: wrap; align-items: center; gap: 48px">
 <div style="flex: 1 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 22px">
@@ -184,6 +185,9 @@ html.a11y-high-contrast .pr{
   --pr-banner:#161616; --pr-banner-ink:#f5f5e8;
 }
 html.a11y-high-contrast .pr-banner{border-bottom:1px solid var(--pr-line)}
+.pr .pr-banner a.pr-home{color:var(--pr-banner-ink);text-decoration:none}
+.pr .pr-banner a.pr-home:hover{text-decoration:underline}
+.pr .pr-banner a.pr-home:focus-visible{outline-color:var(--pr-banner-ink)}
 .pr h1,.pr h2,.pr h3,.pr blockquote{text-wrap:balance}
 .pr p{text-wrap:pretty}
 .pr li{text-wrap:balance}
