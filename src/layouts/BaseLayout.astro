@@ -19,6 +19,7 @@ interface Props {
   phoneDisplay?: string;
   headerTagline?: string;
   noHeader?: boolean;
+  hidePhone?: boolean;
   asyncFonts?: boolean;
 }
 
@@ -38,6 +39,7 @@ const {
   phoneDisplay,
   headerTagline,
   noHeader = false,
+  hidePhone = false,
   asyncFonts = false,
 } = Astro.props;
 
@@ -118,7 +120,7 @@ const FONTS_URL =
   <main id="main-content">
     <slot />
   </main>
-  <Footer phoneDisplay={phoneDisplay} />
+  <Footer phoneDisplay={phoneDisplay} hidePhone={hidePhone} />
   <AccessibilityWidget />
   {!minimal && <WhatsAppButton />}
   {!minimal && <MobileStickyBar />}

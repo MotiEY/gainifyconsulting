@@ -21,16 +21,17 @@ const description = 'ליווי עסקי לבעלי עסקים יצרניים ש
   minimal
   noHeader
   asyncFonts
+  hidePhone
 >
 <div class="pr">
+<div class="pr-banner" style="background: var(--pr-banner); padding: 14px 24px"><p style="max-width: 1180px; margin: 0 auto; font-size: 18px; font-weight: 600; color: var(--pr-banner-ink)">מוטי שדות · לבעלי עסקים יצרניים שרוצים לצמוח</p></div>
+
 <section style="max-width: 1180px; margin: 0 auto; padding: 56px 24px 72px; display: flex; flex-wrap: wrap; align-items: center; gap: 48px">
 <div style="flex: 1 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 22px">
-<p style="margin: 0; font-size: 17px; font-weight: 500; color: var(--pr-blue)">מוטי שדות · לבעלי עסקים יצרניים שרוצים לצמוח</p>
 <h1 style="margin: 0; font-size: clamp(32px, 4.2vw, 50px); line-height: 1.2; font-weight: 700">ליווי עסקי שמתחיל ברווחיות וממשיך לתפעול, למלאי ולמכירות.</h1>
-<p style="margin: 0; font-size: 20px; color: var(--pr-text); max-width: 560px">אני בודק מה משפיע על הרווחיות של העסק, ועובד עם בעל העסק והצוות עד שהשינוי קורה בפועל.</p>
+<p style="margin: 0; font-size: 20px; color: var(--pr-text); max-width: 560px">אני בודק מה משפיע על הרווחיות, ועובד עם בעל העסק והצוות עד שהשינוי קורה בפועל.</p>
 <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 18px; margin-top: 8px">
-<a class="pr-btn" href={waUrl} target="_blank" rel="noopener noreferrer" data-ga-page="production" style="display: inline-flex; align-items: center; min-height: 46px; padding: 0 24px; border-radius: 999px; background: var(--pr-blue); color: var(--pr-on-blue); font-size: 17px; font-weight: 600; text-decoration: none">בואו נכיר בוואטסאפ</a>
-<span style="font-size: 17px; color: var(--pr-text)">או להתקשר: <a class="pr-tel" href="tel:+972525523021" data-ga-page="production" style="color: var(--pr-blue); font-weight: 600; text-decoration: none">052-552-3021</a></span>
+<a class="pr-btn" href={waUrl} target="_blank" rel="noopener noreferrer" data-ga-page="production" style="display: inline-flex; align-items: center; min-height: 46px; padding: 0 24px; border-radius: 999px; background: var(--pr-blue); color: var(--pr-on-blue); font-size: 17px; font-weight: 600; text-decoration: none">בואו נכיר</a>
 </div>
 </div>
 <div style="flex: 1 1 340px; min-width: 0; max-width: 440px; margin: 0 auto">
@@ -39,46 +40,54 @@ const description = 'ליווי עסקי לבעלי עסקים יצרניים ש
 </section>
 
 <section style="max-width: 1180px; margin: 0 auto; padding: 24px 24px 80px">
-<h2 style="margin: 0 0 32px; font-size: 32px; font-weight: 700">במה אוכל לעזור לעסק שלך</h2>
-<div style="display: flex; flex-wrap: wrap; gap: 24px">
-<div style="flex: 1 1 280px; min-width: 0; border-top: 3px solid var(--pr-blue); padding: 22px 0 0; display: flex; flex-direction: column; gap: 10px">
+<h2 style="margin: 0 0 40px; font-size: 32px; font-weight: 700">על מה עובדים</h2>
+<div class="areas">
+<div class="area"><span class="dot"></span>
 <h3 style="margin: 0; font-size: 22px; font-weight: 700">רווחיות ותכנון</h3>
-<p style="margin: 0; font-size: 18px; color: var(--pr-text)">לדעת אילו מוצרים באמת מרוויחים, לתמחר נכון, ולתכנן את התזרים לקראת השקעות והרחבת הפעילות.</p>
+<ul style="margin: 0; padding: 0 20px 0 0; font-size: 18px; color: var(--pr-text)"><li style="margin: 0 0 8px">תמחור לפי העלות האמיתית של כל מוצר</li><li style="margin: 0 0 8px">תכנון תזרים לקראת צמיחה והרחבה</li><li style="margin: 0 0 8px">מדדים פשוטים שמראים איפה העסק עומד</li></ul>
 </div>
-<div style="flex: 1 1 280px; min-width: 0; border-top: 3px solid var(--pr-blue); padding: 22px 0 0; display: flex; flex-direction: column; gap: 10px">
+<div class="area"><span class="dot"></span>
 <h3 style="margin: 0; font-size: 22px; font-weight: 700">תפעול, מלאי ורכש</h3>
-<p style="margin: 0; font-size: 18px; color: var(--pr-text)">לעמוד ביותר הזמנות: תהליכי עבודה מסודרים, מלאי לפי הביקוש והתזרים, ותיאום בין המכירות, התפעול והרכש.</p>
+<ul style="margin: 0; padding: 0 20px 0 0; font-size: 18px; color: var(--pr-text)"><li style="margin: 0 0 8px">תכנון ייצור שעומד בהזמנות</li><li style="margin: 0 0 8px">מלאי ורכש לפי הביקוש והתזרים</li></ul>
 </div>
-<div style="flex: 1 1 280px; min-width: 0; border-top: 3px solid var(--pr-blue); padding: 22px 0 0; display: flex; flex-direction: column; gap: 10px">
+<div class="area"><span class="dot"></span>
 <h3 style="margin: 0; font-size: 22px; font-weight: 700">טכנולוגיה ו־AI</h3>
-<p style="margin: 0; font-size: 18px; color: var(--pr-text)">לשפר את חוויית הלקוח ולהגדיל מכירות עם הצוות הקיים, בעזרת כלים למענה, מעקב ואוטומציה.</p>
+<ul style="margin: 0; padding: 0 20px 0 0; font-size: 18px; color: var(--pr-text)"><li style="margin: 0 0 8px">כלים למענה ללקוחות, מעקב ואוטומציה</li><li style="margin: 0 0 8px">להגדיל מכירות ולהקטין הוצאות עם הצוות הקיים</li></ul>
 </div>
 </div>
 </section>
 
 <section style="max-width: 1180px; margin: 0 auto; padding: 0 24px 88px">
-<h2 style="margin: 0 0 20px; font-size: 32px; font-weight: 700">איך אני עובד</h2>
+<h2 style="margin: 0 0 20px; font-size: 32px; font-weight: 700">מהתמחור ועד היישום</h2>
 <div style="max-width: 800px; display: flex; flex-direction: column; gap: 14px">
-<p style="margin: 0; font-size: 20px">אני מתחיל מהתמחור, מהעלויות ומהתזרים, כי שם רואים איך העסק באמת עובד. אבל מה שמשפיע עליהם נמצא לרוב בהתנהלות היומיומית: ברכש, במלאי, בתפעול ובמכירות.</p>
-<p style="margin: 0; font-size: 20px; color: var(--pr-text)">לכן אני בוחן את העסק כולו, ומברר מה באמת משפיע על התוצאות. משם בונים יחד תוכנית, מגדירים מי אחראי על מה ואיך מודדים, ועובדים על היישום עם הצוות.</p>
+<p style="margin: 0; font-size: 20px">אני מתחיל מהתמחור, מהעלויות ומהתזרים. שם רואים איפה העסק עומד, אבל הסיבות נמצאות לרוב בעבודה היומיומית: ברכש, במלאי, בתפעול ובמכירות.</p>
+<p style="margin: 0; font-size: 20px; color: var(--pr-text)">לכן אני בוחן את העסק כולו ומחפש את מה שמזיז את התוצאות. משם בונים יחד תוכנית, מגדירים מי אחראי על מה ואיך מודדים, ועובדים על היישום עם הצוות.</p>
 </div>
 </section>
 
 <section style="max-width: 1180px; margin: 0 auto; padding: 0 24px 56px">
-<p style="margin: 0 0 8px; font-size: 15px; font-weight: 700; color: var(--pr-blue)">דוגמה מהעבודה</p>
-<h2 style="margin: 0 0 18px; font-size: 32px; font-weight: 700">היו לקוחות שרצו לקנות. הייצור לא עמד בקצב.</h2>
-<div style="max-width: 800px; display: flex; flex-direction: column; gap: 14px">
-<p style="margin: 0; font-size: 20px; color: var(--pr-text)">אצל דור, יצרן עם כ־10 עובדי ייצור, היו יותר הזמנות ממה שהמפעל הספיק לייצר.</p>
-<p style="margin: 0; font-size: 20px; color: var(--pr-text)">האפשרות להוסיף מפעל נוסף כבר הייתה על השולחן. חיברנו אותה לבעיה ובדקנו אותה לעומק: כמה ייצור היא מוסיפה, מה היא עולה, ואיך היא עומדת מול החלופה. העלות התבררה כנמוכה, וההחלטה הפכה לברורה. העסקה יצאה לפועל: קו מוצרים שלם עבר למפעל הנוסף, והמפעל הקיים התפנה לשאר המוצרים. היום אנחנו עובדים על הגדלת המכירות, כדי לנצל את הייצור שנוסף.</p>
+<h2 style="margin: 0 0 22px; font-size: 32px; font-weight: 700">כשעסק יצרני גדל</h2>
+<div class="pr-carousel" role="region" aria-label="דוגמאות מהעבודה" tabindex="0" style="display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 8px">
+<div style="flex: 0 0 min(86%, 540px); scroll-snap-align: start; background: var(--pr-card); border: 1px solid var(--pr-line); border-radius: 18px; padding: 28px 26px; display: flex; flex-direction: column; gap: 12px">
+<p style="margin: 0; font-size: 15px; font-weight: 700; color: var(--pr-blue)">דוגמה מהעבודה</p>
+<h3 style="margin: 0; font-size: 24px; line-height: 1.3; font-weight: 700">להגדיל ייצור בביטחון</h3>
+<p style="margin: 0; font-size: 18px; color: var(--pr-text)">אצל דור, יצרן עם כ־10 עובדי ייצור, היו יותר הזמנות ממה שהמפעל הספיק לייצר. האפשרות להוסיף מפעל נוסף כבר הייתה על השולחן. חיברנו אותה לבעיה ובדקנו אותה לעומק: כמה ייצור היא מוסיפה, מה היא עולה, ואיך היא עומדת מול חלופות אחרות. העלות התבררה כנמוכה, וההחלטה הפכה לברורה. העסקה יצאה לפועל: קו מוצרים שלם עבר למפעל הנוסף, והמפעל הקיים התפנה לשאר המוצרים. היום אנחנו עובדים על הגדלת המכירות, כדי לנצל את הייצור שנוסף.</p>
 </div>
+<div style="flex: 0 0 min(86%, 540px); scroll-snap-align: start; background: var(--pr-card); border: 1px solid var(--pr-line); border-radius: 18px; padding: 28px 26px; display: flex; flex-direction: column; gap: 12px">
+<p style="margin: 0; font-size: 15px; font-weight: 700; color: var(--pr-blue)">רווחיות ותמחור</p>
+<h3 style="margin: 0; font-size: 24px; line-height: 1.3; font-weight: 700">שכל מכירה תגדיל גם את הרווח</h3>
+<p style="margin: 0; font-size: 18px; color: var(--pr-text)">כשהמכירות גדלות והרווח לא גדל איתן, בודקים את התמחור ואת הרווחיות של כל מוצר. מוצאים איפה הכסף הולך, ומתקנים את המחיר, העלות או המלאי.</p>
+</div>
+</div>
+<div class="pr-dots" hidden><button type="button" aria-label="דוגמה 1 מתוך 2"></button><button type="button" aria-label="דוגמה 2 מתוך 2"></button></div>
 </section>
 
 
 <section style="max-width: 1180px; margin: 0 auto; padding: 40px 24px 80px">
 <div style="max-width: 800px; display: flex; flex-direction: column; gap: 14px">
 <h2 style="margin: 0 0 6px; font-size: 32px; font-weight: 700">נעים להכיר, אני מוטי שדות</h2>
-<p style="margin: 0; font-size: 20px; color: var(--pr-text)">במשך 26 שנים הייתי מנהל בכיר בחברה גלובלית. ניהלתי אנשים, תקציבים ורווח והפסד, והקמתי פעילויות חדשות מאפס. משם יצאתי לעצמאות, כדי לעבוד ישירות עם בעלי עסקים.</p>
-<p style="margin: 0; font-size: 20px; color: var(--pr-text)">מה שאני מביא: ראייה של כל העסק, מהדוחות ועד העבודה היומיומית, והיכולת לחבר ביניהם. אני יודע לקרוא מספרים, להבין תהליכים ולהשתמש בטכנולוגיה כדי שהדברים יעבדו בפועל.</p>
+<p style="margin: 0; font-size: 20px; color: var(--pr-text)">במשך 36 שנים עבדתי, והייתי מנהל בכיר בחברה גלובלית. ניהלתי אנשים, תקציבים ורווח והפסד, והקמתי פעילויות חדשות מאפס. משם יצאתי לעצמאות, כדי לעבוד ישירות עם בעלי עסקים.</p>
+<p style="margin: 0; font-size: 20px; color: var(--pr-text)">מה שאני מביא: ראייה של כל העסק, מהדוחות ועד העבודה היומיומית, והיכולת לחבר ביניהם. אני יודע לקרוא מספרים, להבין תהליכים ולהשתמש בטכנולוגיה כדי שהדברים יעבדו.</p>
 <p style="margin: 0; font-size: 20px; color: var(--pr-text)">אני עובד לצד בעל העסק והצוות, בגובה העיניים, ומתאים את העבודה לגודל העסק ולמשאבים שלו. ההחלטות נשארות של בעל העסק. התפקיד שלי לדאוג שהן מבוססות ושהן מגיעות לביצוע.</p>
 </div>
 </section>
@@ -95,7 +104,7 @@ const description = 'ליווי עסקי לבעלי עסקים יצרניים ש
 <div style="display: flex; flex-wrap: wrap; gap: 24px">
 <div style="flex: 1 1 260px; min-width: 0; display: flex; gap: 16px; align-items: flex-start">
 <span style="flex: 0 0 36px; font-size: 34px; line-height: 1; font-weight: 700; color: var(--pr-blue)">1</span>
-<div><h3 style="margin: 0 0 6px; font-size: 20px; font-weight: 700">שיחת היכרות, ללא עלות</h3><p style="margin: 0; font-size: 18px; color: var(--pr-text)">נכיר את העסק ואת התוכניות שלך, ונבדוק את ההתאמה לליווי.</p></div>
+<div><h3 style="margin: 0 0 6px; font-size: 20px; font-weight: 700">שיחת היכרות</h3><p style="margin: 0; font-size: 18px; color: var(--pr-text)">נכיר את העסק ואת התוכניות שלך, ונבדוק את ההתאמה לליווי.</p></div>
 </div>
 <div style="flex: 1 1 260px; min-width: 0; display: flex; gap: 16px; align-items: flex-start">
 <span style="flex: 0 0 36px; font-size: 34px; line-height: 1; font-weight: 700; color: var(--pr-blue)">2</span>
@@ -103,32 +112,29 @@ const description = 'ליווי עסקי לבעלי עסקים יצרניים ש
 </div>
 <div style="flex: 1 1 260px; min-width: 0; display: flex; gap: 16px; align-items: flex-start">
 <span style="flex: 0 0 36px; font-size: 34px; line-height: 1; font-weight: 700; color: var(--pr-blue)">3</span>
-<div><h3 style="margin: 0 0 6px; font-size: 20px; font-weight: 700">ארבע פגישות עבודה</h3><p style="margin: 0; font-size: 18px; color: var(--pr-text)">לאורך 4 עד 5 שבועות. מגדירים צעדים, עובדים על היישום ובודקים התקדמות מול המטרות והמדדים שנקבעו בהתחלה.</p></div>
+<div><h3 style="margin: 0 0 6px; font-size: 20px; font-weight: 700">מתחילים לעבוד</h3><p style="margin: 0; font-size: 18px; color: var(--pr-text)">מגדירים צעדים, מיישמים אותם יחד ובודקים את ההתקדמות מול המטרות שנקבעו.</p></div>
 </div>
 </div>
-<p style="margin: 20px 0 0; padding-right: 52px; font-size: 18px; font-weight: 500; color: var(--pr-blue-d)">האבחון וארבע פגישות העבודה הם חבילת ליווי אחת, בתשלום. 10&nbsp;עסקים ראשונים מקבלים אותה במחיר מוזל.</p>
 </div>
 </section>
 
 <section style="background: var(--pr-band); padding: 80px 24px">
 <div style="max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 18px; text-align: center">
 <h2 style="margin: 0; font-size: clamp(30px, 3.6vw, 42px); font-weight: 700; color: var(--pr-ink)">מה חשוב לך לקדם בעסק?</h2>
-<p style="margin: 0; font-size: 20px; color: var(--pr-text)">נכיר את העסק ואת התוכניות שלך, ונבדוק איך אפשר לעבוד יחד.</p>
-<a class="pr-btn" href={waUrl} target="_blank" rel="noopener noreferrer" data-ga-page="production" style="display: inline-flex; align-items: center; min-height: 48px; padding: 0 26px; margin-top: 6px; border-radius: 999px; background: var(--pr-blue); color: var(--pr-on-blue); font-size: 17px; font-weight: 600; text-decoration: none">בואו נכיר בוואטסאפ</a>
-<span style="font-size: 17px; color: var(--pr-text)">או להתקשר: <a class="pr-tel" href="tel:+972525523021" data-ga-page="production" style="color: var(--pr-blue); font-weight: 600; text-decoration: none">052-552-3021</a></span>
+<a class="pr-btn" href={waUrl} target="_blank" rel="noopener noreferrer" data-ga-page="production" style="display: inline-flex; align-items: center; min-height: 48px; padding: 0 26px; margin-top: 6px; border-radius: 999px; background: var(--pr-blue); color: var(--pr-on-blue); font-size: 17px; font-weight: 600; text-decoration: none">בואו נכיר</a>
 </div>
 </section>
 
 <div class="wa-bar" style="position: fixed; left: 0; right: 0; bottom: 0; padding: 8px 12px 8px 66px; background: var(--pr-bar); border-top: 1px solid var(--pr-line); justify-content: center; z-index: 10">
-<a class="pr-btn" href={waUrl} target="_blank" rel="noopener noreferrer" data-ga-page="production" style="display: flex; align-items: center; justify-content: center; width: 100%; max-width: 420px; min-height: 46px; border-radius: 999px; background: var(--pr-blue); color: var(--pr-on-blue); font-size: 16px; font-weight: 600; text-decoration: none">בואו נכיר בוואטסאפ</a>
+<a class="pr-btn" href={waUrl} target="_blank" rel="noopener noreferrer" data-ga-page="production" style="display: flex; align-items: center; justify-content: center; width: 100%; max-width: 420px; min-height: 46px; border-radius: 999px; background: var(--pr-blue); color: var(--pr-on-blue); font-size: 16px; font-weight: 600; text-decoration: none">בואו נכיר</a>
 </div>
 </div>
 </BaseLayout>
 
 <script>
-  // the fixed bar is only shown when none of the page's whatsapp buttons is on screen
+  // the fixed bar is only shown when none of the page's buttons is on screen
   const bar = document.querySelector('.wa-bar');
-  const buttons = document.querySelectorAll('.pr-btn');
+  const buttons = document.querySelectorAll('.pr section .pr-btn');
   if (bar && buttons.length && 'IntersectionObserver' in window) {
     const visible = new Set();
     const io = new IntersectionObserver(
@@ -140,29 +146,68 @@ const description = 'ליווי עסקי לבעלי עסקים יצרניים ש
     );
     buttons.forEach((b) => io.observe(b));
   }
+
+  // carousel navigation dots: shown only when the cards overflow (phones)
+  const car = document.querySelector('.pr-carousel') as HTMLElement | null;
+  const dots = document.querySelector('.pr-dots') as HTMLElement | null;
+  if (car && dots) {
+    const cards = Array.from(car.children) as HTMLElement[];
+    const btns = Array.from(dots.querySelectorAll('button'));
+    const update = () => {
+      dots.hidden = car.scrollWidth <= car.clientWidth + 2;
+      const c = car.getBoundingClientRect();
+      let best = 0, bestOverlap = -1;
+      cards.forEach((el, i) => {
+        const r = el.getBoundingClientRect();
+        const overlap = Math.min(r.right, c.right) - Math.max(r.left, c.left);
+        if (overlap > bestOverlap) { bestOverlap = overlap; best = i; }
+      });
+      btns.forEach((b, i) => b.classList.toggle('is-active', i === best));
+    };
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    btns.forEach((b, i) => b.addEventListener('click', () => cards[i].scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', inline: 'start', block: 'nearest' })));
+    car.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    update();
+  }
 </script>
 
 <style>
 .pr{
   --pr-bg:#FBFAF7; --pr-ink:#13233A; --pr-text:#36414D; --pr-blue:#1F5FAE; --pr-blue-h:#174C8C; --pr-blue-d:#1A4E8F;
-  --pr-band:#EEF2F6; --pr-line:#E3E8EC; --pr-on-blue:#FFFFFF; --pr-bar:rgba(251,250,247,0.96);
+  --pr-band:#EEF2F6; --pr-line:#E3E8EC; --pr-on-blue:#FFFFFF; --pr-bar:rgba(251,250,247,0.96); --pr-card:#FFFFFF;
+  --pr-banner:#13233A; --pr-banner-ink:#FFFFFF;
   direction:rtl; font-family:'Assistant',system-ui,sans-serif; color:var(--pr-ink); background:var(--pr-bg); line-height:1.65;
 }
 html.a11y-high-contrast .pr{
   --pr-bg:#0a0a0a; --pr-ink:#f5f5e8; --pr-text:#ccc4b0; --pr-blue:#f0c040; --pr-blue-h:#ffd966; --pr-blue-d:#f0c040;
-  --pr-band:#161616; --pr-line:rgba(245,245,232,.28); --pr-on-blue:#0a0a0a; --pr-bar:rgba(10,10,10,.96);
+  --pr-band:#161616; --pr-line:rgba(245,245,232,.28); --pr-on-blue:#0a0a0a; --pr-bar:rgba(10,10,10,.96); --pr-card:#161616;
+  --pr-banner:#161616; --pr-banner-ink:#f5f5e8;
 }
+html.a11y-high-contrast .pr-banner{border-bottom:1px solid var(--pr-line)}
 .pr h1,.pr h2,.pr h3,.pr blockquote{text-wrap:balance}
 .pr p{text-wrap:pretty}
+.pr li{text-wrap:balance}
 .pr a:not(.pr-btn){color:var(--pr-blue)}
 .pr a:not(.pr-btn):hover{color:var(--pr-blue-h)}
 .pr-btn:hover{background:var(--pr-blue-h) !important}
-.pr a:focus-visible{outline:2px solid var(--pr-blue);outline-offset:3px;border-radius:8px}
-.pr-tel{white-space:nowrap;display:inline-block;padding:10px 4px;margin:-10px -4px}
+.pr a:focus-visible,.pr button:focus-visible,.pr-carousel:focus-visible{outline:2px solid var(--pr-blue);outline-offset:3px;border-radius:8px}
+/* the three areas, joined by one continuous line (desktop: horizontal; phone: vertical on the right) */
+.areas{display:flex;gap:40px;position:relative;border-top:2px solid var(--pr-blue);padding-top:28px}
+.area{flex:1 1 0;min-width:0;position:relative;display:flex;flex-direction:column;gap:12px}
+.dot{position:absolute;top:-35px;right:0;width:12px;height:12px;border-radius:50%;background:var(--pr-blue);box-shadow:0 0 0 5px var(--pr-bg)}
+/* carousel dots: only when the cards do not fit side by side */
+.pr-dots{display:flex;justify-content:center;gap:4px;margin-top:6px}
+.pr-dots[hidden]{display:none}
+.pr-dots button{width:24px;height:24px;padding:0;border:0;background:none;cursor:pointer;position:relative}
+.pr-dots button::after{content:"";position:absolute;inset:7px;border-radius:50%;background:var(--pr-line);transition:background .2s}
+.pr-dots button.is-active::after{background:var(--pr-blue)}
 .wa-bar{display:none}
 @media (max-width:720px){
+  .areas{flex-direction:column;gap:32px;border-top:none;border-right:2px solid var(--pr-blue);padding:4px 26px 4px 0}
+  .dot{top:9px;right:-33px}
   .wa-bar{display:flex;transition:transform .25s ease,opacity .25s ease,visibility 0s linear 0s}
-  /* while a whatsapp button of the page is on screen the bar steps aside (no double button); without JS it stays */
+  /* while a button of the page is on screen the bar steps aside (no double button); without JS it stays */
   .wa-bar.is-hidden{transform:translateY(100%);opacity:0;visibility:hidden;transition:transform .25s ease,opacity .25s ease,visibility 0s linear .25s}
   /* the fixed bar must not hide the end of the page */
   :global(footer.site-footer.site-footer){padding-bottom:84px}
@@ -170,5 +215,5 @@ html.a11y-high-contrast .pr{
   :global(body #a11y-trigger){width:44px;height:44px;left:10px;bottom:9px}
   :global(body #a11y-panel){bottom:70px}
 }
-@media (prefers-reduced-motion:reduce){.wa-bar,.wa-bar.is-hidden{transition:none}}
+@media (prefers-reduced-motion:reduce){.wa-bar,.wa-bar.is-hidden,.pr-dots button::after{transition:none}}
 </style>
