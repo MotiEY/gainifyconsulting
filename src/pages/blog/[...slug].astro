@@ -142,6 +142,14 @@ const jsonLd = {
   </article>
 </BaseLayout>
 
+<script>
+  // tables scroll sideways on phones: make them reachable (and scrollable) with the keyboard
+  document.querySelectorAll('.post-body table').forEach((t) => {
+    t.setAttribute('tabindex', '0');
+    t.setAttribute('aria-label', 'טבלה, אפשר לגלול הצידה');
+  });
+</script>
+
 <style>
   .post-page {
     padding: 100px 24px 80px;
@@ -391,14 +399,14 @@ const jsonLd = {
     font-size: 14px;
     font-weight: 500;
     color: #fff;
-    background: #25D366;
+    background: #0F7B5F;
     padding: 13px 22px;
     min-height: 44px;
     border-radius: var(--r-btn);
     text-decoration: none;
     transition: background 0.2s, transform 0.2s;
   }
-  .post-cta-btn-wa:hover { background: #1ebe5d; transform: translateY(-1px); }
+  .post-cta-btn-wa:hover { background: #0B6A52; transform: translateY(-1px); }
 
   @media (min-width: 768px) {
     .post-page { padding: 120px 40px 100px; }

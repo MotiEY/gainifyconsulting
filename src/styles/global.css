@@ -24,7 +24,7 @@
   /* Text */
   --text-h:     #1C1813;
   --mid:        #5A5249;
-  --faint:      #8A8175;
+  --faint:      #6C655B;
 
   /* On dark */
   --cream-dk:   #F6EFE1;
@@ -249,6 +249,13 @@ html.a11y-high-contrast {
   --faint:    #a09880;
   --line:     rgba(245, 245, 232, 0.18);
   --line-mid: rgba(245, 245, 232, 0.28);
+  /* the rest of the palette flips too: headings, tinted panels, and the ink that sits on the (now light) --dark surfaces */
+  --text-h:   #f5f5e8;
+  --cream-3:  #161616;
+  --cream-4:  #1d1d1d;
+  --bronze-d: #f0c040;
+  --cream-dk: #0a0a0a;
+  --mid-dk:   #2f2a22;
 }
 html.a11y-high-contrast .site-footer {
   background: #000;
